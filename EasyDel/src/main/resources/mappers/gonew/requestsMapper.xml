@@ -10,4 +10,8 @@
 		where		chat_id>=#{chatId}
 		order by	chat_id
 	</select> -->
+	<select id="selectTitles">
+		select		*
+		from		TITLES
+	</select>
 </mapper>
