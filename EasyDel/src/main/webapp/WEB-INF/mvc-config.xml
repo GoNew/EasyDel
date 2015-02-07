@@ -24,6 +24,12 @@
 	</bean>
 	
 	<context:component-scan base-package="easydel.controller"></context:component-scan>
+	
+	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
+	<mvc:resources location="/WEB-INF/img/" mapping="/img/**"/>
+	<mvc:resources location="/WEB-INF/uikit/css/" mapping="/uikit/css/**"/>
+	<mvc:resources location="/WEB-INF/uikit/js/" mapping="/uikit/js/**"/>
+	<mvc:resources location="/WEB-INF/uikit/font/" mapping="/uikit/font/**"/>
 
 </beans>
 

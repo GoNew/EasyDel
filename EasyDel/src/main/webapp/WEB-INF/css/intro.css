@@ -1,0 +1,68 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	/* border: 1px solid black; */
+}
+
+img {
+	border: 0;
+}
+
+address {
+	font-style: normal;
+}
+
+ul, ol {
+	list-style: name;
+}
+
+#fullbrowser {
+	width: 1025px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#logoimg {
+	margin-top: 100px ;
+}
+
+#formcss {
+	min-height: 461px;
+	min-width: 575px;
+	margin-top: 10px ;
+	
+}
+
+#userid {
+	padding: 25px 15px 25px;
+	line-height: 38px;
+	font-size: 30px;
+	border-radius: 5px;
+	margin: 15px 0;
+}
+
+#userpass {
+	padding: 25px 15px 25px;
+	line-height: 38px;
+	font-size: 30px;
+	border-radius: 5px;
+	margin: 15px 0;
+}
+
+#login {
+	padding: 7px 15px 7px;
+	line-height: 38px;
+	font-size: 30px;
+	border-radius: 5px;
+	margin: 15px 0;
+}
+
+#join {
+	padding: 7px 15px 7px;
+	line-height: 38px;
+	font-size: 30px;
+	border-radius: 5px;
+	margin: 15px 0;
+}

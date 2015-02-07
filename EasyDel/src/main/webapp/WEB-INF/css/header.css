@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+
+*{
+	margin: 0; padding:0;
+/* 	border: 1px solid black; */
+}
+img{ border: 0;}
+address{font-style: normal;}
+ul, ol{list-style:name;}
+
+
+.uk-navbar {
+background: #f7f7f7;
+color: #444444;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-bottom-color: rgba(0, 0, 0, 0.3);
+border-radius: 4px;
+background-origin: border-box;
+background-image: -webkit-linear-gradient(top, #49A6D7, #1BC1F2);
+background-image: linear-gradient(to bottom, #00b4f5, #008dc5);
+}
+
+#logo1{
+	width: 359px;
+	height: 41px;
+	overflow: hidden;
+}
+
+.uk-button-primary {
+height: 42px;
+background-color: #009dd8;
+color: #ffffff;
+background-image: -webkit-linear-gradient(top, #00b4f5, #008dc5);
+background-image: linear-gradient(to bottom, #00b4f5, #008dc5);
+border-color: rgba(0, 0, 0, 0.2);
+border-bottom-color: rgba(0, 0, 0, 0.4);
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+#profilebtn{
+	min-width: 56px;
+	min-height: 42px;
+	background-image: linear-gradient(to bottom, #00b4f5, #008dc5);
+}
+
