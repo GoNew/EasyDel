@@ -24,4 +24,8 @@
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean" />
 	</bean>
+	
+	<bean class="easydel.dao.TitleDaoImpl"></bean>
+	<bean class="easydel.service.IBoardServiceImpl"></bean>
+	
 </beans>
