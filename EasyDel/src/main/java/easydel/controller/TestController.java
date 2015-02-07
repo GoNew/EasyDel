@@ -5,8 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class TestController {
-	@RequestMapping("/test")
-	public String test() {
+	@RequestMapping("/intro")
+	public String intro() {
 		return "intro/intro";
+	}
+	@RequestMapping("/header")
+	public String header(){
+		return "main/header";
 	}
 }

@@ -24,5 +24,6 @@
 	
 	<mappers>
 		<mapper resource="mappers/gonew/requestsMapper.xml" />
+		<mapper resource="mappers/jll/usersMapper.xml"/>
 	</mappers>
 </configuration>
