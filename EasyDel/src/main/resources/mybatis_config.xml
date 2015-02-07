@@ -6,13 +6,23 @@
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
+	
 	<typeAliases>
-		<!-- <typeAlias type="jdbc.entity.Department" alias="Department"/>
-		<typeAlias type="jdbc.entity.Employee" alias="Employee"/>
-		<typeAlias type="jdbc.entity.ChatBoard" alias="ChatBoard"/> -->
+		<typeAlias type="easydel.entity.AddressDong" alias="AddressDong" />
+		<typeAlias type="easydel.entity.AddressGu" alias="AddressGu" />
+		<typeAlias type="easydel.entity.AlertLog" alias="AlertLog" />
+		<typeAlias type="easydel.entity.CompleteDelivery" alias="CompleteDelivery" />
+		<typeAlias type="easydel.entity.CourierEval" alias="CourierEval" />
+		<typeAlias type="easydel.entity.EdmoneyLog" alias="EdmoneyLog" />
+		<typeAlias type="easydel.entity.Report" alias="Report" />
+		<typeAlias type="easydel.entity.ReportType" alias="ReportType" />
+		<typeAlias type="easydel.entity.Request" alias="Request" />
+		<typeAlias type="easydel.entity.RequestCmt" alias="RequestCmt" />
+		<typeAlias type="easydel.entity.SenderEval" alias="SenderEval" />
+		<typeAlias type="easydel.entity.User" alias="User" />
 	</typeAliases>
+	
 	<mappers>
-		<!-- <mapper resource="mappers/departmentMapper.xml" />
-		<mapper resource="mappers/chatMapper.xml" /> -->
+		<mapper resource="mappers/gonew/requestsMapper.xml" />
 	</mappers>
 </configuration>
