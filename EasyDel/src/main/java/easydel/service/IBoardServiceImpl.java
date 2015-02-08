@@ -19,7 +19,7 @@ public class IBoardServiceImpl implements IBoardService {
 	
 	@Override
 	public void boardTest() {
-		logger.trace(dao.selectAllTitles().toString());
+		logger.trace(dao.selectAllTitles() + "");
 	}
 
 }

@@ -13,11 +13,15 @@ public class TestController {
 	
 	@RequestMapping("/intro")
 	public String intro() {
-		boardService.boardTest();
 		return "intro/intro";
 	}
 	@RequestMapping("/header")
 	public String header(){
 		return "main/header";
+	}
+	@RequestMapping("/test")
+	public String test() {
+		boardService.boardTest();
+		return "showMessage";
 	}
 }

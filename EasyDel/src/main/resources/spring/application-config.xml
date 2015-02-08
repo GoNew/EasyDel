@@ -28,4 +28,6 @@
 	<bean class="easydel.dao.TitleDaoImpl"></bean>
 	<bean class="easydel.service.IBoardServiceImpl"></bean>
 	
+	<context:annotation-config></context:annotation-config>
+	
 </beans>
