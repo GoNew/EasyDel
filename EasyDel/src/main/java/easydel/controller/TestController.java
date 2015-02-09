@@ -11,14 +11,7 @@ public class TestController {
 	@Autowired
 	IBoardService boardService;
 	
-	@RequestMapping("/intro")
-	public String intro() {
-		return "intro/intro";
-	}
-	@RequestMapping("/header")
-	public String header(){
-		return "main/header";
-	}
+	
 	@RequestMapping("/join")
 	public String join(){
 		return "member/join";
