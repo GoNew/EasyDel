@@ -1,5 +1,6 @@
 package easydel.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -25,16 +26,21 @@ public class TitleDaoImpl implements ITitleDao {
 	@Override
 	public List<Title> selectAllTitles() {
 		String stmt = namespace + ".selectAllTitles";
-		logger.trace("1. ==========================================================");
 		List<Title> result = session.selectList(stmt);
-		logger.trace("2. ==========================================================");
 		return result;
 	}
-
+	
 	@Override
-	public List<Title> selectTitlesOrderedDefaultByPageNum(int pageNum) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Title> selectTitlesOrderByDefault(Integer pageNum,
+			Integer requestStatusFilter, Integer requestTypeFilter) {
+		String stmt = namespace + ".selectTitlesOrderByDefault";
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("pageNum", pageNum);
+		params.put("requestStatusFilter", requestStatusFilter);
+		params.put("requestTypeFilter", requestTypeFilter);
+		
+		List<Title> result = session.selectList(stmt, params);
+		return result;
 	}
 
 }

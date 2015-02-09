@@ -26,7 +26,7 @@
 	</bean>
 	
 	<bean class="easydel.dao.TitleDaoImpl"></bean>
-	<bean class="easydel.service.IBoardServiceImpl"></bean>
+	<bean class="easydel.service.BoardServiceImpl"></bean>
 	
 	<context:annotation-config></context:annotation-config>
 	

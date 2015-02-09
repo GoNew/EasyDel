@@ -8,5 +8,5 @@ import easydel.entity.Title;
 
 public interface ITitleDao {
 	public List<Title> selectAllTitles();
-	public List<Title> selectTitlesOrderedDefaultByPageNum(int pageNum);
+	public List<Title> selectTitlesOrderByDefault(Integer pageNum, Integer requestStatusFilter, Integer requestTypeFilter);
 }
