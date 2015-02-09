@@ -1,6 +1,7 @@
 package easydel.service;
 
 import org.apache.ibatis.session.SqlSession;
+import org.aspectj.apache.bcel.generic.LOR;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +50,14 @@ public class UserServiceImpl implements IUserService {
 		boolean flag = false;
 		User user;
 		user = dao.selectUserByUserId(userId);
+		logger.trace("user: "+user.getUserId());
+		logger.trace("password:"+user.getUserPassword());
+		logger.trace("password from browser:"+userPassword);
+		
 		String userPass = user.getUserPassword();
-		if(userPass==userPassword){
-			logger.trace("로그인 성공");
+		if(userPass.equals(userPassword)){
 			flag = true;
+			logger.trace(""+flag);
 		}
 		return flag;
 	}

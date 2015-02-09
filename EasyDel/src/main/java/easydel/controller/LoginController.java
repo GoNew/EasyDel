@@ -18,7 +18,6 @@ public class LoginController {
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST )
 	public String login(@RequestParam String userid, @RequestParam String userpassword, Model model){
-		System.out.println(userpassword);
 		if(service.LoginService(userid, userpassword)){
 			model.addAttribute("loginSession",userid);
 			return "main/main";
