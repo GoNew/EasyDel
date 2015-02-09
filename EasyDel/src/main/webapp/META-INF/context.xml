@@ -20,7 +20,7 @@
         maxIdle="30"
         maxWait="10000"
         username="springdb"
-        password="tiger"
+        password="0000"
         driverClassName="oracle.jdbc.driver.OracleDriver"
         url="jdbc:oracle:thin:@localhost:1521:XE"/>
     

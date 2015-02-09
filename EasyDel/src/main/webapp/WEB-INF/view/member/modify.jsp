@@ -7,7 +7,7 @@
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/modify.css"/>
-<title>회원수정</title>
+<title>회원정보 수정</title>
 </head>
 <body>
 <jsp:include page = "/WEB-INF/view/main/header.jsp"></jsp:include>
