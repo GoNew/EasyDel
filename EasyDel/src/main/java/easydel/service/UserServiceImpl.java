@@ -30,8 +30,6 @@ public class UserServiceImpl implements IUserService {
 		int result = 0;
 		result = dao.insertUser(user);
 		
-		logger.trace("수업: " + result);
-		
 		if(result <= 0) {
 			throw new ServiceFailException();
 		}

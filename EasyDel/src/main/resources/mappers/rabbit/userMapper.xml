@@ -5,27 +5,22 @@
 <mapper namespace="easydel.rabbit.mapper.user">
 
 	<insert id="insertUser" parameterType="User">
-		
 		insert into Users(user_id, user_name, user_password, user_gender, user_birthdate, user_phone
-		<if test="userPicture != null">
-			, user_picture
-		</if>
-		<if test="userEmail != null">
-			, user_email
-		</if>
+			<if test="userPicture != null">
+				, user_picture
+			</if>
+			<if test="userEmail != null">
+				, user_email
+			</if>
 		)
 		
-		values(#{userId}, #{userName}, #{userPassword}, #{userGender}, sysdate, #{userPhone}
-		<if test="userPicture != null">
-			, #{userPicture}
-		</if>
-		<if test="userEmail != null">
-			, #{userEmail}
-		</if>
+		values(#{userId}, #{userName}, #{userPassword}, #{userGender}, #{userBirthdate}, #{userPhone}
+			<if test="userPicture != null">
+				, #{userPicture}
+			</if>
+			<if test="userEmail != null">
+				, #{userEmail}
+			</if>
 		)
 	</insert>
-	<!-- 
-		insert into USERS(user_id, user_name, user_password, user_email, user_gender, user_birthdate, user_phone)
-		values('admin', 'admin', 'tiger', null,'m', sysdate, '01000000000')
-	 -->	
 </mapper>

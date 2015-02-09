@@ -1,6 +1,7 @@
 package easydel.controller;
 
-import java.util.Calendar;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,29 +46,23 @@ public class RabbitController {
 	public String modify(){
 		return "member/modify";
 	}
-	
+
 	//회원가입을 위한 컨트롤러
 	@RequestMapping(value="/join", method=RequestMethod.POST)
-	public String join(Model model, User user){
+	public String join(Model model, User user, @RequestParam String birthdate) {
 		String resultPage = "intro/intro";
 		
-		user.setUserGender(1);
-		
-		logger.trace(user.toString());
-		
 		try {
+			user.setUserBirthdate(new SimpleDateFormat("yyyy-MM-dd").parse(birthdate));
 			service.serviceRegistrateNewUser(user);
 		} catch (DuplicatedIdException e) { // 여기서 아이디 중복체크 한번 더 해준다
 			model.addAttribute("errorMsg", "아이디 중복");
 			resultPage = "error/errorPage";
-		} catch (ServiceFailException e) {
+		} catch (ServiceFailException | ParseException e) {
 			model.addAttribute("errorMsg", "알수없는 원인");
 			resultPage = "error/errorPage";
 		}
 		return resultPage;
 	}
-	
-	
-
 
 }

@@ -58,10 +58,20 @@
    		        <div id="marg"><span class="red">* </span> <input type="password" id="userPassword" name="userPassword" size="27" pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." placeholder="비밀번호" required></div>
 			    <div id="marg"><span class="red">* </span> <input type="password" id="userPassword2" name="userPassword2" size="27" pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." placeholder="비밀번호 확인" required></div>
 			    <div id="marg"><span class="red">* </span> <input type="text" name="userName" maxlength="5" size="27" placeholder="이름" required></div> 
-				<div data-uk-switcher="{connect:'#switch-from-content'}" align="center">	
+				<!-- <div data-uk-switcher="{connect:'#switch-from-content'}" align="center">
 		           	<a id="sex" class="uk-button uk-active" name="userGender">남자</a>
 		            <button id="sex" class="uk-button" type="button" name="userGender">여자</button>
-				</div>						
+				</div> -->
+				<div data-uk-button-radio id="sex" align="center">
+					<label for="sex_man">
+						<div class="uk-button uk-active">남자</div>
+					</label>
+					<input type="radio" id="sex_man" class="radio" name="userGender" value="1">
+					<label for="sex_woman">
+						<div class="uk-button">여자</div>
+					</label>
+					<input type="radio" id="sex_woman" class="radio" name="userGender" value="2">
+				</div>					
 			</div>
 		
 			<div align="right" id="rightform">
@@ -85,7 +95,7 @@
      	<div align="center">
         	<button class="uk-button uk-button-primary uk-width-2-5" type="submit" data-uk-button id="button">회원가입</button>
         	
-        	<a href="<%=request.getContextPath() %>/view/intro/intro.jsp"><button class="uk-button uk-button-primary uk-width-2-5" type="button" data-uk-button id="button">취소</button></a>
+        	<a href="<%=request.getContextPath() %>/intro"><button class="uk-button uk-button-primary uk-width-2-5" type="button" data-uk-button id="button">취소</button></a>
   		</div>
 	</form>
 </div>
