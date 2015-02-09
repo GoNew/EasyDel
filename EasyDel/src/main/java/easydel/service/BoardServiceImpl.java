@@ -6,20 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import easydel.dao.ITitleDao;
 
-public class IBoardServiceImpl implements IBoardService {
-	public IBoardServiceImpl() {
+public class BoardServiceImpl implements IBoardService {
+	public BoardServiceImpl() {
 		super();
 	}
 	
 	public static final Logger logger = LoggerFactory
-			.getLogger(IBoardServiceImpl.class);
+			.getLogger(BoardServiceImpl.class);
 	
 	@Autowired
 	private ITitleDao dao;
 	
 	@Override
 	public void boardTest() {
-		logger.trace(dao.selectAllTitles() + "");
+		logger.trace(dao.selectTitlesOrderByDefault(null, null, null)+ "");
 	}
 
 }
