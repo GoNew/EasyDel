@@ -17,12 +17,12 @@
 		</div>
 
 		<div id="formcss" align="center">
-			<form class="uk-form uk-width-1-3">
+			<form class="uk-form uk-width-1-3" method="post" action="login">
 				<input id="userid" type="text" placeholder="아이디를 입력하세요" class="uk-width-1-1">
 				<input id="userpass" type="password" placeholder="비밀번호를 입력하세요" class="uk-width-1-1">
-				<button id="login" class="uk-button uk-button-primary uk-width-1-1">로그인</button>
-				<button id="join" class="uk-button uk-button-primary uk-width-1-1">회원가입</button>
+				<button id="login" type="submit" class="uk-button uk-button-primary uk-width-1-1">로그인</button>
 			</form>
+				<button id="join" class="uk-button uk-button-primary uk-width-1-1">회원가입</button>
 		</div>
 	</div>
 </body>

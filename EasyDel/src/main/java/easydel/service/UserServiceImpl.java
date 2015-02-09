@@ -16,7 +16,7 @@ public class UserServiceImpl implements IUserService {
 	static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 	
 	@Autowired
-	IUserDao dao;
+	private IUserDao dao;
 	
 	@Autowired
 	private SqlSession session;
@@ -44,19 +44,14 @@ public class UserServiceImpl implements IUserService {
 	}
 	
 	@Override
-	@Transactional
 	public boolean LoginService(String userId, String userPassword) {
 		boolean flag = false;
 		User user;
-		
 		user = dao.selectUserByUserId(userId);
-			
 		String userPass = user.getUserPassword();
-		
 		if(userPass==userPassword){
 			flag = true;
 		}
-		
 		return flag;
 	}
 

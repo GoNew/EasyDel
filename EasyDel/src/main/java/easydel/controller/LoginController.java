@@ -10,8 +10,9 @@ public class LoginController {
 	@Autowired
 	private IUserService service;
 	
-	@RequestMapping(value="")
+	@RequestMapping("/login")
 	public String login(Model model){
-		return null;
+		
+		return "main/main";
 	}
 }
