@@ -2,6 +2,8 @@ package easydel.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,28 +12,35 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import easydel.entity.AddressDong;
 import easydel.entity.Title;
 import easydel.service.IBoardService;
+import easydel.service.IDongService;
+import easydel.service.IGuService;
 
 @Controller
 @RequestMapping(value="/board")
 public class TitleController {
 	@Autowired
-	IBoardService service;
+	IBoardService boardService;
+	@Autowired
+	IGuService guService;
+	@Autowired
+	IDongService dongService;
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String showBoard(Model model) {
-		model.addAttribute("gu");
+		model.addAttribute("gu", guService.getGu());
 		return "board/list";
 	}
 	
-	@RequestMapping(value="/mapping", method=RequestMethod.POST)
+	@RequestMapping(method=RequestMethod.POST)
 	public @ResponseBody String getBoard(@RequestParam Integer pageNum,
 			@RequestParam String delTypeFilter, @RequestParam String statusFilter,
 			@RequestParam String sortType) {
 		StringBuilder result = new StringBuilder();
 		
-		List<Title> list = service.getBoard(sortType, delTypeFilter, statusFilter, pageNum);
+		List<Title> list = boardService.getBoard(sortType, delTypeFilter, statusFilter, pageNum);
 		
 		result.append("<table>");
 		
@@ -64,5 +73,23 @@ public class TitleController {
 		
 		result.append("</table>");
 		return result.toString();
+	}
+	
+	public static final Logger logger = LoggerFactory
+			.getLogger(TitleController.class);
+	
+	@RequestMapping(value="/ajax/getdong", params={"guName"}, method=RequestMethod.GET,
+			produces="text/plain;charset=UTF-8")
+	public @ResponseBody String getDongList(@RequestParam String guName) {
+		StringBuilder builder = new StringBuilder();
+		List<AddressDong> list = dongService.getDongByGu(guName);
+		for(AddressDong dong: list) {
+			builder.append("<option value=\"")
+				.append(dong.getDongDesc())
+				.append("\">")
+				.append(dong.getDongDesc())
+				.append("</option>");
+		}
+		return builder.toString();
 	}
 }

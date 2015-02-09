@@ -6,7 +6,7 @@
 	<select id="selectAddressDongsByAddressGuName" parameterType="string"
 		resultType="AddressDong">
 		select		*
-		from		ADDRESS_DONG
-		where		dong_desc=#{dongDesc}
+		from		ADDRESS_DONGS
+		where		gu_description=#{guDescription}
 	</select>
 </mapper>

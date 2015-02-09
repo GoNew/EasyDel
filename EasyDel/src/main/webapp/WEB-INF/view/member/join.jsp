@@ -66,7 +66,7 @@
 					<label for="sex_man">
 						<div class="uk-button uk-active">남자</div>
 					</label>
-					<input type="radio" id="sex_man" class="radio" name="userGender" value="1">
+					<input type="radio" id="sex_man" class="radio" name="userGender" value="1" checked="checked">
 					<label for="sex_woman">
 						<div class="uk-button">여자</div>
 					</label>
