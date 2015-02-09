@@ -22,7 +22,7 @@ public class LoginController {
 			model.addAttribute("loginSession",userid);
 			return "main/main";
 		}else{
-			return "showMessage";
+			return "intro/intro";
 		}
 		
 	}
