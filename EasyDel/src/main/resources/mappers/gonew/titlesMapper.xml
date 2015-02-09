@@ -30,7 +30,6 @@
 			</if>
 		</where>
 	</select>
-	
 	<select id="selectTitlesOrderByPrice" parameterType="hashmap" resultType="Title">
 		select		*
 		from		(
@@ -47,7 +46,60 @@
 								and request_type = #{requestTypeFilter}
 							</if>
 						</where>
-						order by 
+						order by	delivery_price DESC
+					)
+		<where>
+			<if test="pageNum != null">
+				((#{pageNum} - 1) * 10) + 1 &lt;= RNUM
+			</if>
+		</where>
+	</select>
+	<select id="selectTitlesOrderBySenderAvg" parameterType="hashmap" resultType="Title">
+		select		*
+		from		(
+						select		ROWNUM as RNUM, T.*
+						from		titles T
+						<where>
+							<if test="pageNum != null">
+								((#{pageNum} - 1) * 10) + 1 &lt;= ROWNUM
+							</if>
+							<if test="requestStatusFilter != null">
+								and request_status = #{requestStatusFilter}
+							</if>
+							<if test="requestTypeFilter != null">
+								and request_type = #{requestTypeFilter}
+							</if>
+						</where>
+						order by	sender_avg DESC
+					)
+		<where>
+			<if test="pageNum != null">
+				((#{pageNum} - 1) * 10) + 1 &lt;= RNUM
+			</if>
+		</where>
+	</select>
+	<select id="selectTitlesOrderByExpireDate" parameterType="hashmap" resultType="Title">
+		select		*
+		from		(
+						select		ROWNUM as RNUM, T.*
+						from		titles T
+						<where>
+							<if test="pageNum != null">
+								((#{pageNum} - 1) * 10) + 1 &lt;= ROWNUM
+							</if>
+							<if test="requestStatusFilter != null">
+								and request_status = #{requestStatusFilter}
+							</if>
+							<if test="requestTypeFilter != null">
+								and request_type = #{requestTypeFilter}
+							</if>
+						</where>
+						<if test="sort == null or sort == 'DESC'">
+							order by	expire_date DESC
+						</if>
+						<if test="sort == 'ASC'">
+							order by	expire_date ASC
+						</if>
 					)
 		<where>
 			<if test="pageNum != null">
