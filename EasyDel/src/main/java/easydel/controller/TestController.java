@@ -19,14 +19,10 @@ public class TestController {
 	public String header(){
 		return "main/header";
 	}
-<<<<<<< HEAD
-	
 	@RequestMapping("/join")
 	public String join(){
 		return "member/join";
 	}
-=======
->>>>>>> branch 'master' of https://github.com/GoNew/EasyDel.git
 	@RequestMapping("/modify")
 	public String modify(){
 		return "member/modify";
