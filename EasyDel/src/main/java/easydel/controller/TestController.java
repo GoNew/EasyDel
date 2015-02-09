@@ -10,16 +10,7 @@ import easydel.service.IBoardService;
 public class TestController {
 	@Autowired
 	IBoardService boardService;
-	
-	
-	@RequestMapping("/join")
-	public String join(){
-		return "member/join";
-	}
-	@RequestMapping("/modify")
-	public String modify(){
-		return "member/modify";
-	}
+
 	@RequestMapping("/test")
 	public String test() {
 		boardService.boardTest();

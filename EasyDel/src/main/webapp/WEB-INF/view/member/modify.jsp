@@ -10,7 +10,7 @@
 <title>회원수정</title>
 </head>
 <body>
-<jsp:include page = "../main/myheader.jsp"></jsp:include>
+<jsp:include page = "/WEB-INF/view/main/header.jsp"></jsp:include>
 <div class="uk-clearfix">
 <div id="formcss" class="uk-align-center">
 	<form class="uk-form" >
