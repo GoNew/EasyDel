@@ -26,5 +26,6 @@
 	<mappers>
 		<mapper resource="mappers/gonew/titlesMapper.xml" />
 		<mapper resource="mappers/jll/usersMapper.xml"/>
+		<mapper resource="mappers/rabbit/userMapper.xml"/>
 	</mappers>
 </configuration>
