@@ -12,7 +12,7 @@
 <body>
 <div class="uk-clearfix">
 <div id="logoimg"> <img id="logo" src="<%=request.getContextPath()%>/img/EHlogo.PNG" alt="" class="uk-align-center"> </div>
-<pre>                                                                                                                                           This is myheader</pre>
+<pre> This is myheader</pre>
 </div>
 </body>
 

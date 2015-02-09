@@ -19,6 +19,7 @@ public class TestController {
 	public String header(){
 		return "main/header";
 	}
+	
 	@RequestMapping("/join")
 	public String join(){
 		return "member/join";
