@@ -1,0 +1,59 @@
+@CHARSET "UTF-8";
+
+@CHARSET "UTF-8";
+
+ /**{border:solid 1px blue;} */
+*{margin:0px;padding:0px;} 
+image{border:0px;}
+
+#uk-clearfix{
+	width:1024px;
+	height:100%
+}
+
+#logo{
+	width: 20%;
+	height: 20%;
+}
+
+#formcss{
+	width:460px;
+	height:575px;
+}
+
+#smallform{
+	display: -webkit-box;
+	margin:10px;
+}
+
+#aaa{
+	display: -webkit-box;
+}
+
+#leftform{
+ 	width:120px;
+ }
+ 
+ #middleform{
+ 	width:130px;
+ }
+ 
+#rightform{
+	max-width: 160px; 
+	width: expression(this.width > 500 ? 500: true); 
+	height: 210px;
+}
+
+#myimg{
+	height: 160px;
+}
+
+
+#my{
+	color:skyblue;
+}
+
+#null{
+	height:35px;
+}
+

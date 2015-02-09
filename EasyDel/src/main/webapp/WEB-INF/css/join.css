@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+
+ /**{border:solid 1px blue;} */
+*{margin:0px;padding:0px;} 
+image{border:0px;}
+
+#uk-clearfix{
+	width:1024px;
+	height:100%
+}
+
+span.red{
+	color : red;
+	font-weight:bold;
+} 
+
+#logo{
+	width: 20%;
+	height: 20%;
+}
+
+#formcss{
+	width:460px;
+	height:575px;
+}
+
+#aaa{
+	display: -webkit-box;
+}
+
+#leftform{
+ 	width:260px;
+ 	height:190px;
+ }
+ 
+#rightform{
+	max-width: 160px; 
+	width: expression(this.width > 500 ? 500: true); 
+	height: 190px;
+}
+ 
+#marg{
+	margin:3px;
+}
+#myimg{
+	height: 140px;
+}
+
+#button{
+	background-color:#4ABFD3;
+}
+
+#button2{
+	background-color:#FFFF5A;
+}
+
+#sex{
+	background-color:#FFFF5A;
+	width:74px;
+	height:30px;
+	margin:7px;
+}
+
+#null{
+	height:35px;
+}
