@@ -12,6 +12,7 @@ import easydel.exception.DuplicatedIdException;
 import easydel.exception.ServiceFailException;
 
 //2015.02.09 13:47 rabbit(깡총깡총) 작성
+//2015.02.09 17:46 jll 작성
 public class UserServiceImpl implements IUserService {
 	static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 	
@@ -50,6 +51,7 @@ public class UserServiceImpl implements IUserService {
 		user = dao.selectUserByUserId(userId);
 		String userPass = user.getUserPassword();
 		if(userPass==userPassword){
+			logger.trace("로그인 성공");
 			flag = true;
 		}
 		return flag;
