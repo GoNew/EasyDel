@@ -22,7 +22,7 @@ public class UserServiceImpl implements IUserService {
 	private SqlSession session;
 	
 	@Override
-	@Transactional
+	@Transactional(rollbackFor={DuplicatedIdException.class, ServiceFailException.class})
 	public void serviceRegistrateNewUser(User user) throws DuplicatedIdException, ServiceFailException {
 		this.serviceCheckDuplicatedId(user.getUserId());
 		
@@ -35,7 +35,7 @@ public class UserServiceImpl implements IUserService {
 	}
 	
 	@Override
-	@Transactional
+	@Transactional(rollbackFor={DuplicatedIdException.class, ServiceFailException.class})
 	public void serviceCheckDuplicatedId(String userId) throws DuplicatedIdException, ServiceFailException {
 		User user = dao.selectUserByUserId(userId);
 		if(user != null) {
