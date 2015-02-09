@@ -7,4 +7,7 @@
 		select		*
 		from		TITLES
 	</select>
+	<select id="">
+	
+	</select>
 </mapper>

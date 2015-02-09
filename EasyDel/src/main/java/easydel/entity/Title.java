@@ -5,6 +5,7 @@ import java.sql.Date;
 public class Title {
 	private Integer requestId;
 	private Integer requestType;
+	private Integer requestStatus;
 	private String cargoName;
 	private String senderId;
 	private Integer senderAvg;
@@ -111,12 +112,19 @@ public class Title {
 	public void setExprieDate(Date exprieDate) {
 		this.exprieDate = exprieDate;
 	}
+	public Integer getRequestStatus() {
+		return requestStatus;
+	}
+	public void setRequestStatus(Integer requestStatus) {
+		this.requestStatus = requestStatus;
+	}
 	@Override
 	public String toString() {
 		return "Title [requestId=" + requestId + ", requestType=" + requestType
-				+ ", cargoName=" + cargoName + ", senderId=" + senderId
-				+ ", senderAvg=" + senderAvg + ", pickUpGu=" + pickUpGu
-				+ ", pickUpDong=" + pickUpDong + ", pickUpAddrX=" + pickUpAddrX
+				+ ", requestStatus=" + requestStatus + ", cargoName="
+				+ cargoName + ", senderId=" + senderId + ", senderAvg="
+				+ senderAvg + ", pickUpGu=" + pickUpGu + ", pickUpDong="
+				+ pickUpDong + ", pickUpAddrX=" + pickUpAddrX
 				+ ", pickUpAddrY=" + pickUpAddrY + ", arrivalPlaceGu="
 				+ arrivalPlaceGu + ", arrivalPlaceDong=" + arrivalPlaceDong
 				+ ", arrivalPlaceAddrX=" + arrivalPlaceAddrX
@@ -124,4 +132,5 @@ public class Title {
 				+ ", deliveryPrice=" + deliveryPrice + ", exprieDate="
 				+ exprieDate + "]";
 	}
+	
 }
