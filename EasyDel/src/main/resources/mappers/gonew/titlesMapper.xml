@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="easydel.gonew.mapper.titles">
+	<select id="selectAllTitles" resultType="Title">
+		select		*
+		from		TITLES
+	</select>
+	<select id="selectTitlesOrderByDefault" parameterType="hashmap" resultType="Title">
+		select		*
+		from		(
+						select		ROWNUM as RNUM, T.*
+						from		titles T
+						<where>
+							<if test="pageNum != null">
+								((#{pageNum} - 1) * 10) + 1 &lt;= ROWNUM
+							</if>
+							<if test="requestStatusFilter != null">
+								and request_status = #{requestStatusFilter}
+							</if>
+							<if test="requestTypeFilter != null">
+								and request_type = #{requestTypeFilter}
+							</if>
+						</where>
+					)
+		<where>
+			<if test="pageNum != null">
+				((#{pageNum} - 1) * 10) + 1 &lt;= RNUM
+			</if>
+		</where>
+	</select>
+	
+	<select id="selectTitlesOrderByPrice" parameterType="hashmap" resultType="Title">
+		select		*
+		from		(
+						select		ROWNUM as RNUM, T.*
+						from		titles T
+						<where>
+							<if test="pageNum != null">
+								((#{pageNum} - 1) * 10) + 1 &lt;= ROWNUM
+							</if>
+							<if test="requestStatusFilter != null">
+								and request_status = #{requestStatusFilter}
+							</if>
+							<if test="requestTypeFilter != null">
+								and request_type = #{requestTypeFilter}
+							</if>
+						</where>
+						order by 
+					)
+		<where>
+			<if test="pageNum != null">
+				((#{pageNum} - 1) * 10) + 1 &lt;= RNUM
+			</if>
+		</where>
+	</select>
+</mapper>

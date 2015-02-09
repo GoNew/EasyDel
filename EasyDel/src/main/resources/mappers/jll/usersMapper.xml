@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="easydel.gonew.mapper.users">
+<mapper namespace="easydel.jll.mapper.users">
 	<select id="selectUserById" parameterType="String"
-		resultType="Users">
+		resultType="User">
 		select		*
 		from		Users
 		where		user_id = #{userId}

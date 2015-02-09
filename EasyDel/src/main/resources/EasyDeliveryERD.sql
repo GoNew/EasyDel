@@ -18,8 +18,8 @@ DROP TRIGGER TRI_request_cmts_cmt_id;
 
 /* Drop Tables */
 
-DROP TABLE Sender_Evals CASCADE CONSTRAINTS;
 DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
+DROP TABLE Sender_Evals CASCADE CONSTRAINTS;
 DROP TABLE Complete_Deliverys CASCADE CONSTRAINTS;
 DROP TABLE request_cmts CASCADE CONSTRAINTS;
 DROP TABLE Requests CASCADE CONSTRAINTS;
@@ -160,7 +160,7 @@ CREATE TABLE Requests
 	-- 5 - 거래완료
 	-- 6 - 발송인이 취소요청
 	-- 7 - 운송인이 취소요청
-	request_Status number NOT NULL,
+	request_Status number DEFAULT 1 NOT NULL,
 	cargo_name varchar2(40) NOT NULL,
 	delivery_price number NOT NULL,
 	cargo_picture varchar2(30),
@@ -215,9 +215,7 @@ CREATE TABLE Users
 	user_password varchar2(10) NOT NULL,
 	user_gender char(1) NOT NULL,
 	user_email varchar2(30),
-	-- 미성년자
-	-- 
-	-- (1996년생 이하 가입불가)
+	-- 미성년자(1996년생 이하 가입불가)
 	user_birthdate date NOT NULL,
 	user_phone varchar2(11) NOT NULL,
 	user_picture varchar2(30),
@@ -240,13 +238,13 @@ CREATE TABLE Users
 /* Create Foreign Keys */
 
 ALTER TABLE Requests
-	ADD FOREIGN KEY (pickup_place)
+	ADD FOREIGN KEY (arrival_place)
 	REFERENCES address_dongs (dong_id)
 ;
 
 
 ALTER TABLE Requests
-	ADD FOREIGN KEY (arrival_place)
+	ADD FOREIGN KEY (pickup_place)
 	REFERENCES address_dongs (dong_id)
 ;
 
@@ -257,13 +255,13 @@ ALTER TABLE address_dongs
 ;
 
 
-ALTER TABLE Sender_Evals
+ALTER TABLE Courier_Evals
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Complete_Deliverys (request_id)
 ;
 
 
-ALTER TABLE Courier_Evals
+ALTER TABLE Sender_Evals
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Complete_Deliverys (request_id)
 ;
@@ -293,26 +291,20 @@ ALTER TABLE request_cmts
 ;
 
 
-ALTER TABLE edmoney_logs
-	ADD FOREIGN KEY (user_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE request_cmts
-	ADD FOREIGN KEY (user_id)
-	REFERENCES Users (user_id)
-;
-
-
 ALTER TABLE alert_logs
 	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
 ;
 
 
-ALTER TABLE Sender_Evals
-	ADD FOREIGN KEY (sender_id)
+ALTER TABLE Requests
+	ADD FOREIGN KEY (courier_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE edmoney_logs
+	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
 ;
 
@@ -323,14 +315,20 @@ ALTER TABLE Courier_Evals
 ;
 
 
+ALTER TABLE request_cmts
+	ADD FOREIGN KEY (user_id)
+	REFERENCES Users (user_id)
+;
+
+
 ALTER TABLE Requests
 	ADD FOREIGN KEY (sender_id)
 	REFERENCES Users (user_id)
 ;
 
 
-ALTER TABLE Requests
-	ADD FOREIGN KEY (courier_id)
+ALTER TABLE Sender_Evals
+	ADD FOREIGN KEY (sender_id)
 	REFERENCES Users (user_id)
 ;
 
@@ -405,6 +403,7 @@ END;
 
 CREATE OR REPLACE VIEW titles AS select          R.request_id                   as request_id,
                   R.request_type               as request_type,
+                  R.request_status             as request_status,
                   R.cargo_name                as cargo_name,
                   R.sender_id                   as sender_id,
                   ((U.sender_avg_time + U.sender_avg_kind + U.sender_avg_thing) / 3) as sender_avg,
@@ -424,7 +423,8 @@ on              R.sender_id=U.user_id
 left join       ADDRESS_DONGS A1
 on              R.pickup_place=A1.dong_id
 left join       ADDRESS_DONGS A2
-on              R.arrival_place=A2.dong_id;
+on              R.arrival_place=A2.dong_id
+where         R.request_status <= 3;
 
 
 
