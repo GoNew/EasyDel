@@ -21,6 +21,7 @@ public class TitleController {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String showBoard(Model model) {
+		model.addAttribute("gu");
 		return "board/list";
 	}
 	
