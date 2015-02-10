@@ -24,8 +24,10 @@
 	</typeAliases>
 	
 	<mappers>
-		<mapper resource="mappers/gonew/titlesMapper.xml" />
+		<mapper resource="mappers/gonew/titlesMapper.xml"/>
 		<mapper resource="mappers/jll/usersMapper.xml"/>
 		<mapper resource="mappers/rabbit/userMapper.xml"/>
+		<mapper resource="mappers/gonew/dongsMapper.xml"/>
+		<mapper resource="mappers/gonew/gusMapper.xml"/>
 	</mappers>
 </configuration>

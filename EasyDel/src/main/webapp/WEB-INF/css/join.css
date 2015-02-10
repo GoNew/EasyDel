@@ -54,13 +54,17 @@ span.red{
 	background-color:#FFFF5A;
 }
 
-#sex{
-	background-color:#FFFF5A;
+#sex .uk-button{
+	/* background-color:#FFFF5A; */
 	width:74px;
 	height:30px;
 	margin:7px;
 }
 
-#null{
+#sex .radio{
+	display: none;
+}
+
+#CheckId{
 	height:35px;
 }

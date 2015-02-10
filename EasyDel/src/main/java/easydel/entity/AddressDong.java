@@ -19,7 +19,7 @@ public class AddressDong implements Serializable {
 	private Integer dongId;
 
 	/** 구 테이블. */
-	private AddressGu guDescriptionaddressGus;
+	private AddressGu guDescription;
 
 	/** 동_이름. */
 	private String dongDesc;
@@ -66,7 +66,7 @@ public class AddressDong implements Serializable {
 	 *            구 테이블
 	 */
 	public void setGuDescriptionaddressGus(AddressGu guDescriptionaddressGus) {
-		this.guDescriptionaddressGus = guDescriptionaddressGus;
+		this.guDescription = guDescriptionaddressGus;
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class AddressDong implements Serializable {
 	 * @return 구 테이블
 	 */
 	public AddressGu getGuDescriptionaddressGus() {
-		return this.guDescriptionaddressGus;
+		return this.guDescription;
 	}
 
 	/**

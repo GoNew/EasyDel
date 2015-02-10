@@ -13,7 +13,10 @@
 <jsp:include page = "/WEB-INF/view/main/header.jsp"></jsp:include>
 <div class="uk-clearfix">
 <div id="formcss" class="uk-align-center">
-	<form class="uk-form" >
+<pre>                            호잇             
+                              </pre>
+
+	<form class="uk-form">
 		<section id="aaa">
 			<div>
 	    		<div id="smallform">   		

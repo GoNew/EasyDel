@@ -11,6 +11,16 @@
 <script src="<%=request.getContextPath() %>/uikit/js/uikit.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#join").click(function() {
+			var url = "<%=request.getContextPath() %>/join";
+			$(location).attr('href', url);
+		});
+	});
+</script>
+
 </head>
 <body>
 	<div id="fullbrowser" class="uk-clearfix" align="center">
