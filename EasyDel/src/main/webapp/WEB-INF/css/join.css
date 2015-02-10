@@ -38,11 +38,14 @@ span.red{
 	width: expression(this.width > 500 ? 500: true); 
 	height: 190px;
 }
+#imgFileInput {
+	display: none;
+} 
  
 #marg{
 	margin:3px;
 }
-#myimg{
+#imagePreview{
 	height: 140px;
 }
 

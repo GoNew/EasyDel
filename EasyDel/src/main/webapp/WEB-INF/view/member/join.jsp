@@ -43,7 +43,49 @@
 			}
 			return false;
 		})
+		
+		$("#imgFileInput").change(loadImageFile);
 	})
+	
+	
+	
+function loadImageFile() {
+	if (window.FileReader) {
+		var ImagePre; 
+		var ImgReader = new window.FileReader();
+		var fileType = "/^(?:image\/bmp|image\/gif|image\/jpeg|image\/png|image\/x\-xwindowdump|image\/x\-portable\-bitmap)$/i";
+
+		ImgReader.onload = function (Event) {
+			if (!ImagePre) {
+				var newPreview = document.getElementById("imagePreview");
+				ImagePre = new Image();
+                ImagePre.style.width = "200px";
+                ImagePre.style.height = "140px";
+				newPreview.appendChild(ImagePre);
+			}
+			ImagePre.src = Event.target.result;
+		};
+ 
+        return function () {
+            var img = document.getElementById("imgFileInput").files;
+            if (!fileType.test(img[0].type)) { 
+                alert("이미지 파일을 업로드 하세요"); 
+                return; 
+            }
+			ImgReader.readAsDataURL(img[0]);
+		} 
+	}
+	document.getElementById("imagePreview").src = document.getElementById("imgFileInput").value;
+};
+ 
+ 
+
+/* </head>
+<body>
+<div id="imagePreview"></div><br>
+<input id="image" type="file" onchange="InputImage();">
+</body> */
+	
 </script>
 </head>
 <body>
@@ -76,7 +118,12 @@
 		
 			<div align="right" id="rightform">
 				<div id="CheckId" align="center"></div>
-				<img id = "myimg" name="userPicture" src= "<%=request.getContextPath()%>/img/EHkoala.jpg">
+				<label for="imgFileInput">
+					<div id="imagePreview">
+						프로필 사진을 저장하려면 여기를 클릭하세요.
+					</div>
+				</label>
+				<input type="file" id="imgFileInput">
 			</div>
 		</section>
 		<div>

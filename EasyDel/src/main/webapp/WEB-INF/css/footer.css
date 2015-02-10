@@ -1,18 +1,50 @@
 @CHARSET "UTF-8";
 
-*{margin: 0; padding:0;
-/* border: 1px solid black;
- */}
-img{ border: 0;}
-address{font-style: normal;}
-ul, ol{list-style:name;}
-
-#footer{
-	height: 240px;
-	background-color: black;
+* {
+	margin: 0;
+	padding: 0;
+	/* border: 1px solid black;
+ */
 }
 
-#container{
+img {
+	border: 0;
+}
+
+address {
+	font-style: normal;
+}
+
+ul, ol {
+	list-style: name;
+}
+
+#footer {
+	height: 240px;
+	background-image: -webkit-linear-gradient(top, #00b4f5, #008dc5);
+	background-image: linear-gradient(to bottom, #00b4f5, #008dc5);
+}
+
+#container {
 	margin: 22px auto;
 }
 
+a {
+	color: white;
+}
+
+#a {
+	color: white;
+}
+
+#b {
+	color: white;
+}
+
+#c {
+	color: white;
+}
+
+#d {
+	color: white;
+}

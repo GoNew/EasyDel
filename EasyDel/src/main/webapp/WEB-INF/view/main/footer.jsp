@@ -17,11 +17,11 @@
 		<div id="container" class="uk-container uk-container-center uk-text-center">
 
 			<ul id="subnav" class="uk-subnav uk-subnav-line">
-				<li><a href="http://github.com/uikit/uikit">사이트맵</a></li>
-				<li><a href="http://github.com/uikit/uikit/issues">Issues</a></li>
+				<li><a href="http://github.com/uikit/uikit" id="a">사이트맵</a></li>
+				<li><a href="http://github.com/uikit/uikit/issues" id="b">Issues</a></li>
 				<li><a
-					href="http://github.com/uikit/uikit/blob/master/CHANGELOG.md">Changelog</a></li>
-				<li><a href="https://twitter.com/getuikit">Twitter</a></li>
+					href="http://github.com/uikit/uikit/blob/master/CHANGELOG.md" id="c">Changelog</a></li>
+				<li><a href="https://twitter.com/getuikit" id="d">Twitter</a></li>
 			</ul>
 
 			<div id="panel" class="uk-panel">
