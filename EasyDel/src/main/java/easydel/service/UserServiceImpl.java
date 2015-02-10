@@ -55,9 +55,7 @@ public class UserServiceImpl implements IUserService {
 		User user;
 		try {
 			user = dao.selectUserByUserId(userId);
-
 			String userPass = user.getUserPassword();
-
 			if (userPass.equals(userPassword)) {
 				flag = true;
 			}
