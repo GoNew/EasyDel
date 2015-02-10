@@ -12,14 +12,25 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller
 @SessionAttributes("valicheck")
 public class ValicodeController {
-	@Autowired
+	
+	@RequestMapping(value = "/valirequest", method = RequestMethod.POST)
+	public int ValidateCode(@RequestParam int valicode, Model model) {
+		    System.out.println("제목:"+request.getParameter("valicodesubmit"));
+		//jsp에서 submit된 valicode가 뭔지 테스트
+		
+		if(){}
+		
+	}
 	
 	
+	public String login(@RequestParam String userid, @RequestParam String userpassword, Model model){
+		System.out.println(userpassword);
+		if(service.LoginService(userid, userpassword)){
+			model.addAttribute("loginSession",userid);
+			return "main/main";
+		}else{
+			return "showMessage";
+		}
 	
-	@RequestMapping(value = "/vali????", method = RequestMethod.POST) 
-	public String ValidateCode(@RequestParam Integer valicode, Model model){
-	
-		return "valicode"; // valicode 호출 
-	} 
-
 }
+
