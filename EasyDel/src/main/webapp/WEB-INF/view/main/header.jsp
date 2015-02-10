@@ -28,9 +28,9 @@
 
 						<ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon"
 							data-uk-nav="">
-							<li><a href="">메인</a></li>
+							<li><a href="<%=request.getContextPath()%>/main">메인</a></li>
 							<li><a href="">전체 의뢰 보기</a></li>
-							<li><a href="">의뢰 올리기</a></li>
+							<li><a href="<%=request.getContextPath()%>/selecttype">의뢰 올리기</a></li>
 							<li><a href="">EDMoney</a></li>
 
 						</ul>

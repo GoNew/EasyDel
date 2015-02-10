@@ -17,13 +17,13 @@ public class Type90TestController {
 	}
 	
 	
-	@Autowired
+/*	@Autowired
 	IReportService boardService;
 
 	@RequestMapping("/report")
 	public String test() {
 		boardService.boardTest();
 		return "showMessage";
-	}
+	}*/
 
 }
