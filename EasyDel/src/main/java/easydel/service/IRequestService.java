@@ -2,6 +2,7 @@ package easydel.service;
 
 import easydel.entity.Request;
 import easydel.exception.ServiceFailException;
+import easydel.exception.VaildateFailException;
 
 public interface IRequestService {
 	
