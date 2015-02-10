@@ -14,4 +14,5 @@ public interface IUserService {
 	public boolean LoginService(String userId, String userPassword);
 	public void serviceUpdateUser(User user) throws ServiceFailException;
 	public User serviceGetUser(String userId);
+	public void serviceDeleteUser(String userId) throws ServiceFailException;
 }

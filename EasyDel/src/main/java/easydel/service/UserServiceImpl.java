@@ -47,6 +47,7 @@ public class UserServiceImpl implements IUserService {
 	}
 	
 	@Override
+	@Transactional
 	public void serviceUpdateUser(User user) throws ServiceFailException{
 		int result = 0;
 		result = dao.updateUser(user);
@@ -56,6 +57,18 @@ public class UserServiceImpl implements IUserService {
 		}
 	}
 
+	@Override
+	@Transactional
+	public void serviceDeleteUser(String userId) throws ServiceFailException{
+		int result = 0;
+		result = dao.deleteUserByUserId(userId);
+		
+		if(result <= 0){
+			throw new ServiceFailException();
+		}
+	}
+	
+		
 	@Override
 	public boolean LoginService(String userId, String userPassword) {
 		boolean result = false;

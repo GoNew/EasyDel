@@ -34,6 +34,13 @@ public class UserDaoImpl implements IUserDao {
 		return result;
 	}
 	
+	@Override	
+	public int deleteUserByUserId(String userId){
+		String stmt = rabbit_namespace + ".deleteUserByUserId";
+		int result = session.delete(stmt, userId);
+		return result;
+	}
+	
 	@Override
 	public User selectUserByUserId(String userId) {
 		User user;

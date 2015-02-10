@@ -26,4 +26,9 @@
 			</if>
 		where 	user_id=#{userId}
 	</update>
+	
+	<delete id="deleteUserByUserId" parameterType="string">
+		delete 	from Users
+		where 	user_id=#{userId}
+	</delete>
 </mapper>

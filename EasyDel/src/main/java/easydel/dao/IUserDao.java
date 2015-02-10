@@ -7,5 +7,6 @@ import easydel.entity.User;
 public interface IUserDao {
 	public int insertUser(User user);
 	public int updateUser(User user);
+	public int deleteUserByUserId(String userId);
 	public User selectUserByUserId(String userId);
 }
