@@ -1,3 +1,4 @@
+<%@page import="easydel.entity.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
@@ -23,8 +24,8 @@
 		})
 	})
 </script>
-<%
-	//String userId = request.getAttribute();
+<% 
+	User user = (User) request.getAttribute("newUser");
 %>
 </head>
 <body>
@@ -40,23 +41,23 @@
 			<div>
 	    		<div id="smallform">   		
 		    		<div align="left" id="leftform"><label id="id"> 아이디</label></div>
-		    		<div align="left" id="middleform"><input id="my"> <!--  value="userId %>" readonly="readonly" --></input></div>
+		    		<div align="left" id="middleform"><input id="my" value="<%=user.getUserId()%>" readonly="readonly"></input></div>
 		    	</div>
 		    	<div id="smallform">
 		    		<div align="left" id="leftform"><label id="pw"> 비밀번호</label></div>
-		    	 	<div align="left" id="middleform"><input type="password" id="userPassword" name="userPassword"size="27" pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." placeholder="비밀번호" required></div>
+		    	 	<div align="left" id="middleform"><input type="password" value="<%=user.getUserPassword()%>" id="userPassword" name="userPassword" size="27" pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." placeholder="비밀번호" required></div>
 		    	</div>
 		    	<div id="smallform">
 		    		<div align="left" id="leftform"><label id="pw"> 비밀번호 확인</label></div>
-		    	 	<div align="left" id="middleform"><input type="password" id="userPassword2" name="userPassword2"size="27" pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." placeholder="비밀번호 확인" required></div>
+		    	 	<div align="left" id="middleform"><input type="password" value="<%=user.getUserPassword()%>" id="userPassword2" name="userPassword2"size="27" pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." placeholder="비밀번호 확인" required></div>
 		    	</div>
 		    	<div id="smallform">
 		    		<div align="left" id="leftform"><label id="name"> 이름</label></div> 
-		    	 	<div align="left" id="middleform"><label id="my"> (text,fixed)</label></div>
+		    	 	<div align="left" id="middleform"><input id="my" value="<%=user.getUserName()%>" readonly="readonly"></input></div>
 		    	</div>
 		    	<div id="smallform">
 		    		<div align="left" id="leftform"><label id="sex"> 성별</label></div>
-		    	 	<div align="left" id="middleform"><label id="my"> 남/여(fixed)</label></div>
+		    	 	<div align="left" id="middleform"><input id="my" value="<% if(user.getUserGender()==1){ %>남자<% } else if(user.getUserGender()==2){ %>여자<% } %>" readonly="readonly"> </input></div>
 		    	</div>
 		    	<div id="smallform">
 		    		<div align="left" id="leftform"><label id="birth"> 생년월일</label></div>

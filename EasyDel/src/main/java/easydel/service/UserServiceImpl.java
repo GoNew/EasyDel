@@ -72,4 +72,11 @@ public class UserServiceImpl implements IUserService {
 		return result;
 	}
 
+	//회원정보 수정 시 default값을 본인의 원래 data로 설정해주는 서비스
+	@Override
+	public User serviceGetUser(String userId){
+		User user;
+		user = dao.selectUserByUserId(userId);
+		return user;
+	}
 }

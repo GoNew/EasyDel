@@ -12,6 +12,6 @@ public interface IUserService {
 	public void serviceCheckDuplicatedId(String userId)
 			throws DuplicatedIdException, ServiceFailException;
 	public boolean LoginService(String userId, String userPassword);
-	public void serviceUpdateUser(User user)
-			throws ServiceFailException;
+	public void serviceUpdateUser(User user) throws ServiceFailException;
+	public User serviceGetUser(String userId);
 }
