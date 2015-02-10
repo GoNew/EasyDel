@@ -14,6 +14,7 @@ import easydel.exception.ServiceFailException;
 
 //2015.02.09 13:47 rabbit(깡총깡총) 작성
 //2015.02.09 17:46 jll 작성
+//2015.02.10 11:20 rabbit(깡총깡총) 작성
 public class UserServiceImpl implements IUserService {
 	static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
@@ -24,10 +25,17 @@ public class UserServiceImpl implements IUserService {
 	private SqlSession session;
 
 	@Override
-	@Transactional(rollbackFor = { DuplicatedIdException.class,
-			ServiceFailException.class })
-	public void serviceRegistrateNewUser(User user)
-			throws DuplicatedIdException, ServiceFailException {
+	@Transactional(rollbackFor = { DuplicatedIdException.class, ServiceFailException.class })
+	public void serviceCheckDuplicatedId(String userId) throws DuplicatedIdException, ServiceFailException {
+		User user = dao.selectUserByUserId(userId);
+		if (user != null) {
+			throw new DuplicatedIdException();
+		}
+	}
+	
+	@Override
+	@Transactional(rollbackFor = { DuplicatedIdException.class, ServiceFailException.class })
+	public void serviceRegistrateNewUser(User user) throws DuplicatedIdException, ServiceFailException {
 		this.serviceCheckDuplicatedId(user.getUserId());
 
 		int result = 0;
@@ -37,18 +45,30 @@ public class UserServiceImpl implements IUserService {
 			throw new ServiceFailException();
 		}
 	}
-
+	
 	@Override
-	@Transactional(rollbackFor = { DuplicatedIdException.class,
-			ServiceFailException.class })
-	public void serviceCheckDuplicatedId(String userId)
-			throws DuplicatedIdException, ServiceFailException {
-		User user = dao.selectUserByUserId(userId);
-		if (user != null) {
-			throw new DuplicatedIdException();
+	@Transactional
+	public void serviceUpdateUser(User user) throws ServiceFailException{
+		int result = 0;
+		result = dao.updateUser(user);
+		
+		if(result <= 0){
+			throw new ServiceFailException();
 		}
 	}
 
+	@Override
+	@Transactional
+	public void serviceDeleteUser(String userId) throws ServiceFailException{
+		int result = 0;
+		result = dao.deleteUserByUserId(userId);
+		
+		if(result <= 0){
+			throw new ServiceFailException();
+		}
+	}
+	
+		
 	@Override
 	public boolean LoginService(String userId, String userPassword) {
 		boolean result = false;
@@ -65,4 +85,11 @@ public class UserServiceImpl implements IUserService {
 		return result;
 	}
 
+	//회원정보 수정 시 default값을 본인의 원래 data로 설정해주는 서비스
+	@Override
+	public User serviceGetUser(String userId){
+		User user;
+		user = dao.selectUserByUserId(userId);
+		return user;
+	}
 }
