@@ -19,4 +19,8 @@ public class LiraTestController {
 	public String footer(){
 		return "main/footer";
 	}
+	@RequestMapping("/selecttype")
+	public String selectType(){
+		return "board/registrate/selecttype";
+	}
 }
