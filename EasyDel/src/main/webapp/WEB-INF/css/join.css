@@ -66,5 +66,7 @@ span.red{
 }
 
 #CheckId{
-	height:35px;
+	color : red;
+	width : 160px;
+	height : 40px;
 }

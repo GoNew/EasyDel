@@ -16,15 +16,13 @@ public class LoginController {
 	@Autowired
 	private IUserService service;
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST )
+	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String login(@RequestParam String userid, @RequestParam String userpassword, Model model){
-		System.out.println(userpassword);
+		String resultPage = "intro/intro"; 
 		if(service.LoginService(userid, userpassword)){
 			model.addAttribute("loginSession",userid);
-			return "main/main";
-		}else{
-			return "showMessage";
+			resultPage = "main/main";
 		}
-		
+		return resultPage;
 	}
 }

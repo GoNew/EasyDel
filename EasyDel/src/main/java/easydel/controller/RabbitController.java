@@ -35,9 +35,9 @@ public class RabbitController {
 		String result;
 		try {
 			service.serviceCheckDuplicatedId(userId);
-			result = userId + " 는 사용할 수 있는 ID 입니다.";
+			result = userId + " 는 <br> 사용할 수 있는 ID 입니다.";
 		} catch (DuplicatedIdException | ServiceFailException e) {
-			result = userId + " 는 중복된 ID 입니다.";
+			result = userId + " 는 <br> 중복된 ID 입니다.";
 		}
 		return result;
 	}
