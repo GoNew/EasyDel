@@ -1,7 +1,6 @@
 package easydel.service;
 
 import org.apache.ibatis.session.SqlSession;
-import org.aspectj.apache.bcel.generic.LOR;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

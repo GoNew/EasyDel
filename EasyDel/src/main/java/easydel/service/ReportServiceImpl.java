@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import easydel.dao.IReportDao;
+import easydel.entity.Report;
 
 public class ReportServiceImpl implements IReportService {
 	
@@ -14,7 +15,7 @@ public class ReportServiceImpl implements IReportService {
 
 	@Override
 	@Transactional
-	public List getRequest() {
+	public List<Report> getRequest() {
 		return dao.selectRequestByRequestId();
 	}
 }

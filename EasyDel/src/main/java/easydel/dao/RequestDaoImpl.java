@@ -1,13 +1,7 @@
 package easydel.dao;
 
-import org.apache.ibatis.session.SqlSession;
-import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import easydel.entity.User;
-
 
 import easydel.entity.Request;
 

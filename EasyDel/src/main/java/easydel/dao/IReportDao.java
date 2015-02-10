@@ -2,10 +2,11 @@ package easydel.dao;
 
 import java.util.List;
 
-import easydel.entity.Request;
+import easydel.entity.Report;
+
 
 public interface IReportDao {
 	
-	public List selectRequestByRequestId();
+	public List<Report> selectRequestByRequestId();
 
 }
