@@ -29,9 +29,6 @@ public class RabbitController {
 	//------------------------------------개인정보수정-----------------------------------------------
 	@RequestMapping(value="/modify", method=RequestMethod.GET)
 	public String moveToModifyFake(Model model, HttpSession session) {
-		String loginUserId = (String) session.getAttribute("loginSession");
-		User user = service.serviceGetUser(loginUserId);
-		model.addAttribute("userToBeModified", user);
 		return "member/modify";
 	}
 	

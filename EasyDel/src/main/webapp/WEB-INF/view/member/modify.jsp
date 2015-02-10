@@ -38,7 +38,7 @@
 	})
 </script>
 <% 
-	User user = (User) request.getAttribute("userToBeModified");
+	User user = (User) session.getAttribute("loginSession");
 %>
 </head>
 <body>
