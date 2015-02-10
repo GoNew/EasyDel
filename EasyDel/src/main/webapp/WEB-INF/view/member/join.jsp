@@ -24,7 +24,7 @@
 				userId: $("#userId").val()
 			},
 			success : function(args) {
-				$("#checkId").html(args);
+				$("#CheckId").html(args);
 			}
 		});
 	}
@@ -75,7 +75,7 @@
 			</div>
 		
 			<div align="right" id="rightform">
-				<span style="color: red" id="joinFormCheckId"></span>
+				<div id="CheckId" align="center"></div>
 				<img id = "myimg" name="userPicture" src= "<%=request.getContextPath()%>/img/EHkoala.jpg">
 			</div>
 		</section>

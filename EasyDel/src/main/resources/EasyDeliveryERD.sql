@@ -211,12 +211,12 @@ CREATE TABLE Sender_Evals
 CREATE TABLE Users
 (
 	user_id varchar2(10) NOT NULL,
-	user_name varchar2(10) NOT NULL,
+	user_name varchar2(20) NOT NULL,
 	user_password varchar2(10) NOT NULL,
 	-- 1: 남자
 	-- 2: 여자
 	user_gender char(1) NOT NULL,
-	user_email varchar2(30),
+	user_email varchar2(30) NOT NULL,
 	-- 미성년자(1996년생 이하 가입불가)
 	user_birthdate date NOT NULL,
 	user_phone varchar2(11) NOT NULL,
@@ -293,6 +293,12 @@ ALTER TABLE request_cmts
 ;
 
 
+ALTER TABLE Courier_Evals
+	ADD FOREIGN KEY (courier_id)
+	REFERENCES Users (user_id)
+;
+
+
 ALTER TABLE Requests
 	ADD FOREIGN KEY (courier_id)
 	REFERENCES Users (user_id)
@@ -305,31 +311,25 @@ ALTER TABLE Sender_Evals
 ;
 
 
-ALTER TABLE edmoney_logs
-	ADD FOREIGN KEY (user_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE Courier_Evals
-	ADD FOREIGN KEY (courier_id)
-	REFERENCES Users (user_id)
-;
-
-
 ALTER TABLE Requests
 	ADD FOREIGN KEY (sender_id)
 	REFERENCES Users (user_id)
 ;
 
 
-ALTER TABLE request_cmts
+ALTER TABLE alert_logs
 	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
 ;
 
 
-ALTER TABLE alert_logs
+ALTER TABLE edmoney_logs
+	ADD FOREIGN KEY (user_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE request_cmts
 	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
 ;
