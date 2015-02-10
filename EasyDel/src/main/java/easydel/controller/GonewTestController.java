@@ -1,5 +1,5 @@
 package easydel.controller;
 
-public class GonewControllerTest {
+public class GonewTestController {
 	
 }

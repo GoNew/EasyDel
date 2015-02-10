@@ -25,10 +25,16 @@
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean" />
 	</bean>
 	
+	<!-- 여기에 사용할 빈을 추가하세요!!! -->
 	<bean class="easydel.dao.TitleDaoImpl"></bean>
-	<bean class="easydel.service.BoardServiceImpl"></bean>
 	<bean class="easydel.dao.UserDaoImpl"></bean>
+	<bean class="easydel.dao.GuDaoImpl"></bean>
+	<bean class="easydel.dao.DongDaoImpl"></bean>
+	<bean class="easydel.service.BoardServiceImpl"></bean>
 	<bean class="easydel.service.UserServiceImpl"></bean>
+	<bean class="easydel.service.DongServiceImpl"></bean>
+	<bean class="easydel.service.GuServiceImpl"></bean>
+	
 	
 	<context:annotation-config></context:annotation-config>
 	

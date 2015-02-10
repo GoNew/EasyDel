@@ -26,7 +26,7 @@ public class User implements Serializable {
 	private String userPassword;
 
 	/** 회원 회원성별. */
-	private String userGender;
+	private Integer userGender;
 
 	/** 회원email. */
 	private String userEmail;
@@ -166,7 +166,7 @@ public class User implements Serializable {
 	 * @param userGender
 	 *            회원 회원성별
 	 */
-	public void setUserGender(String userGender) {
+	public void setUserGender(Integer userGender) {
 		this.userGender = userGender;
 	}
 
@@ -175,7 +175,7 @@ public class User implements Serializable {
 	 * 
 	 * @return 회원 회원성별
 	 */
-	public String getUserGender() {
+	public Integer getUserGender() {
 		return this.userGender;
 	}
 
@@ -672,6 +672,27 @@ public class User implements Serializable {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName
+				+ ", userPassword=" + userPassword + ", userGender="
+				+ userGender + ", userEmail=" + userEmail + ", userBirthdate="
+				+ userBirthdate + ", userPhone=" + userPhone + ", userPicture="
+				+ userPicture + ", edmoneyBalance=" + edmoneyBalance
+				+ ", courierAvgTime=" + courierAvgTime + ", courierAvgKind="
+				+ courierAvgKind + ", courierAvgSafe=" + courierAvgSafe
+				+ ", courierTotalcnt=" + courierTotalcnt
+				+ ", courierSuccesscnt=" + courierSuccesscnt
+				+ ", senderAvgTime=" + senderAvgTime + ", senderAvgKind="
+				+ senderAvgKind + ", senderAvgThing=" + senderAvgThing
+				+ ", senderTotalcnt=" + senderTotalcnt + ", senderSuccesscnt="
+				+ senderSuccesscnt + ", alertLogsSet=" + alertLogsSet
+				+ ", requestCmtsSet=" + requestCmtsSet + ", courierEvalsSet="
+				+ courierEvalsSet + ", senderEvalsSet=" + senderEvalsSet
+				+ ", edmoneyLogsSet=" + edmoneyLogsSet + ", requestsSet="
+				+ requestsSet + "]";
 	}
 
 }
