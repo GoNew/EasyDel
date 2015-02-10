@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+#mainBox {
+	width: 1025px;
+	height: 100%;
+}
+#mainBox * {
+	
+}
+#selectBox {
+	width: 1009px;
+}
+#boardBox {
+	width: 1009px;
+}
