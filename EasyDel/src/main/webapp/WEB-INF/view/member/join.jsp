@@ -74,15 +74,10 @@ var InputImage =
                 alert("이미지 파일을 업로드 하세요"); 
                 return; 
             }
-             
-            ImgReader.readAsDataURL(img[0]);
-        }
- 
-    }
-             
-            document.getElementById("imagePreview").src = document.getElementById("image").value;
- 
-       
+			ImgReader.readAsDataURL(img[0]);
+		} 
+	}
+	document.getElementById("imagePreview").src = document.getElementById("image").value;
 })();
  
  
