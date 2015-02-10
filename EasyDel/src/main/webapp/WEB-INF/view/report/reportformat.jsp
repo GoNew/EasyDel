@@ -43,14 +43,14 @@
   margin : 1 auto;
   border-width: 1px;
   }
-  #report1{
+  #div1{
   max-width 100px;
   margin : 1 auto;
   border-width: 1px;
   border: 1px solid #000000; 
   
   }
-  #report2{
+  #div2{
   max-width 100px;
   margin : 1 auto;
   border-width: 1px;
@@ -58,35 +58,31 @@
   }
   
 </style> 
-  
-<div id="reportmain" class="elem">
-<form id="report1">
+<form action="/request" method="post">
+<div id="div1" class="elem">
 <span class="label">REPORT!</span><P></P>
-<span class="label">신고대상</span><P></P>
-<span class="label">신고글</span><p><p>
+<span class="label">신고대상</span><P><span class="label" value="reportedId">신고대상</span></P>
+<span class="label">신고글</span><span class="label" value="reportedCargo"><p><p>
 <span class="label">신고 이유</span>
-<select id="reportType">
+<select id="reportType" name="reportType">
 <%for (ReportType reporttype : reportTypeList) {%>
 <option value="<%=reporttype.getReportType()%>"><%=reporttype.getReportTypeDesc()%></option>
 <%}%>
 </select><br>
 </p>
-</form>
+</div>
 
 신고하기 전에 잠시!<br>
 허위 신고일 경우에는 그만큼 불이익이 갈 수 있음을 명심해주세요!
 <br><br>
-<form id="report2">
+<div id="div2" class="elem">
 상세 사유<br>
 <textarea id="reportdesc" type="text" name="reportdesc"  rows="5" cols="80" value="상세 신고 내용을 적어주세요"></textarea><br>
-<button id="return" type="submit" value="notreport">Show Mercy!</button>
 <button id="submit" type="submit" value="report">No Mercy!</button>
+<a href="javascript:cancelForm();"><img src="http://static.naver.com/common/popup/btn_cancel2.gif" width="48" height="28" title="" alt="취소" onmouseover="this.src='http://static.naver.com/common/popup/btn_cancel2_over.gif'" onmouseout="this.src='http://static.naver.com/common/popup/btn_cancel2.gif'"></a>
+</div>
 </form>
 
-
-
-</div>
-</select>
 
 
 </body>

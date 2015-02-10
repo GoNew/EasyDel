@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import easydel.service.IUserService;
 
 @Controller
-@SessionAttributes("loginSession")
+@SessionAttributes("reportsession")
 public class LoginController {
 	@Autowired
 	private IUserService service;
 	
 	@RequestMapping(value="/report", method=RequestMethod.POST)
 	public String login(@RequestParam String userid, @RequestParam String userpassword, Model model){
-		String resultPage = "intro/intro"; 
+		String resultPage = "report/intro"; 
 		if(service.LoginService(userid, userpassword)){
 			model.addAttribute("loginSession",userid);
 			resultPage = "main/main";
