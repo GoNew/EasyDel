@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+*{
+	margin: 0; padding:0;
+	/* border: 1px solid red; */
+}
+img{ border: 0;}
+address{font-style: normal;}
+ul, ol{list-style:name;}
+
+#fullbrowser{
+	width: 1025px;
+	margin: 0 auto;
+}
+#middlebrowser{
+	margin: 0 auto;
+	width: 1009px;
+}
+
+#row1, #row2, #row3, #row4{
+	display: -webkit-box;
+}
+
+#my-id{
+	display: -webkit-box;
+}
+
+#ischeckbox{
+	margin-left: 100px
+}
+
+#samebtn{
+margin-left: 500px
+}
+
+#allregistrater, #allreceiver #allproductinfo {
+	margin: 50px 0px;
+}
+#subproductinfo{
+	margin-top: 20px;
+}
+
+
+
+
