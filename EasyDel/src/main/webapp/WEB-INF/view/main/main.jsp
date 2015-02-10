@@ -7,6 +7,27 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page = "/WEB-INF/view/main/header.jsp"></jsp:include>
+<pre>
+	
 	임시~~~
+	메롱 :p
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</pre>	
+<jsp:include page = "/WEB-INF/view/main/footer.jsp"></jsp:include>
 </body>
 </html>

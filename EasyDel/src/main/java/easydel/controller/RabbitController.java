@@ -19,6 +19,12 @@ public class RabbitController {
 	static final Logger logger = LoggerFactory.getLogger(RabbitController.class);
 	@Autowired
 	private IUserService service;
+
+	//임시
+	@RequestMapping("/main")
+	public String main() {
+		return "main/main";
+	}
 	
 	//------------------------------------개인정보수정-----------------------------------------------
 	@RequestMapping(value="/modify", method=RequestMethod.GET)
