@@ -11,7 +11,7 @@
 	</page_setting>
 	<category_index>0</category_index>
 	<zoom>0.8</zoom>
-	<x>113</x>
+	<x>-2</x>
 	<y>0</y>
 	<default_color>
 		<r>128</r>
@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2015-02-04 17:34:00</creation_date>
-			<updated_date>2015-02-10 01:32:47</updated_date>
+			<updated_date>2015-02-10 10:22:37</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -1220,7 +1220,7 @@
 		</word>
 		<word>
 			<id>70</id>
-			<length>10</length>
+			<length>20</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
@@ -2099,6 +2099,654 @@
 					<referenced_column>48</referenced_column>
 					<referenced_column>48</referenced_column>
 					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<referenced_column>48</referenced_column>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
+					<relation>4</relation>
 					<relation>4</relation>
 					<relation>4</relation>
 					<relation>4</relation>
@@ -2565,7 +3213,7 @@
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
 					<foreign_key>false</foreign_key>
-					<not_null>false</not_null>
+					<not_null>true</not_null>
 					<primary_key>false</primary_key>
 					<unique_key>false</unique_key>
 					<character_set></character_set>
@@ -4294,28 +4942,6 @@
 			<connections>
 				<relation>
 					<id>10</id>
-					<source>12</source>
-					<target>11</target>
-						<source_xp>0</source_xp>
-						<source_yp>12</source_yp>
-						<target_xp>100</target_xp>
-						<target_yp>8</target_yp>
-						<color>
-							<r>0</r>
-							<g>0</g>
-							<b>0</b>
-						</color>
-					<child_cardinality>1..n</child_cardinality>
-					<parent_cardinality>1</parent_cardinality>
-					<reference_for_pk>true</reference_for_pk>
-					<name></name>
-					<on_delete_action>RESTRICT</on_delete_action>
-					<on_update_action>RESTRICT</on_update_action>
-					<referenced_column>null</referenced_column>
-					<referenced_complex_unique_key>null</referenced_complex_unique_key>
-				</relation>
-				<relation>
-					<id>11</id>
 					<source>5</source>
 					<target>11</target>
 						<source_xp>100</source_xp>
@@ -4337,7 +4963,7 @@
 					<referenced_complex_unique_key>null</referenced_complex_unique_key>
 				</relation>
 				<relation>
-					<id>12</id>
+					<id>11</id>
 					<source>7</source>
 					<target>11</target>
 						<source_xp>0</source_xp>
@@ -4359,13 +4985,35 @@
 					<referenced_complex_unique_key>null</referenced_complex_unique_key>
 				</relation>
 				<relation>
-					<id>13</id>
-					<source>5</source>
+					<id>12</id>
+					<source>12</source>
 					<target>11</target>
-						<source_xp>100</source_xp>
-						<source_yp>76</source_yp>
-						<target_xp>0</target_xp>
-						<target_yp>19</target_yp>
+						<source_xp>0</source_xp>
+						<source_yp>12</source_yp>
+						<target_xp>100</target_xp>
+						<target_yp>8</target_yp>
+						<color>
+							<r>0</r>
+							<g>0</g>
+							<b>0</b>
+						</color>
+					<child_cardinality>1..n</child_cardinality>
+					<parent_cardinality>1</parent_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<name></name>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+					<referenced_column>null</referenced_column>
+					<referenced_complex_unique_key>null</referenced_complex_unique_key>
+				</relation>
+				<relation>
+					<id>13</id>
+					<source>12</source>
+					<target>11</target>
+						<source_xp>-1</source_xp>
+						<source_yp>-1</source_yp>
+						<target_xp>100</target_xp>
+						<target_yp>22</target_yp>
 						<color>
 							<r>0</r>
 							<g>0</g>
@@ -4382,12 +5030,12 @@
 				</relation>
 				<relation>
 					<id>14</id>
-					<source>12</source>
+					<source>5</source>
 					<target>11</target>
-						<source_xp>-1</source_xp>
-						<source_yp>-1</source_yp>
-						<target_xp>100</target_xp>
-						<target_yp>22</target_yp>
+						<source_xp>100</source_xp>
+						<source_yp>76</source_yp>
+						<target_xp>0</target_xp>
+						<target_yp>19</target_yp>
 						<color>
 							<r>0</r>
 							<g>0</g>
@@ -4446,7 +5094,7 @@
 				<normal_column>
 					<id>49</id>
 					<referenced_column>15</referenced_column>
-					<relation>13</relation>
+					<relation>14</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name>보내는 사람</logical_name>
@@ -4480,7 +5128,7 @@
 				<normal_column>
 					<id>50</id>
 					<referenced_column>15</referenced_column>
-					<relation>11</relation>
+					<relation>10</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name>배달회원 id</logical_name>
@@ -4811,7 +5459,7 @@
 				<normal_column>
 					<id>60</id>
 					<referenced_column>72</referenced_column>
-					<relation>10</relation>
+					<relation>12</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name>전달 장소</logical_name>
@@ -5010,7 +5658,7 @@
 				<normal_column>
 					<id>66</id>
 					<referenced_column>72</referenced_column>
-					<relation>14</relation>
+					<relation>13</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name>배달장소</logical_name>
@@ -5143,7 +5791,7 @@
 				<normal_column>
 					<id>70</id>
 					<referenced_column>37</referenced_column>
-					<relation>12</relation>
+					<relation>11</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name>신고글 상태</logical_name>
