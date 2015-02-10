@@ -42,8 +42,6 @@ public class TitleController {
 		
 		List<Title> list = boardService.getBoard(sortType, delTypeFilter, statusFilter, pageNum);
 		
-		result.append("<table>");
-		
 		for(Title title: list) {
 			result.append("<tr><td>");
 			if(title.getRequestType() == 0) {
@@ -70,8 +68,6 @@ public class TitleController {
 				.append(title.getDeliveryPrice());
 			result.append("</td></tr>");
 		}
-		
-		result.append("</table>");
 		return result.toString();
 	}
 	
@@ -83,6 +79,7 @@ public class TitleController {
 	public @ResponseBody String getDongList(@RequestParam String guName) {
 		StringBuilder builder = new StringBuilder();
 		List<AddressDong> list = dongService.getDongByGu(guName);
+		builder.append("<option value=\"\">선택없음</option>");
 		for(AddressDong dong: list) {
 			builder.append("<option value=\"")
 				.append(dong.getDongDesc())
