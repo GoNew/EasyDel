@@ -24,8 +24,10 @@ public class RabbitController {
 	@Autowired
 	private IUserService service;
 	
+	
+	//------------------------------------회원가입-----------------------------------------------
 	@RequestMapping(value="/join", method=RequestMethod.GET)
-	public String moveToJoin() {
+	public String moveToJoinFake() {
 		return "member/join";
 	}
 	
@@ -40,11 +42,6 @@ public class RabbitController {
 			result = userId + " 는 <br> 중복된 ID 입니다.";
 		}
 		return result;
-	}
-	
-	@RequestMapping("/modify")
-	public String modify(){
-		return "member/modify";
 	}
 
 	//회원가입을 위한 컨트롤러
@@ -64,5 +61,36 @@ public class RabbitController {
 		}
 		return resultPage;
 	}
-
+	
+	//------------------------------------개인정보수정-----------------------------------------------
+	@RequestMapping(value="/modify", method=RequestMethod.GET)
+	public String moveToModifyFake() {
+		return "member/modify";
+	}
+	
+	//회원수정을 위한 컨트롤러
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	public String modify(Model model, User user){
+		String resultPage = "main/main";
+		try {
+			service.serviceUpdateUser(user);
+		} catch (ServiceFailException e) {
+			model.addAttribute("errorMsg", "알수없는 원인");
+			resultPage = "error/errorPage";
+		}
+		return resultPage;
+	}
+	
+	//회원가입에서 id 중복체크 ajax를 위한 컨트롤러 
+	/*@RequestMapping(value="/ajax/dupidcheck", produces="text/plain;charset=UTF-8")
+	public @ResponseBody String process(@RequestParam String userId, Model model) {
+		String result;
+		try {
+			service.serviceCheckDuplicatedId(userId);
+			result = userId + " 는 <br> 사용할 수 있는 ID 입니다.";
+		} catch (DuplicatedIdException | ServiceFailException e) {
+			result = userId + " 는 <br> 중복된 ID 입니다.";
+		}
+		return result;
+	}*/
 }
