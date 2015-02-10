@@ -51,20 +51,18 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public boolean LoginService(String userId, String userPassword) {
-		boolean flag = false;
-		User user;
+		boolean result = false;
+		User user = null;
 		try {
 			user = dao.selectUserByUserId(userId);
 			String userPass = user.getUserPassword();
 			if (userPass.equals(userPassword)) {
-				flag = true;
+				result = true;
 			}
-			return flag;
 		} catch (NullPointerException e) {
 			e.printStackTrace();
-			return flag;
-
 		}
+		return result;
 	}
 
 }
