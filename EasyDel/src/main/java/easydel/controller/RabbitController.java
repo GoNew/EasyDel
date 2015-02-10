@@ -1,5 +1,8 @@
 package easydel.controller;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -9,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import easydel.entity.User;
 import easydel.exception.ServiceFailException;
@@ -28,17 +33,34 @@ public class RabbitController {
 	
 	//------------------------------------개인정보수정-----------------------------------------------
 	@RequestMapping(value="/modify", method=RequestMethod.GET)
-	public String moveToModifyFake(Model model, HttpSession session) {
+	public String moveToModifyFake() {
 		return "member/modify";
 	}
 	
 	//회원정보수정을 위한 컨트롤러
 	@RequestMapping(value="/modify", method=RequestMethod.POST)
-	public String modify(Model model, User user){
-		String resultPage = "main/main";
+	public String modify(@RequestParam("imgFileInput") MultipartFile file,
+			User user, Model model, HttpSession session){
+		String resultPage = "redirect:main";
+		File createProfile = null;
+		String filePath = null;
+		
 		try {
+			if (file != null && !file.isEmpty()) {
+				createProfile = new File("c:/db/uploaded/profile/"
+						+ user.getUserId());
+				file.transferTo(createProfile);
+				filePath = "/profile/" + user.getUserId();
+			}
+			user.setUserPicture(filePath);
+			
+			logger.trace("mylog: " + user);
+			
 			service.serviceUpdateUser(user);
-		} catch (ServiceFailException e) {
+			
+			session.setAttribute("loginSession", service.serviceGetUser(user.getUserId()));
+		} catch (ServiceFailException | IllegalStateException | IOException e) {
+			e.printStackTrace();
 			model.addAttribute("errorMsg", "알수없는 원인");
 			resultPage = "error/errorPage";
 		}

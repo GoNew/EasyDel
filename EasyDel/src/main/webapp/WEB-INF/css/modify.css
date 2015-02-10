@@ -44,8 +44,15 @@ image{border:0px;}
 	height: 210px;
 }
 
-#myimg{
+#imagePreview{
+	background-position: center center;
+	background-size: cover;
 	height: 160px;
+	display: inline-block;
+}
+
+#imgFileInput{
+	display: none;
 }
 
 
@@ -54,6 +61,6 @@ image{border:0px;}
 }
 
 #null{
-	height:35px;
+	height:50px;
 }
 

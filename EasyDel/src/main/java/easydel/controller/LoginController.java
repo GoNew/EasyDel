@@ -21,7 +21,7 @@ public class LoginController {
 		String resultPage = "intro/intro";
 		if(service.LoginService(userid, userpassword)){
 			session.setAttribute("loginSession", service.serviceGetUser(userid));
-			resultPage = "main/main";
+			resultPage = "redirect:main";
 		}
 		return resultPage;
 	}
