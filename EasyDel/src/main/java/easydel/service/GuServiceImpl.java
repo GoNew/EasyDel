@@ -18,5 +18,4 @@ public class GuServiceImpl implements IGuService {
 	public List<AddressGu> getGu() {
 		return dao.selectAllAddressGus();
 	}
-
 }

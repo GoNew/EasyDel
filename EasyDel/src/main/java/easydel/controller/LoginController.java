@@ -16,7 +16,7 @@ public class LoginController {
 	@Autowired
 	private IUserService service;
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@RequestMapping(value="/report", method=RequestMethod.POST)
 	public String login(@RequestParam String userid, @RequestParam String userpassword, Model model){
 		String resultPage = "intro/intro"; 
 		if(service.LoginService(userid, userpassword)){
