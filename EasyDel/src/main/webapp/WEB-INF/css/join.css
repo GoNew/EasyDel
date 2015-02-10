@@ -46,7 +46,10 @@ span.red{
 	margin:3px;
 }
 #imagePreview{
+	background-position: center center;
+	background-size: cover;
 	height: 140px;
+	display: inline-block;
 }
 
 #button{

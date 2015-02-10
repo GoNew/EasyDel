@@ -3,9 +3,21 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="easydel.type90.mapper.reports">
-	<select id="selectAllAddressGus" resultType="ReportType">
+	<select id="selectAllReportType" resultType="ReportType">
 		select		*
 		from		Report_type
 		<!-- KEY 랑 VALUE로 쓸거 두개 다 가져옴. 리절트타입은 마이배티스의 alias와 같이설정 -->
+		<!-- 용도 : reportform.jsp의 셀렉트박스에 집어넣어줄 것들임 -->
 	</select>
+	
+	<select id="selectRequestByRequestId" resultType="Request">
+		select		senderIdusers, cargoName
+		from		Request
+		where		session. requestId = requestId
+		<!-- 기존 session? 에 있는 requestId를 기준으로 같은 requetId를 가진 걸 받아오기  -->
+		<!-- 용도 : reportform.jsp의 reportedId, reportedCargo에 집어넣어줄것들-->
+	
+	
+	</select>
+	
 </mapper>

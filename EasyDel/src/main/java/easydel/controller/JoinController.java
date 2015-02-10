@@ -1,5 +1,7 @@
 package easydel.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import easydel.entity.User;
 import easydel.exception.DuplicatedIdException;
@@ -31,7 +34,7 @@ public class JoinController {
 		return "member/join";
 	}
 	
-	//회원가입에서 id 중복체크 ajax를 위한 컨트롤러 
+	//회원가입에서 id 중복체크 ajax를 위한 컨트롤러
 	@RequestMapping(value="/ajax/dupidcheck", produces="text/plain;charset=UTF-8")
 	public @ResponseBody String dupidcheck(@RequestParam String userId, Model model) {
 		String result;
@@ -46,19 +49,32 @@ public class JoinController {
 
 	//회원가입을 위한 컨트롤러
 	@RequestMapping(value="/join", method=RequestMethod.POST)
-	public String join(Model model, User user, @RequestParam String birthdate) {
+	public String joinWithPicture(Model model, @RequestParam("imgFileInput") MultipartFile file,
+			User user, @RequestParam String birthdate) {
 		String resultPage = "intro/intro";
+		String filePath = "/img/EHlisaface.png";
+		
+		File createProfile = null;
 		
 		try {
+			service.serviceCheckDuplicatedId(user.getUserId());
+			if(file != null && !file.isEmpty()) {
+				createProfile = new File("c:/db/uploaded/profile/" + user.getUserId());
+				file.transferTo(createProfile);
+				filePath = "/profile/" + user.getUserId();
+			}
+			user.setUserPicture(filePath);
 			user.setUserBirthdate(new SimpleDateFormat("yyyy-MM-dd").parse(birthdate));
 			service.serviceRegistrateNewUser(user);
-		} catch (DuplicatedIdException e) { // 여기서 아이디 중복체크 한번 더 해준다
-			model.addAttribute("errorMsg", "아이디 중복");
-			resultPage = "error/errorPage";
-		} catch (ServiceFailException | ParseException e) {
+		} catch (DuplicatedIdException | ServiceFailException
+				| ParseException | IOException | IllegalStateException e) {
+			e.printStackTrace();
+			if(!filePath.equals("/img/EHlisaface.png") && (createProfile != null))
+				createProfile.delete();
 			model.addAttribute("errorMsg", "알수없는 원인");
 			resultPage = "error/errorPage";
 		}
+		
 		return resultPage;
 	}
 }

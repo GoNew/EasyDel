@@ -30,6 +30,11 @@
 	<mvc:resources location="/WEB-INF/uikit/css/" mapping="/uikit/css/**"/>
 	<mvc:resources location="/WEB-INF/uikit/js/" mapping="/uikit/js/**"/>
 	<mvc:resources location="/WEB-INF/uikit/fonts/" mapping="/uikit/fonts/**"/>
-
+	
+	<bean id="multipartResolver"
+	class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+	
+	<mvc:resources location="/WEB-INF/profile/" mapping="/profile/**"/>
+	
 </beans>
 
