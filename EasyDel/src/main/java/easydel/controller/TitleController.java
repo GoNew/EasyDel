@@ -2,6 +2,8 @@ package easydel.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,13 +39,23 @@ public class TitleController {
 	@RequestMapping(method=RequestMethod.POST)
 	public @ResponseBody String getBoard(@RequestParam Integer pageNum,
 			@RequestParam String delTypeFilter, @RequestParam String statusFilter,
-			@RequestParam String sortType) {
+			@RequestParam String sortType, HttpServletRequest request) {
 		StringBuilder result = new StringBuilder();
 		
 		List<Title> list = boardService.getBoard(sortType, delTypeFilter, statusFilter, pageNum);
 		
 		for(Title title: list) {
-			result.append("<tr><td>");
+			result.append("<tr class=\"");
+			if(title.getRequestStatus() == 1) {
+				result.append("beforeDel");
+			} else {
+				result.append("onDel");
+			}
+			result.append("\" onclick=\"location.href='")
+				.append(request.getContextPath())
+				.append("/board/show?rid=")
+				.append(title.getRequestId())
+				.append("'\"><td>");
 			if(title.getRequestType() == 0) {
 				result.append("단순운송/ ");
 			} else {
