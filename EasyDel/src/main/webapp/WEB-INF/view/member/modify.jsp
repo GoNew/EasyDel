@@ -8,18 +8,31 @@
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/modify.css"/>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/header.css"/>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/footer.css"/>
 <title>회원정보 수정</title>
 <script>
 	$(document).ready(function() {
 		$("#modifyForm").submit(function() {
+			
 			var pw = $("#userPassword").val()
 			var pw2 = $("#userPassword2").val()
-			if (pw == pw2) {
+			
+			var htp = $("#hiddentelephone").val()
+			var tp = $("#telephone").val() 	
+			
+			if (pw == pw2 && htp == tp ) {
 				return true;
-			} else {
+			} else if( pw != pw2) {
 				alert("2개의 비밀번호가 일치해야 합니다.");
 				return false;
-			}
+			} else if(htp != tp){
+				alert("전화번호 인증을 해야합니다.");
+				return false;
+			} else{
+				alert("넌 수정못해 이유는 나두몰러");
+				return false;
+			}			
 			return false;
 		})
 	})
@@ -72,9 +85,10 @@
 		
 		<div>
 			<input type="email" value="<%=user.getUserEmail()%>" placeholder="이메일" class="uk-width-7-10" required> <br>
-      	    <input type="tel" value="<%=user.getUserPhone()%>" pattern="[0-9]{10,11}" title="10~11자리 숫자만 사용할 수 있습니다." placeholder="휴대폰전화번호" class="uk-width-7-10" required> 
+			<input type="hidden" value="<%=user.getUserPhone()%>" id="hiddentelephone"></input>
+      	    <input type="tel" value="<%=user.getUserPhone()%>" id="telephone"pattern="[0-9]{10,11}" title="10~11자리 숫자만 사용할 수 있습니다." placeholder="휴대폰전화번호" class="uk-width-7-10" required> 
       	    <button class="uk-button uk-button uk-width-1-5" type="button" data-uk-button id="button2">전송</button> <br>
-     	    <input type="text" placeholder="인증번호" class="uk-width-7-10" required> 
+     	    <input type="text" placeholder="인증번호" class="uk-width-7-10"> 
      		<button class="uk-button uk-button uk-width-1-5" type="button" data-uk-button id="button2">확인</button>
         </div>
      	<br>
