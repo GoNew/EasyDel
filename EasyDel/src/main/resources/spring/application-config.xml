@@ -34,6 +34,8 @@
 	<bean class="easydel.service.UserServiceImpl"></bean>
 	<bean class="easydel.service.DongServiceImpl"></bean>
 	<bean class="easydel.service.GuServiceImpl"></bean>
+	<bean class="easydel.dao.ReportTypeDaoImpl"></bean>
+	<bean class="easydel.service.ReportTypeServiceImpl"></bean>
 	
 	
 	<context:annotation-config></context:annotation-config>
