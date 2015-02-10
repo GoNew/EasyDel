@@ -10,20 +10,20 @@ ul, ol{list-style:name;}
 
 
 #navbar {
-height: 42px;
+height: 60px;
 background: #f7f7f7;
 color: #444444;
 border: 1px solid rgba(0, 0, 0, 0.1);
 border-bottom-color: rgba(0, 0, 0, 0.3);
 border-radius: 4px;
 background-origin: border-box;
-background-image: -webkit-linear-gradient(top, #49A6D7, #1BC1F2);
+background-image: -webkit-linear-gradient(top, #00b4f5, #008dc5);
 background-image: linear-gradient(to bottom, #00b4f5, #008dc5);
 }
 
 #logo1{
 	width: 359px;
-	height: 41px;
+	height: 55px;
 	overflow: hidden;
 }
 
@@ -38,33 +38,39 @@ border-bottom-color: rgba(0, 0, 0, 0.4);
 text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
 
 }
+
+#mainbtn{
+	width: 80px;
+}
+
 #navbtn{
-	height: 42px;
+	height: 60px;
 }
 
 #profilebtn{
-/* 	min-height: 42px; */
+	min-height: 55px;
  	min-width: 120px;
 	background-image: linear-gradient(to bottom, #00b4f5, #008dc5);
 	margin-right: 50px;
 }
 #profilebtnsub{
-	margin: 9px 10px;
+	margin: 21px 10px;
 	font-size: 30px;
 	float: right;	
 }
 
 #idimg {
-	height: 42px;
-	width: 56px;
-	margin-right:5px;
+	height: 50px;
+	width: 55px;
+	margin:5px;
 }
 
 #log{
-	height: 40px;
+	height: 50px;
 	width: 54px;
 	border: 1px solid white;
 	float: left;
-	margin-right:15px;
+	margin:5px 15px;
 	color: white;
+
 }

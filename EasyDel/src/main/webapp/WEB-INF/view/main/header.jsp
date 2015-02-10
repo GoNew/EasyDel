@@ -17,7 +17,7 @@
 		<ul class="uk-navbar-nav">
 			<li>
 				<div id="navbtn">
-					<button class="uk-button uk-button-primary"
+					<button id="mainbtn" class="uk-button uk-button-primary"
 						data-uk-offcanvas="{target:'#my-id1'}">
 						<i class="uk-icon-navicon uk-icon-large"></i>
 					</button>
@@ -81,7 +81,7 @@
 		</div>
 
 		<div class="uk-navbar-content uk-navbar-center">
-			<img id="logo1" src="<%=request.getContextPath()%>/img/easydel.png">
+			<img id="logo1" src="<%=request.getContextPath()%>/img/easydel_logo.png">
 		</div>
 
 	</nav>
