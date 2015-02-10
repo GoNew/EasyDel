@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<nav class="uk-navbar">
+	<nav id=navbar class="uk-navbar">
 
 		<ul class="uk-navbar-nav">
 			<li>
