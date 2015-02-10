@@ -1,12 +1,16 @@
 @CHARSET "UTF-8";
 
-* {
-	border: 1px solid black;
-}
+*{
+	margin: 0; padding:0;
+/* 	border: 1px solid red;
+ */}
+img{ border: 0;}
+address{font-style: normal;}
+ul, ol{list-style:name;}
 
 #fullbrowser {
-	height: 100%;
 	width: 1025px;
+	margin: 0px auto;
 }
 
 #navbar {
@@ -21,17 +25,29 @@
 	background-image: linear-gradient(to bottom, #00b4f5, #008dc5);
 }
 
-#middlebrowser {
-	height: 100%;
-	width: 1009px;
-}
-
-#buttonimg1 {
-	width: 466px;
-	float: left;
+#imgcontainer{
+	display: -webkit-box;
 	
 }
 
+#middlebrowser {
+	width: 1009px;
+	margin: 150px auto;
+}
+
+
+#buttonimg1 {
+	width: 450px;
+	height: 520px;
+	margin-right: 10px;
+	
+}
 #buttonimg2 {
-	float: right;
+	width: 450px;
+	height: 520px;
+	margin-left: 10px;
+}
+
+div.uk-overlay-caption{
+	margin: 0px 5px;
 }

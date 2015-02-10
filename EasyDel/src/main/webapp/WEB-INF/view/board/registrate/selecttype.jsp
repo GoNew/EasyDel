@@ -7,24 +7,28 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/uikit/css/uikit.gradient.css" />
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/header.css" />
+	href="<%=request.getContextPath()%>/css/selecttype.css" />
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<div id=fullbrowser>
-	<div id=middlebrowser" class="uk-width-1-1">
-		<div class="uk-width-1-3">
-		<img id="buttonimg1" alt="단순 운송 의뢰 등록" src="<%=request.getContextPath()%>/img/simpleDel.PNG">
-		<img id="buttonimg2" alt="구매&운송 의뢰 등록" src="<%=request.getContextPath()%>/img/purNdel.png">
+	<div id=fullbrowser align="center">
+		<div id="middlebrowser" align="center">
+			<div id="imgcontainer">
+				
+					<img id="buttonimg1" alt="단순 운송 의뢰 등록" src="<%=request.getContextPath()%>/img/a1.PNG" class="uk-button">
+
+				
+					<img id="buttonimg2" alt="구매&운송 의뢰 등록"
+						src="<%=request.getContextPath()%>/img/a2.PNG" class="uk-button">
+			</div>
 		</div>
 	</div>
-</div>
 </body>
-<jsp:include page="/WEB-INF/view/main/footer.jsp"></jsp:include>
 </html>
+<jsp:include page="/WEB-INF/view/main/footer.jsp"></jsp:include>
 
 
 

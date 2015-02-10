@@ -29,9 +29,9 @@
 						<ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon"
 							data-uk-nav="">
 							<li><a href="">메인</a></li>
-							<li class="uk-active"><a href="">전체 의뢰 보기</a></li>
-							<li class="uk-active"><a href="">의뢰 올리기</a></li>
-							<li class="uk-active"><a href="">EDMoney</a></li>
+							<li><a href="">전체 의뢰 보기</a></li>
+							<li><a href="">의뢰 올리기</a></li>
+							<li><a href="">EDMoney</a></li>
 
 						</ul>
 
@@ -45,11 +45,14 @@
 		<div class="uk-navbar-flip">
 			<ul class="uk-navbar-nav">
 				<li>
+					<div id="log" align="center">알림자리</div>
+				</li>
+				<li>
 					<div id="profilebtn" data-uk-offcanvas="{target:'#my-id2'}">
-						<img id="idimg"
-					src="<%=request.getContextPath()%>/img/images.jpg">
+						<img id="idimg" class="uk-border-circle"
+							src="<%=request.getContextPath()%>/img/images.jpg">
 						<div id="profilebtnsub" align="center">사용자 ID</div>
-						
+
 					</div>
 
 					<div id="my-id2" class="uk-offcanvas">
@@ -58,9 +61,9 @@
 
 							<ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon"
 								data-uk-nav="">
-								<li><a href="">개인정보 수정</a></li>
-								<li class="uk-active"><a href="">내 진행 보기</a></li>
-								<li class="uk-active"><a href="">로그아웃</a></li>
+								<li><a href="<%=request.getContextPath()%>/modify">개인정보 수정</a></li>
+								<li><a href="">내 진행 보기</a></li>
+								<li><a href="">로그아웃</a></li>
 
 							</ul>
 

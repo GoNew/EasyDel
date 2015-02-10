@@ -43,8 +43,8 @@ text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 
 #profilebtn{
-/* 	min-height: 42px;
- */	min-width: 120px;
+/* 	min-height: 42px; */
+ 	min-width: 120px;
 	background-image: linear-gradient(to bottom, #00b4f5, #008dc5);
 	margin-right: 50px;
 }
@@ -58,4 +58,13 @@ text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
 	height: 42px;
 	width: 56px;
 	margin-right:5px;
+}
+
+#log{
+	height: 40px;
+	width: 54px;
+	border: 1px solid white;
+	float: left;
+	margin-right:15px;
+	color: white;
 }
