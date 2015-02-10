@@ -25,13 +25,12 @@
         url="jdbc:oracle:thin:@localhost:1521:XE"/>
         <!--  url="jdbc:oracle:thin:@210.107.234.57:1521:XE"/>-->
 
-    
-    <!-- <Resources>
+    <Resources>
     	<PreResources 
     		className="org.apache.catalina.webresources.DirResourceSet"
-    		base="c:\db\uploaded\"
-    		webAppMount="/WEB-INF/upload"
+    		base="c:\db\uploaded\profile"
+    		webAppMount="/WEB-INF/profile"
     	></PreResources>
-    </Resources> -->
+    </Resources>
     
 </Context>

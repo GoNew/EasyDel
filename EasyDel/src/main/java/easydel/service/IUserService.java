@@ -8,7 +8,7 @@ import easydel.exception.ServiceFailException;
 //2015.02.10 11:20 rabbit(깡총깡총) 작성
 public interface IUserService {
 	public void serviceRegistrateNewUser(User user)
-			throws DuplicatedIdException, ServiceFailException;
+			throws ServiceFailException;
 	public void serviceCheckDuplicatedId(String userId)
 			throws DuplicatedIdException, ServiceFailException;
 	public boolean LoginService(String userId, String userPassword);

@@ -15,6 +15,7 @@ import easydel.exception.ServiceFailException;
 //2015.02.09 13:47 rabbit(깡총깡총) 작성
 //2015.02.09 17:46 jll 작성
 //2015.02.10 11:20 rabbit(깡총깡총) 작성
+//2015.02.10 19:50 gonew 수정
 public class UserServiceImpl implements IUserService {
 	static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
@@ -35,9 +36,7 @@ public class UserServiceImpl implements IUserService {
 	
 	@Override
 	@Transactional(rollbackFor = { DuplicatedIdException.class, ServiceFailException.class })
-	public void serviceRegistrateNewUser(User user) throws DuplicatedIdException, ServiceFailException {
-		this.serviceCheckDuplicatedId(user.getUserId());
-
+	public void serviceRegistrateNewUser(User user) throws ServiceFailException {
 		int result = 0;
 		result = dao.insertUser(user);
 

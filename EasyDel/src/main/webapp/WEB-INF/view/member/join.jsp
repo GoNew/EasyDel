@@ -44,40 +44,23 @@
 			return false;
 		})
 		
-		$("#imgFileInput").change(loadImageFile);
-	})
-	
-	
-	
-function loadImageFile() {
-	if (window.FileReader) {
-		var ImagePre; 
-		var ImgReader = new window.FileReader();
-		var fileType = "/^(?:image\/bmp|image\/gif|image\/jpeg|image\/png|image\/x\-xwindowdump|image\/x\-portable\-bitmap)$/i";
-
-		ImgReader.onload = function (Event) {
-			if (!ImagePre) {
-				var newPreview = document.getElementById("imagePreview");
-				ImagePre = new Image();
-                ImagePre.style.width = "200px";
-                ImagePre.style.height = "140px";
-				newPreview.appendChild(ImagePre);
-			}
-			ImagePre.src = Event.target.result;
-		};
- 
-        return function () {
-            var img = document.getElementById("imgFileInput").files;
-            if (!fileType.test(img[0].type)) { 
-                alert("이미지 파일을 업로드 하세요"); 
-                return; 
-            }
-			ImgReader.readAsDataURL(img[0]);
-		} 
-	}
-	document.getElementById("imagePreview").src = document.getElementById("imgFileInput").value;
-};
- 
+		$("#imgFileInput").change(function() {
+			var files = !!this.files ? this.files : [];
+			if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+			
+			if (/^image/.test(files[0].type)){ // only image file
+				$("#imagePreview").html("");
+				var reader = new FileReader(); // instance of the FileReader
+				reader.readAsDataURL(files[0]); // read the local file
+				
+				reader.onloadend = function() { // set image data as background of div
+					$("#imagePreview").css("background-image", "url("+this.result+")");
+	            }
+        	} else {
+        		alert("사진만 등록가능합니다.");
+        	}
+		});
+	});
  
 
 /* </head>
@@ -92,7 +75,7 @@ function loadImageFile() {
 <div class="uk-clearfix">
 <div id="logoimg"> <img id="logo" src="<%=request.getContextPath()%>/img/EHlogo.PNG" alt="" class="uk-align-center"> </div>
 <div id="formcss" class="uk-align-center">
-	<form class="uk-form" action="<%=request.getContextPath()%>/join" id="joinForm" method="post">
+	<form class="uk-form" enctype="multipart/form-data" action="<%=request.getContextPath()%>/join" id="joinForm" method="post">
 	<label> <span class="red">* </span> 는 항목은 필수 항목입니다. </label> <br>
     	<section id="aaa">    		
 	    	<div align="left" id="leftform">
@@ -119,11 +102,11 @@ function loadImageFile() {
 			<div align="right" id="rightform">
 				<div id="CheckId" align="center"></div>
 				<label for="imgFileInput">
-					<div id="imagePreview">
-						프로필 사진을 저장하려면 여기를 클릭하세요.
+					<div id="imagePreview" class="uk-width-1-1 uk-text-center">
+						<br><br>프로필 사진을 등록하려면 여기를 선택하세요!
 					</div>
 				</label>
-				<input type="file" id="imgFileInput">
+				<input type="file" id="imgFileInput" name="imgFileInput">
 			</div>
 		</section>
 		<div>
