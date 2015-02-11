@@ -42,12 +42,18 @@
 		</li>
 	</ul>
 
-
-
 	<div class="uk-navbar-flip">
 		<ul class="uk-navbar-nav">
 			<li>
-				<div id="log" align="center">알림자리</div>
+				<div class="uk-button-dropdown" data-uk-dropdown="{boundary:'#boundary'}">
+					<div id="log" align="center" class="uk-button"
+						style="background-image: url('<%=request.getContextPath() %>/img/alertBell.png')"></div>
+					<div class="uk-dropdown uk-dropdown-stack">
+						<ul class="uk-nav uk-nav-dropdown">
+							
+						</ul>
+					</div>
+				</div>
 			</li>
 			<li>
 				<div id="profilebtn" data-uk-offcanvas="{target:'#my-id2'}">

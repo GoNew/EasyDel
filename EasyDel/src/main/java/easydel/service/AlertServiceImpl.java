@@ -20,10 +20,16 @@ public class AlertServiceImpl implements IAlertService {
 	}
 
 	@Override
-	public int getAlertCount(String userId) {
+	public int getAlertListCount(String userId) {
 		Integer result = dao.countAlertLogsByUserId(userId);
 		result = result != null ? result : 0;
 		return result;
+	}
+	
+	@Override
+	public boolean hasMoreRemainingEvalThings(String userId) {
+		Integer evalCount = dao.countRequestsBeforeEvalByUserId(userId);
+		return (evalCount != null) && (evalCount != 0);
 	}
 
 	@Override

@@ -41,4 +41,11 @@ public class AlertDaoImpl implements IAlertDao {
 		int result = session.delete(stmt, alertId);
 		return result;
 	}
+
+	@Override
+	public Integer countRequestsBeforeEvalByUserId(String userId) {
+		String stmt = namespace + ".selectRequestsBeforeEvalCountByUserId";
+		Integer result = session.selectOne(stmt, userId);
+		return result;
+	}
 }

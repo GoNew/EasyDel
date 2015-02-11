@@ -7,6 +7,7 @@ import easydel.entity.AlertLog;
 public interface IAlertDao {
 	public List<AlertLog> selectAlertLogsByUserId(String userId);
 	public Integer countAlertLogsByUserId(String userId);
+	public Integer countRequestsBeforeEvalByUserId(String userId);
 	public int insertAlertLog(AlertLog alertLog);
 	public int deleteAlertLogByAlertId(Integer alertId);
 }
