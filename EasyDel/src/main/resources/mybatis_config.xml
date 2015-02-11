@@ -21,6 +21,7 @@
 		<typeAlias type="easydel.entity.SenderEval" alias="SenderEval" />
 		<typeAlias type="easydel.entity.User" alias="User" />
 		<typeAlias type="easydel.entity.Title" alias="Title"/>
+		<typeAlias type="easydel.entity.ViewMySendRequest" alias="ViewMySendRequest"/>
 	</typeAliases>
 	
 	<mappers>
@@ -32,5 +33,6 @@
 		<mapper resource="mappers/gonew/alertLogsMapper.xml"/>
 		<mapper resource="mappers/type90/reporttypeMapper.xml"/>
 		<mapper resource="mappers/jll/requestsMapper.xml"/>
+		<mapper resource="mappers/gonew/requestsMapper.xml"/>
 	</mappers>
 </configuration>

@@ -38,6 +38,8 @@
 	<bean class="easydel.dao.AlertDaoImpl"></bean>
 	<bean class="easydel.service.ReportTypeServiceImpl"></bean>
 	<bean class="easydel.service.AlertServiceImpl"></bean>
+	<bean class="easydel.dao.ViewMySendRequestDaoImpl"></bean>
+	<bean class="easydel.service.ShowMyRequestsImpl"></bean>
 	
 	<context:annotation-config></context:annotation-config>
 	

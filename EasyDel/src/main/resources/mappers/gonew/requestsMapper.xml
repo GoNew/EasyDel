@@ -3,7 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="easydel.gonew.mapper.requests">
-	<select id="selectRequestSender" parameterType="string">
+	<select id="selectMySendRequest" parameterType="string"
+		resultType="ViewMySendRequest">
 		select		R.request_id as request_id,
 					R.cargo_name as cargo_name,
 					U.user_id as user_id,
@@ -19,7 +20,7 @@
 		on			R.courier_id=U.user_id
 		left join	COMPLETE_DELIVERYS C
 		on			R.request_id=C.request_id
-		where		R.sender_id=#{userId}
-		and			R.report_status=null
+		where		R.report_status is null
+		and			R.sender_id=#{userId};
 	</select>
 </mapper>
