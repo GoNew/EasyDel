@@ -83,7 +83,7 @@ public class Request implements Serializable {
 	private Integer validationCode;
 
 	/** 신고 상태. */
-	private Report reportSatusreports;
+	private Integer reportStatus;
 
 	/** 글 소멸 시각. */
 	private Date expireDate;
@@ -100,6 +100,14 @@ public class Request implements Serializable {
 	public Request() {
 		this.completeDeliverysSet = new HashSet<CompleteDelivery>();
 		this.requestCmtsSet = new HashSet<RequestCmt>();
+	}
+	
+	public Integer getReportStatus() {
+		return reportStatus;
+	}
+
+	public void setReportStatus(Integer reportStatus) {
+		this.reportStatus = reportStatus;
 	}
 
 	/**
@@ -518,25 +526,6 @@ public class Request implements Serializable {
 	 */
 	public Integer getValidationCode() {
 		return this.validationCode;
-	}
-
-	/**
-	 * 신고 상태을 설정합니다..
-	 * 
-	 * @param reportSatusreports
-	 *            신고 상태
-	 */
-	public void setReportSatusreports(Report reportSatusreports) {
-		this.reportSatusreports = reportSatusreports;
-	}
-
-	/**
-	 * 신고 상태을 가져옵니다..
-	 * 
-	 * @return 신고 상태
-	 */
-	public Report getReportSatusreports() {
-		return this.reportSatusreports;
 	}
 
 	/**
