@@ -23,6 +23,7 @@ public class RequestServiceImpl implements IRequestService {
 	private SqlSession session;
 
 	@Override
+	@Transactional
 	public void serviceRegistrateNewRequest(Request request)
 			throws ServiceFailException {
 		int result = 0;
@@ -35,6 +36,7 @@ public class RequestServiceImpl implements IRequestService {
 	}
 
 	@Override
+	@Transactional
 	public void Checkvalicode(Request request) throws VaildateFailException {
 		
 	}

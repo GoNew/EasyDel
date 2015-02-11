@@ -56,9 +56,9 @@ $("#imgFileInput").change(function() {
 	</div>
 	
 	<div id="subproductinfo">
-		<div id="row1"><div id="col1">물품명</div><div id=""><input class="producttext" type="text"></div></div>
-		<div id="row2"><div id="col1">비용</div><div id=""><input class="producttext" type="text"></div></div>
-		<div id="row3"><div id="col1">물품 상세</div><div id=""><input class="productdetails" type="text"></div></div>
+		<div id="row1"><div id="col1">물품명</div><div id=""><input class="producttext" type="text" name="cargoName"></div></div>
+		<div id="row2"><div id="col1">비용</div><div id=""><input class="producttext" type="text" name="deliveryPrice"></div></div>
+		<div id="row3"><div id="col1">물품 상세</div><div id=""><input class="productdetails" type="text" name="cargoDesc"></div></div>
 	</div>
 
 </div>
