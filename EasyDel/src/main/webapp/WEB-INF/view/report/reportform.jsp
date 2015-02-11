@@ -6,22 +6,22 @@
 <%@page import="easydel.entity.Report"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%-- <jsp:include page="/WEB-INF/view/main/header.jsp"></jsp:include>--%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>report!</title>
 <style type="text/css"></style>
 <script type="text/javascript">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/list.css" />
+<%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/css/list.css"/> --%>
 
 <script type="text/javascript">
 </script>
 </head>
 <%
-	List<ReportType> reportTypeList = (List<ReportType>) request.getAttribute("");
-/*  */
+	List<ReportType> reportTypeList = (List<ReportType>) request.getAttribute("reportType");
 	reportTypeList = reportTypeList != null ? reportTypeList : new ArrayList<ReportType>();
+
 %>
 
 <body>
@@ -33,6 +33,8 @@
             margin: 20px auto;
           
 }
+  div{align:center;font-family:"맑은고딕";font-size:10px;}
+
   #reportmain {
   max-width: 600px;
   margin: 0 auto;
@@ -60,37 +62,34 @@
   margin : 1 auto;
   border-width: 1px;
   border: 1px solid #000000; 
-  }
-  
-  
+  }  
 </style> 
+
+
 <form action="/request" method="post">
 <div id="div1" class="elem">
-<span class="label">REPORT!</span><P></P>
-<span class="label">신고대상</span> :      ${reportedId}<P>
-<span class="label">신고글</span> :     ${reportedCargo}<p><p>
+<span class="label"><b>REPORT!</b></span><P></P>
+<span class="label" align="center">신고대상</span> :   ${reportedId}<P>
+<span class="label">신고글</span> :    ${reportedCargo}<p><p>
 <span class="label">신고 이유</span>
 <select id="reportType" name="reportType">
 <%for (ReportType reporttype : reportTypeList) {%>
 <option value="<%=reporttype.getReportType()%>"><%=reporttype.getReportTypeDesc()%></option>
 <%}%>
-</select><br>
-</p>
+</select><br></p>
 </div>
-<div id="middlediv" class="elem">
-신고하기 전에 잠시!<br>
+<div id="middlediv" class="elem" font-size=8px;>
+<b>신고하기 전에 잠시!</b><br>
 허위 신고일 경우에는 그만큼 불이익이 갈 수 있음을 명심해주세요!<br><br>
 </div>
 <div id="div2" class="elem">
 상세 사유<br>
-<textarea id="reportdesc" type="text" name="reportdesc"  rows="5" cols="40" value="상세 신고 내용을 적어주세요"></textarea><br>
+<textarea id="reportdesc" type="text" name="reportdesc"  rows="5" cols="40">상세 신고 내용을 적어주세요</textarea><br>
 <button id="submit" type="submit" value="report">No Mercy!</button>
-<a href="javascript:cancelForm();"><img src="http://static.naver.com/common/popup/btn_cancel2.gif" width="48" height="28" title="" alt="취소" onmouseover="this.src='http://static.naver.com/common/popup/btn_cancel2_over.gif'" onmouseout="this.src='http://static.naver.com/common/popup/btn_cancel2.gif'"></a>
+<button id="submit" type="submit" value="report">Show Mercy!</button>
 </div>
 </form>
-
-
-
+</center>
 </body>
 <jsp:include page="/WEB-INF/view/main/footer.jsp"></jsp:include>
 </html>
