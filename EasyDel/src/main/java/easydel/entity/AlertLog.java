@@ -17,13 +17,13 @@ public class AlertLog implements Serializable {
 	private Integer alertId;
 
 	/** 회원. */
-	private User users;
+	private String userId;
 
 	/** alert_comment. */
 	private String alertComment;
 
 	/** alert_status. */
-	private String alertStatus;
+	private Integer alertStatus;
 
 	/**
 	 * 생성자.
@@ -50,23 +50,13 @@ public class AlertLog implements Serializable {
 		return this.alertId;
 	}
 
-	/**
-	 * 회원을 설정합니다..
-	 * 
-	 * @param users
-	 *            회원
-	 */
-	public void setUsers(User users) {
-		this.users = users;
+
+	public String getUserId() {
+		return userId;
 	}
 
-	/**
-	 * 회원을 가져옵니다..
-	 * 
-	 * @return 회원
-	 */
-	public User getUsers() {
-		return this.users;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	/**
@@ -94,7 +84,7 @@ public class AlertLog implements Serializable {
 	 * @param alertStatus
 	 *            alert_status
 	 */
-	public void setAlertStatus(String alertStatus) {
+	public void setAlertStatus(Integer alertStatus) {
 		this.alertStatus = alertStatus;
 	}
 
@@ -103,7 +93,7 @@ public class AlertLog implements Serializable {
 	 * 
 	 * @return alert_status
 	 */
-	public String getAlertStatus() {
+	public Integer getAlertStatus() {
 		return this.alertStatus;
 	}
 
@@ -141,6 +131,13 @@ public class AlertLog implements Serializable {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "AlertLog [alertId=" + alertId + ", userId=" + userId
+				+ ", alertComment=" + alertComment + ", alertStatus="
+				+ alertStatus + "]";
 	}
 
 }
