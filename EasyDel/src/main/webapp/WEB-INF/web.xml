@@ -22,12 +22,12 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
   <filter>
-    <display-name>RequestEncoding</display-name>
-    <filter-name>RequestEncoding</filter-name>
-    <filter-class>easydel.filter.RequestEncoding</filter-class>
+    <display-name>RequestEncodingFilter</display-name>
+    <filter-name>RequestEncodingFilter</filter-name>
+    <filter-class>easydel.filter.RequestEncodingFilter</filter-class>
   </filter>
   <filter-mapping>
-    <filter-name>RequestEncoding</filter-name>
+    <filter-name>RequestEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
