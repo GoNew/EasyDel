@@ -17,20 +17,126 @@ ul, ol{list-style:name;}
 	width: 1009px;
 }
 
+
+
+#imagePreview{
+	background-position: center center;
+	background-size: cover;
+	display: inline-block;
+	height: 400px;
+	width: 600px;
+	border: 1px solid #B0949F;
+}
+#imgnotice{
+	font-size: 29px;
+	margin:190px auto;
+	
+}
+#imgFileInput {
+	display: none;
+} 
+
 #row1, #row2, #row3, #row4{
 	display: -webkit-box;
+	margin-top:20px;
+	margin-bottom:20px;
+	
+}
+
+#col1, #col2, #gudongselect{
+	width: 140px;
+	height: 40px;
+	text-align: right;
+	font-size: 25px;
+	display:table-cell;vertical-align:middle;
+	margin-left: 8px;
+}
+#gudiv, #dongdiv,#from,#to{
+	height: 40px;
+	width: 60px;
+	font-size: 25px;
+	display:table-cell;vertical-align:middle;
+	text-align: center;
+}
+
+
+input.producttext{
+	width: 725px;
+	height: 40px;
+	margin-left: 8px;
+}
+input.nametext, input.phonetext{
+	width: 340px;
+	height: 40px;
+	margin-left: 8px;
+}
+
+input.date{
+	width: 360px;	
+	height: 40px;
+	font-size: 25px;
+	margin-left: 8px;
+}
+
+input.productdetails{
+	width: 725px;
+	height: 200px;
+	margin-left: 8px;
+}
+
+input.givemessage{
+	width: 830px;
+	height: 100px;
+	margin-left: 8px;
+}
+
+input.addressdetails{
+	width: 690px;
+	height: 40px;
+	margin-left: 8px;
 }
 
 #my-id{
 	display: -webkit-box;
 }
 
+#subjectdiv{
+	display: -webkit-box;
+}
+
+#subject{
+	height: 40px;
+	font-size: 25px;
+	text-align: center;
+	display:table-cell;vertical-align:bottom;
+}
+
+
 #ischeckbox{
-	margin-left: 100px
+	width: 260px;
+	font-size: 20px;
+	display: -webkit-box;
+	margin-left: 20px;
+}
+
+input.receiverchk{
+	width: 30px;
+	height: 30px;
+	margin-top: 9px;
+}
+div.chktext{
+	width: 250px;
+	height: 40px;
+	display:table-cell;vertical-align:bottom;
 }
 
 #samebtn{
-margin-left: 500px
+	margin-left: 480px;
+}
+input.uk-button{
+	display: inline-block;
+	height: 40px;
+	
 }
 
 #allregistrater, #allreceiver #allproductinfo {
@@ -41,5 +147,16 @@ margin-left: 500px
 }
 
 
+#enterbtn{
+	padding: 7px 15px 7px;
+	line-height: 38px;
+	font-size: 30px;
+	border-radius: 5px;
+	margin: 15px 0;
+}
+
+hr{
+	border: 2px solid black;
+}
 
 
