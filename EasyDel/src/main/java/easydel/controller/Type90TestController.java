@@ -17,12 +17,18 @@ public class Type90TestController {
 		logger = LoggerFactory.getLogger(Type90TestController.class);
 	}
 
-	// reportedId에 나쁜놈1, 나쁜물건 1이라는 값 집어넣고 되는지 확인
-	@RequestMapping(value="/report", method=RequestMethod.GET)
+	@RequestMapping(value="/report",method=RequestMethod.GET)
 	public String response(Model model){
-		model.addAttribute("reportedId", "나쁜놈1");
-		model.addAttribute("reportedCargo", "나쁜물건1");
-		return "report/reportform";
+	//Step 1. reportedId에 나쁜놈1, 나쁜물건 1이라는 값 집어넣고 되는지 확인 => O
+	//Step 2. request에서 requestId, senderIdusers랑 cargoName 받아오기
+	//Step 3. 받아온 것들을 reportform에 집어넣기.
+	model.addAttribute("reportedId","나쁜사람1" );
+	model.addAttribute("reportedCargo","나쁜물건1");
+	
+	// 됨
+	
+	return "report/reportform";
 	}
+
 	
 }
