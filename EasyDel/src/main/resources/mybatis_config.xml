@@ -30,5 +30,6 @@
 		<mapper resource="mappers/gonew/dongsMapper.xml"/>
 		<mapper resource="mappers/gonew/gusMapper.xml"/>
 		<mapper resource="mappers/gonew/alertLogsMapper.xml"/>
+		<mapper resource="mappers/type90/reporttypeMapper.xml"/>
 	</mappers>
 </configuration>
