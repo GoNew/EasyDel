@@ -20,10 +20,10 @@ public class Request implements Serializable {
 	private Integer requestId;
 
 	/** 회원. */
-	private User senderIdusers;
+	private String senderId;
 
 	/** 회원. */
-	private User courierIdusers;
+	private String courierId;
 
 	/** 의뢰 종류. */
 	private String requestType;
@@ -53,7 +53,7 @@ public class Request implements Serializable {
 	private Date pickupMaxTime;
 
 	/** 동 테이블. */
-	private AddressDong pickupPlaceaddressDongs;
+	private Integer pickupPlace;
 
 	/** 전달_상세 장소. */
 	private String pickupPlaceDesc;
@@ -71,7 +71,7 @@ public class Request implements Serializable {
 	private Date arrivalMaxTime;
 
 	/** 동 테이블. */
-	private AddressDong arrivalPlaceaddressDongs;
+	private Integer arrivalPlace;
 
 	/** 배달장소_상세. */
 	private String arrivalPlaceDesc;
@@ -127,44 +127,6 @@ public class Request implements Serializable {
 	 */
 	public Integer getRequestId() {
 		return this.requestId;
-	}
-
-	/**
-	 * 회원을 설정합니다..
-	 * 
-	 * @param senderIdusers
-	 *            회원
-	 */
-	public void setSenderIdusers(User senderIdusers) {
-		this.senderIdusers = senderIdusers;
-	}
-
-	/**
-	 * 회원을 가져옵니다..
-	 * 
-	 * @return 회원
-	 */
-	public User getSenderIdusers() {
-		return this.senderIdusers;
-	}
-
-	/**
-	 * 회원을 설정합니다..
-	 * 
-	 * @param courierIdusers
-	 *            회원
-	 */
-	public void setCourierIdusers(User courierIdusers) {
-		this.courierIdusers = courierIdusers;
-	}
-
-	/**
-	 * 회원을 가져옵니다..
-	 * 
-	 * @return 회원
-	 */
-	public User getCourierIdusers() {
-		return this.courierIdusers;
 	}
 
 	/**
@@ -338,24 +300,6 @@ public class Request implements Serializable {
 		return this.pickupMaxTime;
 	}
 
-	/**
-	 * 동 테이블을 설정합니다..
-	 * 
-	 * @param pickupPlaceaddressDongs
-	 *            동 테이블
-	 */
-	public void setPickupPlaceaddressDongs(AddressDong pickupPlaceaddressDongs) {
-		this.pickupPlaceaddressDongs = pickupPlaceaddressDongs;
-	}
-
-	/**
-	 * 동 테이블을 가져옵니다..
-	 * 
-	 * @return 동 테이블
-	 */
-	public AddressDong getPickupPlaceaddressDongs() {
-		return this.pickupPlaceaddressDongs;
-	}
 
 	/**
 	 * 전달_상세 장소을 설정합니다..
@@ -453,25 +397,6 @@ public class Request implements Serializable {
 	}
 
 	/**
-	 * 동 테이블을 설정합니다..
-	 * 
-	 * @param arrivalPlaceaddressDongs
-	 *            동 테이블
-	 */
-	public void setArrivalPlaceaddressDongs(AddressDong arrivalPlaceaddressDongs) {
-		this.arrivalPlaceaddressDongs = arrivalPlaceaddressDongs;
-	}
-
-	/**
-	 * 동 테이블을 가져옵니다..
-	 * 
-	 * @return 동 테이블
-	 */
-	public AddressDong getArrivalPlaceaddressDongs() {
-		return this.arrivalPlaceaddressDongs;
-	}
-
-	/**
 	 * 배달장소_상세을 설정합니다..
 	 * 
 	 * @param arrivalPlaceDesc
@@ -565,6 +490,38 @@ public class Request implements Serializable {
 	 */
 	public void addCompleteDeliverys(CompleteDelivery completeDeliverys) {
 		this.completeDeliverysSet.add(completeDeliverys);
+	}
+	
+	public String getSenderId() {
+		return senderId;
+	}
+
+	public void setSenderId(String senderId) {
+		this.senderId = senderId;
+	}
+
+	public String getCourierId() {
+		return courierId;
+	}
+
+	public void setCourierId(String courierId) {
+		this.courierId = courierId;
+	}
+
+	public Integer getPickupPlace() {
+		return pickupPlace;
+	}
+
+	public void setPickupPlace(Integer pickupPlace) {
+		this.pickupPlace = pickupPlace;
+	}
+
+	public Integer getArrivalPlace() {
+		return arrivalPlace;
+	}
+
+	public void setArrivalPlace(Integer arrivalPlace) {
+		this.arrivalPlace = arrivalPlace;
 	}
 
 	/**

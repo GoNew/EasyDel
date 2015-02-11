@@ -95,10 +95,10 @@ CREATE TABLE Complete_Deliverys
 	finish_time date DEFAULT SYSDATE NOT NULL,
 	-- 1 - 배송자평가 안함
 	-- 2 - 배송자평가 완료
-	courier_evalstatus number DEFAULT 1 NOT NULL,
+	courier_evalstatus char(1) DEFAULT '1' NOT NULL,
 	-- 1-평가안함
 	-- 2-평가완료
-	sender_evalstatus number DEFAULT 1 NOT NULL,
+	sender_evalstatus char(1) DEFAULT '1' NOT NULL,
 	PRIMARY KEY (request_id)
 );
 
@@ -160,7 +160,7 @@ CREATE TABLE Requests
 	-- 5 - 거래완료
 	-- 6 - 발송인이 취소요청
 	-- 7 - 운송인이 취소요청
-	request_Status number DEFAULT 1 NOT NULL,
+	request_Status char(1) DEFAULT '1' NOT NULL,
 	cargo_name varchar2(40) NOT NULL,
 	delivery_price number NOT NULL,
 	cargo_picture varchar2(30),
@@ -179,7 +179,7 @@ CREATE TABLE Requests
 	absence_message varchar2(50),
 	validation_code number,
 	-- 신고건
-	report_satus number,
+	report_status number,
 	-- 글의 소멸 일자를 저장한다.
 	-- 거래 완료 상태가 되면, 완료 후 7일 후에 지운다.
 	expire_date date NOT NULL,
@@ -240,13 +240,13 @@ CREATE TABLE Users
 /* Create Foreign Keys */
 
 ALTER TABLE Requests
-	ADD FOREIGN KEY (pickup_place)
+	ADD FOREIGN KEY (arrival_place)
 	REFERENCES address_dongs (dong_id)
 ;
 
 
 ALTER TABLE Requests
-	ADD FOREIGN KEY (arrival_place)
+	ADD FOREIGN KEY (pickup_place)
 	REFERENCES address_dongs (dong_id)
 ;
 
@@ -270,7 +270,7 @@ ALTER TABLE Courier_Evals
 
 
 ALTER TABLE Requests
-	ADD FOREIGN KEY (report_satus)
+	ADD FOREIGN KEY (report_status)
 	REFERENCES Reports (report_id)
 ;
 
@@ -299,8 +299,14 @@ ALTER TABLE Courier_Evals
 ;
 
 
+ALTER TABLE edmoney_logs
+	ADD FOREIGN KEY (user_id)
+	REFERENCES Users (user_id)
+;
+
+
 ALTER TABLE Requests
-	ADD FOREIGN KEY (courier_id)
+	ADD FOREIGN KEY (sender_id)
 	REFERENCES Users (user_id)
 ;
 
@@ -312,18 +318,12 @@ ALTER TABLE Sender_Evals
 
 
 ALTER TABLE Requests
-	ADD FOREIGN KEY (sender_id)
+	ADD FOREIGN KEY (courier_id)
 	REFERENCES Users (user_id)
 ;
 
 
 ALTER TABLE alert_logs
-	ADD FOREIGN KEY (user_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE edmoney_logs
 	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
 ;
@@ -454,7 +454,7 @@ COMMENT ON COLUMN Requests.request_Status IS '1 - 의뢰글
 5 - 거래완료
 6 - 발송인이 취소요청
 7 - 운송인이 취소요청';
-COMMENT ON COLUMN Requests.report_satus IS '신고건';
+COMMENT ON COLUMN Requests.report_status IS '신고건';
 COMMENT ON COLUMN Requests.expire_date IS '글의 소멸 일자를 저장한다.
 거래 완료 상태가 되면, 완료 후 7일 후에 지운다.';
 COMMENT ON COLUMN request_cmts.reply_picture IS '텍스트(주소)';
