@@ -2,6 +2,7 @@ package easydel.service;
 
 import java.util.List;
 
+import easydel.contant.AlertStatus;
 import easydel.entity.AlertLog;
 import easydel.exception.ServiceFailException;
 
@@ -11,6 +12,6 @@ import easydel.exception.ServiceFailException;
 public interface IAlertService {
 	public List<AlertLog> getAlert(String userId);
 	public int getAlertCount(String userId);
-	public void insertAlert(String userId, String comment, Integer status) throws ServiceFailException;
+	public void insertAlert(String userId, String comment, AlertStatus status) throws ServiceFailException;
 	public void deleteAlert(Integer alertId) throws ServiceFailException;
 }

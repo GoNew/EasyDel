@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import easydel.contant.AlertStatus;
 import easydel.dao.IAlertDao;
 import easydel.entity.AlertLog;
 import easydel.exception.ServiceFailException;
@@ -27,12 +28,12 @@ public class AlertServiceImpl implements IAlertService {
 
 	@Override
 	@Transactional(rollbackFor={ServiceFailException.class})
-	public void insertAlert(String userId, String comment, Integer status)
+	public void insertAlert(String userId, String comment, AlertStatus status)
 			throws ServiceFailException {
 		AlertLog alertLog = new AlertLog();
 		alertLog.setAlertComment(comment);
 		alertLog.setUserId(userId);
-		alertLog.setAlertStatus(status);
+		alertLog.setAlertStatus(status.getAlertStatusCode());
 		
 		int insertResult = dao.insertAlertLog(alertLog);
 		if(insertResult != 1) {
