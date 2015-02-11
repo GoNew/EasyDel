@@ -2,7 +2,6 @@ package easydel.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class LiraTestController {
@@ -22,5 +21,13 @@ public class LiraTestController {
 	@RequestMapping("/selecttype")
 	public String selectType(){
 		return "board/registrate/selecttype";
+	}
+	@RequestMapping("/typesimple")
+	public String typeSimple(){
+		return "board/registrate/typesimple";
+	}
+	@RequestMapping("/typepurchase")
+	public String typePurchase(){
+		return "board/registrate/typepurchase";
 	}
 }

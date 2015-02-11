@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import easydel.entity.Report;
+
 public class ReportDaoImpl implements IReportDao {
 	
 	@Autowired
@@ -14,9 +16,9 @@ public class ReportDaoImpl implements IReportDao {
 	private String namespace= "easydel.type90.mapper.report";
 
 	@Override
-	public List selectRequestByRequestId() {
+	public List<Report> selectRequestByRequestId() {
 		String stmt = namespace + ".selectRequestByRequestId";
-		List result = session.selectList(stmt);
+		List<Report> result = session.selectList(stmt);
 		return result;
 	}
 
