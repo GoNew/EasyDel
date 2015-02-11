@@ -65,11 +65,14 @@ text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 
 #log{
+	background-position: center center;
+	background-size: cover;
+	display: inline-block;
 	height: 50px;
 	width: 54px;
 	border: 1px solid white;
 	float: left;
-	margin:5px 15px;
-	color: white;
+	margin: 5px 15px;
+	color: red;
 
 }
