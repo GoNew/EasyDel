@@ -40,7 +40,10 @@ public class Type90TestController {
 	@RequestMapping(value = "/report", method = RequestMethod.GET)
 	public String GetReportType(Model model) {
 		model.addAttribute("reportType", reportTypeService.getReportType());
-		return "board/list";
+		model.addAttribute("reportedId", "senderIdusers");
+		model.addAttribute("reportedCargo", "cargoName");
+
+		return "report/reportform";
 	}
 
 	// 1. reportform에서 작성된 reportdesc 파일을 컨트롤러로 받아올 수 있는지 확인
