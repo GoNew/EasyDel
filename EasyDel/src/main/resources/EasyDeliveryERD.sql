@@ -18,8 +18,8 @@ DROP TRIGGER TRI_request_cmts_cmt_id;
 
 /* Drop Tables */
 
-DROP TABLE Sender_Evals CASCADE CONSTRAINTS;
 DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
+DROP TABLE Sender_Evals CASCADE CONSTRAINTS;
 DROP TABLE Complete_Deliverys CASCADE CONSTRAINTS;
 DROP TABLE request_cmts CASCADE CONSTRAINTS;
 DROP TABLE Requests CASCADE CONSTRAINTS;
@@ -168,7 +168,7 @@ CREATE TABLE Requests
 	sender_phone varchar2(11),
 	pickup_min_time date,
 	pickup_max_time date,
-	pickup_place number NOT NULL,
+	pickup_place number,
 	pickup_place_desc varchar2(30),
 	receiver_name varchar2(5) NOT NULL,
 	receiver_phone varchar2(11) NOT NULL,
@@ -257,13 +257,13 @@ ALTER TABLE address_dongs
 ;
 
 
-ALTER TABLE Sender_Evals
+ALTER TABLE Courier_Evals
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Complete_Deliverys (request_id)
 ;
 
 
-ALTER TABLE Courier_Evals
+ALTER TABLE Sender_Evals
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Complete_Deliverys (request_id)
 ;
@@ -293,26 +293,14 @@ ALTER TABLE request_cmts
 ;
 
 
-ALTER TABLE Courier_Evals
-	ADD FOREIGN KEY (courier_id)
-	REFERENCES Users (user_id)
-;
-
-
 ALTER TABLE edmoney_logs
 	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
 ;
 
 
-ALTER TABLE Requests
-	ADD FOREIGN KEY (sender_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE Sender_Evals
-	ADD FOREIGN KEY (sender_id)
+ALTER TABLE Courier_Evals
+	ADD FOREIGN KEY (courier_id)
 	REFERENCES Users (user_id)
 ;
 
@@ -323,8 +311,20 @@ ALTER TABLE Requests
 ;
 
 
+ALTER TABLE Requests
+	ADD FOREIGN KEY (sender_id)
+	REFERENCES Users (user_id)
+;
+
+
 ALTER TABLE alert_logs
 	ADD FOREIGN KEY (user_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE Sender_Evals
+	ADD FOREIGN KEY (sender_id)
 	REFERENCES Users (user_id)
 ;
 
