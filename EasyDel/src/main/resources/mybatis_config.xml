@@ -31,5 +31,6 @@
 		<mapper resource="mappers/gonew/gusMapper.xml"/>
 		<mapper resource="mappers/gonew/alertLogsMapper.xml"/>
 		<mapper resource="mappers/type90/reporttypeMapper.xml"/>
+		<mapper resource="mappers/jll/requestsMapper.xml"/>
 	</mappers>
 </configuration>

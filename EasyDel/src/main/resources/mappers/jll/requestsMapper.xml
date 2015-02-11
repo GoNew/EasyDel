@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="easydel.jll.mapper.requests">
+ 
+ <insert id="insertRequest" parameterType="Requests">
+		insert into Requests(request_id, sender_id, courier_id, request_type, request_Status, cargo_name, delivery_price
+			<if test="cargoPicture != null">
+				, cargo_picture
+			</if>
+, cargo_desc, sender_phone, pickup_min_time, pickup_max_time, pickup_place, pickup_place_desc, receiver_name, receiver_phone, arrival_min_time, arrival_max_time, arrival_place, arrival_place_desc,absence_message,validation_code,report_status,expire_date
+		)
+		
+		values(#{requestId}, #{senderId}, #{courierId}, #{requestType}, #{requestStatus}, #{cargoName}, #{deliveryPrice}
+		
+			<if test="cargoPicture != null">
+				, #{cargoPicture}
+			</if>
+			
+, #{cargoDesc},#{senderPhone}, #{pickupMinTime}, #{pickupMaxTime}, #{pickupPlace}, #{pickupPlaceDesc}, #{receiverName}, #{receiverPhone}, #{arrivalMinTime}, #{arrivalMaxTime}, #{arrivalPlace}, #{arrivalPlaceDesc}, #{absenceMessage}, #{validationCode}, #{reportStatus}, #{expireDate}
+		)
+ </insert>
+ 
+ <delete id="deleteRequestrByUserId" parameterType="string">
+		delete 	from Users
+		where 	user_id=#{userId}
+	</delete>
+ 
+ </mapper>
