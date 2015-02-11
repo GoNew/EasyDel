@@ -10,14 +10,12 @@
 		<!-- 용도 : reportform.jsp의 셀렉트박스에 집어넣어줄 것들임 -->
 	</select>
 	
-	<select id="selectRequestByRequestId" resultType="Request">
+<!-- 	<select id="selectRequestByRequestId" resultType="Request">
 		select		senderIdusers, cargoName
 		from		Request
 		where		session. requestId = requestId
-		<!-- 기존 session? 에 있는 requestId를 기준으로 같은 requetId를 가진 걸 받아오기  -->
-		<!-- 용도 : reportform.jsp의 reportedId, reportedCargo에 집어넣어줄것들-->
-	
-	
-	</select>
+		기존 session? 에 있는 requestId를 기준으로 같은 requetId를 가진 걸 받아오기 
+		용도 : reportform.jsp의 reportedId, reportedCargo에 집어넣어줄것들	
+	</select> -->
 	
 </mapper>
