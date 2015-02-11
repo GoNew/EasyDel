@@ -12,12 +12,12 @@ import javax.servlet.ServletResponse;
 /**
  * Servlet Filter implementation class RequestEncoding
  */
-public class RequestEncoding implements Filter {
+public class RequestEncodingFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public RequestEncoding() {
+    public RequestEncodingFilter() {
         // TODO Auto-generated constructor stub
     }
 
