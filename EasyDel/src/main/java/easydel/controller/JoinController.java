@@ -79,7 +79,7 @@ public class JoinController {
 	public String joinWithPicture(Model model,
 			@RequestParam("imgFileInput") MultipartFile file, User user,
 			@RequestParam String birthdate, HttpSession session) {
-		String resultPage = "intro/intro";
+		String resultPage = "intro";
 		String filePath = "/img/EHlisaface.png";
 
 		File createProfile = null;
@@ -103,9 +103,9 @@ public class JoinController {
 					&& (createProfile != null))
 				createProfile.delete();
 			model.addAttribute("errorMsg", "알수없는 원인");
-			resultPage = "error/errorPage";
+			resultPage = "error";
 		}
 
-		return resultPage;
+		return "redirect:" + resultPage;
 	}
 }

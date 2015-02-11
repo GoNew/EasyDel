@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="easydel.jll.mapper.requests">
  
- <insert id="insertRequest" parameterType="Requests">
+ <insert id="insertRequest" parameterType="Request">
 		insert into Requests(sender_id, request_type, cargo_name, delivery_price
 			<if test="cargoPicture != null">
 				, cargo_picture

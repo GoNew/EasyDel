@@ -10,7 +10,6 @@ DROP VIEW titles;
 DROP TRIGGER TRI_address_dongs_dong_id;
 DROP TRIGGER TRI_alert_logs_alert_id;
 DROP TRIGGER TRI_edmoney_logs_log_id;
-DROP TRIGGER TRI_Reports_report_id;
 DROP TRIGGER TRI_Requests_request_id;
 DROP TRIGGER TRI_request_cmts_cmt_id;
 
@@ -21,13 +20,13 @@ DROP TRIGGER TRI_request_cmts_cmt_id;
 DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
 DROP TABLE Sender_Evals CASCADE CONSTRAINTS;
 DROP TABLE Complete_Deliverys CASCADE CONSTRAINTS;
+DROP TABLE Reports CASCADE CONSTRAINTS;
 DROP TABLE request_cmts CASCADE CONSTRAINTS;
 DROP TABLE Requests CASCADE CONSTRAINTS;
 DROP TABLE address_dongs CASCADE CONSTRAINTS;
 DROP TABLE address_gus CASCADE CONSTRAINTS;
 DROP TABLE alert_logs CASCADE CONSTRAINTS;
 DROP TABLE edmoney_logs CASCADE CONSTRAINTS;
-DROP TABLE Reports CASCADE CONSTRAINTS;
 DROP TABLE report_type CASCADE CONSTRAINTS;
 DROP TABLE Users CASCADE CONSTRAINTS;
 
@@ -38,7 +37,6 @@ DROP TABLE Users CASCADE CONSTRAINTS;
 DROP SEQUENCE SEQ_address_dongs_dong_id;
 DROP SEQUENCE SEQ_alert_logs_alert_id;
 DROP SEQUENCE SEQ_edmoney_logs_log_id;
-DROP SEQUENCE SEQ_Reports_report_id;
 DROP SEQUENCE SEQ_Requests_request_id;
 DROP SEQUENCE SEQ_request_cmts_cmt_id;
 
@@ -50,7 +48,6 @@ DROP SEQUENCE SEQ_request_cmts_cmt_id;
 CREATE SEQUENCE SEQ_address_dongs_dong_id INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_alert_logs_alert_id INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_edmoney_logs_log_id INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_Reports_report_id INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Requests_request_id INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_request_cmts_cmt_id INCREMENT BY 1 START WITH 1;
 
@@ -124,16 +121,21 @@ CREATE TABLE edmoney_logs
 
 CREATE TABLE Reports
 (
-	-- 신고건
-	report_id number NOT NULL,
+	request_id number NOT NULL,
 	-- 1 - 욕설 및 언어폭력
 	-- 2 - 불법 화물
 	-- 3 - 음란물/스팸성 게시글
 	-- 4 - 수수료 미결재
 	-- 5 - 기타
 	report_type number NOT NULL,
-	report_cmt varchar2(500),
-	PRIMARY KEY (report_id)
+	reported_user_id varchar2(10) NOT NULL,
+	report_user_id varchar2(10) NOT NULL,
+	report_cmt varchar2(500) NOT NULL,
+	-- 1-신고 처리중
+	-- 2-처리 완료
+	report_status char(1) DEFAULT '1' NOT NULL,
+	report_date date DEFAULT SYSDATE NOT NULL,
+	PRIMARY KEY (request_id)
 );
 
 
@@ -178,8 +180,6 @@ CREATE TABLE Requests
 	arrival_place_desc varchar2(30) NOT NULL,
 	absence_message varchar2(50),
 	validation_code number,
-	-- 신고건
-	report_status number,
 	-- 글의 소멸 일자를 저장한다.
 	-- 거래 완료 상태가 되면, 완료 후 7일 후에 지운다.
 	expire_date date NOT NULL,
@@ -269,12 +269,6 @@ ALTER TABLE Sender_Evals
 ;
 
 
-ALTER TABLE Requests
-	ADD FOREIGN KEY (report_status)
-	REFERENCES Reports (report_id)
-;
-
-
 ALTER TABLE Reports
 	ADD FOREIGN KEY (report_type)
 	REFERENCES report_type (report_type)
@@ -287,9 +281,21 @@ ALTER TABLE Complete_Deliverys
 ;
 
 
+ALTER TABLE Reports
+	ADD FOREIGN KEY (request_id)
+	REFERENCES Requests (request_id)
+;
+
+
 ALTER TABLE request_cmts
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Requests (request_id)
+;
+
+
+ALTER TABLE Requests
+	ADD FOREIGN KEY (courier_id)
+	REFERENCES Users (user_id)
 ;
 
 
@@ -299,26 +305,14 @@ ALTER TABLE edmoney_logs
 ;
 
 
+ALTER TABLE Reports
+	ADD FOREIGN KEY (reported_user_id)
+	REFERENCES Users (user_id)
+;
+
+
 ALTER TABLE Courier_Evals
 	ADD FOREIGN KEY (courier_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE Requests
-	ADD FOREIGN KEY (courier_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE Requests
-	ADD FOREIGN KEY (sender_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE alert_logs
-	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
 ;
 
@@ -331,6 +325,24 @@ ALTER TABLE Sender_Evals
 
 ALTER TABLE request_cmts
 	ADD FOREIGN KEY (user_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE alert_logs
+	ADD FOREIGN KEY (user_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE Requests
+	ADD FOREIGN KEY (sender_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE Reports
+	ADD FOREIGN KEY (report_user_id)
 	REFERENCES Users (user_id)
 ;
 
@@ -363,16 +375,6 @@ FOR EACH ROW
 BEGIN
 	SELECT SEQ_edmoney_logs_log_id.nextval
 	INTO :new.log_id
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_Reports_report_id BEFORE INSERT ON Reports
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_Reports_report_id.nextval
-	INTO :new.report_id
 	FROM dual;
 END;
 
@@ -439,12 +441,13 @@ COMMENT ON COLUMN Complete_Deliverys.courier_evalstatus IS '1 - 배송자평가 
 2 - 배송자평가 완료';
 COMMENT ON COLUMN Complete_Deliverys.sender_evalstatus IS '1-평가안함
 2-평가완료';
-COMMENT ON COLUMN Reports.report_id IS '신고건';
 COMMENT ON COLUMN Reports.report_type IS '1 - 욕설 및 언어폭력
 2 - 불법 화물
 3 - 음란물/스팸성 게시글
 4 - 수수료 미결재
 5 - 기타';
+COMMENT ON COLUMN Reports.report_status IS '1-신고 처리중
+2-처리 완료';
 COMMENT ON COLUMN Requests.request_type IS '0 - 일반 운송
 1 - 구매 후 운송';
 COMMENT ON COLUMN Requests.request_Status IS '1 - 의뢰글
@@ -454,7 +457,6 @@ COMMENT ON COLUMN Requests.request_Status IS '1 - 의뢰글
 5 - 거래완료
 6 - 발송인이 취소요청
 7 - 운송인이 취소요청';
-COMMENT ON COLUMN Requests.report_status IS '신고건';
 COMMENT ON COLUMN Requests.expire_date IS '글의 소멸 일자를 저장한다.
 거래 완료 상태가 되면, 완료 후 7일 후에 지운다.';
 COMMENT ON COLUMN request_cmts.reply_picture IS '텍스트(주소)';

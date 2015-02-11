@@ -43,7 +43,7 @@ ul, ol{list-style:name;}
 	
 }
 
-#col1, #col2, #gudongselect{
+#col1, #col2, #startPosGuList, #startPosDongList, #arrivePosGuList, #arrivePosDongList{
 	width: 140px;
 	height: 40px;
 	text-align: right;

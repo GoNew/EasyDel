@@ -1,5 +1,7 @@
 package easydel.entity;
 
+import java.sql.Date;
+
 public class ViewMyCarryRequest {
 	private Integer requestId;
 	private String cargoName;
@@ -11,6 +13,13 @@ public class ViewMyCarryRequest {
 	private Integer senderSuccesscnt;
 	private Integer requestStatus;
 	private Integer courierEvalstatus;
+	private Date expireDate;
+	public Date getExpireDate() {
+		return expireDate;
+	}
+	public void setExpireDate(Date expireDate) {
+		this.expireDate = expireDate;
+	}
 	public ViewMyCarryRequest() {
 		super();
 	}
@@ -82,7 +91,7 @@ public class ViewMyCarryRequest {
 				+ ", senderAvgThing=" + senderAvgThing + ", senderTotalcnt="
 				+ senderTotalcnt + ", senderSuccesscnt=" + senderSuccesscnt
 				+ ", requestStatus=" + requestStatus + ", courierEvalstatus="
-				+ courierEvalstatus + "]";
+				+ courierEvalstatus + ", expireDate=" + expireDate + "]";
 	}
 
 }
