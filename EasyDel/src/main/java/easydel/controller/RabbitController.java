@@ -25,12 +25,7 @@ public class RabbitController {
 	@Autowired
 	private IUserService service;
 
-	//임시
-	@RequestMapping("/main")
-	public String main() {
-		return "main/main";
-	}
-	
+
 	//------------------------------------개인정보수정-----------------------------------------------
 	@RequestMapping(value="/modify", method=RequestMethod.GET)
 	public String moveToModifyFake() {
