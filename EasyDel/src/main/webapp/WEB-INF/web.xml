@@ -31,4 +31,14 @@
     <url-pattern>/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
+  <filter>
+    <display-name>HeaderIncludeFilter</display-name>
+    <filter-name>HeaderIncludeFilter</filter-name>
+    <filter-class>easydel.filter.HeaderIncludeFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>HeaderIncludeFilter</filter-name>
+    <url-pattern>/WEB-INF/view/main/header.jsp</url-pattern>
+    <dispatcher>INCLUDE</dispatcher>
+  </filter-mapping>
 </web-app>

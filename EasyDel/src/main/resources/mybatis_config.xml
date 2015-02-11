@@ -29,5 +29,6 @@
 		<mapper resource="mappers/rabbit/userMapper.xml"/>
 		<mapper resource="mappers/gonew/dongsMapper.xml"/>
 		<mapper resource="mappers/gonew/gusMapper.xml"/>
+		<mapper resource="mappers/gonew/alertLogsMapper.xml"/>
 	</mappers>
 </configuration>
