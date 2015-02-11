@@ -22,6 +22,7 @@
 		<typeAlias type="easydel.entity.User" alias="User" />
 		<typeAlias type="easydel.entity.Title" alias="Title"/>
 		<typeAlias type="easydel.entity.ViewMySendRequest" alias="ViewMySendRequest"/>
+		<typeAlias type="easydel.entity.ViewMyCarryRequest" alias="ViewMyCarryRequest"/>
 	</typeAliases>
 	
 	<mappers>

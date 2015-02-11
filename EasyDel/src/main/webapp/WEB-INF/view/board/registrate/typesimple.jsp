@@ -67,27 +67,27 @@ $("#imgFileInput").change(function() {
 <div id="allregistrater">
 <div id="subject" >보내는 사람</div>
 <hr>
-	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input class="nametext" type="text"></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input class="phonetext" type="text"></div></div></div>
+	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input class="nametext" type="text" name="senderName"></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input class="phonetext" type="text" name="senderPhone"></div></div></div>
 	<div id="row2"><div id="col1">주소</div><div id="col2">서울특별시</div>
-		<div id="gudongselect"><select id="gudongselect"><option>강서구</option><option>강동구</option></select></div><div id="gudiv">구</div>
-		<div id="gudongselect"><select id="gudongselect"><option>군자동</option><option>행진동</option></select></div><div id="dongdiv">동</div>
+		<div id="gudongselect"><select id="gudongselect"><option></option></select></div><div id="gudiv">구</div>
+		<div id="gudongselect"><select id="gudongselect"><option></option></select></div><div id="dongdiv">동</div>
 	</div>
-	<div id="row3"><div id="col1"></div><div id="col2">상세주소</div><div id="col3"><input class="addressdetails" type="text"></div></div>
-	<div id="row4"><div id="col1">만날시간</div><div id=""><input class="date" type="datetime-local"></div><div id="from">부터</div><div id=""><input class="date" type="datetime-local"></div><div id="to">까지</div></div>
+	<div id="row3"><div id="col1"></div><div id="col2">상세주소</div><div id="col3"><input class="addressdetails" type="text" name="pickupPlaceDesc"></div></div>
+	<div id="row4"><div id="col1">만날시간</div><div id=""><input class="date" type="datetime-local" name="pickupMinTime"></div><div id="from">부터</div><div id=""><input class="date" type="datetime-local" name="pickupMaxTime"></div><div id="to">까지</div></div>
 </div>
 
 
 <div id="allreceiver">
 <div id="subjectdiv"> <div id="subject" >받는 사람</div><div id="ischeckbox" ><input class="receiverchk" type="checkbox" checked="checked" data-uk-toggle="{target:'#my-id'}"><div class="chktext">부재중일 경우 체크</div></div><div id="samebtn"><input class="uk-button" type="button" value="본인 정보 입력"></div> </div>
 <hr>
-	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input class="nametext" type="text"></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input class="phonetext" type="text"></div></div></div>
+	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input class="nametext" type="text" name="receiverName"></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input class="phonetext" type="text" name="receiverPhone"></div></div></div>
 	<div id="row2"><div id="col1">주소</div><div id="col2">서울특별시</div>
 		<div id="gudongselect"><select id="gudongselect"><option>강서구</option><option>강동구</option></select></div><div id="gudiv">구</div>
 		<div id="gudongselect"><select id="gudongselect"><option>군자동</option><option>행진동</option></select></div><div id="dongdiv">동</div>
 	</div>
-	<div id="row3"><div id="col1"></div><div id="col2">상세주소</div><div id="col3"><input class="addressdetails" type="text"></div></div>
-	<div id="row4"><div id="col1">도착시간</div><div id=""><input class="date" type="datetime-local"></div><div id="from">부터</div><div id=""><input class="date" type="datetime-local"></div><div id="to">까지</div></div>
-	<div id="my-id"><div id="col1">전달 메시지</div><div id=""><input class="givemessage" type="text" ></div></div>
+	<div id="row3"><div id="col1"></div><div id="col2">상세주소</div><div id="col3"><input class="addressdetails" type="text" name="arrivalPlaceDesc"></div></div>
+	<div id="row4"><div id="col1">도착시간</div><div id=""><input class="date" type="datetime-local" name="arrivalMinTime"></div><div id="from">부터</div><div id=""><input class="date" type="datetime-local" name="arrivalMaxTime"></div><div id="to">까지</div></div>
+	<div id="my-id"><div id="col1">전달 메시지</div><div id=""><input class="givemessage" type="text" name="absenceMessage"></div></div>
 </div>
 
 <hr>

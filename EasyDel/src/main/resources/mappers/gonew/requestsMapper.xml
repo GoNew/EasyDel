@@ -23,4 +23,41 @@
 		where		R.report_status is null
 		and			R.sender_id=#{userId};
 	</select>
+	<select id="selectMyCarryRequest" parameterType="string"
+		resultType="ViewMyCarryRequest">
+		select		R.request_id as request_id,
+					R.cargo_name as cargo_name,
+					U.user_id as user_id,
+					U.sender_avg_time as sender_avg_time,
+					U.sender_avg_kind as sender_avg_kind,
+					U.sender_avg_thing as sender_avg_thing,
+					U.sender_totalcnt as sender_totalcnt,
+					U.sender_successcnt as sender_successcnt,
+					R.request_status as request_status,
+					C.courier_evalstatus as courier_evalstatus
+		from		REQUESTS R
+		left join	USERS U
+		on			R.sender_id=U.user_id
+		left join	COMPLETE_DELIVERYS C
+		on			R.request_id=C.request_id
+		where		R.report_status is null
+		and			R.courier_id=#{userId};
+	</select>
+	<select id="selectMyReportRequest" parameterType="string"
+		resultType="ViewMyReportRequest">
+		select		R.request_id as request_id,
+					R.cargo_name as cargo_name,
+					R.sender_id as sender_id,
+					R.courier_id as courier_id,
+					
+					
+					
+					C.courier_evalstatus as courier_evalstatus
+		from		REQUESTS R
+		join		REPORTS RP
+		on			R.report_status=RP.report_id
+		left join	COMPLETE_DELIVERYS C
+		on			R.request_id=C.request_id
+		where		R.courier_id=#{userId};
+	</select>
 </mapper>
