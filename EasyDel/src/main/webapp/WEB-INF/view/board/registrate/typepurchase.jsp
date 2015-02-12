@@ -121,7 +121,7 @@
 <div id="allreceiver">
 <div id="subjectdiv"> <div id="subject">받는 사람</div></div>
 <hr color="#808080">
-	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input id="receiverName" class="nametext" type="text" name="receiverName" required></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input id="receiverPhone" class="phonetext" type="text" name="receiverPhone" required></div></div></div>
+	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input id="receiverName" class="nametext" type="text" name="receiverName" value="<%=loginUser.getUserName() %>" readonly></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input id="receiverPhone" class="phonetext" type="text" name="receiverPhone" value="<%=loginUser.getUserPhone() %>" required></div></div></div>
 	<div id="row2"><div id="col1">주소</div><div id="col2">서울특별시</div>
 		<div id="gudongselect"><select id="arrivePosGuList"><% for (AddressGu gu : guList) { %><option value="<%=gu.getGuName()%>"><%=gu.getGuName()%></option><% } %></select></div>
 		<div id="gudongselect"><select id="arrivePosDongList" name="arrivalPlace"></select></div>

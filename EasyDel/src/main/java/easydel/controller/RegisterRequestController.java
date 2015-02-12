@@ -73,6 +73,7 @@ public class RegisterRequestController {
 			HttpSession session) {
 		SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'KK:mm");
 		User user = (User) session.getAttribute("loginSession");
+		String resultPage = "board/registrate/selecttype";
 		
 		//시간 포멧 수정하여 setting
 		Date currDate = new Date(); 
@@ -104,11 +105,18 @@ public class RegisterRequestController {
 			e.printStackTrace();
 		}
 		
-		return "board/registrate/selecttype";
+		return "redirect:" + resultPage;
 	}
+	
 	@RequestMapping(value="/typepurchase", method=RequestMethod.GET)
 	public String typePurchase(Model model){
 		model.addAttribute("gu", guService.getGu());
 		return "board/registrate/typepurchase";
+	}
+	
+	@RequestMapping(value="/typepurchase", method=RequestMethod.POST)
+	public String registerTypePurchase(Model model){
+		
+		return "board/registrate/selecttype";
 	}
 }

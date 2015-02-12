@@ -45,7 +45,7 @@ public class RequestServiceImpl implements IRequestService {
 				createProfile = new File("c:/db/uploaded/request/"
 						+ request.getRequestId());
 				file.transferTo(createProfile);
-				filePath = "/profile/" + request.getRequestId();
+				filePath = "/request/" + request.getRequestId();
 				request.setCargoPicture(filePath);
 				updateResult = dao.updateRequestPicture(request);
 				if (updateResult <= 0) {
