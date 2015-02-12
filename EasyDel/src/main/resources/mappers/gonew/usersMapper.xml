@@ -3,6 +3,15 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="easydel.gonew.mapper.users">
-	<update id="updateUserEDMoney" parameterType="">
+	<select id="selectUserEDMoney" parameterType="string"
+		resultType="integer">
+		select		edmoney_balance
+		from		USERS
+		where		user_id=#{userId}
+	</select>
+	<update id="updateUserEDMoney" parameterType="hashmap">
+		update		USERS
+		set			edmoney_balance=edmoney_balance+#{edmoneyBalance}
+		where		user_id=#{userId}
 	</update>
 </mapper>

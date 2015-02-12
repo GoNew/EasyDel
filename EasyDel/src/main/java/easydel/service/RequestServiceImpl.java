@@ -3,7 +3,6 @@ package easydel.service;
 import java.io.File;
 import java.io.IOException;
 
-import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,19 +10,18 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import easydel.dao.IRequestDao;
+import easydel.dao.IUserDao;
 import easydel.entity.Request;
 import easydel.exception.ServiceFailException;
-import easydel.exception.VaildateFailException;
 
 public class RequestServiceImpl implements IRequestService {
 
 	static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
 	@Autowired
-	private IRequestDao dao;
-
+	private IRequestDao requestDao;
 	@Autowired
-	private SqlSession session;
+	private IUserDao userDao;
 
 	@Override
 	@Transactional(rollbackFor = { ServiceFailException.class })
@@ -31,7 +29,7 @@ public class RequestServiceImpl implements IRequestService {
 			throws ServiceFailException {
 		int insertResult = 0;
 
-		insertResult = dao.insertRequest(request);
+		insertResult = requestDao.insertRequest(request);
 
 		if (insertResult <= 0) {
 			throw new ServiceFailException();
@@ -39,28 +37,48 @@ public class RequestServiceImpl implements IRequestService {
 
 		int updateResult = 0;
 		String filePath = null;
-		File createProfile = null;
+		File createRequest = null;
 		try {
 			if (file != null && !file.isEmpty()) {
-				createProfile = new File("c:/db/uploaded/request/"
+				createRequest = new File("c:/db/uploaded/request/"
 						+ request.getRequestId());
-				file.transferTo(createProfile);
+				file.transferTo(createRequest);
 				filePath = "/request/" + request.getRequestId();
 				request.setCargoPicture(filePath);
-				updateResult = dao.updateRequestPicture(request);
+				updateResult = requestDao.updateRequestPicture(request);
 				if (updateResult <= 0) {
-					throw new ServiceFailException();
+					throw new ServiceFailException("db 수정 실패 - 알 수 없는 원인");
 				}
 			}
 		} catch (IllegalStateException | IOException e) {
-			throw new ServiceFailException();
+			if(createRequest != null) {
+				createRequest.delete();
+			}
+			throw new ServiceFailException("이미지 저장 실패");
 		}
+		
+		if(userDao.selectUserEDMoney(request.getSenderId())
+				< request.getDeliveryPrice()) {
+			throw new ServiceFailException("EDMoney 잔액 부족");
+		}
+		if(userDao.updateUserEDMoney(request.getSenderId(), (request.getDeliveryPrice() * (-1)))
+				<= 0) {
+			throw new ServiceFailException("EDMoney 수정 실패 - 알 수 없는 원인");
+		}
+		
 	}
 
 	@Override
-	@Transactional
-	public void Checkvalicode(Request request) throws VaildateFailException {
-
+	public void serviceRemoveRequest(Integer requestId)
+			throws ServiceFailException {
+		Request currRequest = requestDao.selectRequestByRequestId(requestId);
+		if(userDao.updateUserEDMoney(currRequest.getSenderId(), currRequest.getDeliveryPrice())
+				<= 0) {
+			throw new ServiceFailException("EDMoney 환불 실패 - 알 수 없는 원인");
+		}
+		if(requestDao.deleteRequestrByRequestId(requestId)
+				<= 0) {
+			throw new ServiceFailException("request 삭제 실패 - 알 수 없는 원인");
+		}
 	}
-
 }

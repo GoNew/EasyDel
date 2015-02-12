@@ -23,9 +23,8 @@ public class RequestDaoImpl implements IRequestDao {
 	@Override
 	public int insertRequest(Request request) {
 		String stmt = jll_namespace + ".insertRequest";
-		logger.trace("mylog: insertRequest 실행전");
 		int result = session.insert(stmt, request);
-		logger.trace("mylog: insertRequest 실행후 " + result);
+		logger.trace("mylog: insertRequest 정상실행");
 		return result;
 	}
 	
@@ -45,6 +44,20 @@ public class RequestDaoImpl implements IRequestDao {
 	public int updateRequestPicture(Request request) {
 		String stmt = jll_namespace + ".updateRequestPicture";
 		int result = session.delete(stmt, request);
+		return result;
+	}
+
+	@Override
+	public int selectDeliveryPriceByRequestId(Integer requestId) {
+		String stmt = jll_namespace + ".selectDeliveryPriceByRequestId";
+		int result = session.selectOne(stmt, requestId);
+		return result;
+	}
+
+	@Override
+	public Request selectRequestByRequestId(Integer requestId) {
+		String stmt = jll_namespace + ".selectRequestByRequestId";
+		Request result = session.selectOne(stmt, requestId);
 		return result;
 	}
 

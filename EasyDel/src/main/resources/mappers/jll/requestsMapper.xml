@@ -87,5 +87,16 @@
 		delete from	REQUESTS
 		where		request_id=#{requestId}
 	</delete>
- 
+ 	<select id="selectDeliveryPriceByRequestId" parameterType="integer"
+ 		resultType="integer">
+ 		select		delivery_price
+ 		from		REQUESTS
+ 		where		request_id=#{requestId}
+ 	</select>
+ 	<select id="selectRequestByRequestId" parameterType="integer"
+ 		resultType="Request">
+ 		select		*
+ 		from		REQUESTS
+ 		where		request_id=#{requestId}
+ 	</select>
  </mapper>

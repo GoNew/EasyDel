@@ -1,5 +1,7 @@
 package easydel.dao;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +19,7 @@ public class UserDaoImpl implements IUserDao {
 	
 	private String jll_namespace = "easydel.jll.mapper.users";
 	private String rabbit_namespace = "easydel.rabbit.mapper.user";
+	private String gonew_namespace = "easydel.gonew.mapper.users";
 	
 	public UserDaoImpl(){}
 	
@@ -46,6 +49,23 @@ public class UserDaoImpl implements IUserDao {
 		User user;
 		user = session.selectOne(jll_namespace+".selectUserById", userId);
 		return user;
+	}
+
+	@Override
+	public int selectUserEDMoney(String userId) {
+		String stmt = gonew_namespace + ".selectUserEDMoney";
+		int result = session.selectOne(stmt, userId);
+		return result;
+	}
+
+	@Override
+	public int updateUserEDMoney(String userId, Integer usedEDMoney) {
+		String stmt = gonew_namespace + ".updateUserEDMoney";
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("userId", userId);
+		params.put("edmoneyBalance", usedEDMoney);
+		int result = session.selectOne(stmt, params);
+		return result;
 	}
 
 }

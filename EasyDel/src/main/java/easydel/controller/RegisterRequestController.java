@@ -70,10 +70,10 @@ public class RegisterRequestController {
 			@RequestParam String pickupMaxTimeBeforeParse,
 			@RequestParam String arrivalMinTimeBeforeParse,
 			@RequestParam String arrivalMaxTimeBeforeParse,
-			HttpSession session) {
+			HttpSession session, Model model) {
 		SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'KK:mm");
 		User user = (User) session.getAttribute("loginSession");
-		String resultPage = "board/registrate/selecttype";
+		String resultPage = "/register/selecttype";
 		
 		//시간 포멧 수정하여 setting
 		Date currDate = new Date(); 
@@ -102,6 +102,8 @@ public class RegisterRequestController {
 			
 			reqService.serviceRegistrateNewRequest(newRequest, file);
 		} catch (ParseException | ServiceFailException e) {
+			resultPage = "/error";
+			model.addAttribute("errorMsg", e.getMessage());
 			e.printStackTrace();
 		}
 		
@@ -115,8 +117,38 @@ public class RegisterRequestController {
 	}
 	
 	@RequestMapping(value="/typepurchase", method=RequestMethod.POST)
-	public String registerTypePurchase(Model model){
+	public String registerTypePurchase(Request newRequest, @RequestParam("imgFileInput") MultipartFile file,
+			@RequestParam String arrivalMinTimeBeforeParse,
+			@RequestParam String arrivalMaxTimeBeforeParse,
+			HttpSession session, Model model) {
+		SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'KK:mm");
+		User user = (User) session.getAttribute("loginSession");
+		String resultPage = "/register/selecttype";
 		
-		return "board/registrate/selecttype";
+		//시간 포멧 수정하여 setting
+		Date currDate = new Date(); 
+		Date arrivalMinTime = null;
+		Date arrivalMaxTime = null;
+		try {
+			arrivalMinTime = (Date) parser.parse(arrivalMinTimeBeforeParse);
+			arrivalMaxTime = (Date) parser.parse(arrivalMaxTimeBeforeParse);
+			if(arrivalMaxTime.before(arrivalMinTime)
+					|| arrivalMaxTime.before(currDate)) {
+				throw new ServiceFailException();
+			}
+			newRequest.setSenderId(user.getUserId());
+			newRequest.setRequestType(RequestType.puchase.getTypeCode());
+			newRequest.setArrivalMinTime(arrivalMinTime);
+			newRequest.setArrivalMaxTime(arrivalMaxTime);
+			newRequest.setExpireDate(arrivalMaxTime);
+			
+			reqService.serviceRegistrateNewRequest(newRequest, file);
+		} catch (ParseException | ServiceFailException e) {
+			resultPage = "/error";
+			model.addAttribute("errorMsg", e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return "redirect:" + resultPage;
 	}
 }
