@@ -28,17 +28,24 @@ public class RequestDaoImpl implements IRequestDao {
 		logger.trace("mylog: insertRequest 실행후 " + result);
 		return result;
 	}
+	
+	@Override
+	public int CheckvalidationCode(Request request) {
+		return 0;
+	}
 
 	@Override
-	public int deleteRequest(Request request) {
-		String stmt = jll_namespace + ".deleteRequestrByUserId";
-		int result = session.delete(stmt, request);
+	public int deleteRequestrByRequestId(Integer requestId) {
+		String stmt = jll_namespace + ".deleteRequestrByRequestId";
+		int result = session.delete(stmt, requestId);
 		return result;
 	}
 
 	@Override
-	public int CheckvalidationCode(Request request) {
-		return 0;
+	public int updateRequestPicture(Request request) {
+		String stmt = jll_namespace + ".updateRequestPicture";
+		int result = session.delete(stmt, request);
+		return result;
 	}
 
 	

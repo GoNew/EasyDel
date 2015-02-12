@@ -9,7 +9,7 @@
 			select		SEQ_Requests_request_id.currval
 			from		DUAL
 		</selectKey>
-		insert into Requests(sender_id,
+		insert into REQUESTS(sender_id,
 						request_type,
 						cargo_name,
 						delivery_price,
@@ -79,10 +79,13 @@
 					)
  	</insert>
  	<update id="updateRequestPicture" parameterType="Request">
+ 		update		REQUESTS
+ 		set			cargo_picture=#{cargoPicture}
+ 		where		request_id=#{requestId}
  	</update>
- 	<delete id="deleteRequestrByUserId" parameterType="string">
-		delete 	from Users
-		where 	user_id=#{userId}
+ 	<delete id="deleteRequestrByRequestId" parameterType="integer">
+		delete from	REQUESTS
+		where		request_id=#{requestId}
 	</delete>
  
  </mapper>

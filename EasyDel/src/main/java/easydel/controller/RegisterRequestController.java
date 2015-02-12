@@ -98,8 +98,8 @@ public class RegisterRequestController {
 			newRequest.setArrivalMinTime(arrivalMinTime);
 			newRequest.setArrivalMaxTime(arrivalMaxTime);
 			newRequest.setExpireDate(pickupMaxTime);
-			reqService.serviceRegistrateNewRequest(newRequest);
-			logger.trace("mylog: " + newRequest);
+			
+			reqService.serviceRegistrateNewRequest(newRequest, file);
 		} catch (ParseException | ServiceFailException e) {
 			e.printStackTrace();
 		}
