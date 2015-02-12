@@ -94,7 +94,7 @@ public class TitleController {
 		builder.append("<option value=\"\">선택없음</option>");
 		for(AddressDong dong: list) {
 			builder.append("<option value=\"")
-				.append(dong.getDongDesc())
+				.append(dong.getDongId())
 				.append("\">")
 				.append(dong.getDongDesc())
 				.append("</option>");

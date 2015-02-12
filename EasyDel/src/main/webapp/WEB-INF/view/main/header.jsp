@@ -32,7 +32,7 @@
 						data-uk-nav="">
 						<li><a href="<%=request.getContextPath()%>/main">메인</a></li>
 						<li><a href="<%=request.getContextPath()%>/board">전체 의뢰 보기</a></li>
-						<li><a href="<%=request.getContextPath()%>/selecttype">의뢰 올리기</a></li>
+						<li><a href="<%=request.getContextPath()%>/register/selecttype">의뢰 올리기</a></li>
 						<li><a href="">EDMoney</a></li>
 
 					</ul>

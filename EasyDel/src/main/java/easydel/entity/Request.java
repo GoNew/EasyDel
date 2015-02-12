@@ -82,9 +82,6 @@ public class Request implements Serializable {
 	/** 인증번호. */
 	private Integer validationCode;
 
-	/** 신고 상태. */
-	private Integer reportStatus;
-
 	/** 글 소멸 시각. */
 	private Date expireDate;
 
@@ -102,14 +99,6 @@ public class Request implements Serializable {
 		this.requestCmtsSet = new HashSet<RequestCmt>();
 	}
 	
-	public Integer getReportStatus() {
-		return reportStatus;
-	}
-
-	public void setReportStatus(Integer reportStatus) {
-		this.reportStatus = reportStatus;
-	}
-
 	/**
 	 * 의뢰_번호을 설정합니다..
 	 * 
@@ -598,4 +587,23 @@ public class Request implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Request [requestId=" + requestId + ", senderId=" + senderId
+				+ ", courierId=" + courierId + ", requestType=" + requestType
+				+ ", requestStatus=" + requestStatus + ", cargoName="
+				+ cargoName + ", deliveryPrice=" + deliveryPrice
+				+ ", cargoPicture=" + cargoPicture + ", cargoDesc=" + cargoDesc
+				+ ", senderPhone=" + senderPhone + ", pickupMinTime="
+				+ pickupMinTime + ", pickupMaxTime=" + pickupMaxTime
+				+ ", pickupPlace=" + pickupPlace + ", pickupPlaceDesc="
+				+ pickupPlaceDesc + ", receiverName=" + receiverName
+				+ ", receiverPhone=" + receiverPhone + ", arrivalMinTime="
+				+ arrivalMinTime + ", arrivalMaxTime=" + arrivalMaxTime
+				+ ", arrivalPlace=" + arrivalPlace + ", arrivalPlaceDesc="
+				+ arrivalPlaceDesc + ", absenceMessage=" + absenceMessage
+				+ ", validationCode=" + validationCode + ", expireDate="
+				+ expireDate + ", completeDeliverysSet=" + completeDeliverysSet
+				+ ", requestCmtsSet=" + requestCmtsSet + "]";
+	}
 }

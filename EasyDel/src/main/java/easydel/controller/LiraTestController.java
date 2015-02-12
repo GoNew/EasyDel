@@ -18,16 +18,4 @@ public class LiraTestController {
 	public String footer(){
 		return "main/footer";
 	}
-	@RequestMapping("/selecttype")
-	public String selectType(){
-		return "board/registrate/selecttype";
-	}
-	@RequestMapping("/typesimple")
-	public String typeSimple(){
-		return "board/registrate/typesimple";
-	}
-	@RequestMapping("/typepurchase")
-	public String typePurchase(){
-		return "board/registrate/typepurchase";
-	}
 }

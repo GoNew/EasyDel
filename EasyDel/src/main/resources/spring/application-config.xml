@@ -33,7 +33,10 @@
 	<bean class="easydel.dao.RequestDaoImpl"></bean>
 	<bean class="easydel.dao.ReportTypeDaoImpl"></bean>
 	<bean class="easydel.dao.AlertDaoImpl"></bean>
+	<bean class="easydel.dao.ViewMyCarryRequestDaoImpl"></bean>
+	<bean class="easydel.dao.ViewMyReportRequestDaoImpl"></bean>
 	<bean class="easydel.dao.ViewMySendRequestDaoImpl"></bean>
+	
 	<bean class="easydel.service.BoardServiceImpl"></bean>
 	<bean class="easydel.service.UserServiceImpl"></bean>
 	<bean class="easydel.service.DongServiceImpl"></bean>

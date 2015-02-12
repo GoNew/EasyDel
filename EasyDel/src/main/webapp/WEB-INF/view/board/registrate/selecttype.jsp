@@ -22,10 +22,10 @@
 		<div id="middlebrowser" align="center">
 			<div id="imgcontainer">
 				
-					<a href="<%=request.getContextPath()%>/typesimple"><img id="buttonimg1" alt="단순 운송 의뢰 등록" src="<%=request.getContextPath()%>/img/a1.PNG" class="uk-button"></a>
+					<a href="<%=request.getContextPath()%>/register/typesimple"><img id="buttonimg1" alt="단순 운송 의뢰 등록" src="<%=request.getContextPath()%>/img/a1.PNG" class="uk-button"></a>
 
 				
-					<a href="<%=request.getContextPath()%>/typepurchase"><img id="buttonimg2" alt="구매&운송 의뢰 등록"
+					<a href="<%=request.getContextPath()%>/register/typepurchase"><img id="buttonimg2" alt="구매&운송 의뢰 등록"
 						src="<%=request.getContextPath()%>/img/a2.PNG" class="uk-button"></a>
 			</div>
 		</div>

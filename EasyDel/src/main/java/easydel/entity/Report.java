@@ -1,8 +1,7 @@
 package easydel.entity;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.sql.Date;
 
 /**
  * 신고 상태 모델 클래스.
@@ -15,145 +14,92 @@ public class Report implements Serializable {
 	/** serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/** 신고번호. */
-	private Integer reportId;
+	/** 의뢰건. */
+	private Integer requestId;
 
 	/** 신고사유. */
-	private ReportType reportType;
+	private Integer reportType;
+
+	/** 회원. */
+	private String reportedUserId;
+	
+	private String reportUserId;
 
 	/** 신고사유상세. */
 	private String reportCmt;
 
-	/** 의뢰건 목록. */
-	private Set<Request> requestsSet;
+	/** 신고 처리 상태. */
+	private String reportStatus;
+	
+	private Date reportDate;
 
 	/**
 	 * 생성자.
 	 */
 	public Report() {
-		this.requestsSet = new HashSet<Request>();
 	}
 
-	/**
-	 * 신고번호을 설정합니다..
-	 * 
-	 * @param reportId
-	 *            신고번호
-	 */
-	public void setReportId(Integer reportId) {
-		this.reportId = reportId;
+	public Integer getRequestId() {
+		return requestId;
 	}
 
-	/**
-	 * 신고번호을 가져옵니다..
-	 * 
-	 * @return 신고번호
-	 */
-	public Integer getReportId() {
-		return this.reportId;
+	public void setRequestId(Integer requestId) {
+		this.requestId = requestId;
 	}
 
-	/**
-	 * 신고사유을 설정합니다..
-	 * 
-	 * @param reportType
-	 *            신고사유
-	 */
-	public void setReportType(ReportType reportType) {
+	public Integer getReportType() {
+		return reportType;
+	}
+
+	public void setReportType(Integer reportType) {
 		this.reportType = reportType;
 	}
 
-	/**
-	 * 신고사유을 가져옵니다..
-	 * 
-	 * @return 신고사유
-	 */
-	public ReportType getReportType() {
-		return this.reportType;
+	public String getReportedUserId() {
+		return reportedUserId;
 	}
 
-	/**
-	 * 신고사유상세을 설정합니다..
-	 * 
-	 * @param reportCmt
-	 *            신고사유상세
-	 */
+	public void setReportedUserId(String reportedUserId) {
+		this.reportedUserId = reportedUserId;
+	}
+
+	public String getReportCmt() {
+		return reportCmt;
+	}
+
 	public void setReportCmt(String reportCmt) {
 		this.reportCmt = reportCmt;
 	}
 
-	/**
-	 * 신고사유상세을 가져옵니다..
-	 * 
-	 * @return 신고사유상세
-	 */
-	public String getReportCmt() {
-		return this.reportCmt;
+	public String getReportStatus() {
+		return reportStatus;
 	}
 
-	/**
-	 * 의뢰건 목록을 설정합니다..
-	 * 
-	 * @param requestsSet
-	 *            의뢰건 목록
-	 */
-	public void setRequestsSet(Set<Request> requestsSet) {
-		this.requestsSet = requestsSet;
+	public void setReportStatus(String reportStatus) {
+		this.reportStatus = reportStatus;
 	}
 
-	/**
-	 * 의뢰건를 추가합니다..
-	 * 
-	 * @param requests
-	 *            의뢰건
-	 */
-	public void addRequests(Request requests) {
-		this.requestsSet.add(requests);
+	public String getReportUserId() {
+		return reportUserId;
 	}
 
-	/**
-	 * 의뢰건 목록을 가져옵니다..
-	 * 
-	 * @return 의뢰건 목록
-	 */
-	public Set<Request> getRequestsSet() {
-		return this.requestsSet;
+	public void setReportUserId(String reportUserId) {
+		this.reportUserId = reportUserId;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
+	public Date getReportDate() {
+		return reportDate;
+	}
+
+	public void setReportDate(Date reportDate) {
+		this.reportDate = reportDate;
+	}
+
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((reportId == null) ? 0 : reportId.hashCode());
-		return result;
+	public String toString() {
+		return "Report [requestId=" + requestId + ", reportType=" + reportType
+				+ ", reportedUserId=" + reportedUserId + ", reportUserId="
+				+ reportUserId + ", reportCmt=" + reportCmt + ", reportStatus="
+				+ reportStatus + ", reportDate=" + reportDate + "]";
 	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		Report other = (Report) obj;
-		if (reportId == null) {
-			if (other.reportId != null) {
-				return false;
-			}
-		} else if (!reportId.equals(other.reportId)) {
-			return false;
-		}
-		return true;
-	}
-
 }
