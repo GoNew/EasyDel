@@ -22,8 +22,10 @@ public class RequestDaoImpl implements IRequestDao {
 
 	@Override
 	public int insertRequest(Request request) {
-		String stmt = jll_namespace + ".insertUser";
+		String stmt = jll_namespace + ".insertRequest";
+		logger.trace("mylog: insertRequest 실행전");
 		int result = session.insert(stmt, request);
+		logger.trace("mylog: insertRequest 실행후 " + result);
 		return result;
 	}
 
