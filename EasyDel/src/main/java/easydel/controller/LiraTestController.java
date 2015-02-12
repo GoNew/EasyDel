@@ -18,4 +18,8 @@ public class LiraTestController {
 	public String footer(){
 		return "main/footer";
 	}
+	@RequestMapping("/mylist")
+	public String mylist(){
+		return "member/mylist";
+	}
 }

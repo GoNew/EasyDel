@@ -70,7 +70,7 @@
 						<ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon"
 							data-uk-nav="">
 							<li><a href="<%=request.getContextPath()%>/modify">개인정보 수정</a></li>
-							<li><a href="">내 진행 보기</a></li>
+							<li><a href="<%=request.getContextPath()%>/mylist">내 진행 보기</a></li>
 							<li><a href="<%=request.getContextPath()%>/logout">로그아웃</a></li>
 
 						</ul>
