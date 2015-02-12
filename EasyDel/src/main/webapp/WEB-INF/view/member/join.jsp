@@ -116,7 +116,7 @@
 		   		<label><input type="date" name="birthdate" class="uk-width-7-10"></label>
 			</div>
 			<div id="marg"><span class="red">* </span> <input type="email" name="userEmail" placeholder="이메일" class="uk-width-7-10" required></div>
-      	    <div id="marg"><span class="red">* </span> <input type="tel" name="userPhone" pattern="[0-9]{10,11}" title="10~11자리 숫자만 사용할 수 있습니다." placeholder="휴대폰전화번호" class="uk-width-7-10" required> 
+      	    <div id="marg"><span class="red">* </span> <input type="tel" name="userPhone" pattern="[0-9]{10,11}" title="10~11자리 숫자만 사용할 수 있습니다." placeholder="휴대폰전화번호 (-를 제외하고 입력하세요)" class="uk-width-7-10" required> 
       	    <button class="uk-button uk-button uk-width-1-5" type="button" data-uk-button id="button2">전송</button></div>
      	    <div id="marg"><span class="red">* </span> <input type="text" name="identifyingNumber" placeholder="인증번호" class="uk-width-7-10" required> 
      		<button class="uk-button uk-button uk-width-1-5" type="button" data-uk-button id="button2">확인</button></div>

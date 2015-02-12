@@ -135,6 +135,11 @@
 			</table>
 		</div>	
 	</div>
+	<ul class="uk-pagination">
+	    <li class="uk-active"><span><a href="#">[1]</a></span></li>
+	    <li class="uk-active"><a href="#">[2]</a></li>
+	    <li class="uk-active"><a href="#">[3]</a></li>
+	</ul>
 </div>
 </div>
 <jsp:include page = "/WEB-INF/view/main/footer.jsp"></jsp:include>

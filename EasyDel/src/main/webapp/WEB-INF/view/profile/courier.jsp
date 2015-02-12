@@ -101,6 +101,7 @@
 	<div id="profiledownform">
 		<div id ="profiledowntext">
 			<div id="profiletwo">
+				<div style="width:70px;"></div>
 				<div style="width:700px;"><strong>평가댓글</strong></div>
 				<div style="width:200px;"><strong>댓글 등록일</strong></div>
 			</div>	
@@ -136,8 +137,13 @@
 			</table>
 		</div>	
 	</div>
+	<ul class="uk-pagination">
+	    <li class="uk-active"><span><a href="#">[1]</a></span></li>
+	    <li class="uk-active"><a href="#">[2]</a></li>
+	    <li class="uk-active"><a href="#">[3]</a></li>
+	</ul>
 </div>
 </div>
 <jsp:include page = "/WEB-INF/view/main/footer.jsp"></jsp:include>
 </body>
-</html></html>
+</html>
