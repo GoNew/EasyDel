@@ -121,7 +121,6 @@
 	<div id="row4"><div id="col1">만날시간</div><div id=""><input class="date" type="datetime-local" name="pickupMinTimeBeforeParse" required></div><div id="from">부터</div><div id=""><input class="date" type="datetime-local" name="pickupMaxTimeBeforeParse" required></div><div id="to">까지</div></div>
 </div>
 
-
 <div id="allreceiver">
 <div id="subjectdiv"> <div id="subject" >받는 사람</div><div id="ischeckbox" ><input class="receiverchk" type="checkbox" checked="checked" data-uk-toggle="{target:'#my-id'}"><div class="chktext">부재중일 경우 체크</div></div><div id="samebtn"><input id="personalInfoInsert" class="uk-button" type="button" value="본인 정보 입력"></div> </div>
 <hr>
