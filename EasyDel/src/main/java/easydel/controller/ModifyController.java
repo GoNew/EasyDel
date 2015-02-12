@@ -32,6 +32,7 @@ public class ModifyController {
 		return "member/modify";
 	}
 	
+	
 	//회원정보수정을 위한 컨트롤러
 	@RequestMapping(value="/modify", method=RequestMethod.POST)
 	public String modify(@RequestParam("imgFileInput") MultipartFile file,

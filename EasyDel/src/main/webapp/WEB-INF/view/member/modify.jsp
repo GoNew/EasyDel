@@ -125,6 +125,7 @@
         	<a href="<%=request.getContextPath()%>/withdraw"><button class="uk-button uk-button-primary uk-width-1-5" type="button" data-uk-button id="button">회원탈퇴</button></a>
   		</div>
 	</form>
+	
 </div>
 </div>
 <jsp:include page = "/WEB-INF/view/main/footer.jsp"></jsp:include>
