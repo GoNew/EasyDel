@@ -80,7 +80,7 @@
 <jsp:include page = "/WEB-INF/view/main/header.jsp"></jsp:include>
 <div class="uk-clearfix">
 <div id="formcss" class="uk-align-center">
-	<div id="beforemainphoto" style="height:40px"></div>
+	<div style="height:40px"></div>
 	<div id="mainphoto" class="uk-align-center">
 		<img id="mainimg" class="uk-border-circle" src="<%=request.getContextPath()%><%=loginUserInfo.getUserPicture() %>">
 	</div>
@@ -174,5 +174,6 @@
 
 </div>
 </div>
+<jsp:include page = "/WEB-INF/view/main/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -20,8 +20,8 @@ import easydel.exception.ServiceFailException;
 import easydel.service.IUserService;
 
 @Controller
-public class RabbitController {
-	static final Logger logger = LoggerFactory.getLogger(RabbitController.class);
+public class ModifyController {
+	static final Logger logger = LoggerFactory.getLogger(ModifyController.class);
 	@Autowired
 	private IUserService service;
 
@@ -62,8 +62,6 @@ public class RabbitController {
 		return resultPage;
 	}
 	
-	
-
 	//회원탈퇴를 위한 컨트롤러
 	@RequestMapping(value="/withdraw", method=RequestMethod.GET)
 	public String withdraw(Model model, HttpSession session){

@@ -26,7 +26,7 @@ import easydel.service.IUserService;
 @Controller
 public class JoinController {
 	static final Logger logger = LoggerFactory
-			.getLogger(RabbitController.class);
+			.getLogger(ModifyController.class);
 	@Autowired
 	private IUserService service;
 
