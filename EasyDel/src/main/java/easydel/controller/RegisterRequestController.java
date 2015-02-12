@@ -18,11 +18,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import easydel.contant.RequestType;
 import easydel.entity.AddressDong;
 import easydel.entity.Request;
 import easydel.entity.User;
+import easydel.exception.ServiceFailException;
 import easydel.service.IDongService;
 import easydel.service.IGuService;
+import easydel.service.IRequestService;
 
 @Controller
 @RequestMapping(value="/register")
@@ -34,6 +37,8 @@ public class RegisterRequestController {
 	private IGuService guService;
 	@Autowired
 	private IDongService dongService;
+	@Autowired
+	private IRequestService reqService;
 	
 	@RequestMapping(value="/ajax/getdong", params={"guName"}, method=RequestMethod.GET,
 			produces="text/plain;charset=UTF-8")
@@ -69,7 +74,6 @@ public class RegisterRequestController {
 		SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'KK:mm");
 		User user = (User) session.getAttribute("loginSession");
 		
-		logger.trace("mylog: " + newRequest);
 		//시간 포멧 수정하여 setting
 		Date currDate = new Date(); 
 		Date pickupMinTime = null;
@@ -81,18 +85,26 @@ public class RegisterRequestController {
 			pickupMaxTime = (Date) parser.parse(pickupMaxTimeBeforeParse);
 			arrivalMinTime = (Date) parser.parse(arrivalMinTimeBeforeParse);
 			arrivalMaxTime = (Date) parser.parse(arrivalMaxTimeBeforeParse);
-		} catch (ParseException e) {
+			if(pickupMaxTime.before(pickupMinTime)
+					|| arrivalMaxTime.before(arrivalMinTime)
+					|| pickupMaxTime.before(currDate)
+					|| arrivalMaxTime.before(pickupMinTime)) {
+				throw new ServiceFailException();
+			}
+			newRequest.setSenderId(user.getUserId());
+			newRequest.setRequestType(RequestType.nomal.getTypeCode());
+			newRequest.setPickupMinTime(pickupMinTime);
+			newRequest.setPickupMaxTime(pickupMaxTime);
+			newRequest.setArrivalMinTime(arrivalMinTime);
+			newRequest.setArrivalMaxTime(arrivalMaxTime);
+			newRequest.setExpireDate(pickupMaxTime);
+			reqService.serviceRegistrateNewRequest(newRequest);
+			logger.trace("mylog: " + newRequest);
+		} catch (ParseException | ServiceFailException e) {
 			e.printStackTrace();
 		}
-		if(pickupMaxTime.before(pickupMinTime)
-				|| arrivalMaxTime.before(arrivalMinTime)
-				|| pickupMaxTime.before(currDate)
-				|| arrivalMaxTime.before(pickupMinTime)) {
-			
-		}
-//		newRequest.setArrivalMaxTime();
 		
-		return "board/registrate/typesimple";
+		return "board/registrate/selecttype";
 	}
 	@RequestMapping(value="/typepurchase", method=RequestMethod.GET)
 	public String typePurchase(Model model){

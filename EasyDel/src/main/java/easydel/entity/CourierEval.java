@@ -1,6 +1,7 @@
 package easydel.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
  * 배달부평가 모델 클래스.
@@ -14,111 +15,88 @@ public class CourierEval implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/** 의뢰건. */
-	private Request requests;
+	private Integer requestId;
 
 	/** 회원. */
-	private User courierIdusers;
+	private String courierId;
 
 	/** 배달부평가. */
 	private String courierCmt;
-
+	
+	private Date regDate;
+	private Integer courierSafe;
+	private Integer courierKind;
+	private Integer courierTime;
+	
 	/**
 	 * 생성자.
 	 */
 	public CourierEval() {
+		super();
 	}
 
-	/**
-	 * 의뢰건을 설정합니다..
-	 * 
-	 * @param requests
-	 *            의뢰건
-	 */
-	public void setRequests(Request requests) {
-		this.requests = requests;
+	public Integer getRequestId() {
+		return requestId;
 	}
 
-	/**
-	 * 의뢰건을 가져옵니다..
-	 * 
-	 * @return 의뢰건
-	 */
-	public Request getRequests() {
-		return this.requests;
+	public void setRequestId(Integer requestId) {
+		this.requestId = requestId;
 	}
 
-	/**
-	 * 회원을 설정합니다..
-	 * 
-	 * @param courierIdusers
-	 *            회원
-	 */
-	public void setCourierIdusers(User courierIdusers) {
-		this.courierIdusers = courierIdusers;
+	public String getCourierId() {
+		return courierId;
 	}
 
-	/**
-	 * 회원을 가져옵니다..
-	 * 
-	 * @return 회원
-	 */
-	public User getCourierIdusers() {
-		return this.courierIdusers;
+	public void setCourierId(String courierId) {
+		this.courierId = courierId;
 	}
 
-	/**
-	 * 배달부평가을 설정합니다..
-	 * 
-	 * @param courierCmt
-	 *            배달부평가
-	 */
+	public String getCourierCmt() {
+		return courierCmt;
+	}
+
 	public void setCourierCmt(String courierCmt) {
 		this.courierCmt = courierCmt;
 	}
 
-	/**
-	 * 배달부평가을 가져옵니다..
-	 * 
-	 * @return 배달부평가
-	 */
-	public String getCourierCmt() {
-		return this.courierCmt;
+	public Date getRegDate() {
+		return regDate;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
+
+	public Integer getCourierSafe() {
+		return courierSafe;
+	}
+
+	public void setCourierSafe(Integer courierSafe) {
+		this.courierSafe = courierSafe;
+	}
+
+	public Integer getCourierKind() {
+		return courierKind;
+	}
+
+	public void setCourierKind(Integer courierKind) {
+		this.courierKind = courierKind;
+	}
+
+	public Integer getCourierTime() {
+		return courierTime;
+	}
+
+	public void setCourierTime(Integer courierTime) {
+		this.courierTime = courierTime;
+	}
+
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((requests == null) ? 0 : requests.hashCode());
-		return result;
+	public String toString() {
+		return "CourierEval [requestId=" + requestId + ", courierId="
+				+ courierId + ", courierCmt=" + courierCmt + ", regDate="
+				+ regDate + ", courierSafe=" + courierSafe + ", courierKind="
+				+ courierKind + ", courierTime=" + courierTime + "]";
 	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		CourierEval other = (CourierEval) obj;
-		if (requests == null) {
-			if (other.requests != null) {
-				return false;
-			}
-		} else if (!requests.equals(other.requests)) {
-			return false;
-		}
-		return true;
-	}
-
+	
 }

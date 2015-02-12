@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import easydel.dao.IRequestDao;
 import easydel.entity.Request;
-import easydel.entity.User;
 import easydel.exception.ServiceFailException;
 import easydel.exception.VaildateFailException;
 
@@ -23,7 +22,7 @@ public class RequestServiceImpl implements IRequestService {
 	private SqlSession session;
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor={ServiceFailException.class})
 	public void serviceRegistrateNewRequest(Request request)
 			throws ServiceFailException {
 		int result = 0;
