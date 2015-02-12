@@ -78,6 +78,23 @@
 			$("#receiverName").val("<%=loginUser.getUserName() %>");
 			$("#receiverPhone").val("<%=loginUser.getUserPhone() %>");
 		});
+		 
+		// 비용에 양수값만 들어가게 하기~
+		$(".int").change(function() { 
+		    var num = $(this).val() - 1; 
+		    if(typeof num !== "number" || num < 0) { 
+		        alert("양수만 입력 해 주세요"); 
+		        $(this).focus(); 
+		        return false; 
+		    } 
+		}); 
+		$("#receiverchk").click(function() {
+			if($("#receiverchk").is(":checked") == true) {
+				$("#absencemessage").css("display", "");
+			} else {
+				$("#absencemessage").css("display", "none");
+			}
+		});
 	});
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -89,12 +106,12 @@
 
 <form action="<%=request.getContextPath()%>/register/typesimple" enctype="multipart/form-data" method="post">
 <div id="allproductinfo">
-<div id="subject" >물품정보</div>
-<hr>
+<div id="subject">물품 정보</div>
+<hr color="#808080">
 	<div align="center">
 		<label for="imgFileInput">
 			<div id="imagePreview">
-				<div id="imgnotice">프로필 사진을 등록하려면 여기를 클릭하세요!</div>
+				<div id="imgnotice" >물품 사진을 등록하려면 여기를 클릭하세요!<div id="imgnoticetext">*사진은 필수는 아니오나 첨부하지 않을 시, 배송 사고 발생 시에 불이익이 발생할 수 있으니 사진첨부를 부탁드립니다.</div></div>
 			</div>
 		</label>
 		<input type="file" id="imgFileInput" name="imgFileInput">
@@ -102,8 +119,8 @@
 	
 	<div id="subproductinfo">
 		<div id="row1"><div id="col1">물품명</div><div id=""><input class="producttext" type="text" name="cargoName" required></div></div>
-		<div id="row2"><div id="col1">비용</div><div id=""><input class="producttext" type="number" name="deliveryPrice" required></div></div>
-		<div id="row3"><div id="col1">물품 상세</div><div id=""><input class="productdetails" type="text" name="cargoDesc" required></div></div>
+		<div id="row2"><div id="col1">비용</div><div id=""><input class="producttext" type="number" name="deliveryPrice" required placeholder="*비용을 콤마 없이 입력하여 주세요."></div></div>
+		<div id="row3"><div id="col1">물품 상세</div><div id=""><textarea class="productdetails" name="cargoDesc" required placeholder="*상세 정보는 거래 시 중요한 정보이므로, 최대한 자세하게 작성하기실 부탁드립니다."></textarea></div></div>
 	</div>
 
 </div>
@@ -111,27 +128,27 @@
 
 <div id="allregistrater">
 <div id="subject" >보내는 사람</div>
-<hr>
+<hr color="#808080">
 	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input class="nametext" type="text" value="<%=loginUser.getUserName() %>" readonly></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input class="phonetext" type="text" name="senderPhone" value="<%=loginUser.getUserPhone() %>" required></div></div></div>
-	<div id="row2"><div id="col1">주소</div><div id="col2">서울특별시</div>
-		<div id="gudongselect"><select id="startPosGuList"><% for (AddressGu gu : guList) { %><option value="<%=gu.getGuName()%>"><%=gu.getGuName()%></option><% } %></select></div><div id="gudiv">구</div>
-		<div id="gudongselect"><select id="startPosDongList" name="pickupPlace"></select></div><div id="dongdiv">동</div>
+	<div id="row2"><div id="col1" style="color: ;">주소</div><div id="col2">서울특별시</div>
+		<div id="gudongselect"><select id="startPosGuList"><% for (AddressGu gu : guList) { %><option value="<%=gu.getGuName()%>"><%=gu.getGuName()%></option><% } %></select></div>
+		<div id="gudongselect"><select id="startPosDongList" name="pickupPlace"></select></div>
 	</div>
 	<div id="row3"><div id="col1"></div><div id="col2">상세주소</div><div id="col3"><input class="addressdetails" type="text" name="pickupPlaceDesc" required></div></div>
 	<div id="row4"><div id="col1">만날시간</div><div id=""><input class="date" type="datetime-local" name="pickupMinTimeBeforeParse" required></div><div id="from">부터</div><div id=""><input class="date" type="datetime-local" name="pickupMaxTimeBeforeParse" required></div><div id="to">까지</div></div>
 </div>
 
 <div id="allreceiver">
-<div id="subjectdiv"> <div id="subject" >받는 사람</div><div id="ischeckbox" ><input class="receiverchk" type="checkbox" checked="checked" data-uk-toggle="{target:'#my-id'}"><div class="chktext">부재중일 경우 체크</div></div><div id="samebtn"><input id="personalInfoInsert" class="uk-button" type="button" value="본인 정보 입력"></div> </div>
-<hr>
+<div id="subjectdiv"> <div id="subject" >받는 사람</div><div id="ischeckbox" ><input id="receiverchk" class="receiverchk" type="checkbox"><div class="chktext">부재중일 경우 체크</div></div><div id="samebtn"><input id="personalInfoInsert" class="uk-button" type="button" value="본인 정보 입력"></div> </div>
+<hr color="#808080">
 	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input id="receiverName" class="nametext" type="text" name="receiverName" required></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input id="receiverPhone" class="phonetext" type="text" name="receiverPhone" required></div></div></div>
 	<div id="row2"><div id="col1">주소</div><div id="col2">서울특별시</div>
-		<div id="gudongselect"><select id="arrivePosGuList"><% for (AddressGu gu : guList) { %><option value="<%=gu.getGuName()%>"><%=gu.getGuName()%></option><% } %></select></div><div id="gudiv">구</div>
-		<div id="gudongselect"><select id="arrivePosDongList" name="arrivalPlace"></select></div><div id="dongdiv">동</div>
+		<div id="gudongselect"><select id="arrivePosGuList"><% for (AddressGu gu : guList) { %><option value="<%=gu.getGuName()%>"><%=gu.getGuName()%></option><% } %></select></div>
+		<div id="gudongselect"><select id="arrivePosDongList" name="arrivalPlace"></select></div>
 	</div>
 	<div id="row3"><div id="col1"></div><div id="col2">상세주소</div><div id="col3"><input class="addressdetails" type="text" name="arrivalPlaceDesc" required></div></div>
 	<div id="row4"><div id="col1">도착시간</div><div id=""><input class="date" type="datetime-local" name="arrivalMinTimeBeforeParse" required></div><div id="from">부터</div><div id=""><input class="date" type="datetime-local" name="arrivalMaxTimeBeforeParse" required></div><div id="to">까지</div></div>
-	<div id="my-id"><div id="col1">전달 메시지</div><div id=""><input class="givemessage" type="text" name="absenceMessage"></div></div>
+	<div id="absencemessage" style="display: none;"><div id="col1">전달 메시지</div><div id=""><textarea class="absencemessage" name="absenceMessage" placeholder="ex)경비실에 맡겨주세요."></textarea></div></div>
 </div>
 
 <hr>

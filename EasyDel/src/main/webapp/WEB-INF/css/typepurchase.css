@@ -1,1 +1,175 @@
 @CHARSET "UTF-8";
+
+*{
+	margin: 0; padding:0;
+	/* border: 1px solid red; */
+}
+img{ border: 0;}
+address{font-style: normal;}
+ul, ol{list-style:name;}
+
+#fullbrowser{
+	width: 1025px;
+	margin: 0 auto;
+}
+#middlebrowser{
+	margin: 30px auto;
+	width: 1009px;
+}
+#imagePreview{
+	background-position: center center;
+	background-size: cover;
+	display: inline-block;
+	height: 400px;
+	width: 600px;
+	border: 1px solid #B0949F;
+}
+
+#imgnoticetext{
+	margin: 5px auto;
+	color: #B5AFAF;
+	font-size: 15px;
+}
+
+#imgnotice{
+	font-size: 29px;
+	margin:190px auto;
+}
+#imgFileInput {
+	display: none;
+} 
+
+#row1{
+	display: -webkit-box;
+}
+#row2, #row3, #row4{
+	display: -webkit-box;
+	margin-top:20px;
+	
+}
+
+#col1, #col2, #startPosGuList, #startPosDongList, #arrivePosGuList, #arrivePosDongList{
+	width: 140px;
+	height: 40px;
+	text-align: left;
+	font-size: 25px;
+	display:table-cell;vertical-align:middle;
+	margin-left: 8px;
+}
+#gudiv, #dongdiv,#from,#to{
+	height: 40px;
+	width: 60px;
+	font-size: 25px;
+	display:table-cell;vertical-align:middle;
+	text-align: center;
+}
+input.producttext{
+	width: 725px;
+	height: 40px;
+	margin-left: 8px;
+	font-size: 20px;
+}
+input.nametext, input.phonetext{
+	width: 340px;
+	height: 40px;
+	margin-left: 8px;
+}
+
+input.date{
+	width: 360px;	
+	height: 40px;
+	font-size: 25px;
+	margin-left: 8px;
+}
+
+textarea.productdetails{
+	font-size: 20px;
+	resize: none;
+	width: 725px;
+	height: 200px;
+	margin-left: 8px;
+	overflow: hidden;
+	
+}
+
+/* placeholder 2줄로 만들 수 있는 css 문 */
+::-webkit-input-placeholder::after {
+}
+#absencemessage{
+	display: -webkit-box;
+	margin-top: 20px;
+}
+textarea.absencemessage{
+	font-size: 20px;
+	resize: none;
+	width: 830px;
+	height: 100px;
+	margin-left: 8px;
+	overflow: hidden;
+}
+
+input.addressdetails{
+	width: 690px;
+	height: 40px;
+	margin-left: 8px;
+}
+
+#my_id{
+	display: -webkit-box;
+}
+
+#subjectdiv{
+	display: -webkit-box;
+}
+
+#subject{
+	height: 40px;
+	font-size: 35px;
+	font-weight: 900;
+	text-align: center;
+	display:table-cell;vertical-align:bottom;
+}
+
+
+#ischeckbox{
+	width: 260px;
+	font-size: 20px;
+	display: -webkit-box;
+	margin-left: 20px;
+}
+
+input.receiverchk{
+	width: 30px;
+	height: 30px;
+	margin-top: 9px;
+}
+div.chktext{
+	width: 250px;
+	height: 40px;
+	display:table-cell;vertical-align:bottom;
+}
+
+#samebtn{
+	margin-left: 445px;
+}
+input.uk-button{
+	display: inline-block;
+	height: 40px;
+	
+}
+
+#allreceiver, #allproductinfo {
+	margin: 30px 0px;
+}
+#subproductinfo{
+	margin-top: 20px;
+}
+
+
+#enterbtn{
+	padding: 7px 15px 7px;
+	line-height: 38px;
+	font-size: 30px;
+	border-radius: 5px;
+	margin: 15px 0;
+}

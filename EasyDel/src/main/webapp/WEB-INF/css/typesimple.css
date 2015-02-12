@@ -2,7 +2,7 @@
 
 *{
 	margin: 0; padding:0;
-	/* border: 1px solid red; */
+	border: 1px solid red;
 }
 img{ border: 0;}
 address{font-style: normal;}
@@ -13,12 +13,9 @@ ul, ol{list-style:name;}
 	margin: 0 auto;
 }
 #middlebrowser{
-	margin: 0 auto;
+	margin: 30px auto;
 	width: 1009px;
 }
-
-
-
 #imagePreview{
 	background-position: center center;
 	background-size: cover;
@@ -27,26 +24,34 @@ ul, ol{list-style:name;}
 	width: 600px;
 	border: 1px solid #B0949F;
 }
+
+#imgnoticetext{
+	margin: 5px auto;
+	color: #B5AFAF;
+	font-size: 15px;
+}
+
 #imgnotice{
 	font-size: 29px;
 	margin:190px auto;
-	
 }
 #imgFileInput {
 	display: none;
 } 
 
-#row1, #row2, #row3, #row4{
+#row1{
+	display: -webkit-box;
+}
+#row2, #row3, #row4{
 	display: -webkit-box;
 	margin-top:20px;
-	margin-bottom:20px;
 	
 }
 
 #col1, #col2, #startPosGuList, #startPosDongList, #arrivePosGuList, #arrivePosDongList{
 	width: 140px;
 	height: 40px;
-	text-align: right;
+	text-align: left;
 	font-size: 25px;
 	display:table-cell;vertical-align:middle;
 	margin-left: 8px;
@@ -58,12 +63,11 @@ ul, ol{list-style:name;}
 	display:table-cell;vertical-align:middle;
 	text-align: center;
 }
-
-
 input.producttext{
 	width: 725px;
 	height: 40px;
 	margin-left: 8px;
+	font-size: 20px;
 }
 input.nametext, input.phonetext{
 	width: 340px;
@@ -78,16 +82,30 @@ input.date{
 	margin-left: 8px;
 }
 
-input.productdetails{
+textarea.productdetails{
+	font-size: 20px;
+	resize: none;
 	width: 725px;
 	height: 200px;
 	margin-left: 8px;
+	overflow: hidden;
+	
 }
 
-input.givemessage{
+/* placeholder 2줄로 만들 수 있는 css 문 */
+::-webkit-input-placeholder::after {
+}
+#absencemessage{
+	display: -webkit-box;
+	margin-top: 20px;
+}
+textarea.absencemessage{
+	font-size: 20px;
+	resize: none;
 	width: 830px;
 	height: 100px;
 	margin-left: 8px;
+	overflow: hidden;
 }
 
 input.addressdetails{
@@ -96,7 +114,7 @@ input.addressdetails{
 	margin-left: 8px;
 }
 
-#my-id{
+#my_id{
 	display: -webkit-box;
 }
 
@@ -106,7 +124,8 @@ input.addressdetails{
 
 #subject{
 	height: 40px;
-	font-size: 25px;
+	font-size: 35px;
+	font-weight: 900;
 	text-align: center;
 	display:table-cell;vertical-align:bottom;
 }
@@ -131,7 +150,7 @@ div.chktext{
 }
 
 #samebtn{
-	margin-left: 480px;
+	margin-left: 445px;
 }
 input.uk-button{
 	display: inline-block;
@@ -155,8 +174,6 @@ input.uk-button{
 	margin: 15px 0;
 }
 
-hr{
-	border: 2px solid black;
-}
+
 
 

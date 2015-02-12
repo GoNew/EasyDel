@@ -95,7 +95,8 @@ public class RegisterRequestController {
 		return "board/registrate/typesimple";
 	}
 	@RequestMapping(value="/typepurchase", method=RequestMethod.GET)
-	public String typePurchase(){
+	public String typePurchase(Model model){
+		model.addAttribute("gu", guService.getGu());
 		return "board/registrate/typepurchase";
 	}
 }
