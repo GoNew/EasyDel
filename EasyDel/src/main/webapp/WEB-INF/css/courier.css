@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+
+/* *{border:solid 1px blue;}    */
+*{margin:0px;padding:0px;} 
+image{border:0px;}
+li{
+	height : 35px;
+	font-size: 22px;
+}
+#uk-clearfix{
+	width:1024px;
+	height:100%
+}
+#formcss{
+	width:1009px;
+	//height:600px;
+}
+
+#profilephoto{
+	width:220px;
+	width: expression(this.width > 220 ? 220: true); 
+	height:220px;
+}
+#profileimg{
+	width:220px;
+	height:220px;
+}
+
+#profileupform{
+	display: -webkit-box;
+	height : 300px;
+	width: 100%;
+}
+#profiledate{
+	align:left;
+}
+#profileid{
+	height:35px;
+	margin:10px;
+}
+#profiletwo{
+	display: -webkit-box;
+	height : 50px;
+}
+#profileupsmallform{
+	width:630px;
+}
+#profileinfo{
+	height : 200px;
+}
+#profiledangdang{
+	display: -webkit-box;
+	height : 40px;
+}
+#profilediv{
+	width:210px;
+	font-size: 22px;
+}
+#mainstar{
+	width:180px;
+	width: expression(this.width > 180 ? 180: true); 
+	height:33px;
+}
+#courierimg{
+	width:40px;
+	height:40px;
+}
