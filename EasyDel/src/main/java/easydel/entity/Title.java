@@ -18,7 +18,7 @@ public class Title {
 	private Integer arrivalPlaceAddrX;
 	private Integer arrivalPlaceAddrY;
 	private Integer deliveryPrice;
-	private Date exprieDate;
+	private Date expireDate;
 	public Title() {
 		super();
 	}
@@ -106,11 +106,11 @@ public class Title {
 	public void setDeliveryPrice(Integer deliveryPrice) {
 		this.deliveryPrice = deliveryPrice;
 	}
-	public Date getExprieDate() {
-		return exprieDate;
+	public Date getExpireDate() {
+		return expireDate;
 	}
-	public void setExprieDate(Date exprieDate) {
-		this.exprieDate = exprieDate;
+	public void setExpireDate(Date exprieDate) {
+		this.expireDate = exprieDate;
 	}
 	public Integer getRequestStatus() {
 		return requestStatus;
@@ -130,7 +130,7 @@ public class Title {
 				+ ", arrivalPlaceAddrX=" + arrivalPlaceAddrX
 				+ ", arrivalPlaceAddrY=" + arrivalPlaceAddrY
 				+ ", deliveryPrice=" + deliveryPrice + ", exprieDate="
-				+ exprieDate + "]";
+				+ expireDate + "]";
 	}
 	
 }

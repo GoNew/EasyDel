@@ -23,6 +23,9 @@ import easydel.service.IGuService;
 @Controller
 @RequestMapping(value="/board")
 public class TitleController {
+	public static final Logger logger = LoggerFactory
+			.getLogger(TitleController.class);
+	
 	@Autowired
 	IBoardService boardService;
 	@Autowired
@@ -36,14 +39,17 @@ public class TitleController {
 		return "board/list";
 	}
 	
-	@RequestMapping(method=RequestMethod.POST)
+	@RequestMapping(method=RequestMethod.POST, produces="text/plain;charset=UTF-8")
 	public @ResponseBody String getBoard(@RequestParam Integer pageNum,
 			@RequestParam String delTypeFilter, @RequestParam String statusFilter,
 			@RequestParam String sortType, HttpServletRequest request) {
 		StringBuilder result = new StringBuilder();
 		
 		List<Title> list = boardService.getBoard(sortType, delTypeFilter, statusFilter, pageNum);
-		
+		logger.trace("mylog: sortType: " + sortType);
+		logger.trace("mylog: delTypeFilter: " + delTypeFilter);
+		logger.trace("mylog: statusFilter: " + statusFilter);
+		logger.trace("mylog: pageNum: " + pageNum);
 		for(Title title: list) {
 			result.append("<tr class=\"");
 			if(title.getRequestStatus() == 1) {
@@ -71,7 +77,7 @@ public class TitleController {
 				.append(" ")
 				.append(title.getArrivalPlaceDong())
 				.append("<br>")
-				.append(title.getExprieDate().toString())
+				.append(title.getExpireDate().toString())
 				.append("</td><td>")
 				.append(title.getSenderId())
 				.append("<br>")
@@ -82,9 +88,6 @@ public class TitleController {
 		}
 		return result.toString();
 	}
-	
-	public static final Logger logger = LoggerFactory
-			.getLogger(TitleController.class);
 	
 	@RequestMapping(value="/ajax/getdong", params={"guName"}, method=RequestMethod.GET,
 			produces="text/plain;charset=UTF-8")
