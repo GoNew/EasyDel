@@ -17,10 +17,10 @@ DROP TRIGGER TRI_request_cmts_cmt_id;
 
 /* Drop Tables */
 
+DROP TABLE Reports CASCADE CONSTRAINTS;
 DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
 DROP TABLE Sender_Evals CASCADE CONSTRAINTS;
 DROP TABLE Complete_Deliverys CASCADE CONSTRAINTS;
-DROP TABLE Reports CASCADE CONSTRAINTS;
 DROP TABLE request_cmts CASCADE CONSTRAINTS;
 DROP TABLE Requests CASCADE CONSTRAINTS;
 DROP TABLE address_dongs CASCADE CONSTRAINTS;
@@ -104,7 +104,11 @@ CREATE TABLE Courier_Evals
 (
 	request_id number NOT NULL,
 	courier_id varchar2(10) NOT NULL,
-	courier_cmt varchar2(300),
+	courier_cmt varchar2(300) NOT NULL,
+	reg_date date DEFAULT SYSDATE NOT NULL,
+	courier_safe number DEFAULT 0 NOT NULL,
+	courier_kind number DEFAULT 0 NOT NULL,
+	courier_time number DEFAULT 0 NOT NULL,
 	PRIMARY KEY (request_id)
 );
 
@@ -171,14 +175,14 @@ CREATE TABLE Requests
 	pickup_min_time date,
 	pickup_max_time date,
 	pickup_place number,
-	pickup_place_desc varchar2(30),
-	receiver_name varchar2(5) NOT NULL,
+	pickup_place_desc varchar2(100),
+	receiver_name varchar2(20) NOT NULL,
 	receiver_phone varchar2(11) NOT NULL,
 	arrival_min_time date NOT NULL,
 	arrival_max_time date NOT NULL,
 	arrival_place number NOT NULL,
-	arrival_place_desc varchar2(30) NOT NULL,
-	absence_message varchar2(50),
+	arrival_place_desc varchar2(100) NOT NULL,
+	absence_message varchar2(200),
 	validation_code number,
 	-- 글의 소멸 일자를 저장한다.
 	-- 거래 완료 상태가 되면, 완료 후 7일 후에 지운다.
@@ -203,7 +207,11 @@ CREATE TABLE Sender_Evals
 (
 	request_id number NOT NULL,
 	sender_id varchar2(10) NOT NULL,
-	sender_cmt varchar2(300),
+	sender_cmt varchar2(300) NOT NULL,
+	reg_date date DEFAULT SYSDATE NOT NULL,
+	sender_time number DEFAULT 0 NOT NULL,
+	sender_kind number DEFAULT 0 NOT NULL,
+	sender_thing number DEFAULT 0 NOT NULL,
 	PRIMARY KEY (request_id)
 );
 
@@ -240,13 +248,13 @@ CREATE TABLE Users
 /* Create Foreign Keys */
 
 ALTER TABLE Requests
-	ADD FOREIGN KEY (arrival_place)
+	ADD FOREIGN KEY (pickup_place)
 	REFERENCES address_dongs (dong_id)
 ;
 
 
 ALTER TABLE Requests
-	ADD FOREIGN KEY (pickup_place)
+	ADD FOREIGN KEY (arrival_place)
 	REFERENCES address_dongs (dong_id)
 ;
 
@@ -275,13 +283,13 @@ ALTER TABLE Reports
 ;
 
 
-ALTER TABLE Complete_Deliverys
+ALTER TABLE Reports
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Requests (request_id)
 ;
 
 
-ALTER TABLE Reports
+ALTER TABLE Complete_Deliverys
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Requests (request_id)
 ;
@@ -294,12 +302,42 @@ ALTER TABLE request_cmts
 
 
 ALTER TABLE Requests
+	ADD FOREIGN KEY (sender_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE Sender_Evals
+	ADD FOREIGN KEY (sender_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE Reports
+	ADD FOREIGN KEY (report_user_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE request_cmts
+	ADD FOREIGN KEY (user_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE Requests
 	ADD FOREIGN KEY (courier_id)
 	REFERENCES Users (user_id)
 ;
 
 
-ALTER TABLE edmoney_logs
+ALTER TABLE Courier_Evals
+	ADD FOREIGN KEY (courier_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE alert_logs
 	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
 ;
@@ -311,38 +349,8 @@ ALTER TABLE Reports
 ;
 
 
-ALTER TABLE Courier_Evals
-	ADD FOREIGN KEY (courier_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE Sender_Evals
-	ADD FOREIGN KEY (sender_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE request_cmts
+ALTER TABLE edmoney_logs
 	ADD FOREIGN KEY (user_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE alert_logs
-	ADD FOREIGN KEY (user_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE Requests
-	ADD FOREIGN KEY (sender_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE Reports
-	ADD FOREIGN KEY (report_user_id)
 	REFERENCES Users (user_id)
 ;
 

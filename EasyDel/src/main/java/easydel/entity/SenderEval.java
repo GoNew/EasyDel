@@ -1,6 +1,7 @@
 package easydel.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
  * 발송인평가 모델 클래스.
@@ -14,111 +15,69 @@ public class SenderEval implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/** 의뢰건. */
-	private Request requests;
+	private Integer requestId;
 
 	/** 회원. */
-	private User senderIdusers;
+	private String senderId;
 
 	/** 발송 코멘트. */
 	private String senderCmt;
-
-	/**
-	 * 생성자.
-	 */
+	
+	private Date regDate;
+	private Integer senderTime;
+	private Integer senderKind;
+	private Integer senderThing;
+	
 	public SenderEval() {
+		super();
 	}
-
-	/**
-	 * 의뢰건을 설정합니다..
-	 * 
-	 * @param requests
-	 *            의뢰건
-	 */
-	public void setRequests(Request requests) {
-		this.requests = requests;
+	public Integer getRequestId() {
+		return requestId;
 	}
-
-	/**
-	 * 의뢰건을 가져옵니다..
-	 * 
-	 * @return 의뢰건
-	 */
-	public Request getRequests() {
-		return this.requests;
+	public void setRequestId(Integer requestId) {
+		this.requestId = requestId;
 	}
-
-	/**
-	 * 회원을 설정합니다..
-	 * 
-	 * @param senderIdusers
-	 *            회원
-	 */
-	public void setSenderIdusers(User senderIdusers) {
-		this.senderIdusers = senderIdusers;
+	public String getSenderId() {
+		return senderId;
 	}
-
-	/**
-	 * 회원을 가져옵니다..
-	 * 
-	 * @return 회원
-	 */
-	public User getSenderIdusers() {
-		return this.senderIdusers;
+	public void setSenderId(String senderId) {
+		this.senderId = senderId;
 	}
-
-	/**
-	 * 발송 코멘트을 설정합니다..
-	 * 
-	 * @param senderCmt
-	 *            발송 코멘트
-	 */
+	public String getSenderCmt() {
+		return senderCmt;
+	}
 	public void setSenderCmt(String senderCmt) {
 		this.senderCmt = senderCmt;
 	}
-
-	/**
-	 * 발송 코멘트을 가져옵니다..
-	 * 
-	 * @return 발송 코멘트
-	 */
-	public String getSenderCmt() {
-		return this.senderCmt;
+	public Date getRegDate() {
+		return regDate;
 	}
-
-	/**
-	 * {@inheritDoc}
-	 */
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
+	public Integer getSenderTime() {
+		return senderTime;
+	}
+	public void setSenderTime(Integer senderTime) {
+		this.senderTime = senderTime;
+	}
+	public Integer getSenderKind() {
+		return senderKind;
+	}
+	public void setSenderKind(Integer senderKind) {
+		this.senderKind = senderKind;
+	}
+	public Integer getSenderThing() {
+		return senderThing;
+	}
+	public void setSenderThing(Integer senderThing) {
+		this.senderThing = senderThing;
+	}
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((requests == null) ? 0 : requests.hashCode());
-		return result;
+	public String toString() {
+		return "SenderEval [requestId=" + requestId + ", senderId=" + senderId
+				+ ", senderCmt=" + senderCmt + ", regDate=" + regDate
+				+ ", senderTime=" + senderTime + ", senderKind=" + senderKind
+				+ ", senderThing=" + senderThing + "]";
 	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		SenderEval other = (SenderEval) obj;
-		if (requests == null) {
-			if (other.requests != null) {
-				return false;
-			}
-		} else if (!requests.equals(other.requests)) {
-			return false;
-		}
-		return true;
-	}
-
 }

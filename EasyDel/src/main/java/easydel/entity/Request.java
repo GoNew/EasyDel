@@ -26,7 +26,7 @@ public class Request implements Serializable {
 	private String courierId;
 
 	/** 의뢰 종류. */
-	private String requestType;
+	private Integer requestType;
 
 	/** 글 상태. */
 	private Integer requestStatus;
@@ -124,7 +124,7 @@ public class Request implements Serializable {
 	 * @param requestType
 	 *            의뢰 종류
 	 */
-	public void setRequestType(String requestType) {
+	public void setRequestType(Integer requestType) {
 		this.requestType = requestType;
 	}
 
@@ -133,7 +133,7 @@ public class Request implements Serializable {
 	 * 
 	 * @return 의뢰 종류
 	 */
-	public String getRequestType() {
+	public Integer getRequestType() {
 		return this.requestType;
 	}
 

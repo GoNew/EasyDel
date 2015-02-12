@@ -4,25 +4,83 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="easydel.jll.mapper.requests">
  
- <insert id="insertRequest" parameterType="Request">
-		insert into Requests(sender_id, request_type, cargo_name, delivery_price
-			<if test="cargoPicture != null">
-				, cargo_picture
-			</if>
-, cargo_desc, sender_phone, pickup_min_time, pickup_max_time, pickup_place, pickup_place_desc, receiver_name, receiver_phone, arrival_min_time, arrival_max_time, arrival_place, arrival_place_desc,absence_message,expire_date
-		)
-		
-		values(#{senderId}, #{requestType}, #{cargoName}, #{deliveryPrice}
-		
-			<if test="cargoPicture != null">
-				, #{cargoPicture}
-			</if>
-			
-, #{cargoDesc},#{senderPhone}, #{pickupMinTime}, #{pickupMaxTime}, #{pickupPlace}, #{pickupPlaceDesc}, #{receiverName}, #{receiverPhone}, #{arrivalMinTime}, #{arrivalMaxTime}, #{arrivalPlace}, #{arrivalPlaceDesc}, #{absenceMessage}, #{expireDate}
-		)
- </insert>
- 
- <delete id="deleteRequestrByUserId" parameterType="string">
+ 	<insert id="insertRequest" parameterType="Request">
+ 		<selectKey keyProperty="requestId" resultType="integer" order="AFTER">
+			select		SEQ_Requests_request_id.currval
+			from		DUAL
+		</selectKey>
+		insert into Requests(sender_id,
+						request_type,
+						cargo_name,
+						delivery_price,
+						<if test="cargoPicture != null">
+							cargo_picture,
+						</if>
+							cargo_desc,
+						<if test="senderPhone != null">
+							sender_phone,
+						</if>
+						<if test="pickupMinTime != null">
+							pickup_min_time,
+						</if>
+						<if test="pickupMaxTime != null">
+							pickup_max_time,
+						</if>
+						<if test="pickupPlace != null">
+							pickup_place,
+						</if>
+						<if test="pickupPlaceDesc != null">
+							pickup_place_desc,
+						</if>
+						receiver_name,
+						receiver_phone,
+						arrival_min_time,
+						arrival_max_time,
+						arrival_place,
+						arrival_place_desc,
+						<if test="absenceMessage">
+							absence_message,
+						</if>
+						expire_date
+					)
+		values		(	#{senderId},
+						#{requestType},
+						#{cargoName},
+						#{deliveryPrice},
+						<if test="cargoPicture != null">
+							#{cargoPicture},
+						</if>
+							#{cargoDesc},
+						<if test="senderPhone != null">
+							#{senderPhone},
+						</if>
+						<if test="pickupMinTime != null">
+							#{pickupMinTime},
+						</if>
+						<if test="pickupMaxTime != null">
+							#{pickupMaxTime},
+						</if>
+						<if test="pickupPlace != null">
+							#{pickupPlace},
+						</if>
+						<if test="pickupPlaceDesc != null">
+							#{pickupPlaceDesc},
+						</if>
+						#{receiverName},
+						#{receiverPhone},
+						#{arrivalMinTime},
+						#{arrivalMaxTime},
+						#{arrivalPlace},
+						#{arrivalPlaceDesc},
+						<if test="absenceMessage">
+							#{absenceMessage},
+						</if>
+						#{expireDate}
+					)
+ 	</insert>
+ 	<update id="updateRequestPicture" parameterType="Request">
+ 	</update>
+ 	<delete id="deleteRequestrByUserId" parameterType="string">
 		delete 	from Users
 		where 	user_id=#{userId}
 	</delete>
