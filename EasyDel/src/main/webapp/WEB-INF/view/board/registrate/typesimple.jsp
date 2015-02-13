@@ -151,7 +151,6 @@
 	<div id="absencemessage" style="display: none;"><div id="col1">전달 메시지</div><div id=""><textarea class="absencemessage" name="absenceMessage" placeholder="ex)경비실에 맡겨주세요."></textarea></div></div>
 </div>
 
-<hr>
 <div  align="center"><button id="enterbtn" class="uk-button" type="submit">의뢰 등록</button></div>
 
 </form>

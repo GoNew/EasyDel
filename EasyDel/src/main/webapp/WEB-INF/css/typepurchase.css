@@ -73,6 +73,7 @@ input.nametext, input.phonetext{
 	width: 340px;
 	height: 40px;
 	margin-left: 8px;
+	font-size: 25px;
 }
 
 input.date{
@@ -100,7 +101,7 @@ textarea.productdetails{
 	margin-top: 20px;
 }
 textarea.absencemessage{
-	font-size: 20px;
+	font-size: 25px;
 	resize: none;
 	width: 830px;
 	height: 100px;
@@ -112,6 +113,7 @@ input.addressdetails{
 	width: 690px;
 	height: 40px;
 	margin-left: 8px;
+	font-size: 25px;
 }
 
 #my_id{
@@ -171,5 +173,5 @@ input.uk-button{
 	line-height: 38px;
 	font-size: 30px;
 	border-radius: 5px;
-	margin: 15px 0;
+	margin: 30px 0;
 }

@@ -130,7 +130,6 @@
 	<div id="row4"><div id="col1">만날 시간</div><div id=""><input class="date" type="datetime-local" name="arrivalMinTimeBeforeParse" required></div><div id="from">부터</div><div id=""><input class="date" type="datetime-local" name="arrivalMaxTimeBeforeParse" required></div><div id="to">까지</div></div>
 </div>
 
-<hr>
 <div align="center"><button id="enterbtn" class="uk-button" type="submit">의뢰 등록</button></div>
 
 </form>

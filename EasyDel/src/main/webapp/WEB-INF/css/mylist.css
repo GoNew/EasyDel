@@ -12,6 +12,9 @@ ul, ol{list-style:name;}
 	margin: 0px auto;
 }
 
+#registered_requests_div{
+}
+
 #middlebrowser {
 	width: 1009px;
 	margin: 20px auto;
@@ -24,15 +27,121 @@ div.mylistsenderlist{
 #mylist_sender{
 }
 
+div.request_box{
+	margin: 70px auto;
+}
+
+
+
+div.subject{
+display: -webkit-box;
+font-size: 30px;
+color: #7F7F7F;
+}
+
 div.row_request{
+	display: -webkit-box;
+	text-align: center;
+	height: 50px;
+}
+
+div.row_request_details{
+	display: -webkit-box;
+	text-align: center;
+	height: 110px;
+}
+
+div.text_middle{
+	/* border: 1px solid blue; */
+	font-size: 25px;
+	margin: 15px 0px;
+	height: 30px;
+}
+
+div.text_middle_small{
+	font-size: 20px;
+	margin: 15px 0px;
+	height: 30px;
+	overflow: hidden;
+}
+
+
+div.text_middle_grade{
+	margin: 35px 5px;	
+}
+
+div.button_middle{
+	margin: 9px 0px;
+}
+
+#Ex_completed_02{
+	/* background-color: #99D9EA; */
+	color: #c0c0c0;
+}
+div.tabfont{
+	color:#00A2E8;
+	font-size: 30px;
+}
+
+div.replace_hr{
+	border: 1px solid #C3C3C3;
+}
+div.replace_report_hr{
+	border: 1px solid #C3C3C3;
+	margin-left: 20px;
+}
+div.replace_report_subject_hr{
+	border: 1px solid #000000;
+	margin-left: 20px;
+	/* margin: 0px 20px; */
+}
+
+img.grade_icon{
+	width: 100px;
+	height: 90px;
+}
+
+div.webkit_box{
+	/* border: 1px solid blue; */
 	display: -webkit-box;
 }
 
-div.request_box{
-	margin: 10px auto;
+div.courier_info_box{
+	/* border: 1px solid #99D9EA; */
+	/* background-color: #cdee6a; */
+	margin: 10px 0px;
+	height: 200px;
 }
 
-div.row_request{
-	margin: 10px 0px;
-	border: 1px solid pink;
+div.margin_small{
+	margin: 10px 10px;
 }
+
+
+#subject_grade_info{
+	font-size: 23px;	
+	margin: 5px 0px;
+	/* border: 2px solid #B5E61D; */
+}
+
+#grade_text{
+	font-size: 30px;
+}
+
+button{
+	 background-color:#ffffff; background: white; border:solid 1 #ffffff;
+}
+
+div.pannel-cancel{
+	 background-color: #fdd2df;
+  	color: white;
+  	border-color: rgba(45, 112, 145, 0.3);
+}	
+
+div.right_margin_5px{
+	 margin-right: 5px;
+}
+div.right_margin_20px{
+	 margin-right: 5px;
+}
+
