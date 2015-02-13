@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+/*    *{border:solid 1px blue;}    */ 
+*{margin:0px;padding:0px;} 
+image{border:0px;}
+
+#uk-clearfix{
+	width:1024px;
+	height:100%
+}
+#formcss{
+	width:1009px;
+	/* height:600px; */
+}
+
+#errorimg{
+	width:600px;
+	height:600px;
+}
+#errornull{
+	display: -webkit-box;
+}
