@@ -24,4 +24,19 @@ public class EvalController {
 		
 		return resultPage;
 	}
+	
+	
+	//발송인의 프로필
+	@RequestMapping(value="/profile/eval/sendereval", method=RequestMethod.GET)
+	public String moveToProfileSender(){
+		return "profile/eval/sendereval";
+	}
+	
+	@RequestMapping(value="/profile/eval/sendereval", method=RequestMethod.POST)
+	public String profileSender(User user, Model model, HttpSession session){
+		String resultPage = "redirect:sendereval";
+		
+		
+		return resultPage;
+	}
 }
