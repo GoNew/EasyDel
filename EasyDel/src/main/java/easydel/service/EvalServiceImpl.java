@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import easydel.dao.IEvalDao;
 import easydel.entity.CourierEval;
+import easydel.entity.SenderEval;
 import easydel.entity.User;
 import easydel.exception.ServiceFailException;
 
@@ -32,6 +33,24 @@ public class EvalServiceImpl implements IEvalService {
 	public void serviceCourierEval(CourierEval courierEval) throws ServiceFailException {
 		int result = 0;
 		result = dao.insertCourierEval(courierEval);
+		
+		if(result <= 0){
+			throw new ServiceFailException("알수 없는 에러");
+		}
+	}
+	
+	@Override
+	public User serviceGetSender(Integer requestId){
+		User user = null;
+		user = dao.selectSenderByRequestId(requestId);
+		return user;
+	}
+
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public void serviceSenderEval(SenderEval senderEval) throws ServiceFailException {
+		int result = 0;
+		result = dao.insertSenderEval(senderEval);
 		
 		if(result <= 0){
 			throw new ServiceFailException("알수 없는 에러");

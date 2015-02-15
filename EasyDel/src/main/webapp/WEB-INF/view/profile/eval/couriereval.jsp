@@ -19,9 +19,6 @@
 %>
 <script type="text/javascript">
 	$(document).ready(function() {
-		//$("#courierevalsystime").html(sysdate());	
-		
-		
 		
 		$("#courierevaltime").html("0");
 		$("#courierevalsafe").html("0");

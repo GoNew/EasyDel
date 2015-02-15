@@ -1,7 +1,5 @@
 package easydel.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import easydel.entity.CourierEval;
-import easydel.entity.User;
+import easydel.entity.SenderEval;
 import easydel.exception.ServiceFailException;
 import easydel.service.IEvalService;
 
@@ -58,26 +56,43 @@ public class EvalController {
 		
 		return resultPage;
 	}
+
+	
 	
 	
 	//발송인 평가
 	@RequestMapping(value="/sender", method=RequestMethod.GET)
-	public String moveToProfileSender(){
+	public String moveToProfileSender(@RequestParam Integer requestId, Model model){
+		model.addAttribute("senderInfo", service.serviceGetSender(requestId));
+		model.addAttribute("requestId", requestId);
 		return "profile/eval/sendereval";
 	}
 	
 	@RequestMapping(value="/sender", method=RequestMethod.POST)
-	public String profileSender(User user, Model model, HttpSession session){
-		String resultPage = "redirect:sendereval";
+	public String profileSender(Model model, @RequestParam Integer senderevaltime2, @RequestParam Integer senderevalsafe2, 
+			@RequestParam Integer senderevalkind2, @RequestParam String senderevalcmt,
+			@RequestParam String senderId, @RequestParam Integer requestId){
+		//resultPage는 내 진행보기로 이동
+		String resultPage = "redirect:/mylist";
 		
+		SenderEval sendereval = new SenderEval();
+		
+		sendereval.setRequestId(requestId);
+		sendereval.setSenderId(senderId);
+		sendereval.setSenderTime(senderevaltime2); 
+		sendereval.setSenderThing(senderevalsafe2); 
+		sendereval.setSenderKind(senderevalkind2);
+		sendereval.setSenderCmt(senderevalcmt);
+		
+		try {
+			service.serviceSenderEval(sendereval);
+		} catch (ServiceFailException e) {
+			model.addAttribute("errorMsg", e.getMessage());
+			resultPage = "redirect:/error";
+			e.printStackTrace();
+		}
 		
 		return resultPage;
 	}
 	
-	
-	//임시 : 에러페이지 테스트
-	@RequestMapping(value="/error/errorpage", method=RequestMethod.GET)
-	public String moveToErrorPage(){
-		return "error/errorpage";
-	}
 }
