@@ -23,4 +23,6 @@ public interface IRequestService {
 		throws ServiceFailException;
 	public HashMap<String, List<ViewMySendRequest>> serviceGetMySendRequestList(String userId)
 		throws ServiceFailException;
+	public void admitCourierToPerformRequest(String exeUserId, Integer requestId)
+		throws ServiceFailException;
 }

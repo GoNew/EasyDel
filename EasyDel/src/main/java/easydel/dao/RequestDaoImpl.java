@@ -1,10 +1,13 @@
 package easydel.dao;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import easydel.contant.RequestStatus;
 import easydel.entity.Request;
 
 public class RequestDaoImpl implements IRequestDao {
@@ -16,6 +19,7 @@ public class RequestDaoImpl implements IRequestDao {
 	private SqlSession session;
 	
 	private String jll_namespace = "easydel.jll.mapper.requests";
+	private String gonew_namespace = "easydel.gonew.mapper.requests";
 
 	public RequestDaoImpl() {
 	}
@@ -58,6 +62,24 @@ public class RequestDaoImpl implements IRequestDao {
 	public Request selectRequestByRequestId(Integer requestId) {
 		String stmt = jll_namespace + ".selectRequestByRequestId";
 		Request result = session.selectOne(stmt, requestId);
+		return result;
+	}
+
+	@Override
+	public int updateStatusOfRequest(RequestStatus requestStatus,
+			Integer requestId) {
+		String stmt = gonew_namespace + ".updateStatusOfRequest";
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("requestStatus", requestStatus.getStatusCode());
+		params.put("requestId", requestId);
+		int result = session.update(stmt, params);
+		return result;
+	}
+
+	@Override
+	public int updateStatusAndRemoveCourier(Integer requestId) {
+		String stmt = gonew_namespace + ".updateStatusAndRemoveCourier";
+		int result = session.update(stmt, requestId);
 		return result;
 	}
 

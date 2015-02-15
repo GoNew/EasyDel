@@ -73,7 +73,7 @@ public class ViewMyListController {
 	}
 	
 	@RequestMapping(value="/send/delete", params={"requestId"}, method=RequestMethod.POST)
-	public String deleteSenderComment(HttpSession session, Model model,
+	public String deleteSenderRequest(HttpSession session, Model model,
 			@RequestParam Integer requestId) {
 		User loginUser = (User) session.getAttribute("loginSession");
 		String resultPage = "/mylist";
@@ -84,6 +84,15 @@ public class ViewMyListController {
 			resultPage = "/error";
 			e.printStackTrace();
 		}
+		
+		return "redirect:" + resultPage;
+	}
+	
+	@RequestMapping(value="/send/admit", params={"requestId"}, method=RequestMethod.POST)
+	public String admitSenderRequest(HttpSession session, Model model,
+			@RequestParam Integer requestId) {
+		String resultPage = "/mylist";
+		User loginUser = (User) session.getAttribute("loginSession");
 		
 		return "redirect:" + resultPage;
 	}

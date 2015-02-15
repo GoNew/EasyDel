@@ -12,12 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import easydel.contant.AlertStatus;
 import easydel.contant.RequestStatus;
+import easydel.dao.IAlertDao;
 import easydel.dao.IRequestDao;
 import easydel.dao.IUserDao;
 import easydel.dao.IViewMyCarryRequestDao;
 import easydel.dao.IViewMyReportRequestDao;
 import easydel.dao.IViewMySendRequestDao;
+import easydel.entity.AlertLog;
 import easydel.entity.Request;
 import easydel.entity.ViewMyCarryRequest;
 import easydel.entity.ViewMyReportRequest;
@@ -38,6 +41,8 @@ public class RequestServiceImpl implements IRequestService {
 	private IViewMyReportRequestDao viewMyReportDao;
 	@Autowired
 	private IViewMySendRequestDao viewMySendDao;
+	@Autowired
+	private IAlertService alertService;
 
 	@Override
 	@Transactional(rollbackFor = { ServiceFailException.class })
@@ -198,4 +203,27 @@ public class RequestServiceImpl implements IRequestService {
 		result.put("afterDel", afterDel);
 		return result;
 	}
+
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public void admitCourierToPerformRequest(String exeUserId, Integer requestId)
+			throws ServiceFailException {
+		if(exeUserId == null)
+			throw new ServiceFailException("삭제권한이 없는 유저");
+		Request currRequest = requestDao.selectRequestByRequestId(requestId);
+		if(currRequest == null)
+			throw new ServiceFailException("존재하지 않는 글");
+		if(!exeUserId.equals(currRequest.getSenderId()))
+			throw new ServiceFailException("삭제권한이 없는 유저");
+		if(currRequest.getCourierId() == null)
+			throw new ServiceFailException("의뢰 신청 유저가 존재하지 않습니다.");
+		
+		if(requestDao.updateStatusOfRequest(RequestStatus.on, requestId)
+				<= 0)
+			throw new ServiceFailException("원인을 알 수 없는 에러");
+		alertService.insertAlert(currRequest.getCourierId(),
+				"'" + currRequest.getCargoName() + "'의뢰의 진행이 수락되었습니다.", AlertStatus.deliver);
+	}
+	
+	public void 
 }
