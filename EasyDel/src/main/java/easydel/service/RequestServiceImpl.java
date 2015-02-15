@@ -2,8 +2,9 @@ package easydel.service;
 
 import java.io.File;
 import java.io.IOException;
-
-import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +12,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import easydel.contant.RequestStatus;
 import easydel.dao.IRequestDao;
 import easydel.dao.IUserDao;
+import easydel.dao.IViewMyCarryRequestDao;
+import easydel.dao.IViewMyReportRequestDao;
+import easydel.dao.IViewMySendRequestDao;
 import easydel.entity.Request;
+import easydel.entity.ViewMyCarryRequest;
+import easydel.entity.ViewMyReportRequest;
+import easydel.entity.ViewMySendRequest;
 import easydel.exception.ServiceFailException;
 
 public class RequestServiceImpl implements IRequestService {
@@ -24,6 +32,12 @@ public class RequestServiceImpl implements IRequestService {
 	private IRequestDao requestDao;
 	@Autowired
 	private IUserDao userDao;
+	@Autowired
+	private IViewMyCarryRequestDao viewMyCarryDao;
+	@Autowired
+	private IViewMyReportRequestDao viewMyReportDao;
+	@Autowired
+	private IViewMySendRequestDao viewMySendDao;
 
 	@Override
 	@Transactional(rollbackFor = { ServiceFailException.class })
@@ -82,5 +96,94 @@ public class RequestServiceImpl implements IRequestService {
 				<= 0) {
 			throw new ServiceFailException("request 삭제 실패 - 알 수 없는 원인");
 		}
+	}
+	
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public HashMap<String, List<ViewMyCarryRequest>> serviceGetMyCarryRequestList(String userId)
+			throws ServiceFailException {
+		if(userId == null) throw new ServiceFailException("입력된 아이디가 null");
+		HashMap<String, List<ViewMyCarryRequest>> result = new HashMap<String, List<ViewMyCarryRequest>>();
+		List<ViewMyCarryRequest> allList = viewMyCarryDao.selectMyCarryRequest(userId);
+		List<ViewMyCarryRequest> beforeDel = new ArrayList<ViewMyCarryRequest>();
+		List<ViewMyCarryRequest> onDel = new ArrayList<ViewMyCarryRequest>();
+		List<ViewMyCarryRequest> afterDel = new ArrayList<ViewMyCarryRequest>();
+		result.put("beforDel", beforeDel);
+		result.put("onDel", onDel);
+		result.put("afterDel", afterDel);
+		for(ViewMyCarryRequest req: allList) {
+			switch(RequestStatus.valueOf(req.getRequestStatus())) {
+			case request:
+			case wait:
+				beforeDel.add(req);
+				break;
+			case on:
+			case cancelBySender:
+			case cancelByDeliver:
+				onDel.add(req);
+				break;
+			case arrive:
+			case quit:
+				afterDel.add(req);
+				break;
+			default:
+				break;
+			}
+		}
+		return result;
+	}
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public HashMap<String, List<ViewMyReportRequest>> serviceGetMyReportRequestList(String userId)
+			throws ServiceFailException {
+		if(userId == null) throw new ServiceFailException("입력된 아이디가 null");
+		HashMap<String, List<ViewMyReportRequest>> result = new HashMap<String, List<ViewMyReportRequest>>();
+		List<ViewMyReportRequest> allList = viewMyReportDao.selectMyReportRequest(userId);
+		List<ViewMyReportRequest> reportList = new ArrayList<ViewMyReportRequest>();
+		List<ViewMyReportRequest> reportedList = new ArrayList<ViewMyReportRequest>();
+		result.put("report", reportList);
+		result.put("reported", reportedList);
+		for(ViewMyReportRequest req: allList) {
+			if(userId.equals(req.getReportedUserId())) {
+				reportedList.add(req);
+			} else if(userId.equals(req.getReportUserId())) {
+				reportList.add(req);
+			}
+		}
+		return result;
+	}
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public HashMap<String, List<ViewMySendRequest>> serviceGetMySendRequestList(String userId)
+			throws ServiceFailException {
+		if(userId == null) throw new ServiceFailException("입력된 아이디가 null");
+		HashMap<String, List<ViewMySendRequest>> result = new HashMap<String, List<ViewMySendRequest>>();
+		List<ViewMySendRequest> allList = viewMySendDao.selectMySendRequest(userId);
+		List<ViewMySendRequest> beforeDel = new ArrayList<ViewMySendRequest>();
+		List<ViewMySendRequest> onDel = new ArrayList<ViewMySendRequest>();
+		List<ViewMySendRequest> afterDel = new ArrayList<ViewMySendRequest>();
+		result.put("beforDel", beforeDel);
+		result.put("onDel", onDel);
+		result.put("afterDel", afterDel);
+		for(ViewMySendRequest req: allList) {
+			switch(RequestStatus.valueOf(req.getRequestStatus())) {
+			case request:
+			case wait:
+				beforeDel.add(req);
+				break;
+			case on:
+			case cancelBySender:
+			case cancelByDeliver:
+				onDel.add(req);
+				break;
+			case arrive:
+			case quit:
+				afterDel.add(req);
+				break;
+			default:
+				break;
+			}
+		}
+		return result;
 	}
 }

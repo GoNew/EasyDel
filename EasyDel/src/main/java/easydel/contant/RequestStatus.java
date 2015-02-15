@@ -23,4 +23,12 @@ public enum RequestStatus {
 	public int getStatusCode() {
 		return statusCode;
 	}
+	public static RequestStatus valueOf(int statusCode) {
+		RequestStatus[] all = RequestStatus.values();
+		for(RequestStatus state: all) {
+			if(state.getStatusCode() == statusCode)
+				return state;
+		}
+		return null;
+	}
 }

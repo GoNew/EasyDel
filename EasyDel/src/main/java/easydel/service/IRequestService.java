@@ -1,8 +1,14 @@
 package easydel.service;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import easydel.entity.Request;
+import easydel.entity.ViewMyCarryRequest;
+import easydel.entity.ViewMyReportRequest;
+import easydel.entity.ViewMySendRequest;
 import easydel.exception.ServiceFailException;
 
 public interface IRequestService {
@@ -11,4 +17,10 @@ public interface IRequestService {
 			throws ServiceFailException;
 	public void serviceRemoveRequest(Integer requestId)
 			throws ServiceFailException;
+	public HashMap<String, List<ViewMyCarryRequest>> serviceGetMyCarryRequestList(String userId)
+		throws ServiceFailException;
+	public HashMap<String, List<ViewMyReportRequest>> serviceGetMyReportRequestList(String userId)
+		throws ServiceFailException;
+	public HashMap<String, List<ViewMySendRequest>> serviceGetMySendRequestList(String userId)
+		throws ServiceFailException;
 }
