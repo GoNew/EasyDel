@@ -11,21 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>report!</title>
-<style type="text/css"></style>
-<script type="text/javascript">
-<%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/css/list.css"/> --%>
-
-<script type="text/javascript">
-</script>
-</head>
-<%
-	List<ReportType> reportTypeList = (List<ReportType>) request.getAttribute("reportType");
-	reportTypeList = reportTypeList != null ? reportTypeList : new ArrayList<ReportType>();
-
-%>
-
-<body>
-<style>
+<style type="text/css">
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -63,7 +49,39 @@
   border-width: 1px;
   border: 1px solid #000000; 
   }  
-</style> 
+
+
+*{
+   margin: 0; padding:0;
+/*    border: 1px solid red;
+ */}
+img{ border: 0;}
+address{font-style: normal;}
+ul, ol{list-style:name;}
+
+#fullbrowser {
+   width: 1025px;
+   margin: 0px auto;
+}
+#middlebrowser {
+   width: 1009px;
+   margin: 150px auto;
+}</style>
+<script type="text/javascript">
+<%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/css/list.css"/> --%>
+
+<script type="text/javascript">
+</script>
+</head>
+<%
+	List<ReportType> reportTypeList = (List<ReportType>) request.getAttribute("reportType");
+	reportTypeList = reportTypeList != null ? reportTypeList : new ArrayList<ReportType>();
+
+%>
+
+<body>
+
+
 
 
 <form action="/request" method="post">

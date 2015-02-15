@@ -1,5 +1,7 @@
 package easydel.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +18,10 @@ public class EdmoneyController {
 	}
 	
 	@RequestMapping(value="/edmoney", method=RequestMethod.GET)
-	public String GetEdmoneyBalance(Model model){
+	public String GetEdmoneyBalance(Model model, HttpSession session){
+//		session.getAttribute("UserId");
+		
+		model.addAttribute("edmoneyBalance", 99999);
 		
 		return "edmoney/edmoneyView";
 	}
