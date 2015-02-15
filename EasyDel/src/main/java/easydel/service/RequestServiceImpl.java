@@ -108,9 +108,6 @@ public class RequestServiceImpl implements IRequestService {
 		List<ViewMyCarryRequest> beforeDel = new ArrayList<ViewMyCarryRequest>();
 		List<ViewMyCarryRequest> onDel = new ArrayList<ViewMyCarryRequest>();
 		List<ViewMyCarryRequest> afterDel = new ArrayList<ViewMyCarryRequest>();
-		result.put("beforDel", beforeDel);
-		result.put("onDel", onDel);
-		result.put("afterDel", afterDel);
 		for(ViewMyCarryRequest req: allList) {
 			switch(RequestStatus.valueOf(req.getRequestStatus())) {
 			case request:
@@ -130,6 +127,9 @@ public class RequestServiceImpl implements IRequestService {
 				break;
 			}
 		}
+		result.put("beforeDel", beforeDel);
+		result.put("onDel", onDel);
+		result.put("afterDel", afterDel);
 		return result;
 	}
 	@Override
@@ -141,8 +141,6 @@ public class RequestServiceImpl implements IRequestService {
 		List<ViewMyReportRequest> allList = viewMyReportDao.selectMyReportRequest(userId);
 		List<ViewMyReportRequest> reportList = new ArrayList<ViewMyReportRequest>();
 		List<ViewMyReportRequest> reportedList = new ArrayList<ViewMyReportRequest>();
-		result.put("report", reportList);
-		result.put("reported", reportedList);
 		for(ViewMyReportRequest req: allList) {
 			if(userId.equals(req.getReportedUserId())) {
 				reportedList.add(req);
@@ -150,6 +148,8 @@ public class RequestServiceImpl implements IRequestService {
 				reportList.add(req);
 			}
 		}
+		result.put("report", reportList);
+		result.put("reported", reportedList);
 		return result;
 	}
 	@Override
@@ -162,9 +162,6 @@ public class RequestServiceImpl implements IRequestService {
 		List<ViewMySendRequest> beforeDel = new ArrayList<ViewMySendRequest>();
 		List<ViewMySendRequest> onDel = new ArrayList<ViewMySendRequest>();
 		List<ViewMySendRequest> afterDel = new ArrayList<ViewMySendRequest>();
-		result.put("beforDel", beforeDel);
-		result.put("onDel", onDel);
-		result.put("afterDel", afterDel);
 		for(ViewMySendRequest req: allList) {
 			switch(RequestStatus.valueOf(req.getRequestStatus())) {
 			case request:
@@ -184,6 +181,9 @@ public class RequestServiceImpl implements IRequestService {
 				break;
 			}
 		}
+		result.put("beforeDel", beforeDel);
+		result.put("onDel", onDel);
+		result.put("afterDel", afterDel);
 		return result;
 	}
 }

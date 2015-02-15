@@ -19,7 +19,7 @@ public static final Logger logger = LoggerFactory.getLogger(TitleDaoImpl.class);
 	public EvalDaoImpl(){}
 	
 	@Override
-	public User selectCourierByRequestId(String requestId) {
+	public User selectCourierByRequestId(Integer requestId) {
 		User user;
 		String stmt = rabbit_namespace + ".selectCourierByRequestId";
 		user = session.selectOne(stmt, requestId);

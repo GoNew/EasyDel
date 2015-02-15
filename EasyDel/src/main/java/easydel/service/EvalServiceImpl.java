@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import easydel.dao.IEvalDao;
 import easydel.entity.CourierEval;
@@ -20,19 +21,20 @@ public class EvalServiceImpl implements IEvalService {
 	private SqlSession session;
 	
 	@Override
-	public void serviceGetCourier(String requestId){
+	public User serviceGetCourier(Integer requestId){
 		User user = null;
-		
 		user = dao.selectCourierByRequestId(requestId);
+		return user;
 	}
 
 	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
 	public void serviceCourierEval(CourierEval courierEval) throws ServiceFailException {
 		int result = 0;
 		result = dao.insertCourierEval(courierEval);
 		
-		if(result <=0){
-			throw new ServiceFailException();
+		if(result <= 0){
+			throw new ServiceFailException("알수 없는 에러");
 		}
 	}
 

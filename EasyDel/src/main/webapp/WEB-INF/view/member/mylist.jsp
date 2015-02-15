@@ -1,3 +1,7 @@
+<%@page import="easydel.entity.ViewMySendRequest"%>
+<%@page import="easydel.entity.ViewMyCarryRequest"%>
+<%@page import="easydel.entity.ViewMyReportRequest"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,12 +19,29 @@
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
 <script type="text/javascript">
-
-$("#courier_id").click(function() {
-		$("#courier_info").css("display", "");
-}
-
+	function toggleProfile(id) {
+		if($(id).css("display") == "none") {
+			$(id).css("display", "");
+		} else {
+			$(id).css("display", "none");
+		}
+	}
+	$(document).ready(function() {
+		
+	});
 </script>
+<%
+	List<ViewMyCarryRequest> carryListBeforeDel = (List<ViewMyCarryRequest>) request.getAttribute("carryListBeforeDel");
+	List<ViewMyCarryRequest> carryListOnDel = (List<ViewMyCarryRequest>) request.getAttribute("carryListOnDel");
+	List<ViewMyCarryRequest> carryListAfterDel = (List<ViewMyCarryRequest>) request.getAttribute("carryListAfterDel");
+	
+	List<ViewMyReportRequest> reportListReport = (List<ViewMyReportRequest>) request.getAttribute("reportListReport");
+	List<ViewMyReportRequest> reportListReported = (List<ViewMyReportRequest>) request.getAttribute("reportListReported");
+	
+	List<ViewMySendRequest> sendListBeforeDel = (List<ViewMySendRequest>) request.getAttribute("sendListBeforeDel");
+	List<ViewMySendRequest> sendListOnDel = (List<ViewMySendRequest>) request.getAttribute("sendListOnDel");
+	List<ViewMySendRequest> sendListAfterDel = (List<ViewMySendRequest>) request.getAttribute("sendListAfterDel");
+%>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -56,10 +77,10 @@ $("#courier_id").click(function() {
 					<div class="replace_hr"></div>
 						<div id="Ex_request_01" class="row_request "><div class="uk-width-1-2"><div class="text_middle">(신청인이 작성한 글 제목)</div></div><div class="uk-width-3-10"><div class="text_middle"></div></div><div class="uk-width-2-10 button_middle" ><button class="uk-button uk-width-2-3">삭제하기</button></div></div>
 					<div class="replace_hr"></div>
-						<div id="Ex_request_02" class="row_request"><div class="uk-width-1-2"><div class="text_middle">(신청인이 작성한 글 제목)</div></div><div class="uk-width-3-10"><label for="courier_id"><div id="courier_id" class="text_middle">(신청 운송인 ID)</div></label></div><div class="uk-width-2-10 button_middle"><button class="uk-button uk-width-1-3">수락</button><button class="uk-button uk-width-1-3">거절</button></div></div>
+						<div id="Ex_request_02" class="row_request"><div class="uk-width-1-2"><div class="text_middle">(신청인이 작성한 글 제목)</div></div><div class="uk-width-3-10"><label for="courier_id"><div id="courier_id" class="text_middle" onclick="toggleProfile('123456789')">(신청 운송인 ID)</div></label></div><div class="uk-width-2-10 button_middle"><button class="uk-button uk-width-1-3">수락</button><button class="uk-button uk-width-1-3">거절</button></div></div>
 						
-				<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->					
-						<div style="display:" class="courier_info_box uk-panel-box">
+				<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
+						<div style="display: none" class="courier_info_box uk-panel-box" id="123456789">
 							<div class="webkit_box row_request">
 								<div id="subject_grade_info" class="uk-width-1-3 webkit_box row_request" >
 									<div class="margin_small uk-text-bold">(신청 운송인 ID)</div>

@@ -1,7 +1,5 @@
 package easydel.controller;
 
-import java.sql.Date;
-
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -19,35 +17,42 @@ import easydel.exception.ServiceFailException;
 import easydel.service.IEvalService;
 
 @Controller
+@RequestMapping(value="/eval")
 public class EvalController {
 	static final Logger logger = LoggerFactory.getLogger(EvalController.class);
 	@Autowired
 	private IEvalService service;
 	
 	//운송인 평가
-	@RequestMapping(value="/profile/eval/couriereval", method=RequestMethod.GET)
-	public String moveToProfileCourier(){
+	@RequestMapping(value="/courier", method=RequestMethod.GET)
+	public String moveToProfileCourier(@RequestParam Integer requestId, Model model){
+		model.addAttribute("courierInfo", service.serviceGetCourier(requestId));
+		model.addAttribute("requestId", requestId);
 		return "profile/eval/couriereval";
 	}
 	
-	@RequestMapping(value="/profile/eval/couriereval", method=RequestMethod.POST)
-	public String profileCourier(User user, CourierEval couriereval, Model model, 
+	@RequestMapping(value="/courier", method=RequestMethod.POST)
+	public String profileCourier(Model model, 
 			@RequestParam Integer courierevaltime2, @RequestParam Integer courierevalsafe2, 
-			@RequestParam Integer courierevalkind2, @RequestParam String courierevalcmt/*,
-			@RequestParam Date courierevalsystime*/){
-		String resultPage = "redirect:couriereval";
+			@RequestParam Integer courierevalkind2, @RequestParam String courierevalcmt,
+			@RequestParam String courierId, @RequestParam Integer requestId){
+		//resultPage는 내 진행보기로 이동
+		String resultPage = "redirect:/mylist";
 		
-		//service.serviceGetCourier(model.   requestId);
+		CourierEval couriereval = new CourierEval();
 		
+		couriereval.setRequestId(requestId);
+		couriereval.setCourierId(courierId);
 		couriereval.setCourierTime(courierevaltime2);
 		couriereval.setCourierSafe(courierevalsafe2);
 		couriereval.setCourierKind(courierevalkind2);
 		couriereval.setCourierCmt(courierevalcmt);
-		//couriereval.setRegDate(courierevalsystime);
 		
 		try {
 			service.serviceCourierEval(couriereval);
 		} catch (ServiceFailException e) {
+			model.addAttribute("errorMsg", e.getMessage());
+			resultPage = "redirect:/error";
 			e.printStackTrace();
 		}
 		
@@ -56,12 +61,12 @@ public class EvalController {
 	
 	
 	//발송인 평가
-	@RequestMapping(value="/profile/eval/sendereval", method=RequestMethod.GET)
+	@RequestMapping(value="/sender", method=RequestMethod.GET)
 	public String moveToProfileSender(){
 		return "profile/eval/sendereval";
 	}
 	
-	@RequestMapping(value="/profile/eval/sendereval", method=RequestMethod.POST)
+	@RequestMapping(value="/sender", method=RequestMethod.POST)
 	public String profileSender(User user, Model model, HttpSession session){
 		String resultPage = "redirect:sendereval";
 		
