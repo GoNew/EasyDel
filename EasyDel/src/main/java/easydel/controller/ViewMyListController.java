@@ -1,7 +1,6 @@
 package easydel.controller;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import easydel.entity.User;
 import easydel.entity.ViewMyCarryRequest;
@@ -70,5 +70,21 @@ public class ViewMyListController {
 		}
 		
 		return resultPage;
+	}
+	
+	@RequestMapping(value="/send/delete", params={"requestId"}, method=RequestMethod.POST)
+	public String deleteSenderComment(HttpSession session, Model model,
+			@RequestParam Integer requestId) {
+		User loginUser = (User) session.getAttribute("loginSession");
+		String resultPage = "/mylist";
+		try {
+			reqService.serviceRemoveRequest(loginUser.getUserId(), requestId);
+		} catch (ServiceFailException e) {
+			model.addAttribute("errorMsg", e.getMessage());
+			resultPage = "/error";
+			e.printStackTrace();
+		}
+		
+		return "redirect:" + resultPage;
 	}
 }

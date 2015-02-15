@@ -85,17 +85,29 @@ public class RequestServiceImpl implements IRequestService {
 	}
 
 	@Override
-	public void serviceRemoveRequest(Integer requestId)
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public void serviceRemoveRequest(String deleteExcuteUserId, Integer requestId)
 			throws ServiceFailException {
+		if(deleteExcuteUserId == null)
+			throw new ServiceFailException("삭제권한이 없는 유저");
+		
 		Request currRequest = requestDao.selectRequestByRequestId(requestId);
+		if(currRequest == null)
+			throw new ServiceFailException("존재하지 않는 글");
+		
+		if(!deleteExcuteUserId.equals(currRequest.getSenderId()))
+			throw new ServiceFailException("삭제권한이 없는 유저");
+		
+		if(currRequest.getRequestStatus() != RequestStatus.request.getStatusCode())
+			throw new ServiceFailException("해당 글이 삭제가 불가능한 상태");
+		
 		if(userDao.updateUserEDMoney(currRequest.getSenderId(), currRequest.getDeliveryPrice())
-				<= 0) {
+				<= 0)
 			throw new ServiceFailException("EDMoney 환불 실패 - 알 수 없는 원인");
-		}
+
 		if(requestDao.deleteRequestrByRequestId(requestId)
-				<= 0) {
+				<= 0)
 			throw new ServiceFailException("request 삭제 실패 - 알 수 없는 원인");
-		}
 	}
 	
 	@Override
