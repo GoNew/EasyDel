@@ -85,17 +85,29 @@ public class RequestServiceImpl implements IRequestService {
 	}
 
 	@Override
-	public void serviceRemoveRequest(Integer requestId)
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public void serviceRemoveRequest(String deleteExcuteUserId, Integer requestId)
 			throws ServiceFailException {
+		if(deleteExcuteUserId == null)
+			throw new ServiceFailException("삭제권한이 없는 유저");
+		
 		Request currRequest = requestDao.selectRequestByRequestId(requestId);
+		if(currRequest == null)
+			throw new ServiceFailException("존재하지 않는 글");
+		
+		if(!deleteExcuteUserId.equals(currRequest.getSenderId()))
+			throw new ServiceFailException("삭제권한이 없는 유저");
+		
+		if(currRequest.getRequestStatus() != RequestStatus.request.getStatusCode())
+			throw new ServiceFailException("해당 글이 삭제가 불가능한 상태");
+		
 		if(userDao.updateUserEDMoney(currRequest.getSenderId(), currRequest.getDeliveryPrice())
-				<= 0) {
+				<= 0)
 			throw new ServiceFailException("EDMoney 환불 실패 - 알 수 없는 원인");
-		}
+
 		if(requestDao.deleteRequestrByRequestId(requestId)
-				<= 0) {
+				<= 0)
 			throw new ServiceFailException("request 삭제 실패 - 알 수 없는 원인");
-		}
 	}
 	
 	@Override
@@ -108,9 +120,6 @@ public class RequestServiceImpl implements IRequestService {
 		List<ViewMyCarryRequest> beforeDel = new ArrayList<ViewMyCarryRequest>();
 		List<ViewMyCarryRequest> onDel = new ArrayList<ViewMyCarryRequest>();
 		List<ViewMyCarryRequest> afterDel = new ArrayList<ViewMyCarryRequest>();
-		result.put("beforDel", beforeDel);
-		result.put("onDel", onDel);
-		result.put("afterDel", afterDel);
 		for(ViewMyCarryRequest req: allList) {
 			switch(RequestStatus.valueOf(req.getRequestStatus())) {
 			case request:
@@ -130,6 +139,9 @@ public class RequestServiceImpl implements IRequestService {
 				break;
 			}
 		}
+		result.put("beforeDel", beforeDel);
+		result.put("onDel", onDel);
+		result.put("afterDel", afterDel);
 		return result;
 	}
 	@Override
@@ -141,8 +153,6 @@ public class RequestServiceImpl implements IRequestService {
 		List<ViewMyReportRequest> allList = viewMyReportDao.selectMyReportRequest(userId);
 		List<ViewMyReportRequest> reportList = new ArrayList<ViewMyReportRequest>();
 		List<ViewMyReportRequest> reportedList = new ArrayList<ViewMyReportRequest>();
-		result.put("report", reportList);
-		result.put("reported", reportedList);
 		for(ViewMyReportRequest req: allList) {
 			if(userId.equals(req.getReportedUserId())) {
 				reportedList.add(req);
@@ -150,6 +160,8 @@ public class RequestServiceImpl implements IRequestService {
 				reportList.add(req);
 			}
 		}
+		result.put("report", reportList);
+		result.put("reported", reportedList);
 		return result;
 	}
 	@Override
@@ -162,9 +174,6 @@ public class RequestServiceImpl implements IRequestService {
 		List<ViewMySendRequest> beforeDel = new ArrayList<ViewMySendRequest>();
 		List<ViewMySendRequest> onDel = new ArrayList<ViewMySendRequest>();
 		List<ViewMySendRequest> afterDel = new ArrayList<ViewMySendRequest>();
-		result.put("beforDel", beforeDel);
-		result.put("onDel", onDel);
-		result.put("afterDel", afterDel);
 		for(ViewMySendRequest req: allList) {
 			switch(RequestStatus.valueOf(req.getRequestStatus())) {
 			case request:
@@ -184,6 +193,9 @@ public class RequestServiceImpl implements IRequestService {
 				break;
 			}
 		}
+		result.put("beforeDel", beforeDel);
+		result.put("onDel", onDel);
+		result.put("afterDel", afterDel);
 		return result;
 	}
 }

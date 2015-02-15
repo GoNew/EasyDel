@@ -15,7 +15,7 @@ public interface IRequestService {
 	
 	public void serviceRegistrateNewRequest(Request request, MultipartFile file)
 			throws ServiceFailException;
-	public void serviceRemoveRequest(Integer requestId)
+	public void serviceRemoveRequest(String deleteExcuteUserId, Integer requestId)
 			throws ServiceFailException;
 	public HashMap<String, List<ViewMyCarryRequest>> serviceGetMyCarryRequestList(String userId)
 		throws ServiceFailException;

@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="easydel.rabbit.mapper.eval">
- 	<select id="selectCourierByRequestId" parameterType="String"
+ 	<select id="selectCourierByRequestId" parameterType="integer"
  		resultType="User">
  		select	* <!-- user_id, user_picture -->
  		from 	USERS
@@ -15,21 +15,93 @@
  	</select>
  	
  	<insert id="insertCourierEval" parameterType="CourierEval">
- 		insert into COURIER_EVALS(request_id, courier_id, reg_date, 
- 						courier_safe, courier_kind, courier_time
+ 		insert into COURIER_EVALS(request_id, courier_id, 
+ 			courier_safe, courier_kind, courier_time
  			<if test="courierCmt != null">
 				,courier_cmt
 			</if>
 		)
-		values	(#{requestId}, #{courierId}, #{regDate}, 
+		values	(#{requestId}, #{courierId},
 				#{courierSafe}, #{courierKind}, #{courierTime}
 			<if test="courierCmt != null">
 				,#{courierCmt}
 			</if>	
 		)
  	</insert>
-
-<!-- insert into COURIER_EVALS(request_id, courier_id, reg_date, courier_safe, courier_kind, courier_time, courier_cmt)
-values	(123, 'alcohol', sysdate, 1,2,3,'hello'); -->
+ 	
+ 	<update id="updateCourierEvalScore" parameterType="integer">
+ 		update 	Users
+ 		set		(
+ 					courier_avg_time,
+ 					courier_avg_safe,
+ 					courier_avg_kind
+ 				) = (
+ 					select	avg(courier_time),
+ 							avg(courier_safe),
+ 							avg(courier_kind)
+ 					from	COURIER_EVALS
+ 					where	courier_id=	(
+ 											select	courier_id
+ 											from	REQUESTS
+ 											where	request_id=#{requestId}
+ 										)
+ 					)
+ 		where	user_id=	(
+ 								select	courier_id
+ 								from	REQUESTS
+ 								where	request_id=#{requestId}
+ 							)
+ 	</update>
+ 	
+ 	<insert id="insertCourierEvalCmt" parameterType="integer">
+ 		insert into COURIER_EVALS(	request_id,
+ 									courier_id,
+ 									courier_safe,
+ 									courier_kind,
+ 									courier_time
+ 									<if test="courierCmt != null">
+ 										, courier_cmt
+ 									</if>
+ 									)
+ 		values	(
+ 					#{requestId},
+ 					#{courierId},
+ 					#{courierSafe},
+ 					#{courierKind},
+ 					#{courierTime}
+ 					<if test="courierCmt != null">
+ 						, #{courierCmt}
+ 					</if>
+ 				)
+ 	</insert>
+ 	
+ 	
+ 	
+ 	
+ 	<select id="selectSenderByRequestId" parameterType="integer"
+ 		resultType="User">
+ 		select	* <!-- user_id, user_picture -->
+ 		from 	USERS
+ 		where	user_id=(
+ 							select sender_id
+ 							from REQUESTS
+ 							where request_id=#{requestId}
+ 				)
+ 	</select>
+ 	
+ 	<insert id="insertSenderEval" parameterType="SenderEval">
+ 		insert into SENDER_EVALS(request_id, sender_id, 
+ 			sender_safe, sender_kind, sender_time
+ 			<if test="senderCmt != null">
+				,sender_cmt
+			</if>
+		)
+		values	(#{requestId}, #{senderId},
+				#{senderSafe}, #{senderKind}, #{senderTime}
+			<if test="senderCmt != null">
+				,#{senderCmt}
+			</if>	
+		)
+ 	</insert>
 
 </mapper>

@@ -1,12 +1,13 @@
 @CHARSET "UTF-8";
 
-/* *{border:solid 1px blue;}    */
+/*  *{border:solid 1px blue;}  */   
 *{margin:0px;padding:0px;} 
 image{border:0px;}
 li{
 	height : 35px;
 	font-size: 22px;
 }
+
 #uk-clearfix{
 	width:1024px;
 	height:100%
@@ -39,7 +40,6 @@ li{
 }
 #profiletwo{
 	display: -webkit-box;
-	height : 50px;
 }
 #profileupsmallform{
 	width:630px;
@@ -49,10 +49,15 @@ li{
 }
 #profiledangdang{
 	display: -webkit-box;
-	height : 40px;
+	height : 50px;
+}
+#profiledangdang2{
+	display: -webkit-box;
+	height : 70px;
 }
 #profilediv{
-	width:210px;
+	width:170px;
+	height:30px;
 	font-size: 22px;
 }
 #mainstar{
@@ -63,4 +68,7 @@ li{
 #courierimg{
 	width:40px;
 	height:40px;
+}
+div.replacehr{
+	border:1px solid grey;
 }

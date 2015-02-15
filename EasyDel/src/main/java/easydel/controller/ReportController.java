@@ -10,10 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import easydel.entity.Request;
 import easydel.model.Reportmodel;
 import easydel.service.IReportTypeService;
-import easydel.service.ReportServiceImpl;
 
 @Controller
 public class ReportController {

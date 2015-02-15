@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import easydel.entity.CourierEval;
+import easydel.entity.SenderEval;
 import easydel.entity.User;
 
 public class EvalDaoImpl implements IEvalDao {
@@ -19,7 +20,7 @@ public static final Logger logger = LoggerFactory.getLogger(TitleDaoImpl.class);
 	public EvalDaoImpl(){}
 	
 	@Override
-	public User selectCourierByRequestId(String requestId) {
+	public User selectCourierByRequestId(Integer requestId) {
 		User user;
 		String stmt = rabbit_namespace + ".selectCourierByRequestId";
 		user = session.selectOne(stmt, requestId);
@@ -30,6 +31,21 @@ public static final Logger logger = LoggerFactory.getLogger(TitleDaoImpl.class);
 	public int insertCourierEval(CourierEval courierEval) {
 		String stmt = rabbit_namespace + ".insertCourierEval";
 		int result = session.insert(stmt, courierEval);
+		return result;
+	}
+	
+	@Override
+	public User selectSenderByRequestId(Integer requestId) {
+		User user;
+		String stmt = rabbit_namespace + ".selectSenderByRequestId";
+		user = session.selectOne(stmt, requestId);
+		return user;
+	}
+
+	@Override
+	public int insertSenderEval(SenderEval senderEval) {
+		String stmt = rabbit_namespace + ".insertSenderEval";
+		int result = session.insert(stmt, senderEval);
 		return result;
 	}
 

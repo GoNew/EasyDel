@@ -14,12 +14,11 @@
 <title>운송인평가</title>
 <%
 	User loginUserInfo = (User) session.getAttribute("loginSession");
+	User courierInfo = (User) request.getAttribute("courierInfo");
+	Integer requestId = (Integer) request.getAttribute("requestId");
 %>
 <script type="text/javascript">
 	$(document).ready(function() {
-		//$("#courierevalsystime").html(sysdate());	
-		
-		
 		
 		$("#courierevaltime").html("0");
 		$("#courierevalsafe").html("0");
@@ -96,11 +95,11 @@
 <div class="uk-clearfix">
 <div id="formcss" class="uk-align-center"> 
 	<div style="height:100px"></div>
-	<div style="height:150px" align="center"><img id="courierimg" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/EHkoala.jpg"/></div>
+	<div style="height:150px" align="center"><img id="courierimg" class="uk-border-circle" src= "<%=request.getContextPath()%>/<%=courierInfo.getUserPicture() %>"/></div>
 	<div style="height:20px"></div>
-	<div style="height:50px;font-size: 25px" align="center"><strong>koala 님에 대한 <br><br>평가를 해주세요 </strong></div>
+	<div style="height:50px;font-size: 25px" align="center"><strong><%=courierInfo.getUserId() %> 님에 대한 <br><br>평가를 해주세요 </strong></div>
 	<div style="height:60px"></div>
-	<form action="<%=request.getContextPath()%>/profile/eval/couriereval" method="post">
+	<form action="<%=request.getContextPath()%>/eval/courier" method="post">
 		<div style="width:100%;height:140px;font-size: 25px">
 			<div id ="couriereval">
 				<div style="width:200px"></div>
@@ -192,10 +191,12 @@
 			<div style="width:20px"></div>
 			<div style="width:720px">
 				<header class="uk-comment-header">
-					<input type="text" name="courierevalcmt" size="90" pattern="{0,100}" title="100자 이하로 작성해주세요." placeholder="여기에 코멘트를 달아주세요" style="font-size:13px;height: 50px;" >
+					<input type="text" name="courierevalcmt" size="90" maxlength="100" title="100자 이하로 작성해주세요." placeholder="여기에 코멘트를 달아주세요" style="font-size:13px;height: 50px;" >
 	            </header>
 	        </div>
 		</div>
+		<input type="hidden" value="<%=courierInfo.getUserId() %>" name="courierId">
+		<input type="hidden" value="<%=requestId %>" name="requestId">
 		<div style="height:40px"></div>
 		<div align="center"><button class="uk-button uk-width-1-5 uk-button-large uk-button-primary" type="submit">평가완료</button></div>
 	</form>
