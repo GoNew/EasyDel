@@ -5,7 +5,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC>
 <jsp:include page="/WEB-INF/view/main/header.jsp"></jsp:include>
 <html>
 <head>
@@ -26,15 +26,25 @@
 		} else {
 			$("#" + id).css("display", "none");
 		}
-		return true;
 	}
 	function send_readyForDeleteMyRequest(id) {
 		$("#saveRequestIdForDeleteMySendRequest").val(id);
 	}
+	function send_readyForAdmitMyRequest(id) {
+		$("#saveRequestIdForAdmitMySendRequest").val(id);
+	}
+	function send_readyForRejectMyRequest(id) {
+		$("#saveRequestIdForRejectMySendRequest").val(id);
+	}
 	$(document).ready(function() {
 		$("#alertMessagePopUpForDeleteMySendRequest .uk-button-primary").click(function() {
-			console.log("asdfasdf");
 			$("#alertMessagePopUpForDeleteMySendRequestForm").submit();
+		});
+		$("#alertMessagePopUpForAdmitMySendRequest .uk-button-primary").click(function() {
+			$("#alertMessagePopUpForAdmitMySendRequestForm").submit();
+		});
+		$("#alertMessagePopUpForRejectMySendRequest .uk-button-primary").click(function() {
+			$("#alertMessagePopUpForRejectMySendRequestForm").submit();
 		});
 	});
 </script>
@@ -69,6 +79,38 @@
 			</div>
 		</div>
 	</div>
+	<div id="alertMessagePopUpForAdmitMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
+		<div class="uk-modal-dialog">
+			<button type="button" class="uk-modal-close uk-close"></button>
+				<div class="uk-modal-header">
+					<h2>정말 수락하시겠습니까?</h2>
+				</div>
+			<p>의뢰 수락 후에는 취소가 매우 어렵습니다. 신중히 결정하시기 바랍니다.</p>
+			<div class="uk-modal-footer uk-text-right">
+				<form id="alertMessagePopUpForAdmitMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/admit">
+					<input type="hidden" id="saveRequestIdForAdmitMySendRequest" name="requestId">
+					<div class="uk-button uk-modal-close">취소</div>
+					<div class="uk-button uk-button-primary">수락</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="alertMessagePopUpForRejectMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
+		<div class="uk-modal-dialog">
+			<button type="button" class="uk-modal-close uk-close"></button>
+				<div class="uk-modal-header">
+					<h2>정말 거절하시겠습니까?</h2>
+				</div>
+			<p>거절 후에는 해당글은 다시 게시되어 다른 운송인들로부터 의뢰 신청을 받을 수 있습니다.</p>
+			<div class="uk-modal-footer uk-text-right">
+				<form id="alertMessagePopUpForRejectMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/reject">
+					<input type="hidden" id="saveRequestIdForRejectMySendRequest" name="requestId">
+					<div class="uk-button uk-modal-close">취소</div>
+					<div class="uk-button uk-button-primary">거절</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </head>
 <body>
 	<div id="fullbrowser">
@@ -95,89 +137,31 @@
 											<div class="text_middle"><%=req.getCargoName()%></div>
 										</div>
 										<div class="uk-width-3-10">
-											<%
-												if (req.getRequestStatus() == RequestStatus.wait.getStatusCode()) {
-											%>
+									<%
+										if (req.getRequestStatus() == RequestStatus.wait.getStatusCode()) {
+									%>
 											<div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div>
 										</div>
-										<div class="uk-width-2-10 button_middle">
-											<div class="uk-button uk-width-1-3" onclick="location.href('#')">수락</div>
-											<div class="uk-button uk-width-1-3" onclick="location.href('#')">거절</div>
+										<div class="uk-width-2-10 button_middle">send_readyForAdmitMyRequest
+											<div class="uk-button uk-width-1-3" onclick="send_readyForAdmitMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForAdmitMySendRequest'}">수락</div>
+											<div class="uk-button uk-width-1-3" onclick="send_readyForRejectMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForRejectMySendRequest'}">거절</div>
 										</div>
 									</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
-									<div style="display: none" class="courier_info_box uk-panel-box" id="_profile_request_id_<%=req.getRequestId()%>">
-										<div class="webkit_box row_request">
-											<div id="subject_grade_info" class="uk-width-1-3 webkit_box row_request">
-												<div class="margin_small uk-text-bold"><%=req.getRequestId()%></div>
-												<div class="margin_small uk-text-bold">평가정보</div>
-											</div>
-											
-											<div class="uk-width-1-3"></div>
-											<div align="right" class="uk-width-1-3 button_middle">
-												<div class="uk-button uk-width-1-2" onclick="location.href('#')">프로필 자세히 보기</div>
-											</div>
-										</div>
-
-										<div class="row_request_details">
-											<div class="webkit_box text_middle uk-width-1-4">
-												<div style="margin: 0px auto; display: -webkit-box">
-													<div><img class="grade_icon" src="<%=request.getContextPath()%>/img/time.png"></div>
-													<div style="margin-left: 10px" class="grade_text webkit_box">
-														<div id="time_grade" class="text_middle_grade"><%=req.getCourierAvgTime()%></div>
-														<div class="text_middle_grade">점</div>
-													</div>
-												</div>
-											</div>
-
-											<div class="webkit_box text_middle uk-width-1-4">
-												<div style="margin: 0px auto; display: -webkit-box">
-													<div><img class="grade_icon" src="<%=request.getContextPath()%>/img/safe.jpg"></div>
-													<div style="margin-left: 10px" class="grade_text webkit_box">
-														<div id="safe_grade" class="text_middle_grade"><%=req.getCourierAvgSafe()%></div>
-														<div class="text_middle_grade">점</div>
-													</div>
-												</div>
-											</div>
-
-											<div class="webkit_box text_middle uk-width-1-4">
-												<div style="margin: 0px auto; display: -webkit-box">
-													<div><img class="grade_icon"src="<%=request.getContextPath()%>/img/smile.jpg"></div>
-													<div style="margin-left: 10px"class="grade_text webkit_box">
-														<div id="smile_grade" class="text_middle_grade"><%=req.getCourierAvgKind()%></div>
-														<div class="text_middle_grade">점</div>
-													</div>
-												</div>
-											</div>
-
-											<div class="webkit_box text_middle uk-width-1-4">
-												<div style="margin: 0px auto; display: -webkit-box">
-													<div class="grade_text text_middle_grade">성사율</div>
-													<div style="margin-left: 10px" class="grade_text webkit_box">
-														<div class="text_middle_grade">
-															<%=String.format("%.1f", (double) req.getCourierSuccesscnt() / req.getCourierTotalcnt() * 100.0) %>
-														</div>
-														<div class="text_middle_grade">%</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
+<%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%
-										} else {
+											} else {
 									%>
 								</div>
 								<div class="uk-width-2-10 button_middle">
-									<div class="uk-button uk-width-2-3"
-										onclick="send_readyForDeleteMyRequest('<%=req.getRequestId()%>')"
-										data-uk-modal="{target:'#alertMessagePopUpForDeleteMySendRequest'}">삭제하기</div>
+									<div class="uk-button uk-width-2-3" onclick="send_readyForDeleteMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForDeleteMySendRequest'}">삭제하기</div>
 								</div>
 							</div>
-							<%
-								}
-								}
-							%>
+									<%
+											}
+										}
+									%>
 							<div class="replace_hr"></div>
 						</div>
 
@@ -185,28 +169,24 @@
 							<div class="subject">진행중 의뢰글</div>
 							<hr>
 							<div class="ajax_requests_list">
-								<%	for (ViewMySendRequest req : sendListOnDel) {}	%>
+								<%	for (ViewMySendRequest req : sendListOnDel) {	%>
 								<div class="replace_hr"></div>
-								<div id="Ex_progress_01" class="row_request">
+								<%		if(req.getRequestStatus() == RequestStatus.cancelByDeliver.getStatusCode()
+											|| req.getRequestStatus() == RequestStatus.cancelBySender.getStatusCode()) {
+								%>
+								<div class="row_request pannel-cancel">
+								<%		} else {	%>
+								<div class="row_request">
+								<%		}%>
 									<div class="uk-width-1-2 ">
-										<div class="text_middle">(신청인이 작성한 글 제목)</div>
+										<div class="text_middle"><%=req.getCargoName() %></div>
 									</div>
 									<div class="uk-width-3-10">
-										<div class="text_middle">(신청 운송인 ID)</div>
+										<div class="text_middle"><%=req.getUserId() %></div>
 									</div>
 									<div class="uk-width-2-10"></div>
 								</div>
-								<div class="replace_hr"></div>
-								<div id="Ex_progress_cancel_02"
-									class="row_request pannel-cancel">
-									<div class="uk-width-1-2">
-										<div class="text_middle">(신청인이 작성한 글 제목)</div>
-									</div>
-									<div class="uk-width-3-10">
-										<div class="text_middle">(신청 운송인 ID)</div>
-									</div>
-									<div class="uk-width-2-10"></div>
-								</div>
+								<%	}	%>
 								<div class="replace_hr"></div>
 
 								<div id="Ex_progress_03" class="row_request">

@@ -12,6 +12,10 @@ ul, ol{list-style:name;}
 	width: 1025px;
 	margin: 0px auto;
 }
+#middlebrowser {
+	width: 1009px;
+	margin: 150px auto;
+}
 
 #navbar {
 	height: 42px;
@@ -30,10 +34,6 @@ ul, ol{list-style:name;}
 	
 }
 
-#middlebrowser {
-	width: 1009px;
-	margin: 150px auto;
-}
 
 
 #buttonimg1 {

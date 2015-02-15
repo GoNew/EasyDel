@@ -18,4 +18,21 @@ public class LiraTestController {
 	public String footer(){
 		return "main/footer";
 	}
+	
+	@RequestMapping("/predeli")
+	public String perdeli(){
+		return "board/show/predeli";
+	}
+	@RequestMapping("/ondeli")
+	public String ondeli(){
+		return "board/show/ondeli";
+	}
+	@RequestMapping("/enddeli")
+	public String enddeli(){
+		return "board/show/enddeli";
+	}
+	@RequestMapping("/reported")
+	public String reported(){
+		return "board/show/reported";
+	}
 }

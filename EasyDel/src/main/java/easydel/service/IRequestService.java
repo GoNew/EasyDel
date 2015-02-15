@@ -25,4 +25,6 @@ public interface IRequestService {
 		throws ServiceFailException;
 	public void admitCourierToPerformRequest(String exeUserId, Integer requestId)
 		throws ServiceFailException;
+	public void rejectCourierToPerformRequest(String exeUserId, Integer requestId)
+			throws ServiceFailException;
 }

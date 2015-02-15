@@ -93,6 +93,29 @@ public class ViewMyListController {
 			@RequestParam Integer requestId) {
 		String resultPage = "/mylist";
 		User loginUser = (User) session.getAttribute("loginSession");
+		try {
+			reqService.admitCourierToPerformRequest(loginUser.getUserId(), requestId);
+		} catch (ServiceFailException e) {
+			model.addAttribute("errorMsg", e.getMessage());
+			resultPage = "/error";
+			e.printStackTrace();
+		}
+		
+		return "redirect:" + resultPage;
+	}
+	
+	@RequestMapping(value="/send/reject", params={"requestId"}, method=RequestMethod.POST)
+	public String rejectSenderRequest(HttpSession session, Model model,
+			@RequestParam Integer requestId) {
+		String resultPage = "/mylist";
+		User loginUser = (User) session.getAttribute("loginSession");
+		try {
+			reqService.rejectCourierToPerformRequest(loginUser.getUserId(), requestId);
+		} catch (ServiceFailException e) {
+			model.addAttribute("errorMsg", e.getMessage());
+			resultPage = "/error";
+			e.printStackTrace();
+		}
 		
 		return "redirect:" + resultPage;
 	}
