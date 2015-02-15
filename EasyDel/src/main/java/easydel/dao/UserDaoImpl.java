@@ -54,6 +54,7 @@ public class UserDaoImpl implements IUserDao {
 	@Override
 	public int selectUserEDMoney(String userId) {
 		String stmt = gonew_namespace + ".selectUserEDMoney";
+		logger.trace("mylog: " + userId);
 		int result = session.selectOne(stmt, userId);
 		return result;
 	}
@@ -64,8 +65,7 @@ public class UserDaoImpl implements IUserDao {
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("userId", userId);
 		params.put("edmoneyBalance", usedEDMoney);
-		int result = session.selectOne(stmt, params);
+		int result = session.update(stmt, params);
 		return result;
 	}
-
 }
