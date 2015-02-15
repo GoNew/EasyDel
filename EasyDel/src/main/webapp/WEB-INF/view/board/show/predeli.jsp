@@ -56,14 +56,26 @@ $(document).ready(function() {
 		<div class="row_request margin_top_80px"><div class="text_middle_subject">추가 사항</div></div>
 		<div class="replace_hr"></div>
 		<div class="standard_row_request_reply margin_top_10px">
-			<div class="webkit_box"><div id="senderprofimg"><img src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div><div id="deli_userid" class="text_middle">(발송인 ID)</div></div>
+			<div class="webkit_box"><div id="senderprofimg"><img src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div><div id="deli_userid" class="text_middle">(운송인 ID)</div></div>
 			<div class="margin_left_50px"> <img id="" src="<%= request.getContextPath()%>/img/images.jpg"> </div>
 			<div> <div class="margin_left_50px text_middle">(글 내용)</div> </div>
 		
+		<div class="replace_hr_plus"></div>
 		</div>
 		
-		<div class="replace_hr_sub"></div>
 		
+		<div class="standard_row_request_reply margin_top_10px">
+			<div class="webkit_box"><div id="senderprofimg"><img src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div><div id="deli_userid" class="text_middle">(발송인 ID)</div></div>
+			<div> <div class="margin_left_50px text_middle">(글 내용)</div> </div>
+		
+		<div class="replace_hr_plus"></div>
+		</div>
+		
+		<div class="standard_row_request_reply margin_top_10px">
+			<div class="webkit_box"> <div id="wrapper_btn_div" class="margin_left_50px"><button id="add_img_btn" class="uk-button">+image</button></div> <div><textarea id="add_textarea"></textarea></div> <div id="wrapper_btn_div"><button id="add_reply_btn" class="uk-button">완료</button></div>  </div>
+		</div>
+		
+		<div id="wrapper_recept_deli_btn_div" align="center"><button id="recept_deli_btn" class="uk-button uk-button-primary">운송 신청</button></div>		
 		
 		</div>
 	</div>
