@@ -13,4 +13,8 @@ public interface IUserDao {
 	public User selectUserByUserId(String userId);
 	public int selectUserEDMoney(String userId);
 	public int updateUserEDMoney(String userId, Integer usedEDMoney);
+	public int updateUserCourierTotalCntAddedVariation(String userId, Integer variation);
+	public int updateUserCourierSuccessCntAddedVariation(String userId, Integer variation);
+	public int updateUserSenderTotalCntAddedVariation(String userId, Integer variation);
+	public int updateUserSenderSuccessCntAddedVariation(String userId, Integer variation);
 }

@@ -119,4 +119,16 @@ public class ViewMyListController {
 		
 		return "redirect:" + resultPage;
 	}
+	
+	@RequestMapping(value="/send/quit", params={"requestId"}, method=RequestMethod.POST)
+	public String quitSenderRequest(HttpSession session, Model model,
+			@RequestParam Integer requestId) {
+		String resultPage = "/mylist";
+		//success++
+		//EDMoney 옮김
+		//status 수정
+		//complete_deliverys 테이블에 추가// 이미 운송인이 운송완료 했을때 추가되어야 함.
+		//거래완료를 알리는 alert 추가 - 발송인/운송인.
+		return "redirect:" + resultPage;
+	}
 }

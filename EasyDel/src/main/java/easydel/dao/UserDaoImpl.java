@@ -68,4 +68,48 @@ public class UserDaoImpl implements IUserDao {
 		int result = session.update(stmt, params);
 		return result;
 	}
+
+	@Override
+	public int updateUserCourierTotalCntAddedVariation(String userId,
+			Integer variation) {
+		String stmt = gonew_namespace + ".updateUserCourierTotalCntAddedVariation";
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("userId", userId);
+		params.put("courierTotalcnt", variation);
+		int result = session.update(stmt, params);
+		return result;
+	}
+
+	@Override
+	public int updateUserCourierSuccessCntAddedVariation(String userId,
+			Integer variation) {
+		String stmt = gonew_namespace + ".updateUserCourierSuccessCntAddedVariation";
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("userId", userId);
+		params.put("courierSuccesscnt", variation);
+		int result = session.update(stmt, params);
+		return result;
+	}
+
+	@Override
+	public int updateUserSenderTotalCntAddedVariation(String userId,
+			Integer variation) {
+		String stmt = gonew_namespace + ".updateUserSenderTotalCntAddedVariation";
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("userId", userId);
+		params.put("senderTotalcnt", variation);
+		int result = session.update(stmt, params);
+		return result;
+	}
+
+	@Override
+	public int updateUserSenderSuccessCntAddedVariation(String userId,
+			Integer variation) {
+		String stmt = gonew_namespace + ".updateUserSenderSuccessCntAddedVariation";
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("userId", userId);
+		params.put("senderSuccesscnt", variation);
+		int result = session.update(stmt, params);
+		return result;
+	}
 }

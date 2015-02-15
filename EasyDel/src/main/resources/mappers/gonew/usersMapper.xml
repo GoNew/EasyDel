@@ -14,4 +14,24 @@
 		set			edmoney_balance=edmoney_balance+#{edmoneyBalance}
 		where		user_id=#{userId}
 	</update>
+	<update id="updateUserCourierTotalCntAddedVariation" parameterType="hashmap">
+		update		USERS
+		set			courier_totalcnt=courier_totalcnt+#{courierTotalcnt}
+		where		user_id=#{userId}
+	</update>
+	<update id="updateUserCourierSuccessCntAddedVariation" parameterType="hashmap">
+		update		USERS
+		set			courier_successcnt=courier_successcnt+#{courierSuccesscnt}
+		where		user_id=#{userId}
+	</update>
+	<update id="updateUserSenderTotalCntAddedVariation" parameterType="hashmap">
+		update		USERS
+		set			sender_totalcnt=sender_totalcnt+#{senderTotalcnt}
+		where		user_id=#{userId}
+	</update>
+	<update id="updateUserSenderSuccessCntAddedVariation" parameterType="hashmap">
+		update		USERS
+		set			sender_successcnt=sender_successcnt+#{senderSuccesscnt}
+		where		user_id=#{userId}
+	</update>
 </mapper>

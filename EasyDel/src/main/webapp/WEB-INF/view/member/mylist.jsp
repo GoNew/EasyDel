@@ -125,6 +125,7 @@
 				<ul id="tab-content" class="uk-switcher uk-margin">
 <!-- ******************************************발송 탭-->
 					<li class="uk-active">
+<!-- ==========================================작성한 의뢰글 -->
 						<div id="all_mylist_sender" class="mylistsenderlist">
 							<div id="registered_requests_div" class="request_box">
 								<div class="subject">작성한 의뢰글</div>
@@ -146,111 +147,104 @@
 											<div class="uk-button uk-width-1-3" onclick="send_readyForAdmitMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForAdmitMySendRequest'}">수락</div>
 											<div class="uk-button uk-width-1-3" onclick="send_readyForRejectMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForRejectMySendRequest'}">거절</div>
 										</div>
-									</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
 <%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%
 											} else {
 									%>
-								</div>
-								<div class="uk-width-2-10 button_middle">
-									<div class="uk-button uk-width-2-3" onclick="send_readyForDeleteMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForDeleteMySendRequest'}">삭제하기</div>
-								</div>
+										</div>
+										<div class="uk-width-2-10 button_middle">
+											<div class="uk-button uk-width-2-3" onclick="send_readyForDeleteMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForDeleteMySendRequest'}">삭제하기</div>
+										</div>
+									<%		}	%>
+									</div>
+									<%	}	%>
+								<div class="replace_hr"></div>
 							</div>
-									<%
-											}
-										}
+<!-- ==========================================진행중 의뢰글 -->
+							<div id="processing_requests_div" class="request_box">
+								<div class="subject">진행중 의뢰글</div>
+								<hr>
+								<div class="ajax_requests_list">
+									<%	for (ViewMySendRequest req : sendListOnDel) {	%>
+									<div class="replace_hr"></div>
+									<%		if(req.getRequestStatus() == RequestStatus.cancelByDeliver.getStatusCode()
+												|| req.getRequestStatus() == RequestStatus.cancelBySender.getStatusCode()) {
 									%>
-							<div class="replace_hr"></div>
-						</div>
-
-						<div id="processing_requests_div" class="request_box">
-							<div class="subject">진행중 의뢰글</div>
-							<hr>
-							<div class="ajax_requests_list">
-								<%	for (ViewMySendRequest req : sendListOnDel) {	%>
-								<div class="replace_hr"></div>
-								<%		if(req.getRequestStatus() == RequestStatus.cancelByDeliver.getStatusCode()
-											|| req.getRequestStatus() == RequestStatus.cancelBySender.getStatusCode()) {
-								%>
-								<div class="row_request pannel-cancel">
-								<%		} else {	%>
-								<div class="row_request">
-								<%		}%>
-									<div class="uk-width-1-2 ">
-										<div class="text_middle"><%=req.getCargoName() %></div>
+									<div class="row_request pannel-cancel">
+									<%		} else {	%>
+									<div class="row_request">
+									<%		}	%>
+										<div class="uk-width-1-2 ">
+											<div class="text_middle"><%=req.getCargoName() %></div>
+										</div>
+										<div class="uk-width-3-10">
+											<div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div>
+										</div>
+<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
+<%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
+<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
+									<%
+											if(req.getRequestStatus() == RequestStatus.arrive.getStatusCode()) {
+									%>
+										<div class="button_middle uk-width-2-10">
+											<div class="uk-button uk-width-2-3" onclick="???('<%=req.getRequestId()%>')" data-uk-modal="{target:'#???'}">거래완료</div>
+										</div>
+									<%		} else { %>
+										<div class="uk-width-2-10"></div>
+									<%		}	%>
 									</div>
-									<div class="uk-width-3-10">
-										<div class="text_middle"><%=req.getUserId() %></div>
-									</div>
-									<div class="uk-width-2-10"></div>
+									<%	}	%>
+									<div class="replace_hr"></div>
 								</div>
-								<%	}	%>
-								<div class="replace_hr"></div>
-
-								<div id="Ex_progress_03" class="row_request">
-									<div class="uk-width-1-2">
-										<div class="text_middle">(신청인이 작성한 글 제목)</div>
-									</div>
-									<div class="uk-width-3-10">
-										<div class="text_middle">(신청 운송인 ID)</div>
-									</div>
-									<div class="button_middle uk-width-2-10">
-										<button class="uk-button uk-width-2-3">거래완료</button>
-									</div>
-								</div>
-								<div class="replace_hr"></div>
 							</div>
-						</div>
-						<div id="completed_requests_div" class="request_box">
-							<div id="" class="subject">
-								완료된 의뢰글
-								<div style="color: red; margin-left: 5px;">(7일이 지나면 자동
-									삭제됩니다.)</div>
+<!-- ==========================================완료된 의뢰글 -->
+							<div id="completed_requests_div" class="request_box">
+								<div id="" class="subject">완료된 의뢰글<div style="color: red; margin-left: 5px;">(7일이 지나면 자동 삭제됩니다.)</div></div>
+								<hr>
+								<div class="ajax_requests_list">
+								
+									<div class="replace_hr"></div>
+									<div id="Ex_completed_01" class="row_request ">
+										<div class="uk-width-1-2">
+											<div class="text_middle">(신청인이 작성한 글 제목)</div>
+										</div>
+										<div class="uk-width-3-10">
+											<div class="text_middle">(신청 운송인 ID)</div>
+										</div>
+										<div class="uk-width-2-10 button_middle">
+											<button class="uk-button uk-width-2-3">평가하기</button>
+										</div>
+									</div>
+									<div class="replace_hr"></div>
+									<div id="Ex_completed_02"
+										class="row_request uk-panel-box-primary">
+										<div class="uk-width-1-2">
+											<div class="text_middle">(신청인이 작성한 글 제목)</div>
+										</div>
+										<div class="uk-width-3-10">
+											<div class="text_middle">(신청 운송인 ID)</div>
+										</div>
+										<div class="uk-width-2-10">
+											<div class="text_middle">평가완료</div>
+										</div>
+									</div>
+									<div class="replace_hr"></div>
+									<div id="Ex_completed_03" class="row_request">
+										<div class="uk-width-1-2">
+											<div class="text_middle">(신청인이 작성한 글 제목)</div>
+										</div>
+										<div class="uk-width-3-10">
+											<div class="text_middle">(신청 운송인 ID)</div>
+										</div>
+										<div class="uk-width-2-10 button_middle">
+											<button class="uk-button uk-width-2-3">평가하기</button>
+										</div>
+									</div>
+									<div class="replace_hr"></div>
+								</div>
 							</div>
-							<hr>
-							<div class="ajax_requests_list">
-								<div class="replace_hr"></div>
-								<div id="Ex_completed_01" class="row_request ">
-									<div class="uk-width-1-2">
-										<div class="text_middle">(신청인이 작성한 글 제목)</div>
-									</div>
-									<div class="uk-width-3-10">
-										<div class="text_middle">(신청 운송인 ID)</div>
-									</div>
-									<div class="uk-width-2-10 button_middle">
-										<button class="uk-button uk-width-2-3">평가하기</button>
-									</div>
-								</div>
-								<div class="replace_hr"></div>
-								<div id="Ex_completed_02"
-									class="row_request uk-panel-box-primary">
-									<div class="uk-width-1-2">
-										<div class="text_middle">(신청인이 작성한 글 제목)</div>
-									</div>
-									<div class="uk-width-3-10">
-										<div class="text_middle">(신청 운송인 ID)</div>
-									</div>
-									<div class="uk-width-2-10">
-										<div class="text_middle">평가완료</div>
-									</div>
-								</div>
-								<div class="replace_hr"></div>
-								<div id="Ex_completed_03" class="row_request">
-									<div class="uk-width-1-2">
-										<div class="text_middle">(신청인이 작성한 글 제목)</div>
-									</div>
-									<div class="uk-width-3-10">
-										<div class="text_middle">(신청 운송인 ID)</div>
-									</div>
-									<div class="uk-width-2-10 button_middle">
-										<button class="uk-button uk-width-2-3">평가하기</button>
-									</div>
-								</div>
-								<div class="replace_hr"></div>
-							</div>
-						</div>
 			</div>
 			</li>
 

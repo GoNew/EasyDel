@@ -217,6 +217,10 @@ public class RequestServiceImpl implements IRequestService {
 			throw new ServiceFailException("의뢰 수락 권한이 없는 유저");
 		if(currRequest.getCourierId() == null)
 			throw new ServiceFailException("의뢰 신청 유저가 존재하지 않습니다.");
+		//거래 건수 update
+		if(userDao.updateUserCourierTotalCntAddedVariation(currRequest.getCourierId(), 1) <=0
+				|| userDao.updateUserSenderTotalCntAddedVariation(exeUserId, 1) <= 0)
+			throw new ServiceFailException("거래 건수 update 중 에러 발생");
 		
 		if(requestDao.updateStatusOfRequest(RequestStatus.on, requestId)
 				<= 0)
