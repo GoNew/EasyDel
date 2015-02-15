@@ -16,32 +16,23 @@ import easydel.service.IReportTypeService;
 import easydel.service.ReportServiceImpl;
 
 @Controller
-public class Type90TestController {
+public class ReportController {
 
 	private final static Logger logger;
 	static {
-		logger = LoggerFactory.getLogger(Type90TestController.class);
+		logger = LoggerFactory.getLogger(ReportController.class);
 	}
 
 	@Autowired
 	IReportTypeService reportTypeService;
 
-	@RequestMapping(value = "/report", method = RequestMethod.POST)
-	public String GetReportParameter(Model model) {
-		// Step 2. request에서 requestId, senderIdusers랑 cargoName 받아오기
-		// String senderIdusers = ????.getParameter("senderIdUsers");
-		// String cargoName = ???.getParameter("cargoName");
-		// Step 3. 받아온 것들을 reportform에 집어넣기.
-		// model.addAttribute("reportedId", "senderIdusers");
-		// model.addAttribute("reportedCargo", "cargoName");
-		return "report/reportform";
-	}
-
 	@RequestMapping(value = "/report", method = RequestMethod.GET)
-	public String GetReportType(Model model) {
+	public String GetReportType(Model model, HttpSession session) {
+		
+
 		model.addAttribute("reportType", reportTypeService.getReportType());
 		model.addAttribute("reportedId", "senderIdusers");
-		model.addAttribute("reportedCargo", "cargoName");
+		model.addAttribute("reportedCargo", "cargoName");		
 
 		return "report/reportform";
 	}
