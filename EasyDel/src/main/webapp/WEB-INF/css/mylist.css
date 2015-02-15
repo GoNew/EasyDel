@@ -106,7 +106,7 @@ div.webkit_box{
 	display: -webkit-box;
 }
 
-div.courier_info_box{
+div.courier_info_box, div.sender_info_box{
 	/* border: 1px solid #99D9EA; */
 	/* background-color: #cdee6a; */
 	margin: 10px 0px;

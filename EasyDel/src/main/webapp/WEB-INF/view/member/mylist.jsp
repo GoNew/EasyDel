@@ -15,6 +15,7 @@
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
 <script type="text/javascript">
+
 $("#courier_id").click(function() {
 		$("#courier_info").css("display", "");
 }
@@ -56,20 +57,19 @@ $("#courier_id").click(function() {
 						<div id="Ex_request_01" class="row_request "><div class="uk-width-1-2"><div class="text_middle">(신청인이 작성한 글 제목)</div></div><div class="uk-width-3-10"><div class="text_middle"></div></div><div class="uk-width-2-10 button_middle" ><button class="uk-button uk-width-2-3">삭제하기</button></div></div>
 					<div class="replace_hr"></div>
 						<div id="Ex_request_02" class="row_request"><div class="uk-width-1-2"><div class="text_middle">(신청인이 작성한 글 제목)</div></div><div class="uk-width-3-10"><label for="courier_id"><div id="courier_id" class="text_middle">(신청 운송인 ID)</div></label></div><div class="uk-width-2-10 button_middle"><button class="uk-button uk-width-1-3">수락</button><button class="uk-button uk-width-1-3">거절</button></div></div>
-					<div class="replace_hr"></div>
 						
-				<!-- ****************************************간이 평가 정보 div-->					
-						<div style="display:" id="courier_info" class="courier_info_box uk-panel-box">
-							<div class="webkit_box">
-								<div id="subject_grade_info" class="uk-width-1-3 webkit_box row_request">
+				<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->					
+						<div style="display:" class="courier_info_box uk-panel-box">
+							<div class="webkit_box row_request">
+								<div id="subject_grade_info" class="uk-width-1-3 webkit_box row_request" >
 									<div class="margin_small uk-text-bold">(신청 운송인 ID)</div>
 									<div class="margin_small uk-text-bold">평가정보</div>
 								</div>
 								
 								<div class="uk-width-1-3"></div>
 								
-								<div class="uk-width-1-3 button_middle">
-										<button class="uk-button uk-width-1-1 ">
+								<div align="right" class="uk-width-1-3 button_middle">
+										<button class="uk-button uk-width-1-2">
 											<div>프로필 자세히 보기</div>
 										</button>
 								</div>
@@ -116,9 +116,9 @@ $("#courier_id").click(function() {
 									</div>
 								</div> 
 							</div>
-						<div class="replace_hr"></div>
 						</div>
-				<!-- ****************************************간이 평가 정보 div-->					
+				<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->					
+					<div class="replace_hr"></div>
 						<div id="Ex_request_03" class="row_request"><div class="uk-width-1-2"><div class="text_middle">(신청인이 작성한 글 제목)</div></div><div class="uk-width-3-10"><div class="text_middle">(신청 운송인 ID)</div></div><div class="uk-width-2-10 button_middle"><button class="uk-button uk-width-2-3">삭제하기</button></div></div>
 						<div class="replace_hr"></div>
 						</div>
@@ -130,7 +130,7 @@ $("#courier_id").click(function() {
 						<div class="replace_hr"></div>
 						<div id="Ex_progress_01" class="row_request"><div class="uk-width-1-2 "><div class="text_middle">(신청인이 작성한 글 제목)</div></div><div class="uk-width-3-10"><div class="text_middle">(신청 운송인 ID)</div></div><div class="uk-width-2-10"></div></div>
 						<div class="replace_hr"></div>
-						<div id="Ex_progress_cancel_02" class="row_request pannel-cancel"><div class="uk-width-1-2"><div class="text_middle">(신청인이 작성한 글 제목)</div></div><div class="uk-width-3-10"><div class="text_middle">(신청 운송인 ID)</div></div><div class="uk-width-2-10"><div class="text_middle">운송인 취소</div></div></div>
+						<div id="Ex_progress_cancel_02" class="row_request pannel-cancel"><div class="uk-width-1-2"><div class="text_middle">(신청인이 작성한 글 제목)</div></div><div class="uk-width-3-10"><div class="text_middle">(신청 운송인 ID)</div></div><div class="uk-width-2-10"></div></div>
 						<div class="replace_hr"></div>
 						
 						<div id="Ex_progress_03" class="row_request"><div class="uk-width-1-2"><div class="text_middle" >(신청인이 작성한 글 제목)</div></div><div class="uk-width-3-10"><div class="text_middle">(신청 운송인 ID)</div></div><div class="button_middle uk-width-2-10"><button class="uk-button uk-width-2-3">거래완료</button></div></div>
@@ -176,19 +176,18 @@ $("#courier_id").click(function() {
 								<div class="uk-width-1-5 webkit_box"><div class="text_middle right_margin_5px">TimeOut:</div><div class="text_middle webkit_box">20<div>분</div></div></div>
 								<div class="uk-width-1-5 button_middle"><button class="uk-button uk-width-2-3">삭제하기</button></div>
 							</div>
-						<div class="replace_hr"></div>
-						<!-- ****************************************간이 평가 정보 div-->					
-						<div style="display: none" id="courier_info" class="courier_info_box uk-panel-box">
-							<div class="webkit_box">
-								<div id="subject_grade_info" class="uk-width-1-3 webkit_box row_request">
+						<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->					
+						<div style="display: none;" class="sender_info_box uk-panel-box">
+							<div class="webkit_box row_request">
+								<div id="subject_grade_info" class="uk-width-1-3 webkit_box row_request" >
 									<div class="margin_small uk-text-bold">(신청 운송인 ID)</div>
 									<div class="margin_small uk-text-bold">평가정보</div>
 								</div>
 								
 								<div class="uk-width-1-3"></div>
 								
-								<div class="uk-width-1-3 button_middle">
-										<button class="uk-button uk-width-1-1 ">
+								<div align="right" class="uk-width-1-3 button_middle">
+										<button class="uk-button uk-width-1-2">
 											<div>프로필 자세히 보기</div>
 										</button>
 								</div>
@@ -235,9 +234,9 @@ $("#courier_id").click(function() {
 									</div>
 								</div> 
 							</div>
-						<div class="replace_hr"></div>
 						</div>
-				<!-- ****************************************간이 평가 정보 div-->
+				<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
+						<div class="replace_hr"></div>
 							<div id="Ex_request_03" class="row_request">
 								<div class="uk-width-2-5"><div class="text_middle">(신청인이 작성한 글 제목)</div></div>
 								<div class="uk-width-1-5"><div class="text_middle">(발송인 ID)</div></div>
