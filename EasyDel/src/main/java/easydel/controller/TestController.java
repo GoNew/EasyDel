@@ -4,16 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import easydel.service.IBoardService;
+import easydel.dao.IProfileDao;
+import easydel.entity.User;
 
 @Controller
 public class TestController {
 	@Autowired
-	IBoardService boardService;
+	IProfileDao dao;
 
 	@RequestMapping("/test")
 	public String test() {
-		boardService.boardTest();
+		User temp = dao.selectCourierInfos("simpson");
+		System.out.println(temp.toString());
 		return "showMessage";
 	}
 }

@@ -26,13 +26,19 @@ public static final Logger logger = LoggerFactory.getLogger(TitleDaoImpl.class);
 		user = session.selectOne(stmt, requestId);
 		return user;
 	}
-
 	@Override
 	public int insertCourierEval(CourierEval courierEval) {
 		String stmt = rabbit_namespace + ".insertCourierEval";
 		int result = session.insert(stmt, courierEval);
 		return result;
 	}
+	@Override
+	public int updateCourierEvalScore(Integer requestId){
+		String stmt = rabbit_namespace + ".updateCourierEvalScore";
+		int result = session.update(stmt,requestId);
+		return result;
+	}
+	
 	
 	@Override
 	public User selectSenderByRequestId(Integer requestId) {
@@ -41,11 +47,16 @@ public static final Logger logger = LoggerFactory.getLogger(TitleDaoImpl.class);
 		user = session.selectOne(stmt, requestId);
 		return user;
 	}
-
 	@Override
 	public int insertSenderEval(SenderEval senderEval) {
 		String stmt = rabbit_namespace + ".insertSenderEval";
 		int result = session.insert(stmt, senderEval);
+		return result;
+	}
+	@Override
+	public int updateSenderEvalScore(Integer requestId) {
+		String stmt = rabbit_namespace + ".updateSenderEvalScore";
+		int result = session.update(stmt,requestId);
 		return result;
 	}
 

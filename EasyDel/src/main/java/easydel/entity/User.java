@@ -3,6 +3,7 @@ package easydel.entity;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -80,10 +81,10 @@ public class User implements Serializable {
 	private Set<RequestCmt> requestCmtsSet;
 
 	/** 배달부평가 목록. */
-	private Set<CourierEval> courierEvalsSet;
+	private List<CourierEval> courierEvalsList;
 
 	/** 발송인평가 목록. */
-	private Set<SenderEval> senderEvalsSet;
+	private List<SenderEval> senderEvalsList;
 
 	/** EDmoney입출금기록 목록. */
 	private Set<EdmoneyLog> edmoneyLogsSet;
@@ -95,9 +96,7 @@ public class User implements Serializable {
 	 * 생성자.
 	 */
 	public User() {
-		this.courierEvalsSet = new HashSet<CourierEval>();
 		this.requestsSet = new HashSet<Request>();
-		this.senderEvalsSet = new HashSet<SenderEval>();
 		this.alertLogsSet = new HashSet<AlertLog>();
 		this.edmoneyLogsSet = new HashSet<EdmoneyLog>();
 		this.requestCmtsSet = new HashSet<RequestCmt>();
@@ -522,63 +521,6 @@ public class User implements Serializable {
 		return this.requestCmtsSet;
 	}
 
-	/**
-	 * 배달부평가 목록을 설정합니다..
-	 * 
-	 * @param courierEvalsSet
-	 *            배달부평가 목록
-	 */
-	public void setCourierEvalsSet(Set<CourierEval> courierEvalsSet) {
-		this.courierEvalsSet = courierEvalsSet;
-	}
-
-	/**
-	 * 배달부평가를 추가합니다..
-	 * 
-	 * @param courierEvals
-	 *            배달부평가
-	 */
-	public void addCourierEvals(CourierEval courierEvals) {
-		this.courierEvalsSet.add(courierEvals);
-	}
-
-	/**
-	 * 배달부평가 목록을 가져옵니다..
-	 * 
-	 * @return 배달부평가 목록
-	 */
-	public Set<CourierEval> getCourierEvalsSet() {
-		return this.courierEvalsSet;
-	}
-
-	/**
-	 * 발송인평가 목록을 설정합니다..
-	 * 
-	 * @param senderEvalsSet
-	 *            발송인평가 목록
-	 */
-	public void setSenderEvalsSet(Set<SenderEval> senderEvalsSet) {
-		this.senderEvalsSet = senderEvalsSet;
-	}
-
-	/**
-	 * 발송인평가를 추가합니다..
-	 * 
-	 * @param senderEvals
-	 *            발송인평가
-	 */
-	public void addSenderEvals(SenderEval senderEvals) {
-		this.senderEvalsSet.add(senderEvals);
-	}
-
-	/**
-	 * 발송인평가 목록을 가져옵니다..
-	 * 
-	 * @return 발송인평가 목록
-	 */
-	public Set<SenderEval> getSenderEvalsSet() {
-		return this.senderEvalsSet;
-	}
 
 	/**
 	 * EDmoney입출금기록 목록을 설정합니다..
@@ -638,6 +580,22 @@ public class User implements Serializable {
 		return this.requestsSet;
 	}
 
+	public List<CourierEval> getCourierEvalsList() {
+		return courierEvalsList;
+	}
+
+	public void setCourierEvalsList(List<CourierEval> courierEvalsList) {
+		this.courierEvalsList = courierEvalsList;
+	}
+
+	public List<SenderEval> getSenderEvalsList() {
+		return senderEvalsList;
+	}
+
+	public void setSenderEvalsList(List<SenderEval> senderEvalsList) {
+		this.senderEvalsList = senderEvalsList;
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -689,8 +647,8 @@ public class User implements Serializable {
 				+ senderAvgKind + ", senderAvgThing=" + senderAvgThing
 				+ ", senderTotalcnt=" + senderTotalcnt + ", senderSuccesscnt="
 				+ senderSuccesscnt + ", alertLogsSet=" + alertLogsSet
-				+ ", requestCmtsSet=" + requestCmtsSet + ", courierEvalsSet="
-				+ courierEvalsSet + ", senderEvalsSet=" + senderEvalsSet
+				+ ", requestCmtsSet=" + requestCmtsSet + ", courierEvalsList="
+				+ courierEvalsList + ", senderEvalsList=" + senderEvalsList
 				+ ", edmoneyLogsSet=" + edmoneyLogsSet + ", requestsSet="
 				+ requestsSet + "]";
 	}

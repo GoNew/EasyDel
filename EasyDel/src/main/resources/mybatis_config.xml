@@ -39,5 +39,6 @@
 		<mapper resource="mappers/gonew/requestsMapper.xml"/>
 		<mapper resource="mappers/rabbit/evalMapper.xml"/>
 		<mapper resource="mappers/gonew/usersMapper.xml"/>
+		<mapper resource="mappers/rabbit/profileMapper.xml"/>
 	</mappers>
 </configuration>

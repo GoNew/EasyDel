@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="easydel.rabbit.mapper.profile">	
+ 	<select id="selectCourierInfos" parameterType="String"
+ 		resultMap="CourierInfoResultMap">
+ 		select	U.user_id AS user_id, 
+ 				U.user_picture AS user_picture, 
+ 				U.courier_avg_time AS courier_avg_time, 
+ 				U.courier_avg_kind AS courier_avg_kind, 
+ 				U.courier_avg_safe AS courier_avg_safe, 
+ 				U.courier_successcnt AS courier_successcnt, 
+ 				U.courier_totalcnt AS courier_totalcnt,
+				C.courier_id AS courier_id,
+ 				C.courier_cmt AS courier_cmt, 
+ 				C.reg_date AS reg_date
+ 		from 		Users U
+ 		left join	COURIER_EVALS C
+ 		on			U.user_id=C.courier_id
+ 		where		U.user_id=#{userId}
+ 		order by	C.reg_date DESC
+ 	</select>
+ 	
+ 	<resultMap id="CourierInfoResultMap" type="User">
+ 		<id column="user_id" property="userId"/>
+ 		<result column="user_picture" property="userPicture"/>
+ 		<result column="courier_avg_time" property="courierAvgTime"/>
+ 		<result column="courier_avg_kind" property="courierAvgKind"/>
+ 		<result column="courier_avg_safe" property="courierAvgSafe"/>
+ 		<result column="courier_successcnt" property="courierSuccesscnt"/>
+ 		<result column="courier_totalcnt" property="courierTotalcnt"/>
+ 		<collection property="courierEvalsList" ofType="CourierEval">
+ 			<id column="request_id" property="requestId"/>
+ 			<result column="courier_id" property="courierId"/>
+ 			<result column="courier_cmt" property="courierCmt"/>
+ 			<result column="reg_date" property="regDate"/>
+ 		</collection>
+ 	</resultMap>
+ 	
+ </mapper>

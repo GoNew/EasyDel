@@ -16,9 +16,9 @@
 
 	loginUserInfo.setCourierAvgKind(4);
 	loginUserInfo.setCourierAvgSafe(5);
-	loginUserInfo.setCourierAvgTime(0);
-	loginUserInfo.setCourierSuccesscnt(10);
-	loginUserInfo.setCourierTotalcnt(300);
+	loginUserInfo.setCourierAvgTime(3);
+	loginUserInfo.setCourierSuccesscnt(30);
+	loginUserInfo.setCourierTotalcnt(31); 
 	
  	int courierAvgTime = loginUserInfo.getCourierAvgTime();
  	int courierAvgSafe = loginUserInfo.getCourierAvgSafe();
@@ -163,8 +163,6 @@
 						<div id="profiletwo">
 							<div style="width:700px;line-height:20px;padding:7px;word-break:break-all;overflow:hidden;clear:both;font-size:12px;"> 
 								여기에 댓글이 올라옵니다.<br>
-								여기에 사진도 첨부가능합니다.<br>
-								<img src= "<%=request.getContextPath()%>/img/twostarl.JPG"/>
 							</div>
 							<div style="width:200px;line-height:20px;padding:7px;word-break:break-all;overflow:hidden;clear:both;color:#888888;font-size:13px">
 								여기는 날짜입력

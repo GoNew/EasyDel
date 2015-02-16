@@ -37,6 +37,7 @@
 	<bean class="easydel.dao.ViewMyReportRequestDaoImpl"></bean>
 	<bean class="easydel.dao.ViewMySendRequestDaoImpl"></bean>
 	<bean class="easydel.dao.EvalDaoImpl"></bean>
+	<bean class="easydel.dao.ProfileDaoImpl"></bean>
 	
 	
 	<bean class="easydel.service.BoardServiceImpl"></bean>

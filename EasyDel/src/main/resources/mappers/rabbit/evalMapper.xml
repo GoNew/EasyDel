@@ -53,28 +53,7 @@
  							)
  	</update>
  	
- 	<insert id="insertCourierEvalCmt" parameterType="integer">
- 		insert into COURIER_EVALS(	request_id,
- 									courier_id,
- 									courier_safe,
- 									courier_kind,
- 									courier_time
- 									<if test="courierCmt != null">
- 										, courier_cmt
- 									</if>
- 									)
- 		values	(
- 					#{requestId},
- 					#{courierId},
- 					#{courierSafe},
- 					#{courierKind},
- 					#{courierTime}
- 					<if test="courierCmt != null">
- 						, #{courierCmt}
- 					</if>
- 				)
- 	</insert>
- 	
+
  	
  	
  	
@@ -103,5 +82,29 @@
 			</if>	
 		)
  	</insert>
+ 	
+ 	<update id="updateSenderEvalScore" parameterType="integer">
+ 		update 	Users
+ 		set		(
+ 					sender_avg_time,
+ 					sender_avg_safe,
+ 					sender_avg_kind
+ 				) = (
+ 					select	avg(sender_time),
+ 							avg(sender_safe),
+ 							avg(sender_kind)
+ 					from	SENDER_EVALS
+ 					where	sender_id=	(
+ 											select	sender_id
+ 											from	REQUESTS
+ 											where	request_id=#{requestId}
+ 										)
+ 					)
+ 		where	user_id=	(
+ 								select	sender_id
+ 								from	REQUESTS
+ 								where	request_id=#{requestId}
+ 							)
+ 	</update>
 
 </mapper>

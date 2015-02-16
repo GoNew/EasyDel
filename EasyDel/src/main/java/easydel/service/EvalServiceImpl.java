@@ -27,7 +27,6 @@ public class EvalServiceImpl implements IEvalService {
 		user = dao.selectCourierByRequestId(requestId);
 		return user;
 	}
-
 	@Override
 	@Transactional(rollbackFor={ServiceFailException.class})
 	public void serviceCourierEval(CourierEval courierEval) throws ServiceFailException {
@@ -38,6 +37,18 @@ public class EvalServiceImpl implements IEvalService {
 			throw new ServiceFailException("알수 없는 에러");
 		}
 	}
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public void serviceUpdateCourierEval(Integer requestId) throws ServiceFailException{ 
+		int result = 0;
+		result = dao.updateCourierEvalScore(requestId);
+		
+		if(result <= 0){
+			throw new ServiceFailException("알수 없는 에러");
+		}
+	}
+	
+	
 	
 	@Override
 	public User serviceGetSender(Integer requestId){
@@ -51,6 +62,16 @@ public class EvalServiceImpl implements IEvalService {
 	public void serviceSenderEval(SenderEval senderEval) throws ServiceFailException {
 		int result = 0;
 		result = dao.insertSenderEval(senderEval);
+		
+		if(result <= 0){
+			throw new ServiceFailException("알수 없는 에러");
+		}
+	}
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public void serviceUpdateSenderEval(Integer requestId) throws ServiceFailException{ 
+		int result = 0;
+		result = dao.updateSenderEvalScore(requestId);
 		
 		if(result <= 0){
 			throw new ServiceFailException("알수 없는 에러");

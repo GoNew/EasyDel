@@ -48,6 +48,7 @@ public class EvalController {
 		
 		try {
 			service.serviceCourierEval(couriereval);
+			service.serviceUpdateCourierEval(requestId);
 		} catch (ServiceFailException e) {
 			model.addAttribute("errorMsg", e.getMessage());
 			resultPage = "redirect:/error";
@@ -86,6 +87,7 @@ public class EvalController {
 		
 		try {
 			service.serviceSenderEval(sendereval);
+			service.serviceUpdateSenderEval(requestId);
 		} catch (ServiceFailException e) {
 			model.addAttribute("errorMsg", e.getMessage());
 			resultPage = "redirect:/error";
