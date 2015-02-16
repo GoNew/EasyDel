@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import easydel.model.Reportmodel;
+import easydel.service.IGetSenderIdService;
 import easydel.service.IReportTypeService;
 
 @Controller
@@ -23,16 +24,16 @@ public class ReportController {
 
 	@Autowired
 	IReportTypeService reportTypeService;
-
+		
 	@RequestMapping(value = "/report", method = RequestMethod.GET)
-	public String GetReportType(Model model, HttpSession session) {
+	public String GetReportType(Model model) {
 		
 
-		model.addAttribute("reportType", reportTypeService.getReportType());
-		model.addAttribute("reportedId", "senderIdusers");
-		model.addAttribute("reportedCargo", "cargoName");		
-
-		return "report/reportform";
+	model.addAttribute("reportType", reportTypeService.getReportType());
+	model.addAttribute("reportedId", "senderIdusers");
+	model.addAttribute("reportedCargo", "cargoName");
+	
+	return "report/reportform";
 	}
 
 	// 1. reportform에서 작성된 reportdesc 파일을 컨트롤러로 받아올 수 있는지 확인

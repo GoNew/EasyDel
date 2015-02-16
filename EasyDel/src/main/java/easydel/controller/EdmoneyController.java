@@ -19,10 +19,6 @@ public class EdmoneyController {
 	
 	@RequestMapping(value="/edmoney", method=RequestMethod.GET)
 	public String GetEdmoneyBalance(Model model, HttpSession session){
-//		session.getAttribute("UserId");
-		
-		model.addAttribute("edmoneyBalance", 99999);
-		
 		return "edmoney/edmoneyView";
 	}
 
