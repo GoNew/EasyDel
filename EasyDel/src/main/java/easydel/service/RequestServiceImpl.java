@@ -279,4 +279,13 @@ public class RequestServiceImpl implements IRequestService {
 		alertService.insertAlert(exeUserId,
 				"'" + currRequest.getCargoName() + "'의뢰가 거래완료 되었습니다.", AlertStatus.sender);
 	}
+
+	@Override
+	public Request getRequest(Integer requestId) throws ServiceFailException {
+		Request result = null;
+		result = requestDao.selectRequestByRequestId(requestId);
+		if(result == null)
+			throw new ServiceFailException("존재하지 않는 글");
+		return result;
+	}
 }

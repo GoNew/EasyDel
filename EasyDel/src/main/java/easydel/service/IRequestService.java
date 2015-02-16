@@ -29,4 +29,6 @@ public interface IRequestService {
 		throws ServiceFailException;
 	public void completeRequest(String exeUserId, Integer requestId)
 		throws ServiceFailException;
+	public Request getRequest(Integer requestId)
+		throws ServiceFailException;
 }

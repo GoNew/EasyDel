@@ -1,3 +1,4 @@
+<%@page import="easydel.contant.EvalStatus"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="easydel.contant.RequestStatus"%>
@@ -6,13 +7,25 @@
 <%@page import="easydel.entity.ViewMyReportRequest"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html PUBLIC>
+<%
+	List<ViewMyCarryRequest> carryListBeforeDel = (List<ViewMyCarryRequest>) request.getAttribute("carryListBeforeDel");
+	List<ViewMyCarryRequest> carryListOnDel = (List<ViewMyCarryRequest>) request.getAttribute("carryListOnDel");
+	List<ViewMyCarryRequest> carryListAfterDel = (List<ViewMyCarryRequest>) request.getAttribute("carryListAfterDel");
+	
+	List<ViewMyReportRequest> reportListReport = (List<ViewMyReportRequest>) request.getAttribute("reportListReport");
+	List<ViewMyReportRequest> reportListReported = (List<ViewMyReportRequest>) request.getAttribute("reportListReported");
+	
+	List<ViewMySendRequest> sendListBeforeDel = (List<ViewMySendRequest>) request.getAttribute("sendListBeforeDel");
+	List<ViewMySendRequest> sendListOnDel = (List<ViewMySendRequest>) request.getAttribute("sendListOnDel");
+	List<ViewMySendRequest> sendListAfterDel = (List<ViewMySendRequest>) request.getAttribute("sendListAfterDel");
+%>
 <jsp:include page="/WEB-INF/view/main/header.jsp"></jsp:include>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/uikit/css/uikit.gradient.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/header.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/footer.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/mylist.css" />
 <html>
-
+<!-- 각 경고창 모음 -->
 <div id="alertMessageModalDivs">
 <!-- 삭제 경고 -->
 <div id="alertMessagePopUpForDeleteMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
@@ -122,18 +135,6 @@
 		});
 	});
 </script>
-<%
-	List<ViewMyCarryRequest> carryListBeforeDel = (List<ViewMyCarryRequest>) request.getAttribute("carryListBeforeDel");
-	List<ViewMyCarryRequest> carryListOnDel = (List<ViewMyCarryRequest>) request.getAttribute("carryListOnDel");
-	List<ViewMyCarryRequest> carryListAfterDel = (List<ViewMyCarryRequest>) request.getAttribute("carryListAfterDel");
-	
-	List<ViewMyReportRequest> reportListReport = (List<ViewMyReportRequest>) request.getAttribute("reportListReport");
-	List<ViewMyReportRequest> reportListReported = (List<ViewMyReportRequest>) request.getAttribute("reportListReported");
-	
-	List<ViewMySendRequest> sendListBeforeDel = (List<ViewMySendRequest>) request.getAttribute("sendListBeforeDel");
-	List<ViewMySendRequest> sendListOnDel = (List<ViewMySendRequest>) request.getAttribute("sendListOnDel");
-	List<ViewMySendRequest> sendListAfterDel = (List<ViewMySendRequest>) request.getAttribute("sendListAfterDel");
-%>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>내 진행 글 보기</title>
@@ -232,7 +233,7 @@
 								<div class="ajax_requests_list">
 									<%	for (ViewMySendRequest req : sendListAfterDel) {	%>
 									<div class="replace_hr"></div>
-									<div id="Ex_completed_01" class="row_request ">
+									<div class="row_request ">
 										<div class="uk-width-1-2">
 											<div class="text_middle"><%=req.getCargoName() %></div>
 										</div>
@@ -241,57 +242,45 @@
 										</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
 <%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
-<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->										
+<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
+									<%		if(req.getSenderEvalstatus().equals(EvalStatus.beforeEval.getStatusCode())) {	%>
 										<div class="uk-width-2-10 button_middle">
-											<button class="uk-button uk-width-2-3">평가하기</button>
+											<div class="uk-button uk-width-2-3">평가하기</div>
 										</div>
-									</div>
-									<div class="replace_hr"></div>
-									<div id="Ex_completed_02"
-										class="row_request uk-panel-box-primary">
-										<div class="uk-width-1-2">
-											<div class="text_middle">(신청인이 작성한 글 제목)</div>
-										</div>
-										<div class="uk-width-3-10">
-											<div class="text_middle">(신청 운송인 ID)</div>
-										</div>
+									<%		} else {	%>
 										<div class="uk-width-2-10">
 											<div class="text_middle">평가완료</div>
 										</div>
+									<%		}	%>
 									</div>
-									<div class="replace_hr"></div>
-									<div id="Ex_completed_03" class="row_request">
-										<div class="uk-width-1-2">
-											<div class="text_middle">(신청인이 작성한 글 제목)</div>
-										</div>
-										<div class="uk-width-3-10">
-											<div class="text_middle">(신청 운송인 ID)</div>
-										</div>
-										<div class="uk-width-2-10 button_middle">
-											<button class="uk-button uk-width-2-3">평가하기</button>
-										</div>
-									</div>
+									<%	} %>
 									<div class="replace_hr"></div>
 								</div>
 							</div>
-			</div>
-			</li>
+						</div>
+					</li>
 
-			<!-- ******************************************운송 탭********************************************************************************-->					
+<!-- ******************************************운송 탭********************************************************************************-->					
 					<li class="">
 					<div id="all_mylist_courier" class="mylistsenderlist">
 					
 					<div id="registered_requests_div" class="request_box">
 						<div id="" class="subject">의뢰 수락을 기다리고 있는 의뢰글</div>
 						<hr>
-							<div class="ajax_requests_list">
-						<div class="replace_hr"></div>
-							<div id="Ex_request_01" class="row_request">
+						<div class="ajax_requests_list">
+							<%
+							List<ViewMyCarryRequest> carryListOnDel = (List<ViewMyCarryRequest>) request.getAttribute("carryListOnDel");
+							List<ViewMyCarryRequest> carryListAfterDel = (List<ViewMyCarryRequest>) request.getAttribute("carryListAfterDel");
+								for(ViewMyCarryRequest req: carryListBeforeDel) {
+							%>
+							<div class="replace_hr"></div>
+							<div class="row_request">
 								<div class="uk-width-2-5"><div class="text_middle">(신청인이 작성한 글 제목)</div></div>
 								<div class="uk-width-1-5"><div class="text_middle">(발송인 ID)</div></div>
 								<div class="uk-width-1-5 webkit_box"><div class="text_middle right_margin_5px">TimeOut:</div><div class="text_middle webkit_box">20<div>분</div></div></div>
 								<div class="uk-width-1-5 button_middle"><button class="uk-button uk-width-2-3">삭제하기</button></div>
 							</div>
+							<%	}	%>
 						<div class="replace_hr"></div>
 							<div id="Ex_request_02" class="row_request">
 								<div class="uk-width-2-5"><div class="text_middle">(신청인이 작성한 글 제목)</div></div>
