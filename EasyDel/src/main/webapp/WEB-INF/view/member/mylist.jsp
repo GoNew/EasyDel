@@ -1,22 +1,90 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@page import="easydel.contant.RequestStatus"%>
 <%@page import="easydel.entity.ViewMySendRequest"%>
 <%@page import="easydel.entity.ViewMyCarryRequest"%>
 <%@page import="easydel.entity.ViewMyReportRequest"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC>
 <jsp:include page="/WEB-INF/view/main/header.jsp"></jsp:include>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/uikit/css/uikit.gradient.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/header.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/footer.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/mylist.css" />
 <html>
+
+<div id="alertMessageModalDivs">
+<!-- 삭제 경고 -->
+<div id="alertMessagePopUpForDeleteMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
+	<div class="uk-modal-dialog">
+		<button type="button" class="uk-modal-close uk-close"></button>
+			<div class="uk-modal-header">
+				<h2>정말 삭제하시겠습니까?</h2>
+			</div>
+		<p>삭제하시면 해당 글은 닷~시~는 복구할 수 없습니다.</p>
+		<div class="uk-modal-footer uk-text-right">
+			<form id="alertMessagePopUpForDeleteMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/delete">
+				<input type="hidden" id="saveRequestIdForDeleteMySendRequest" name="requestId">
+				<div class="uk-button uk-modal-close">취소</div>
+				<div class="uk-button uk-button-primary">삭제</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- 수락 경고 -->
+<div id="alertMessagePopUpForAdmitMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
+	<div class="uk-modal-dialog">
+		<button type="button" class="uk-modal-close uk-close"></button>
+			<div class="uk-modal-header">
+				<h2>정말 수락하시겠습니까?</h2>
+			</div>
+		<p>의뢰 수락 후에는 취소가 매우 어렵습니다. 신중히 결정하시기 바랍니다.</p>
+		<div class="uk-modal-footer uk-text-right">
+			<form id="alertMessagePopUpForAdmitMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/admit">
+				<input type="hidden" id="saveRequestIdForAdmitMySendRequest" name="requestId">
+				<div class="uk-button uk-modal-close">취소</div>
+				<div class="uk-button uk-button-primary">수락</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- 거절 경고 -->
+<div id="alertMessagePopUpForRejectMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
+	<div class="uk-modal-dialog">
+		<button type="button" class="uk-modal-close uk-close"></button>
+			<div class="uk-modal-header">
+				<h2>정말 거절하시겠습니까?</h2>
+			</div>
+		<p>거절 후에는 해당글은 다시 게시되어 다른 운송인들로부터 의뢰 신청을 받을 수 있습니다.</p>
+		<div class="uk-modal-footer uk-text-right">
+			<form id="alertMessagePopUpForRejectMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/reject">
+				<input type="hidden" id="saveRequestIdForRejectMySendRequest" name="requestId">
+				<div class="uk-button uk-modal-close">취소</div>
+				<div class="uk-button uk-button-primary">거절</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- 거래 완료 경고 -->
+<div id="alertMessagePopUpForCompleteMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
+	<div class="uk-modal-dialog">
+		<button type="button" class="uk-modal-close uk-close"></button>
+			<div class="uk-modal-header">
+				<h2>정말 거래 완료 하시겠습니까?</h2>
+			</div>
+		<p>거래 완료 후에는 운송인에게 EDMoney가 전달되며, 이의제기가 매우 어렵습니다. 신중히 확인하시고 거래완료 하시기 바랍니다.</p>
+		<div class="uk-modal-footer uk-text-right">
+			<form id="alertMessagePopUpForCompleteMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/complete">
+				<input type="hidden" id="saveRequestIdForCompleteMySendRequest" name="requestId">
+				<div class="uk-button uk-modal-close">취소</div>
+				<div class="uk-button uk-button-primary">거래완료</div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+
 <head>
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/uikit/css/uikit.gradient.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/mylist.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/header.css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/footer.css" />
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
 <script type="text/javascript">
@@ -69,74 +137,6 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>내 진행 글 보기</title>
-<!-- 삭제 경고 -->
-	<div id="alertMessagePopUpForDeleteMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
-		<div class="uk-modal-dialog">
-			<button type="button" class="uk-modal-close uk-close"></button>
-				<div class="uk-modal-header">
-					<h2>정말 삭제하시겠습니까?</h2>
-				</div>
-			<p>삭제하시면 해당 글은 닷~시~는 복구할 수 없습니다.</p>
-			<div class="uk-modal-footer uk-text-right">
-				<form id="alertMessagePopUpForDeleteMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/delete">
-					<input type="hidden" id="saveRequestIdForDeleteMySendRequest" name="requestId">
-					<div class="uk-button uk-modal-close">취소</div>
-					<div class="uk-button uk-button-primary">삭제</div>
-				</form>
-			</div>
-		</div>
-	</div>
-<!-- 수락 경고 -->
-	<div id="alertMessagePopUpForAdmitMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
-		<div class="uk-modal-dialog">
-			<button type="button" class="uk-modal-close uk-close"></button>
-				<div class="uk-modal-header">
-					<h2>정말 수락하시겠습니까?</h2>
-				</div>
-			<p>의뢰 수락 후에는 취소가 매우 어렵습니다. 신중히 결정하시기 바랍니다.</p>
-			<div class="uk-modal-footer uk-text-right">
-				<form id="alertMessagePopUpForAdmitMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/admit">
-					<input type="hidden" id="saveRequestIdForAdmitMySendRequest" name="requestId">
-					<div class="uk-button uk-modal-close">취소</div>
-					<div class="uk-button uk-button-primary">수락</div>
-				</form>
-			</div>
-		</div>
-	</div>
-<!-- 거절 경고 -->
-	<div id="alertMessagePopUpForRejectMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
-		<div class="uk-modal-dialog">
-			<button type="button" class="uk-modal-close uk-close"></button>
-				<div class="uk-modal-header">
-					<h2>정말 거절하시겠습니까?</h2>
-				</div>
-			<p>거절 후에는 해당글은 다시 게시되어 다른 운송인들로부터 의뢰 신청을 받을 수 있습니다.</p>
-			<div class="uk-modal-footer uk-text-right">
-				<form id="alertMessagePopUpForRejectMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/reject">
-					<input type="hidden" id="saveRequestIdForRejectMySendRequest" name="requestId">
-					<div class="uk-button uk-modal-close">취소</div>
-					<div class="uk-button uk-button-primary">거절</div>
-				</form>
-			</div>
-		</div>
-	</div>
-<!-- 거래 완료 경고 -->
-	<div id="alertMessagePopUpForCompleteMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
-		<div class="uk-modal-dialog">
-			<button type="button" class="uk-modal-close uk-close"></button>
-				<div class="uk-modal-header">
-					<h2>정말 거래 완료 하시겠습니까?</h2>
-				</div>
-			<p>거래 완료 후에는 운송인에게 EDMoney가 전달되며, 이의제기가 매우 어렵습니다. 신중히 확인하시고 거래완료 하시기 바랍니다.</p>
-			<div class="uk-modal-footer uk-text-right">
-				<form id="alertMessagePopUpForCompleteMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/complete">
-					<input type="hidden" id="saveRequestIdForCompleteMySendRequest" name="requestId">
-					<div class="uk-button uk-modal-close">취소</div>
-					<div class="uk-button uk-button-primary">거래완료</div>
-				</form>
-			</div>
-		</div>
-	</div>
 </head>
 <body>
 	<div id="fullbrowser">
@@ -230,15 +230,18 @@
 								<div id="" class="subject">완료된 의뢰글<div style="color: red; margin-left: 5px;">(7일이 지나면 자동 삭제됩니다.)</div></div>
 								<hr>
 								<div class="ajax_requests_list">
-								
+									<%	for (ViewMySendRequest req : sendListAfterDel) {	%>
 									<div class="replace_hr"></div>
 									<div id="Ex_completed_01" class="row_request ">
 										<div class="uk-width-1-2">
-											<div class="text_middle">(신청인이 작성한 글 제목)</div>
+											<div class="text_middle"><%=req.getCargoName() %></div>
 										</div>
 										<div class="uk-width-3-10">
-											<div class="text_middle">(신청 운송인 ID)</div>
+											<div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div>
 										</div>
+<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
+<%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
+<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->										
 										<div class="uk-width-2-10 button_middle">
 											<button class="uk-button uk-width-2-3">평가하기</button>
 										</div>

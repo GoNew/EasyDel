@@ -145,3 +145,6 @@ div.right_margin_20px{
 	 margin-right: 5px;
 }
 
+#alertMessageModalDivs form {
+	height: 20px;
+}
