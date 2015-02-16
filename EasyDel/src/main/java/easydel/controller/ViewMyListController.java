@@ -18,12 +18,15 @@ import easydel.entity.ViewMyReportRequest;
 import easydel.entity.ViewMySendRequest;
 import easydel.exception.ServiceFailException;
 import easydel.service.IRequestService;
+import easydel.service.IUserService;
 
 @Controller
 @RequestMapping(value="/mylist")
 public class ViewMyListController {
 	@Autowired
 	IRequestService reqService;
+	@Autowired
+	IUserService userService;
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String mylist(HttpSession session, Model model){
@@ -120,15 +123,18 @@ public class ViewMyListController {
 		return "redirect:" + resultPage;
 	}
 	
-	@RequestMapping(value="/send/quit", params={"requestId"}, method=RequestMethod.POST)
-	public String quitSenderRequest(HttpSession session, Model model,
+	@RequestMapping(value="/send/complete", params={"requestId"}, method=RequestMethod.POST)
+	public String completeSenderRequest(HttpSession session, Model model,
 			@RequestParam Integer requestId) {
 		String resultPage = "/mylist";
-		//success++
-		//EDMoney 옮김
-		//status 수정
-		//complete_deliverys 테이블에 추가// 이미 운송인이 운송완료 했을때 추가되어야 함.
-		//거래완료를 알리는 alert 추가 - 발송인/운송인.
+		User loginUser = (User) session.getAttribute("loginSession");
+		try {
+			reqService.completeRequest(loginUser.getUserId(), requestId);
+		} catch (ServiceFailException e) {
+			model.addAttribute("errorMsg", e.getMessage());
+			resultPage = "/error";
+			e.printStackTrace();
+		}
 		return "redirect:" + resultPage;
 	}
 }

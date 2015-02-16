@@ -36,6 +36,9 @@
 	function send_readyForRejectMyRequest(id) {
 		$("#saveRequestIdForRejectMySendRequest").val(id);
 	}
+	function send_readyForCompleteMyRequest(id) {
+		$("#saveRequestIdForCompleteMySendRequest").val(id);
+	}
 	$(document).ready(function() {
 		$("#alertMessagePopUpForDeleteMySendRequest .uk-button-primary").click(function() {
 			$("#alertMessagePopUpForDeleteMySendRequestForm").submit();
@@ -45,6 +48,9 @@
 		});
 		$("#alertMessagePopUpForRejectMySendRequest .uk-button-primary").click(function() {
 			$("#alertMessagePopUpForRejectMySendRequestForm").submit();
+		});
+		$("#alertMessagePopUpForCompleteMySendRequest .uk-button-primary").click(function() {
+			$("#alertMessagePopUpForCompleteMySendRequestForm").submit();
 		});
 	});
 </script>
@@ -63,6 +69,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>내 진행 글 보기</title>
+<!-- 삭제 경고 -->
 	<div id="alertMessagePopUpForDeleteMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
 		<div class="uk-modal-dialog">
 			<button type="button" class="uk-modal-close uk-close"></button>
@@ -79,6 +86,7 @@
 			</div>
 		</div>
 	</div>
+<!-- 수락 경고 -->
 	<div id="alertMessagePopUpForAdmitMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
 		<div class="uk-modal-dialog">
 			<button type="button" class="uk-modal-close uk-close"></button>
@@ -95,6 +103,7 @@
 			</div>
 		</div>
 	</div>
+<!-- 거절 경고 -->
 	<div id="alertMessagePopUpForRejectMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
 		<div class="uk-modal-dialog">
 			<button type="button" class="uk-modal-close uk-close"></button>
@@ -107,6 +116,23 @@
 					<input type="hidden" id="saveRequestIdForRejectMySendRequest" name="requestId">
 					<div class="uk-button uk-modal-close">취소</div>
 					<div class="uk-button uk-button-primary">거절</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<!-- 거래 완료 경고 -->
+	<div id="alertMessagePopUpForCompleteMySendRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
+		<div class="uk-modal-dialog">
+			<button type="button" class="uk-modal-close uk-close"></button>
+				<div class="uk-modal-header">
+					<h2>정말 거래 완료 하시겠습니까?</h2>
+				</div>
+			<p>거래 완료 후에는 운송인에게 EDMoney가 전달되며, 이의제기가 매우 어렵습니다. 신중히 확인하시고 거래완료 하시기 바랍니다.</p>
+			<div class="uk-modal-footer uk-text-right">
+				<form id="alertMessagePopUpForCompleteMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/complete">
+					<input type="hidden" id="saveRequestIdForCompleteMySendRequest" name="requestId">
+					<div class="uk-button uk-modal-close">취소</div>
+					<div class="uk-button uk-button-primary">거래완료</div>
 				</form>
 			</div>
 		</div>
@@ -189,7 +215,7 @@
 											if(req.getRequestStatus() == RequestStatus.arrive.getStatusCode()) {
 									%>
 										<div class="button_middle uk-width-2-10">
-											<div class="uk-button uk-width-2-3" onclick="???('<%=req.getRequestId()%>')" data-uk-modal="{target:'#???'}">거래완료</div>
+											<div class="uk-button uk-width-2-3" onclick="send_readyForCompleteMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForCompleteMySendRequest'}">거래완료</div>
 										</div>
 									<%		} else { %>
 										<div class="uk-width-2-10"></div>

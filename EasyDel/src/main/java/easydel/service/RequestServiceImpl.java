@@ -249,4 +249,34 @@ public class RequestServiceImpl implements IRequestService {
 		alertService.insertAlert(currRequest.getCourierId(),
 				"'" + currRequest.getCargoName() + "'의뢰의 진행이 거절되었습니다.", AlertStatus.deliver);
 	}
+
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public void completeRequest(String exeUserId, Integer requestId)
+			throws ServiceFailException {
+		if(exeUserId == null)
+			throw new ServiceFailException("거래 완료 권한이 없는 유저");
+		Request currRequest = requestDao.selectRequestByRequestId(requestId);
+		if(currRequest == null)
+			throw new ServiceFailException("존재하지 않는 글");
+		if(!exeUserId.equals(currRequest.getSenderId()))
+			throw new ServiceFailException("거래 완료 권한이 없는 유저");
+		if(currRequest.getCourierId() == null)
+			throw new ServiceFailException("의뢰를 진행중인 유저가 존재하지 않습니다.");
+		
+		if(userDao.updateUserEDMoney(currRequest.getCourierId(), currRequest.getDeliveryPrice())
+				<= 0)
+			throw new ServiceFailException("운송인의 EDMoney를 갱신하는 중 에러");
+		if(userDao.updateUserCourierSuccessCntAddedVariation(currRequest.getCourierId(), 1) <= 0
+				| userDao.updateUserSenderSuccessCntAddedVariation(exeUserId, 1) <= 0)
+			throw new ServiceFailException("SuccessCount 수정중 에러");
+		
+		if(requestDao.updateStatusOfRequest(RequestStatus.quit, requestId)
+				<= 0)
+			throw new ServiceFailException("원인을 알 수 없는 에러");
+		alertService.insertAlert(currRequest.getCourierId(),
+				"'" + currRequest.getCargoName() + "'의뢰가 거래완료 되었습니다.", AlertStatus.deliver);
+		alertService.insertAlert(exeUserId,
+				"'" + currRequest.getCargoName() + "'의뢰가 거래완료 되었습니다.", AlertStatus.sender);
+	}
 }
