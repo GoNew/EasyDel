@@ -21,8 +21,8 @@ public class ProfileController {
 	
 	//운송인의 프로필
 	@RequestMapping(value="/courier", method=RequestMethod.GET)
-	public String moveToProfileCourier(@RequestParam String courierId, Model model){
-		model.addAttribute("courierInfos", service.serviceGetCourierInfos(courierId));
+	public String moveToProfileCourier(@RequestParam Integer pageNum, @RequestParam String courierId, Model model){
+		model.addAttribute("courierInfos", service.serviceGetCourierInfos(pageNum, courierId));
 		return "profile/courier";
 	}
 

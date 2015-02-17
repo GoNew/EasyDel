@@ -1,7 +1,9 @@
 package easydel.service;
 
-import easydel.entity.User;
+import java.util.List;
+
+import easydel.entity.CourierEval;
 
 public interface IProfileService {
-	public User serviceGetCourierInfos(String courierId);
+	public List<CourierEval> serviceGetCourierInfos(Integer pageNum, String courierId);
 }
