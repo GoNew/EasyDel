@@ -1,5 +1,4 @@
 package easydel.controller;
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,44 +7,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import easydel.entity.User;
-import easydel.service.IUserService;
+import easydel.service.IProfileService;
 
 @Controller
+@RequestMapping(value="/profile")
 public class ProfileController {
 	static final Logger logger = LoggerFactory.getLogger(ProfileController.class);
 	@Autowired
-	private IUserService service;
-	
-	
-	//발송인의 프로필
-	@RequestMapping(value="/profile/sender", method=RequestMethod.GET)
-	public String moveToProfileSender(){
-		return "profile/sender";
-	}
-	
-	@RequestMapping(value="/profile/sender", method=RequestMethod.POST)
-	public String profileSender(){
-		String resultPage = "redirect:sender";
-		return resultPage;
-	}
-	
+	private IProfileService service;
 	
 	
 	//운송인의 프로필
-	@RequestMapping(value="/profile/courier", method=RequestMethod.GET)
-	public String moveToProfileCourier(){
+	@RequestMapping(value="/courier", method=RequestMethod.GET)
+	public String moveToProfileCourier(@RequestParam String courierId, Model model){
+		model.addAttribute("courierInfos", service.serviceGetCourierInfos(courierId));
 		return "profile/courier";
 	}
-	
-	@RequestMapping(value="/profile/courier", method=RequestMethod.POST)
-	public String profileCourier(User user, Model model, HttpSession session){
-		String resultPage = "redirect:courier";
-		
-		
-		return resultPage;
-	}
-	
-	
+
 }

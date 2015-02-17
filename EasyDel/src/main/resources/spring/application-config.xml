@@ -49,6 +49,7 @@
 	<bean class="easydel.service.ShowMyRequestsImpl"></bean>
 	<bean class="easydel.service.RequestServiceImpl"></bean>
 	<bean class="easydel.service.EvalServiceImpl"></bean>
+	<bean class="easydel.service.ProfileServiceImpl"></bean>
 	
 	<context:annotation-config></context:annotation-config>
 	

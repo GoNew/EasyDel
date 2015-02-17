@@ -17,9 +17,9 @@ public class ProfileDaoImpl implements IProfileDao {
 	public ProfileDaoImpl(){}
 	
 	@Override
-	public User selectCourierInfos(String userId) {
+	public User selectCourierInfos(String courierId) {
 		String stmt = namespace + ".selectCourierInfos";
-		User result = session.selectOne(stmt, userId);
+		User result = session.selectOne(stmt, courierId);
 		return result;
 	}
 

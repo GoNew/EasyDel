@@ -12,19 +12,18 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/footer.css"/>
 <title>운송인 프로필</title>
 <%
-	User loginUserInfo = (User) session.getAttribute("loginSession");
-
-	loginUserInfo.setCourierAvgKind(4);
-	loginUserInfo.setCourierAvgSafe(5);
-	loginUserInfo.setCourierAvgTime(3);
-	loginUserInfo.setCourierSuccesscnt(30);
-	loginUserInfo.setCourierTotalcnt(31); 
+ 	User courierInfos = (User) request.getAttribute("courierInfos");
+ 	courierInfos.setCourierAvgKind(4);
+ 	courierInfos.setCourierAvgSafe(5);
+ 	courierInfos.setCourierAvgTime(3);
+ 	courierInfos.setCourierSuccesscnt(30);
+ 	courierInfos.setCourierTotalcnt(31); 
 	
- 	int courierAvgTime = loginUserInfo.getCourierAvgTime();
- 	int courierAvgSafe = loginUserInfo.getCourierAvgSafe();
- 	int courierAvgKind = loginUserInfo.getCourierAvgKind();
- 	int courierSuccesscnt = loginUserInfo.getCourierSuccesscnt();
- 	int courierTotalcnt = loginUserInfo.getCourierTotalcnt();
+ 	int courierAvgTime = courierInfos.getCourierAvgTime();
+ 	int courierAvgSafe = courierInfos.getCourierAvgSafe();
+ 	int courierAvgKind = courierInfos.getCourierAvgKind();
+ 	int courierSuccesscnt = courierInfos.getCourierSuccesscnt();
+ 	int courierTotalcnt = courierInfos.getCourierTotalcnt();
  	double courierPercentage = 0.0;
  	String cPercentage = null;
  	if(courierTotalcnt != 0){
@@ -53,13 +52,13 @@
 <div id="formcss" class="uk-align-center"> 
 	<div style="height:40px"></div>
 	<div id="profileid" align="center" style="font-size: 25px">
-				' <%=loginUserInfo.getUserId()%> ' 님의 운송인 평가 정보 입니다.
+				' <%=courierInfos.getUserId()%> ' 님의 운송인 평가 정보 입니다.
 	</div><br>
 	<div id="profileupform">
 		<div style="width:100px;"></div>
 		
 		<div id="profilephoto">
-			<img id="profileimg" class="uk-border-circle" src= "<%=request.getContextPath()%><%=loginUserInfo.getUserPicture() %>">
+			<img id="profileimg" class="uk-border-circle" src= "<%=request.getContextPath()%><%=courierInfos.getUserPicture() %>">
 		</div>
 		<div style="width:130px;"></div>
 		<div id="profileupsmallform">
