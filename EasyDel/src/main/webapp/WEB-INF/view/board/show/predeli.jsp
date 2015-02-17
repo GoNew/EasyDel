@@ -15,6 +15,23 @@ $(document).ready(function() {
 	$("#deli_userid").click(function() {
 		$("#searchprofbtn_div").css("display", "");
 	});
+	
+	$("#imgFileInput").change(function() {
+		var files = !!this.files ? this.files : [];
+		if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+		if (/^image/.test(files[0].type)){ // only image file
+			$("#imagePreview").html("");
+			var reader = new FileReader(); // instance of the FileReader
+			reader.readAsDataURL(files[0]); // read the local file
+			reader.onloadend = function() { // set image data as background of div
+				$("#imagePreview").css("background-image", "url("+this.result+")");
+			}
+		} else {
+			alert("사진만 등록가능합니다.");
+		}
+	});
+	
 });
 
 </script>
@@ -37,9 +54,9 @@ $(document).ready(function() {
 		<div class="margin_top_10px"></div>
 		<div class="standard_row_request"> <div class="row_standard_text_middle">종류</div> 		<div class="text_middle">단순 운송/ 구매 후 운송</div> </div>
 		<div class="standard_row_request"> <div class="row_standard_text_middle">발송 장소</div> 		<div class="text_middle">사랑시 고백구 행복동</div> </div>
-		<div class="standard_row_request"> <div class="row_standard_text_middle">발송 희망 시간</div> 		<div class="text_middle">(2015/02/12 오후 14:45)</div> <div class="text_middle">-</div> <div class="text_middle">(2015/02/12 오후 14:45)</div> </div>
+		<div class="standard_row_request"> <div class="row_standard_text_middle">발송 희망 시간</div> 		<div class="text_middle">(2015/02/12 오후 14:45)</div> <div class="text_middle margin_LR_10px">-</div> <div class="text_middle">(2015/02/12 오후 14:45)</div> </div>
 		<div class="standard_row_request"> <div class="row_standard_text_middle">도착 장소</div> 		<div class="text_middle">이별시 차인구 빡친동</div> </div>
-		<div class="standard_row_request"> <div class="row_standard_text_middle">도착 희망 시간</div> 		<div class="text_middle">(2015/02/13 오후 14:45)</div> <div class="text_middle">-</div> <div class="text_middle">(2015/02/13 오후 14:45)</div> </div>
+		<div class="standard_row_request"> <div class="row_standard_text_middle">도착 희망 시간</div> 		<div class="text_middle">(2015/02/13 오후 14:45)</div> <div class="text_middle margin_LR_10px">-</div> <div class="text_middle">(2015/02/13 오후 14:45)</div> </div>
 		
 		<div class="row_request margin_top_80px"><div class="text_middle_subject">물품 정보</div></div>
 		<div class="replace_hr"></div>
@@ -53,7 +70,7 @@ $(document).ready(function() {
 			</div>
 		</div> 
 		
-		<div class="row_request margin_top_80px"><div class="text_middle_subject">추가 사항</div></div>
+		<div class="row_request"><div class="text_middle_subject">추가 사항</div></div>
 		<div class="replace_hr"></div>
 		<div class="standard_row_request_reply margin_top_10px">
 		
@@ -73,10 +90,16 @@ $(document).ready(function() {
 		</div>
 		
 		<div class="standard_row_request_reply margin_top_10px">
-			<div class="webkit_box"> <div id="wrapper_btn_div" class="margin_left_50px"><button id="add_img_btn" class="uk-button">+image</button></div> <div><textarea id="add_textarea"></textarea></div> <div id="wrapper_btn_div"><button id="add_reply_btn" class="uk-button">완료</button></div>  </div>
+		<div class="webkit_box"> 
+			<div id="wrapper_btn_div" class="margin_left_50px">
+				<label for="imgFileInput"><div id="imagePreview"><div class="reply_img_text_middle">+사진</div></div></label>		
+				<input type="file" id="imgFileInput" name="imgFileInput">
+			</div> 
+			<div><textarea id="add_textarea"></textarea></div> <div id="wrapper_btn_div"><button id="add_reply_btn" class="uk-button">완료</button></div>  
+		</div>
 		</div>
 		
-		<div id="wrapper_recept_deli_btn_div" align="center"><button id="recept_deli_btn" class="uk-button uk-button-primary">운송 신청</button></div>
+		<div id="wrapper_recept_deli_btn_div" align="center"><button id="recept_deli_btn" class="uk-button uk-width-1-2">운송 신청</button></div>
 		
 		</div>
 	</div>
