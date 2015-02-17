@@ -14,13 +14,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import easydel.contant.AlertStatus;
 import easydel.contant.RequestStatus;
-import easydel.dao.IAlertDao;
 import easydel.dao.IRequestDao;
 import easydel.dao.IUserDao;
 import easydel.dao.IViewMyCarryRequestDao;
 import easydel.dao.IViewMyReportRequestDao;
 import easydel.dao.IViewMySendRequestDao;
-import easydel.entity.AlertLog;
 import easydel.entity.Request;
 import easydel.entity.ViewMyCarryRequest;
 import easydel.entity.ViewMyReportRequest;
@@ -249,6 +247,27 @@ public class RequestServiceImpl implements IRequestService {
 		alertService.insertAlert(currRequest.getCourierId(),
 				"'" + currRequest.getCargoName() + "'의뢰의 진행이 거절되었습니다.", AlertStatus.deliver);
 	}
+	
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public void cancelRequestBeforeDelFromCourier(String exeUserId, Integer requestId)
+			throws ServiceFailException {
+		if(exeUserId == null)
+			throw new ServiceFailException("의뢰신청취소 권한이 없는 유저");
+		Request currRequest = requestDao.selectRequestByRequestId(requestId);
+		if(currRequest == null)
+			throw new ServiceFailException("존재하지 않는 글");
+		if(!exeUserId.equals(currRequest.getCourierId()))
+			throw new ServiceFailException("의뢰신청취소 권한이 없는 유저");
+		if(currRequest.getRequestStatus() != RequestStatus.wait.getStatusCode())
+			throw new ServiceFailException("진행중 의뢰 취소 불가능");
+		
+		if(requestDao.updateStatusAndRemoveCourier(requestId)
+				<= 0)
+			throw new ServiceFailException("원인을 알 수 없는 에러");
+		alertService.insertAlert(currRequest.getSenderId(),
+				"'" + currRequest.getCargoName() + "'의뢰의 신청이 취소되었습니다.", AlertStatus.sender);
+	}
 
 	@Override
 	@Transactional(rollbackFor={ServiceFailException.class})
@@ -281,11 +300,37 @@ public class RequestServiceImpl implements IRequestService {
 	}
 
 	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
 	public Request getRequest(Integer requestId) throws ServiceFailException {
 		Request result = null;
 		result = requestDao.selectRequestByRequestId(requestId);
 		if(result == null)
 			throw new ServiceFailException("존재하지 않는 글");
 		return result;
+	}
+	
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public void arriveRequest(String exeUserId, Integer requestId) throws ServiceFailException {
+		if(exeUserId == null)
+			throw new ServiceFailException("운송완료 권한이 없는 유저");
+		Request currRequest = requestDao.selectRequestByRequestId(requestId);
+		if(currRequest == null)
+			throw new ServiceFailException("존재하지 않는 글");
+		if(!exeUserId.equals(currRequest.getCourierId()))
+			throw new ServiceFailException("운송완료 권한이 없는 유저");
+		switch (RequestStatus.valueOf(currRequest.getRequestStatus())) {
+		default:
+			throw new ServiceFailException("운송완료가 불가능한 글 상태");
+		case on:
+		case cancelByDeliver:
+		case cancelBySender:
+			break;
+		}
+		if(requestDao.updateStatusOfRequest(RequestStatus.arrive, requestId)
+				<= 0)
+			throw new ServiceFailException("글 상태 변경중 에러");
+		alertService.insertAlert(currRequest.getSenderId(),
+				"'" + currRequest.getCargoName() + "'의뢰의 운송이 완료 되었습니다.", AlertStatus.sender);
 	}
 }

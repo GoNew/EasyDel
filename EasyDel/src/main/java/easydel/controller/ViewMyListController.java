@@ -137,4 +137,35 @@ public class ViewMyListController {
 		}
 		return "redirect:" + resultPage;
 	}
+	
+	@RequestMapping(value="/carry/cancel", params={"requestId"}, method=RequestMethod.POST)
+	public String cancelCourierRequest(HttpSession session, Model model,
+			@RequestParam Integer requestId) {
+		String resultPage = "/mylist";
+		User loginUser = (User) session.getAttribute("loginSession");
+		try {
+			reqService.cancelRequestBeforeDelFromCourier(loginUser.getUserId(), requestId);
+		} catch (ServiceFailException e) {
+			model.addAttribute("errorMsg", e.getMessage());
+			resultPage = "/error";
+			e.printStackTrace();
+		}
+		
+		return "redirect:" + resultPage;
+	}
+	
+	@RequestMapping(value="/carry/arrive", params={"requestId"}, method=RequestMethod.POST)
+	public String arriveCourierRequest(HttpSession session, Model model,
+			@RequestParam Integer requestId) {
+		String resultPage = "/mylist";
+		User loginUser = (User) session.getAttribute("loginSession");
+		try {
+			reqService.arriveRequest(loginUser.getUserId(), requestId);
+		} catch (ServiceFailException e) {
+			model.addAttribute("errorMsg", e.getMessage());
+			resultPage = "/error";
+			e.printStackTrace();
+		}
+		return "redirect:" + resultPage;
+	}
 }
