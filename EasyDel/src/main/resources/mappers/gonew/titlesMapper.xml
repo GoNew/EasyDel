@@ -26,7 +26,7 @@
 					)
 		<where>
 			<if test="pageNum != null">
-				((#{pageNum} - 1) * 10) + 1 &lt;= RNUM
+				(#{pageNum} * 10) + 1 &gt; RNUM
 			</if>
 		</where>
 	</select>
@@ -50,7 +50,7 @@
 					)
 		<where>
 			<if test="pageNum != null">
-				((#{pageNum} - 1) * 10) + 1 &lt;= RNUM
+				(#{pageNum} * 10) + 1 &gt; RNUM
 			</if>
 		</where>
 	</select>
@@ -74,7 +74,7 @@
 					)
 		<where>
 			<if test="pageNum != null">
-				((#{pageNum} - 1) * 10) + 1 &lt;= RNUM
+				(#{pageNum} * 10) + 1 &gt; RNUM
 			</if>
 		</where>
 	</select>
@@ -103,7 +103,7 @@
 					)
 		<where>
 			<if test="pageNum != null">
-				((#{pageNum} - 1) * 10) + 1 &lt;= RNUM
+				(#{pageNum} * 10) + 1 &gt; RNUM
 			</if>
 		</where>
 	</select>
