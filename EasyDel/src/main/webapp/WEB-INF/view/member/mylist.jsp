@@ -1,3 +1,4 @@
+<%@page import="easydel.contant.ReportStatus"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="easydel.contant.RequestStatus"%>
@@ -220,7 +221,7 @@
 											<div class="uk-button uk-width-1-3" onclick="send_readyForRejectMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForRejectMySendRequest'}">거절</div>
 										</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
-<%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
+<%@include file="/WEB-INF/view/member/mylistCourierProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%
 											} else {
@@ -255,7 +256,7 @@
 									<%		}	%>
 									</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
-<%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
+<%@include file="/WEB-INF/view/member/mylistCourierProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	}	%>
 									<div class="replace_hr"></div>
@@ -282,7 +283,7 @@
 									<%		}	%>
 									</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
-<%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
+<%@include file="/WEB-INF/view/member/mylistCourierProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	} %>
 									<div class="replace_hr"></div>
@@ -309,7 +310,7 @@
 										<div class="uk-width-1-5 button_middle"><div class="uk-button uk-width-2-3" onclick="carry_readyForCancelMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForCancelMyCourierRequest'}">신청취소</div></div>
 									</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
-<%@include file="/WEB-INF/view/member/mylistSenderProfile.jsp" %>
+<%@include file="/WEB-INF/view/member/mylistSenderProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	}	%>
 									<div class="replace_hr"></div>
@@ -335,7 +336,7 @@
 									<%		}	%>
 									</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
-<%@include file="/WEB-INF/view/member/mylistSenderProfile.jsp" %>
+<%@include file="/WEB-INF/view/member/mylistSenderProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	}	%>
 									<div class="replace_hr"></div>
@@ -369,73 +370,87 @@
 
 <!-- ******************************************신고 탭************************************************************************************-->					
 					<li class="">
-					<div id="all_mylist_reporter" class="mylistsenderlist" >
-					<div id="registered_requests_div" class="request_box">
-						<div id="" class="subject">나의 신고 현황<div style="color: red; margin-left: 5px;"> (처리 완료된 글은 30일 후에 지워집니다.)</div></div>
-						<hr>
-							<div class="ajax_requests_list">
-							<div id="Ex_request_01" class="row_request uk-text-bold">
-								<div class="uk-width-3-10"><div class="text_middle">신고 글 제목</div></div>
-								<div class="uk-width-2-10"><div class="text_middle">신고 대상</div></div>
-								<div class="uk-width-2-10"><div class="text_middle">신고사유</div></div>
-								<div class="uk-width-2-10"><div class="text_middle">신고일</div></div>
-								<div class="uk-width-1-10"><div class="text_middle">상태</div></div>
-							</div>
-						<div class="replace_report_subject_hr"></div>
-							<div id="Ex_request_01" class="row_request right_margin_20px">
-								<div class="uk-width-3-10"><div class="text_middle">/신고 글 제목</div></div>
-								<div class="uk-width-2-10"><div class="text_middle">/신고 대상</div></div>
-								<div class="uk-width-2-10"><div class="text_middle">/신고사유</div></div>
-								<div class="uk-width-2-10"><div class="text_middle_small">//2015.01.14 19:30</div></div>
-								<div class="uk-width-1-10"><div class="text_middle">처리중</div></div>
-							</div>
-						<div class="replace_report_hr"></div>
-							<div id="Ex_request_01" class="row_request right_margin_20px">
-								<div class="uk-width-3-10"><div class="text_middle">/신고 글 제목</div></div>
-								<div class="uk-width-2-10"><div class="text_middle">/신고 대상</div></div>
-								<div class="uk-width-2-10"><div class="text_middle">/신고사유</div></div>
-								<div class="uk-width-2-10"><div class="text_middle_small">/신고일</div></div>
-								<div class="uk-width-1-10"><div class="text_middle">처리완료</div></div>
-							</div>
-						<div class="replace_report_hr"></div>
-							</div>	
+						<div id="all_mylist_reporter" class="mylistsenderlist">
+							<div id="registered_requests_div" class="request_box">
+								<div id="" class="subject">나의 신고 현황<div style="color: red; margin-left: 5px;"> (처리 완료된 글은 30일 후에 지워집니다.)</div></div>
+								<hr>
+						<!-- List<ViewMyReportRequest> reportListReported = (List<ViewMyReportRequest>) request.getAttribute("reportListReported"); -->
+								<div class="ajax_requests_list">
+									<div class="row_request uk-text-bold">
+										<div class="uk-width-3-10"><div class="text_middle">신고 글 제목</div></div>
+										<div class="uk-width-2-10"><div class="text_middle">신고 대상</div></div>
+										<div class="uk-width-2-10"><div class="text_middle">신고사유</div></div>
+										<div class="uk-width-2-10"><div class="text_middle">신고일</div></div>
+										<div class="uk-width-1-10"><div class="text_middle">상태</div></div>
+									</div>
+									<div class="replace_report_subject_hr"></div>
+									<%	for (ViewMyReportRequest req : reportListReport) {	%>
+									<div class="row_request right_margin_20px">
+										<div class="uk-width-3-10"><div class="text_middle"><%=req.getCargoName() %></div></div>
+										<div class="uk-width-2-10"><div class="text_middle"><%=req.getReportedUserId() %></div></div>
+										<div class="uk-width-2-10"><div class="text_middle"><%=req.getReportTypeDesc() %></div></div>
+										<div class="uk-width-2-10"><div class="text_middle_small"><%=req.getReportDate() %></div></div>
+										<div class="uk-width-1-10"><div class="text_middle">
+									<%
+											switch(ReportStatus.valueOf(req.getReportStatus())) {
+											case reportAfterTraitement:
+												out.print("처리 완료");
+												break;
+											case reportOnProcess:
+												out.print("처리 중");
+												break;
+											default:
+												break;
+											}
+									%>
+										</div></div>
+									</div>
+									<div class="replace_report_hr"></div>
+									<%	}	%>
+								</div>	
 							</div>
 							
-							
-					<div id="registered_requests_div" class="request_box">
-						<div id="" class="subject">신고 받은 현황</div>
-						<hr>
-							<div class="ajax_requests_list">
-							<div id="Ex_request_01" class="row_request uk-text-bold">
-								<div class="uk-width-2-5"><div class="text_middle">신고 처리된 글 제목</div></div>
-								<div class="uk-width-1-5"><div class="text_middle">신고사유</div></div>
-								<div class="uk-width-1-5"><div class="text_middle">신고일</div></div>
-								<div class="uk-width-1-5"><div class="text_middle">상태</div></div>
+							<div id="registered_requests_div" class="request_box">
+								<div id="" class="subject">신고 받은 현황</div>
+								<hr>
+									<div class="ajax_requests_list">
+									<div id="Ex_request_01" class="row_request uk-text-bold">
+										<div class="uk-width-2-5"><div class="text_middle">신고 처리된 글 제목</div></div>
+										<div class="uk-width-1-5"><div class="text_middle">신고사유</div></div>
+										<div class="uk-width-1-5"><div class="text_middle">신고일</div></div>
+										<div class="uk-width-1-5"><div class="text_middle">상태</div></div>
+									</div>
+									<div class="replace_report_subject_hr"></div>
+									<%	for (ViewMyReportRequest req : reportListReported) {	%>
+									<div id="Ex_request_01" class="row_request right_margin_20px">
+										<div class="uk-width-2-5"><div class="text_middle"><%=req.getCargoName() %></div></div>
+										<div class="uk-width-1-5"><div class="text_middle"><%=req.getReportTypeDesc() %></div></div>
+										<div class="uk-width-1-5"><div class="text_middle_small"><%=req.getReportDate() %></div></div>
+										<div class="uk-width-1-5"><div class="text_middle">
+									<%
+											switch(ReportStatus.valueOf(req.getReportStatus())) {
+											case reportAfterTraitement:
+												out.print("처리 완료");
+												break;
+											case reportOnProcess:
+												out.print("처리 중");
+												break;
+											default:
+												break;
+											}
+									%>
+										</div></div>
+									</div>
+									<div class="replace_report_hr"></div>
+									<%	}	%>
+								</div>
 							</div>
-						<div class="replace_report_subject_hr"></div>
-							<div id="Ex_request_01" class="row_request right_margin_20px">
-								<div class="uk-width-2-5"><div class="text_middle">/신고 글 제목</div></div>
-								<div class="uk-width-1-5"><div class="text_middle">/신고사유</div></div>
-								<div class="uk-width-1-5"><div class="text_middle_small">/2015.01.14 19:30</div></div>
-								<div class="uk-width-1-5"><div class="text_middle">/상태</div></div>
-							</div>
-						<div class="replace_report_hr"></div>
-							<div id="Ex_request_01" class="row_request right_margin_20px">
-								<div class="uk-width-2-5"><div class="text_middle">/신고 글 제목</div></div>
-								<div class="uk-width-1-5"><div class="text_middle">/신고사유</div></div>
-								<div class="uk-width-1-5"><div class="text_middle_small">/신고일</div></div>
-								<div class="uk-width-1-5"><div class="text_middle">/상태</div></div>
-							</div>
-						<div class="replace_report_hr"></div>
-							</div>	
-							</div>
-					</div>
+						</div>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
-
 </body>
-</html>
 <jsp:include page="/WEB-INF/view/main/footer.jsp"></jsp:include>
+</html>
