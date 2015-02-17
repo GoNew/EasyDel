@@ -31,6 +31,11 @@
     		base="c:\db\uploaded\profile"
     		webAppMount="/WEB-INF/profile"
     	></PreResources>
+    	<PreResources 
+    		className="org.apache.catalina.webresources.DirResourceSet"
+    		base="c:\db\uploaded\request"
+    		webAppMount="/WEB-INF/request"
+    	></PreResources>
     </Resources>
     
 </Context>
