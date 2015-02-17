@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import easydel.dao.IRequestDao;
 import easydel.entity.Request;
-import easydel.entity.User;
 
 @Controller
 public class GonewTestController {

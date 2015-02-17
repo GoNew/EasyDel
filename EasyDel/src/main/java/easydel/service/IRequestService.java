@@ -39,9 +39,12 @@ public interface IRequestService {
 
 	public Request getRequest(Integer requestId) throws ServiceFailException;
 
-	void cancelRequestBeforeDelFromCourier(String exeUserId, Integer requestId)
+	public void cancelRequestBeforeDelFromCourier(String exeUserId, Integer requestId)
 			throws ServiceFailException;
 
-	void arriveRequest(String exeUserId, Integer requestId)
+	public void arriveRequest(String exeUserId, Integer requestId)
+			throws ServiceFailException;
+	
+	public Request getRequestWithRequestCmts(Integer requestId)
 			throws ServiceFailException;
 }

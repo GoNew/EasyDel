@@ -66,7 +66,7 @@
 		left join	REQUEST_CMTS RC
 		on			R.request_id=RC.request_id
 		where		R.request_id=#{requestId}
-		order by	R.cmt_id DESC
+		order by	RC.cmt_id DESC
 	</select>
 
 	<update id="updateStatusAndRemoveCourier" parameterType="integer">

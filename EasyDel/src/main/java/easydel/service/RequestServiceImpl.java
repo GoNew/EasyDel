@@ -333,4 +333,13 @@ public class RequestServiceImpl implements IRequestService {
 		alertService.insertAlert(currRequest.getSenderId(),
 				"'" + currRequest.getCargoName() + "'의뢰의 운송이 완료 되었습니다.", AlertStatus.sender);
 	}
+
+	@Override
+	public Request getRequestWithRequestCmts(Integer requestId)
+			throws ServiceFailException {
+		Request result = requestDao.selectRequestJoinRequestCmtByRequestId(requestId);
+		if(result == null)
+			throw new ServiceFailException("존재하지 않는 글");
+		return result;
+	}
 }
