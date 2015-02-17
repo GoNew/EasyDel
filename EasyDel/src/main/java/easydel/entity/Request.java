@@ -3,6 +3,7 @@ package easydel.entity;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -89,14 +90,13 @@ public class Request implements Serializable {
 	private Set<CompleteDelivery> completeDeliverysSet;
 
 	/** 운송글_코멘트 목록. */
-	private Set<RequestCmt> requestCmtsSet;
+	private List<RequestCmt> requestCmtsList;
 
 	/**
 	 * 생성자.
 	 */
 	public Request() {
 		this.completeDeliverysSet = new HashSet<CompleteDelivery>();
-		this.requestCmtsSet = new HashSet<RequestCmt>();
 	}
 	
 	/**
@@ -522,33 +522,12 @@ public class Request implements Serializable {
 		return this.completeDeliverysSet;
 	}
 
-	/**
-	 * 운송글_코멘트 목록을 설정합니다..
-	 * 
-	 * @param requestCmtsSet
-	 *            운송글_코멘트 목록
-	 */
-	public void setRequestCmtsSet(Set<RequestCmt> requestCmtsSet) {
-		this.requestCmtsSet = requestCmtsSet;
+	public List<RequestCmt> getRequestCmtsList() {
+		return requestCmtsList;
 	}
 
-	/**
-	 * 운송글_코멘트를 추가합니다..
-	 * 
-	 * @param requestCmts
-	 *            운송글_코멘트
-	 */
-	public void addRequestCmts(RequestCmt requestCmts) {
-		this.requestCmtsSet.add(requestCmts);
-	}
-
-	/**
-	 * 운송글_코멘트 목록을 가져옵니다..
-	 * 
-	 * @return 운송글_코멘트 목록
-	 */
-	public Set<RequestCmt> getRequestCmtsSet() {
-		return this.requestCmtsSet;
+	public void setRequestCmtsList(List<RequestCmt> requestCmtsList) {
+		this.requestCmtsList = requestCmtsList;
 	}
 
 	/**
@@ -604,6 +583,6 @@ public class Request implements Serializable {
 				+ arrivalPlaceDesc + ", absenceMessage=" + absenceMessage
 				+ ", validationCode=" + validationCode + ", expireDate="
 				+ expireDate + ", completeDeliverysSet=" + completeDeliverysSet
-				+ ", requestCmtsSet=" + requestCmtsSet + "]";
+				+ ", requestCmtsList=" + requestCmtsList + "]";
 	}
 }
