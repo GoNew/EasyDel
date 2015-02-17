@@ -59,11 +59,12 @@ $(document).ready(function() {
 		<div class="replace_hr"></div>
 		
 		<div class="margin_top_10px uk-panel uk-panel-box">
-			<div class="standard_row_request"><div id="senderprofimg_main"><img src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div>
-			<div id="deli_userid" class="text_middle fixed_font_color">(발송인 ID)</div>
+			<div class="standard_row_request">
+			<div id="senderprofimg_main"><img src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div>
+			<div id="deli_userid" class="text_middle fixed_font_color webkit_box"><a class="atag_color" data-uk-toggle="{target:'#my-profbtn'}">(발송인 ID)</a></div>
+			<div class="uk-hidden" id="my-profbtn"><button id="searchprofbtn" class="uk-button">프로필 보기</button></div>
 			</div>
 		</div>
-		<div id="searchprofbtn_div"><button id="searchprofbtn" class="uk-button uk-width-1-5">프로필 보기</button></div>
 		
 <!-- --------------------------------물품 정보---------------------------------------------- -->		
 		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">물품 정보</div></div>
