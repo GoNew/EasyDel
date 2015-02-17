@@ -83,5 +83,12 @@ public class RequestDaoImpl implements IRequestDao {
 		return result;
 	}
 
+	@Override
+	public Request selectRequestJoinRequestCmtByRequestId(Integer requestId) {
+		String stmt = gonew_namespace + ".selectRequestJoinRequestCmtByRequestId";
+		Request result = session.selectOne(stmt, requestId);
+		return result;
+	}
+
 	
 }

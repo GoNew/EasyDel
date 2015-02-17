@@ -3,6 +3,72 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="easydel.gonew.mapper.requests">
+	<resultMap type="Request" id="RequestJoinRequestCmt">
+		<id column="request_id" property="requestId"/>
+		<result column="sender_id" property="senderId"/>
+		<result column="courier_id" property="courierId"/>
+		<result column="request_type" property="requestType"/>
+		<result column="request_status" property="requestStatus"/>
+		<result column="cargo_name" property="cargoName"/>
+		<result column="delivery_price" property="deliveryPrice"/>
+		<result column="cargo_picture" property="cargoPicture"/>
+		<result column="cargo_desc" property="cargoDesc"/>
+		<result column="sender_phone" property="senderPhone"/>
+		<result column="pickup_min_time" property="pickupMinTime"/>
+		<result column="pickup_max_time" property="pickupMaxTime"/>
+		<result column="pickup_place" property="pickupPlace"/>
+		<result column="pickup_place_desc" property="pickupPlaceDesc"/>
+		<result column="receiver_name" property="receiverName"/>
+		<result column="receiver_phone" property="receiverPhone"/>
+		<result column="arrival_place" property="arrivalPlace"/>
+		<result column="arrival_place_desc" property="arrivalPlaceDesc"/>
+		<result column="absence_message" property="absenceMessage"/>
+		<result column="validation_code" property="validationCode"/>
+		<result column="expire_date" property="expireDate"/>
+		<collection property="requestCmtsList" ofType="RequestCmt">
+			<id column="cmt_id" property="cmtId"/>
+			<result column="request_cmts_request_id" property="requestId"/>
+			<result column="request_cmts_user_id" property="userId"/>
+			<result column="request_cmts_reply_text" property="replyText"/>
+			<result column="request_cmts_reply_picture" property="replyPicture"/>
+		</collection>
+	</resultMap>
+	
+	<select id="selectRequestJoinRequestCmtByRequestId" parameterType="integer"
+		resultMap="RequestJoinRequestCmt">
+		select		R.request_id as request_id,
+					R.sender_id as sender_id,
+					R.courier_id as courier_id,
+					R.request_type as request_type,
+					R.request_status as request_status,
+					R.cargo_name as cargo_name,
+					R.delivery_price as delivery_price,
+					R.cargo_picture as cargo_picture,
+					R.cargo_desc as cargo_desc,
+					R.sender_phone as sender_phone,
+					R.pickup_min_time as pickup_min_time,
+					R.pickup_max_time as pickup_max_time,
+					R.pickup_place as pickup_place,
+					R.pickup_place_desc as pickup_place_desc,
+					R.receiver_name as receiver_name,
+					R.receiver_phone as receiver_phone,
+					R.arrival_place as arrival_place,
+					R.arrival_place_desc as arrival_place_desc,
+					R.absence_message as absence_message,
+					R.validation_code as validation_code,
+					R.expire_date as expire_date,
+					RC.cmt_id as cmt_id,
+					RC.request_id as request_cmts_request_id,
+					RC.user_id as request_cmts_user_id,
+					RC.reply_text as request_cmts_reply_text,
+					RC.reply_picture as request_cmts_reply_picture
+		from		REQUESTS R
+		left join	REQUEST_CMTS RC
+		on			R.request_id=RC.request_id
+		where		R.request_id=#{requestId}
+		order by	R.cmt_id DESC
+	</select>
+
 	<update id="updateStatusAndRemoveCourier" parameterType="integer">
 		update		REQUESTS
 		set			request_status=1,

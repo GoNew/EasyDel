@@ -47,91 +47,104 @@ $(document).ready(function() {
 	<div id=fullbrowser align="center">
 		<div id="middlebrowser" align="center" >
 <!-- --------------------------------발송인 정보---------------------------------------------- -->		
-		<div class="row_request"><div class="text_middle_subject">발송인 정보</div></div>
+		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">발송인 정보</div></div>
 		<div class="replace_hr"></div>
-		<div class="standard_row_request margin_top_10px"><div class="webkit_box"><div id="senderprofimg"><img src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div><div id="deli_userid" class="text_middle">(발송인 ID)</div></div></div>
+		
+		<div class="margin_top_10px uk-panel uk-panel-box">
+			<div class="standard_row_request"><div id="senderprofimg_main"><img src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div>
+			<div id="deli_userid" class="text_middle fixed_font_color">(발송인 ID)</div>
+			</div>
+		</div>
 		<div id="searchprofbtn_div"><button id="searchprofbtn" class="uk-button uk-width-1-5">프로필 보기</button></div>
 		
 <!-- --------------------------------물품 정보---------------------------------------------- -->		
-		<div class="row_request margin_top_80px"><div class="text_middle_subject">물품 정보</div></div>
+		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">물품 정보</div></div>
 		<div class="replace_hr"></div>
-		<div class="webkit_box" align="left">
+		<div class="webkit_box margin_top_10px uk-panel uk-panel-box" align="left">
 		
-			<div id="wrapper_product_img_div"><img id="wrapper_product_img" src="<%= request.getContextPath()%>/img/quick.PNG"></div>
+			<div id="wrapper_product_img_div"><img id="wrapper_product_img" src="<%= request.getContextPath()%>/img/temp/hpcase.jpg"></div>
 			<div id="wrapper_product_div"> 
-																								<div class="standard_row_request_product"><div class="row_standard_text_middle_product">물품명</div><div class="text_middle">()</div> </div>
-																								<div class="standard_row_request_product"><div class="row_standard_text_middle_product">비용</div><div class="text_middle">(금액)</div><div style="margin-left: 10px;" class="text_middle">원</div> </div>
-																								<div id="wrapper_product_details"><div class="row_standard_text_middle_product">상세설명</div><div id="product_detail" class="">(왜 상세 내용이 안나오죠?) 나는 이제 글자를 옮겨오는 것을 완성하였다 ㅎㅎ</div> </div> 
+																								<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">물품명</div><div class="text_middle unfixed_font_color">()</div> </div>
+																								<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">비용</div><div class="text_middle unfixed_font_color">(금액)</div><div style="margin-left: 10px;" class="text_middle fixed_font_color">원</div> </div>
+																								<div id="wrapper_product_details"><div class="row_standard_text_middle_product fixed_font_color">상세설명</div><div id="product_detail" class="unfixed_font_color">(왜 상세 내용이 안나오죠?) 나는 이제 글자를 옮겨오는 것을 완성하였다 ㅎㅎ</div> </div> 
 			</div>
 		</div> 
 		
 		
 <!-- --------------------------------배송 정보---------------------------------------------- -->		
-		<div class="row_request"><div class="text_middle_subject">배송 정보</div></div>
+		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">배송 정보</div></div>
 		<div class="replace_hr"></div>
 		
-		<div class="margin_top_10px"></div>
-		<div class="standard_row_request"> <div class="row_standard_text_middle">종류</div> 				<div class="text_middle">단순 운송/ 구매 후 운송</div> </div>
+		<div class="margin_top_10px uk-panel uk-panel-box">
+		<div class="standard_row_request"> <div class="row_standard_text_middle fixed_font_color">종류</div> 				<div class="text_middle unfixed_font_color">단순 운송/ 구매 후 운송</div> </div>
 		
 <!-- --------------------------------보내는 사람---------------------------------------------- -->		
-		<div class="row_request margin_top_80px"><div class="text_middle_subject">보내는 사람</div></div>
-		<div class="replace_hr"></div>
+		<div class="row_request margin_top_40px"><div class="text_middle_subject_sub fixed_font_color">보내는 사람</div></div>
+		<div class="replace_hr_sub"></div>
 		
 		<div class="margin_top_10px"></div>
-		<div class="standard_row_request"> <div class="row_standard_text_middle">이름</div> 				<div class="text_middle">주리라</div> </div>
-		<div class="standard_row_request"> <div class="row_standard_text_middle">전화 번호</div> 			<div class="text_middle">010-9757-1284</div> </div>
-		<div class="standard_row_request"> <div class="row_standard_text_middle">만날 장소</div> 			<div class="text_middle">사랑시 고백구 행복동</div> </div>
-		<div class="standard_row_request"> <div class="row_standard_text_middle"></div> 			<div class="text_middle">대박은내꾸야마을 타워펠리스 201동 2202호</div> </div>
-		<div class="standard_row_request"> <div class="row_standard_text_middle">전달 희망 시간</div> 		<div class="text_middle">(2015/02/12 오후 14:45)</div> <div class="text_middle margin_LR_10px">-</div> <div class="text_middle">(2015/02/12 오후 14:45)</div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">이름</div> 				<div class="text_middle_sub unfixed_font_color">주리라</div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">전화 번호</div> 			<div class="text_middle_sub unfixed_font_color">010-9757-1284</div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">만날 장소</div> 			<div class="text_middle_sub unfixed_font_color">사랑시 고백구 행복동</div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color"></div> 			<div class="text_middle_sub unfixed_font_color">대박은내꾸야마을 타워펠리스 201동 2202호</div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">전달 희망 시간</div> 		<div class="text_middle_sub unfixed_font_color">(2015/02/12 오후 14:45)</div> <div class="text_middle_sub margin_LR_10px">-</div> <div class="text_middle_sub unfixed_font_color">(2015/02/12 오후 14:45)</div> </div>
 		
 <!-- --------------------------------받는 사람---------------------------------------------- -->		
-		<div class="row_request margin_top_80px"><div class="text_middle_subject">받는 사람</div></div>
-		<div class="replace_hr"></div>
+		<div class="row_request margin_top_40px"><div class="text_middle_subject_sub fixed_font_color">받는 사람</div></div>
+		<div class="replace_hr_sub"></div>
 		
 		<div class="margin_top_10px"></div>
-		<div class="standard_row_request"> <div class="row_standard_text_middle">이름</div> 				<div class="text_middle">최은혜</div> </div>
-		<div class="standard_row_request"> <div class="row_standard_text_middle">전화번호</div> 			<div class="text_middle">010-2324-1249</div> </div>
-		<div class="standard_row_request"> <div class="row_standard_text_middle">주소</div> 				<div class="text_middle">사랑시 고백구 행복동</div> </div>
-		<div class="standard_row_request"> <div class="row_standard_text_middle"></div> 				<div class="text_middle">대박터지자마을 자이아파트 293동 1023동</div> </div>
-		<div class="standard_row_request"> <div class="row_standard_text_middle">도착 희망 시간</div> 		<div class="text_middle">(2015/02/12 오후 14:45)</div> <div class="text_middle margin_LR_10px" >-</div> <div class="text_middle">(2015/02/12 오후 14:45)</div> </div>
-		<div class="standard_row_request"> <div class="row_standard_text_middle">전달 메시지(부재시)</div> 	<div class="text_middle">연락 후, 부재시 경비실에 맡겨주세요~ </div> </div>
-		
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">이름</div> 				<div class="text_middle_sub unfixed_font_color">최은혜</div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">전화번호</div> 			<div class="text_middle_sub unfixed_font_color">010-2324-1249</div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">주소</div> 				<div class="text_middle_sub unfixed_font_color">사랑시 고백구 행복동</div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color"></div> 				<div class="text_middle_sub unfixed_font_color">대박터지자마을 자이아파트 293동 1023동</div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">도착 희망 시간</div> 		<div class="text_middle_sub unfixed_font_color">(2015/02/12 오후 14:45)</div> <div class="text_middle_sub margin_LR_10px" >-</div> <div class="text_middle_sub unfixed_font_color">(2015/02/12 오후 14:45)</div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">전달 메시지(부재시)</div> 	<div class="text_middle_sub unfixed_font_color">연락 후, 부재시 경비실에 맡겨주세요~ </div> </div>
+		</div>
 <!-- --------------------------------추가 대화---------------------------------------------- -->		
-		<div class="row_request margin_top_80px"><div class="text_middle_subject">추가 사항</div></div>
-		<div class="replace_hr"></div>
-		<div class="standard_row_request_reply margin_top_10px">
+			<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">추가 사항</div></div>
+			<div class="replace_hr"></div>
+			
+			<div class="uk-panel uk-panel-box margin_top_10px">
+			<div class="standard_row_request_reply">
+			
+				<div class="row_request_extra">
+					<div id="senderprofimg"><img src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div><div id="deli_userid" class="text_middle_extra fixed_font_color">(qhdtk1991)</div>
+				</div>
+				<div class="margin_left_50px"><img class="img_fixed_size_extra" src="<%=request.getContextPath()%>/img/temp/anothercase.jpg"></div>
+				<div class="row_request_extra_long"> 
+					<div class="margin_left_50px text_middle_extra_long unfixed_font_color">(글 내용)</div> 
+				</div>
+			
+			<div class="replace_hr_plus"></div>
+			</div>
+			
+			<div class="standard_row_request_reply margin_top_10px">
+				<div class="row_request_extra"><div id="senderprofimg"><img  src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div><div id="deli_userid" class="text_middle_extra fixed_font_color">(jll1991)</div></div>
+				<div class="row_request_extra_long"> <div class="margin_left_50px text_middle_extra_long unfixed_font_color">(글 내용)</div> </div>
+			
+			<div class="replace_hr_plus"></div>
+			</div>
 		
-			<div class="webkit_box"><div id="senderprofimg"><img src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div><div id="deli_userid" class="text_middle">(운송인 ID)</div></div>
-			<div class="margin_left_50px"> <img id="" src="<%= request.getContextPath()%>/img/images.jpg"> </div>
-			<div> <div class="margin_left_50px text_middle">(글 내용)</div> </div>
-		
-		<div class="replace_hr_plus"></div>
-		</div>
-		
-		
-		<div class="standard_row_request_reply margin_top_10px">
-			<div class="webkit_box"><div id="senderprofimg"><img src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div><div id="deli_userid" class="text_middle">(발송인 ID)</div></div>
-			<div> <div class="margin_left_50px text_middle">(글 내용)</div> </div>
-		
-		<div class="replace_hr_plus"></div>
-		</div>
-		
-		<div class="standard_row_request_reply margin_top_10px">
-		<div class="webkit_box"> 
-			<div id="wrapper_btn_div" class="margin_left_50px">
-				<label for="imgFileInput"><div id="imagePreview"><div class="reply_img_text_middle">+사진</div></div></label>		
-				<input type="file" id="imgFileInput" name="imgFileInput">
-			</div> 
-			<div><textarea id="add_textarea"></textarea></div> <div id="wrapper_btn_div"><button id="add_reply_btn" class="uk-button">완료</button></div>  
-		</div>
-		</div>
-
-			<div class="webkit_box margin_top_80px" >		
-				<div align="center">
-					<button id="recept_deli_btn" class="uk-button">취소 요청</button>
-					<button id="recept_deli_btn" class="uk-button">신고 하기</button>
+				<div class="standard_row_request_reply margin_top_10px">
+					<div class="webkit_box"> 
+						<div id="wrapper_btn_div" class="margin_left_50px">
+							<label for="imgFileInput"><div id="imagePreview"><div class="reply_img_text_middle">+사진</div></div></label>		
+							<input type="file" id="imgFileInput" name="imgFileInput">
+						</div> 
+						<div><textarea id="add_textarea"></textarea></div> <div id="wrapper_btn_div"><button id="add_reply_btn" class="uk-button">완료</button></div>  
+					</div>
 				</div>
 			</div>
+<!-- ------------------------------버튼------------------------------- -->		
+			<div class="webkit_box margin_top_80px" >		
+				<div align="center">
+					<button class="uk-button recept_deli_btn">취소 요청</button>
+					<button class="uk-button recept_deli_btn">신고 하기</button>
+				</div>
+			</div>
+		
+		
 		</div>
 	</div>
 </body>
