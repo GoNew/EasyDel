@@ -182,6 +182,11 @@ button.recept_deli_btn{
 	font-size: 30px;
 }
 
+img.img_fixed_size_extra{
+ 		width: 150px;
+	 	height: 100px;
+}
+
 /* ************************개인 div 적용********************************* */
 #senderprofimg{
 	width: 30px;

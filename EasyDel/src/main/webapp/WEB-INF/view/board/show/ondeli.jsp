@@ -62,7 +62,7 @@ $(document).ready(function() {
 		<div class="replace_hr"></div>
 		<div class="webkit_box margin_top_10px uk-panel uk-panel-box" align="left">
 		
-			<div id="wrapper_product_img_div"><img id="wrapper_product_img" src="<%= request.getContextPath()%>/img/quick.PNG"></div>
+			<div id="wrapper_product_img_div"><img id="wrapper_product_img" src="<%= request.getContextPath()%>/img/temp/hpcase.jpg"></div>
 			<div id="wrapper_product_div"> 
 																								<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">물품명</div><div class="text_middle unfixed_font_color">()</div> </div>
 																								<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">비용</div><div class="text_middle unfixed_font_color">(금액)</div><div style="margin-left: 10px;" class="text_middle fixed_font_color">원</div> </div>
@@ -111,7 +111,7 @@ $(document).ready(function() {
 				<div class="row_request_extra">
 					<div id="senderprofimg"><img src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div><div id="deli_userid" class="text_middle_extra fixed_font_color">(qhdtk1991)</div>
 				</div>
-				<div class="margin_left_50px"><img src="<%=request.getContextPath()%>/img/images.jpg"></div>
+				<div class="margin_left_50px"><img class="img_fixed_size_extra" src="<%=request.getContextPath()%>/img/temp/anothercase.jpg"></div>
 				<div class="row_request_extra_long"> 
 					<div class="margin_left_50px text_middle_extra_long unfixed_font_color">(글 내용)</div> 
 				</div>
@@ -120,7 +120,7 @@ $(document).ready(function() {
 			</div>
 			
 			<div class="standard_row_request_reply margin_top_10px">
-				<div class="row_request_extra"><div id="senderprofimg"><img src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div><div id="deli_userid" class="text_middle_extra fixed_font_color">(jll1991)</div></div>
+				<div class="row_request_extra"><div id="senderprofimg"><img  src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div><div id="deli_userid" class="text_middle_extra fixed_font_color">(jll1991)</div></div>
 				<div class="row_request_extra_long"> <div class="margin_left_50px text_middle_extra_long unfixed_font_color">(글 내용)</div> </div>
 			
 			<div class="replace_hr_plus"></div>
