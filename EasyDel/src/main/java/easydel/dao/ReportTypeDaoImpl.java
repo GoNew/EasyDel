@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import easydel.entity.ReportType;
+import easydel.entity.Request;
 
 public class ReportTypeDaoImpl implements IReportTypeDao {
 
@@ -20,6 +21,12 @@ public class ReportTypeDaoImpl implements IReportTypeDao {
 		String stmt = namespace + ".selectAllReportType";
 		List<ReportType> result = session.selectList(stmt);
 		return result;
+	}
+
+	@Override
+	public List<Request> getrequestByRequestId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

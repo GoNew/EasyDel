@@ -1,11 +1,12 @@
-<%@page import="easydel.contant.EvalStatus"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="easydel.contant.RequestStatus"%>
 <%@page import="easydel.entity.ViewMySendRequest"%>
 <%@page import="easydel.entity.ViewMyCarryRequest"%>
 <%@page import="easydel.entity.ViewMyReportRequest"%>
+<%@page import="easydel.contant.EvalStatus"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.Date"%>
 <!DOCTYPE html PUBLIC>
 <%
 	List<ViewMyCarryRequest> carryListBeforeDel = (List<ViewMyCarryRequest>) request.getAttribute("carryListBeforeDel");
@@ -209,9 +210,6 @@
 										<div class="uk-width-3-10">
 											<div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div>
 										</div>
-<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
-<%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
-<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%
 											if(req.getRequestStatus() == RequestStatus.arrive.getStatusCode()) {
 									%>
@@ -222,6 +220,9 @@
 										<div class="uk-width-2-10"></div>
 									<%		}	%>
 									</div>
+<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
+<%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
+<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	}	%>
 									<div class="replace_hr"></div>
 								</div>
@@ -240,9 +241,6 @@
 										<div class="uk-width-3-10">
 											<div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div>
 										</div>
-<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
-<%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
-<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%		if(req.getSenderEvalstatus().equals(EvalStatus.beforeEval.getStatusCode())) {	%>
 										<div class="uk-width-2-10 button_middle">
 											<div class="uk-button uk-width-2-3">평가하기</div>
@@ -253,6 +251,9 @@
 										</div>
 									<%		}	%>
 									</div>
+<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
+<%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
+<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	} %>
 									<div class="replace_hr"></div>
 								</div>
@@ -268,86 +269,30 @@
 						<div id="" class="subject">의뢰 수락을 기다리고 있는 의뢰글</div>
 						<hr>
 						<div class="ajax_requests_list">
+							<%	for(ViewMyCarryRequest req: carryListBeforeDel) {	%>
 							<%
+								req.getSenderAvgKind();
+								req.getSenderAvgThing();
+								req.getSenderAvgTime();
+							%>
+							<%-- <%
 							List<ViewMyCarryRequest> carryListOnDel = (List<ViewMyCarryRequest>) request.getAttribute("carryListOnDel");
 							List<ViewMyCarryRequest> carryListAfterDel = (List<ViewMyCarryRequest>) request.getAttribute("carryListAfterDel");
-								for(ViewMyCarryRequest req: carryListBeforeDel) {
-							%>
+							%> --%>
 							<div class="replace_hr"></div>
 							<div class="row_request">
-								<div class="uk-width-2-5"><div class="text_middle">(신청인이 작성한 글 제목)</div></div>
-								<div class="uk-width-1-5"><div class="text_middle">(발송인 ID)</div></div>
-								<div class="uk-width-1-5 webkit_box"><div class="text_middle right_margin_5px">TimeOut:</div><div class="text_middle webkit_box">20<div>분</div></div></div>
+								<div class="uk-width-2-5"><div class="text_middle"><%=req.getCargoName() %></div></div>
+								<div class="uk-width-1-5"><div class="text_middle"><%=req.getUserId() %></div></div>
+							<%	Date currDate = new Date();	%>
+								<div class="uk-width-1-5 webkit_box"><div class="text_middle right_margin_5px">TimeOut:</div><div class="text_middle webkit_box"><%=req.getExpireDate().getMinutes() - currDate.getMinutes() %><div>분</div></div></div>
 								<div class="uk-width-1-5 button_middle"><button class="uk-button uk-width-2-3">삭제하기</button></div>
 							</div>
+<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
+<%@include file="/WEB-INF/view/member/mylistSenderProfile.jsp" %>
+<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 							<%	}	%>
-						<div class="replace_hr"></div>
-							<div id="Ex_request_02" class="row_request">
-								<div class="uk-width-2-5"><div class="text_middle">(신청인이 작성한 글 제목)</div></div>
-								<div class="uk-width-1-5"><div class="text_middle">(발송인 ID)</div></div>
-								<div class="uk-width-1-5 webkit_box"><div class="text_middle right_margin_5px">TimeOut:</div><div class="text_middle webkit_box">20<div>분</div></div></div>
-								<div class="uk-width-1-5 button_middle"><button class="uk-button uk-width-2-3">삭제하기</button></div>
-							</div>
-						<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->					
-						<div style="display: none;" class="sender_info_box uk-panel-box">
-							<div class="webkit_box row_request">
-								<div id="subject_grade_info" class="uk-width-1-3 webkit_box row_request" >
-									<div class="margin_small uk-text-bold">(신청 운송인 ID)</div>
-									<div class="margin_small uk-text-bold">평가정보</div>
-								</div>
-								
-								<div class="uk-width-1-3"></div>
-								
-								<div align="right" class="uk-width-1-3 button_middle">
-										<button class="uk-button uk-width-1-2">
-											<div>프로필 자세히 보기</div>
-										</button>
-								</div>
-							</div>
-							
-							<div class="row_request_details"> 
-									<div class="webkit_box text_middle uk-width-1-4">
-										<div style="margin: 0px auto; display: -webkit-box">
-										<div class=""><img class="grade_icon" src="<%=request.getContextPath()%>/img/time.png"></div>
-										<div style="margin-left: 10px" class="grade_text webkit_box">
-											<div id="time_grade" class="text_middle_grade">3</div>
-											<div class="text_middle_grade">점</div>
-										</div>
-										</div>
-									</div>
-									
-									<div class="webkit_box text_middle uk-width-1-4">
-										<div style="margin: 0px auto; display: -webkit-box">
-											<div class=""><img class="grade_icon" src="<%=request.getContextPath()%>/img/safe.jpg"></div>
-											<div style="margin-left: 10px" class="grade_text webkit_box">
-												<div id="safe_grade" class="text_middle_grade">3</div>
-												<div class="text_middle_grade">점</div>
-											</div>
-										</div>
-									</div>
-								
-								<div class="webkit_box text_middle uk-width-1-4">
-									<div style="margin: 0px auto; display: -webkit-box">
-										<div class=""><img class="grade_icon" src="<%=request.getContextPath()%>/img/smile.jpg"></div>
-										<div style="margin-left: 10px" class="grade_text webkit_box">
-											<div id="smile_grade" class="text_middle_grade">3</div>
-											<div class="text_middle_grade">점</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="webkit_box text_middle uk-width-1-4">
-									<div style="margin: 0px auto; display: -webkit-box">
-										<div class="grade_text text_middle_grade">거래율</div>
-										<div style="margin-left: 10px" class="grade_text webkit_box">
-											<div id="transaction_rate" class="text_middle_grade">100</div>
-											<div class="text_middle_grade">%</div> 
-										</div>
-									</div>
-								</div> 
-							</div>
-						</div>
-				<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
+							<div class="replace_hr"></div>
+
 						<div class="replace_hr"></div>
 							<div id="Ex_request_03" class="row_request">
 								<div class="uk-width-2-5"><div class="text_middle">(신청인이 작성한 글 제목)</div></div>
