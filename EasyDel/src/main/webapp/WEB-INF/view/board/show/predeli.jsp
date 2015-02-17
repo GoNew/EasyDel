@@ -31,7 +31,6 @@ $(document).ready(function() {
 			alert("사진만 등록가능합니다.");
 		}
 	});
-	
 });
 
 </script>

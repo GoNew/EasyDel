@@ -17,10 +17,10 @@ public class RequestCmt implements Serializable {
 	private Integer cmtId;
 
 	/** 의뢰건. */
-	private Request requests;
+	private Integer requestId;
 
 	/** 회원. */
-	private User users;
+	private String userId;
 
 	/** 코멘트내용. */
 	private String replyText;
@@ -52,43 +52,21 @@ public class RequestCmt implements Serializable {
 	public Integer getCmtId() {
 		return this.cmtId;
 	}
-
-	/**
-	 * 의뢰건을 설정합니다..
-	 * 
-	 * @param requests
-	 *            의뢰건
-	 */
-	public void setRequests(Request requests) {
-		this.requests = requests;
+	
+	public Integer getRequestId() {
+		return requestId;
 	}
 
-	/**
-	 * 의뢰건을 가져옵니다..
-	 * 
-	 * @return 의뢰건
-	 */
-	public Request getRequests() {
-		return this.requests;
+	public void setRequestId(Integer requestId) {
+		this.requestId = requestId;
 	}
 
-	/**
-	 * 회원을 설정합니다..
-	 * 
-	 * @param users
-	 *            회원
-	 */
-	public void setUsers(User users) {
-		this.users = users;
+	public String getUserId() {
+		return userId;
 	}
 
-	/**
-	 * 회원을 가져옵니다..
-	 * 
-	 * @return 회원
-	 */
-	public User getUsers() {
-		return this.users;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	/**
@@ -163,6 +141,13 @@ public class RequestCmt implements Serializable {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "RequestCmt [cmtId=" + cmtId + ", requestId=" + requestId
+				+ ", userId=" + userId + ", replyText=" + replyText
+				+ ", replyPicture=" + replyPicture + "]";
 	}
 
 }
