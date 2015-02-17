@@ -23,14 +23,14 @@ public class EvalController {
 	
 	//운송인 평가
 	@RequestMapping(value="/courier", method=RequestMethod.GET)
-	public String moveToProfileCourier(@RequestParam Integer requestId, Model model){
+	public String moveToEvalCourier(@RequestParam Integer requestId, Model model){
 		model.addAttribute("courierInfo", service.serviceGetCourier(requestId));
 		model.addAttribute("requestId", requestId);
 		return "profile/eval/couriereval";
 	}
 	
 	@RequestMapping(value="/courier", method=RequestMethod.POST)
-	public String profileCourier(Model model, 
+	public String evalCourier(Model model, 
 			@RequestParam Integer courierevaltime2, @RequestParam Integer courierevalsafe2, 
 			@RequestParam Integer courierevalkind2, @RequestParam String courierevalcmt,
 			@RequestParam String courierId, @RequestParam Integer requestId){
@@ -63,14 +63,14 @@ public class EvalController {
 	
 	//발송인 평가
 	@RequestMapping(value="/sender", method=RequestMethod.GET)
-	public String moveToProfileSender(@RequestParam Integer requestId, Model model){
+	public String moveToEvalSender(@RequestParam Integer requestId, Model model){
 		model.addAttribute("senderInfo", service.serviceGetSender(requestId));
 		model.addAttribute("requestId", requestId);
 		return "profile/eval/sendereval";
 	}
 	
 	@RequestMapping(value="/sender", method=RequestMethod.POST)
-	public String profileSender(Model model, @RequestParam Integer senderevaltime2, @RequestParam Integer senderevalsafe2, 
+	public String evalSender(Model model, @RequestParam Integer senderevaltime2, @RequestParam Integer senderevalsafe2, 
 			@RequestParam Integer senderevalkind2, @RequestParam String senderevalcmt,
 			@RequestParam String senderId, @RequestParam Integer requestId){
 		//resultPage는 내 진행보기로 이동

@@ -18,9 +18,9 @@ public class ProfileServiceImpl implements IProfileService {
 	private SqlSession session;
 	
 	@Override	
-	public User serviceGetCourierInfos(String userId){
+	public User serviceGetCourierInfos(String courierId){
 		User user = null;
-		user = dao.selectCourierInfos(userId);
+		user = dao.selectCourierInfos(courierId);
 		return user;
 	}
 }
