@@ -220,7 +220,7 @@
 											<div class="uk-button uk-width-1-3" onclick="send_readyForRejectMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForRejectMySendRequest'}">거절</div>
 										</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
-<%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
+<%@include file="/WEB-INF/view/member/mylistCourierProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%
 											} else {
@@ -255,7 +255,7 @@
 									<%		}	%>
 									</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
-<%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
+<%@include file="/WEB-INF/view/member/mylistCourierProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	}	%>
 									<div class="replace_hr"></div>
@@ -282,7 +282,7 @@
 									<%		}	%>
 									</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
-<%@include file="/WEB-INF/view/member/mylistCourierProfile.jsp" %>
+<%@include file="/WEB-INF/view/member/mylistCourierProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	} %>
 									<div class="replace_hr"></div>
@@ -309,7 +309,7 @@
 										<div class="uk-width-1-5 button_middle"><div class="uk-button uk-width-2-3" onclick="carry_readyForCancelMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForCancelMyCourierRequest'}">신청취소</div></div>
 									</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
-<%@include file="/WEB-INF/view/member/mylistSenderProfile.jsp" %>
+<%@include file="/WEB-INF/view/member/mylistSenderProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	}	%>
 									<div class="replace_hr"></div>
@@ -335,7 +335,7 @@
 									<%		}	%>
 									</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
-<%@include file="/WEB-INF/view/member/mylistSenderProfile.jsp" %>
+<%@include file="/WEB-INF/view/member/mylistSenderProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	}	%>
 									<div class="replace_hr"></div>
