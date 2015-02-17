@@ -64,8 +64,6 @@ $(document).ready(function() {
 																								<div id="wrapper_product_details"><div class="row_standard_text_middle_product">상세설명</div><div id="product_detail" class="">(왜 상세 내용이 안나오죠?) 나는 이제 글자를 옮겨오는 것을 완성하였다 ㅎㅎ</div> </div> 
 			</div>
 		</div> 
-		
-		
 <!-- --------------------------------배송 정보---------------------------------------------- -->		
 		<div class="row_request"><div class="text_middle_subject">배송 정보</div></div>
 		<div class="replace_hr"></div>

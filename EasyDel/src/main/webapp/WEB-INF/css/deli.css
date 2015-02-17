@@ -156,7 +156,6 @@ button.uk-button #searchprofbtn{
 }
 
 #product_detail{
-/* 	border: 1px solid black; */
 	text-align: left;
 	height: 320px;
 	width: 310px;
@@ -165,6 +164,17 @@ button.uk-button #searchprofbtn{
 	margin-left: 20px;
 	line-height:30px;
 }
+
+#report_detail{
+	/* border:1px solid blue; */
+	text-align: left;
+	height: 100px;
+	width: 630px;
+	font-size: 25px;
+	overflow: hidden;
+	line-height:30px;
+}
+
 
 #add_textarea{
 	font-size: 20px;
