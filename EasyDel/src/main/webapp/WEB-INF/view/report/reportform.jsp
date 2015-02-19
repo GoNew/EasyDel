@@ -1,4 +1,68 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@page import="easydel.entity.ReportType"%>
+<%@page import="easydel.entity.Report"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<!DOCTYPE html PUBLIC>
+<jsp:include page="/WEB-INF/view/main/header.jsp"></jsp:include>
+<html>
+<head>
+<link rel="stylesheet" 	href="<%=request.getContextPath()%>/uikit/css/uikit.gradient.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/reportform.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/header.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/footer.css" />
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<%
+	List<ReportType> reportTypeList = (List<ReportType>) request.getAttribute("reportType");
+	reportTypeList = reportTypeList != null ? reportTypeList : new ArrayList<ReportType>();
+
+%>
+</head>
+<body>
+
+<div id=fullbrowser align="center">
+	<div id="middlebrowser" class="uk-panel uk-panel-box">
+		
+		<form action="">
+		<div class="wrapper_columm">  <div class="report_standard_subject">신고 대상</div> <div class="report_contents">(gonew(ID 받아옴))</div>  </div>
+		<div class="wrapper_columm">  <div class="report_standard_subject">신고 글 제목</div> <div class="report_contents">(간장 게장 사줘욤(글 제목 받아옴))</div>  </div>
+		<div class="wrapper_columm">  <div class="report_standard_subject">신고 이유</div> 
+			<div class="report_contents"> 
+				<select id="reportType" name="reportType" class="report_select_size">
+					<%for (ReportType reporttype : reportTypeList) {%>
+					<option value="<%=reporttype.getReportType()%>"><%=reporttype.getReportTypeDesc()%></option>
+					<%}%>
+				</select> 
+			</div>  
+		</div>
+		
+		
+		<div class="uk-panel uk-panel-box uk-panel-box-secondary report_notice_margin">
+			<div class="report_main_notice">신고하기 전에 잠시!</div>
+			<div class="report_sub_notice">허위 신고일 경우에는 그만큼 불이익이 갈 수 있음을 명심해주세요!</div>
+		</div>
+		<div class="wrapper_columm"> <div class="report_standard_subject">상세 사유</div></div>
+		<div align="left"><textarea class="report_textarea_details"></textarea></div>
+		
+		<div class="report_contents report_btn_margin">
+			<button class="uk-button uk-width-1-5 btn_size">용서 하기</button>
+			<button class="uk-button uk-width-1-5 btn_size">신고 하기</button>
+		</div>
+		</form>
+		
+	</div>
+</div>
+</body>
+</html>
+<jsp:include page="/WEB-INF/view/main/footer.jsp"></jsp:include>
+
+
+
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -6,7 +70,7 @@
 <%@page import="easydel.entity.Report"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%-- <jsp:include page="/WEB-INF/view/main/header.jsp"></jsp:include> --%>
+<jsp:include page="/WEB-INF/view/main/header.jsp"></jsp:include>
 <html>	
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -68,7 +132,7 @@ ul, ol{list-style:name;}
    margin: 150px auto;
 }</style>
 <script type="text/javascript">
-<%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/css/list.css"/> --%>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/list.css"/>
 
 <script type="text/javascript">
 </script>
@@ -110,4 +174,4 @@ ul, ol{list-style:name;}
 </center>
 </body>
 <jsp:include page="/WEB-INF/view/main/footer.jsp"></jsp:include>
-</html>
+</html> --%>
