@@ -1,94 +1,112 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="easydel.contant.RequestType"%>
+<%@page import="easydel.entity.Request"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%
+	Request req = (Request) request.getAttribute("requestWithCmts");
+	SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd a kk:mm");
+%>
 <!DOCTYPE html PUBLIC>
 <jsp:include page="/WEB-INF/view/main/header.jsp"></jsp:include>
 <html>
 <head>
+
 <link rel="stylesheet" 	href="<%=request.getContextPath()%>/uikit/css/uikit.gradient.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/deli.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/header.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/footer.css" />
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function() {
-	$("#deli_userid").click(function() {
-		$("#searchprofbtn_div").css("display", "");
-	});
-	
-	$("#imgFileInput").change(function() {
-		var files = !!this.files ? this.files : [];
-		if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
-
-		if (/^image/.test(files[0].type)){ // only image file
-			$("#imagePreview").html("");
-			var reader = new FileReader(); // instance of the FileReader
-			reader.readAsDataURL(files[0]); // read the local file
-			reader.onloadend = function() { // set image data as background of div
-				$("#imagePreview").css("background-image", "url("+this.result+")");
-			}
-		} else {
-			alert("사진만 등록가능합니다.");
-		}
-	});
 });
-
 </script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>의뢰 자세히 보기</title>
 </head>
 <body>
 	<div id=fullbrowser align="center">
 		<div id="middlebrowser" align="center" >
 		
-<!-- --------------------------------발송인 정보---------------------------------------------- -->		
+<!-- --------------------------------발송인 정보---------------------------------------------- -->
 		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">발송인 정보</div></div>
 		<div class="replace_hr"></div>
 		
 		<div class="margin_top_10px uk-panel uk-panel-box">
 			<div class="standard_row_request">
 			<div id="senderprofimg_main"><img src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div>
-			<div id="deli_userid" class="text_middle fixed_font_color webkit_box"><a class="atag_color" data-uk-toggle="{target:'#my-profbtn'}">(발송인 ID)</a></div>
+			<div id="deli_userid" class="text_middle fixed_font_color webkit_box"><a class="atag_color" data-uk-toggle="{target:'#my-profbtn'}"><%=req.getSenderId() %></a></div>
 			<div class="uk-hidden" id="my-profbtn"><button id="searchprofbtn" class="uk-button">프로필 보기</button></div>
 			</div>
 		</div>
-		
+
 <!-- --------------------------------배송 정보---------------------------------------------- -->		
 		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">배송 정보</div></div>
 		<div class="replace_hr"></div>
 		
 		<div class="margin_top_10px uk-panel uk-panel-box">
-		<div class="standard_row_request fixed_font_color"> <div class="row_standard_text_middle">종류</div> 		<div class="text_middle unfixed_font_color">단순 운송/ 구매 후 운송</div> </div>
-		<div class="standard_row_request fixed_font_color"> <div class="row_standard_text_middle">발송 장소</div> 		<div class="text_middle unfixed_font_color">사랑시 고백구 행복동</div> </div>
-		<div class="standard_row_request fixed_font_color"> <div class="row_standard_text_middle">발송 희망 시간</div> 		<div class="text_middle unfixed_font_color">(2015/02/12 오후 14:45)</div> <div class="text_middle margin_LR_10px">-</div> <div class="text_middle unfixed_font_color">(2015/02/12 오후 14:45)</div> </div>
-		<div class="standard_row_request fixed_font_color"> <div class="row_standard_text_middle">도착 장소</div> 		<div class="text_middle unfixed_font_color">이별시 차인구 빡친동</div> </div>
-		<div class="standard_row_request fixed_font_color"> <div class="row_standard_text_middle">도착 희망 시간</div> 		<div class="text_middle unfixed_font_color">(2015/02/13 오후 14:45)</div> <div class="text_middle margin_LR_10px">-</div> <div class="text_middle unfixed_font_color">(2015/02/13 오후 14:45)</div> </div>
+		<div class="standard_row_request fixed_font_color"> <div class="row_standard_text_middle">종류</div>
+			<div class="text_middle unfixed_font_color"><%=req.getRequestType() == RequestType.nomal.getTypeCode() ? "단순 운송" : "구매 후 운송" %></div>
+		</div>
+		<%	if(req.getRequestType() == RequestType.nomal.getTypeCode()) {	%>
+		<div class="standard_row_request fixed_font_color"><div class="row_standard_text_middle">발송 장소</div>
+			<%
+				StringBuilder pickUpAddress = new StringBuilder();
+				pickUpAddress.append("서울시 ").append(req.getPickupPlaceGuName()).append(" ").append(req.getPickupPlaceDongDesc());
+			%>
+			<div class="text_middle unfixed_font_color"><%=pickUpAddress.toString() %></div>
+		</div>
+		<div class="standard_row_request fixed_font_color"><div class="row_standard_text_middle">발송 희망 시간</div>
+			<div class="text_middle unfixed_font_color"><%=format.format(req.getPickupMinTime()) %></div>
+			<div class="text_middle margin_LR_10px">-</div>
+			<div class="text_middle unfixed_font_color"><%=format.format(req.getPickupMaxTime()) %></div>
+		</div>
+		<%	}	%>
+		
+		<div class="standard_row_request fixed_font_color"><div class="row_standard_text_middle">도착 장소</div>
+			<%
+				StringBuilder arriveAddress = new StringBuilder();
+				arriveAddress.append("서울시 ").append(req.getArrivalPlaceGuName()).append(" ").append(req.getArrivalPlaceDongDesc());
+			%>
+			<div class="text_middle unfixed_font_color"><%=arriveAddress.toString() %></div>
+		</div>
+		<div class="standard_row_request fixed_font_color"><div class="row_standard_text_middle">도착 희망 시간</div>
+			<div class="text_middle unfixed_font_color"><%=format.format(req.getArrivalMinTime()) %></div>
+			<div class="text_middle margin_LR_10px">-</div>
+			<div class="text_middle unfixed_font_color"><%=format.format(req.getArrivalMaxTime()) %></div>
+		</div>
 		</div>
 
 <!-- --------------------------------물품 정보---------------------------------------------- -->		
-<%-- 	<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">물품 정보</div></div>
+		<%--
+		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">물품 정보</div></div>
 		<div class="replace_hr"></div>
 		<div class="webkit_box margin_top_10px uk-panel uk-panel-box" align="left">
 		
 			<div id="wrapper_product_img_div"><img id="wrapper_product_img" src="<%= request.getContextPath()%>/img/temp/hpcase.jpg"></div>
 			<div id="wrapper_product_div"> 
-																								<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">물품명</div><div class="text_middle unfixed_font_color">()</div> </div>
-																								<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">비용</div><div class="text_middle unfixed_font_color">(금액)</div><div style="margin-left: 10px;" class="text_middle fixed_font_color">원</div> </div>
-																								<div id="wrapper_product_details"><div class="row_standard_text_middle_product fixed_font_color">상세설명</div><div id="product_detail" class="unfixed_font_color">(왜 상세 내용이 안나오죠?) 나는 이제 글자를 옮겨오는 것을 완성하였다 ㅎㅎ</div> </div> 
+				<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">물품명</div><div class="text_middle unfixed_font_color">()</div> </div>
+				<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">비용</div><div class="text_middle unfixed_font_color">(금액)</div><div style="margin-left: 10px;" class="text_middle fixed_font_color">원</div> </div>
+				<div id="wrapper_product_details"><div class="row_standard_text_middle_product fixed_font_color">상세설명</div><div id="product_detail" class="unfixed_font_color">(왜 상세 내용이 안나오죠?) 나는 이제 글자를 옮겨오는 것을 완성하였다 ㅎㅎ</div> </div> 
 			</div>
-		</div>  --%>
+		</div>
+		--%>
 		
 	<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">물품 정보</div></div>
 		<div class="replace_hr"></div>
-		
 		<div class="webkit_box margin_top_10px uk-panel uk-panel-box" align="left">
-		
-			<a href="<%=request.getContextPath()%>/img/temp/hpcase.jpg" target="_blank" class="uk-overlay" id="wrapper_product_img_div"><img id="wrapper_product_img" class="uk-img-preserve" src="<%= request.getContextPath()%>/img/temp/hpcase.jpg"><div class="uk-overlay-area"></div></a>
+			<a href="<%=request.getContextPath()%>/img/temp/hpcase.jpg" target="_blank" class="uk-overlay" id="wrapper_product_img_div">
+				<img id="wrapper_product_img" class="uk-img-preserve" src="<%= request.getContextPath()%>/img/temp/hpcase.jpg">
+				<div class="uk-overlay-area"></div>
+			</a>
 			<div id="wrapper_product_div"> 
-																								<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">물품명</div><div class="text_middle unfixed_font_color">()</div> </div>
-																								<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">비용</div><div class="text_middle unfixed_font_color">(금액)</div><div style="margin-left: 10px;" class="text_middle fixed_font_color">원</div> </div>
-																								<div id="wrapper_product_details"><div class="row_standard_text_middle_product fixed_font_color">상세설명</div><div id="product_detail" class="unfixed_font_color">(왜 상세 내용이 안나오죠?) 나는 이제 글자를 옮겨오는 것을 완성하였다 ㅎㅎ</div> </div> 
+				<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">물품명</div><div class="text_middle unfixed_font_color">()</div> </div>
+				<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">비용</div><div class="text_middle unfixed_font_color">(금액)</div><div style="margin-left: 10px;" class="text_middle fixed_font_color">원</div> </div>
+				<div id="wrapper_product_details"><div class="row_standard_text_middle_product fixed_font_color">상세설명</div><div id="product_detail" class="unfixed_font_color">(왜 상세 내용이 안나오죠?) 나는 이제 글자를 옮겨오는 것을 완성하였다 ㅎㅎ</div> </div> 
 			</div>
 		</div> 
 

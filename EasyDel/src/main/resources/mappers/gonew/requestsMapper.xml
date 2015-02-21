@@ -17,11 +17,17 @@
 		<result column="pickup_min_time" property="pickupMinTime"/>
 		<result column="pickup_max_time" property="pickupMaxTime"/>
 		<result column="pickup_place" property="pickupPlace"/>
+		<result column="pickup_place_gu_name" property="pickupPlaceGuName"/>
+		<result column="pickup_place_dong_desc" property="pickupPlaceDongDesc"/>
 		<result column="pickup_place_desc" property="pickupPlaceDesc"/>
 		<result column="receiver_name" property="receiverName"/>
 		<result column="receiver_phone" property="receiverPhone"/>
+		<result column="arrival_min_time" property="arrivalMinTime"/>
+		<result column="arrival_max_time" property="arrivalMaxTime"/>
 		<result column="arrival_place" property="arrivalPlace"/>
 		<result column="arrival_place_desc" property="arrivalPlaceDesc"/>
+		<result column="arrival_place_gu_name" property="arrivalPlaceGuName"/>
+		<result column="arrival_place_dong_desc" property="arrivalPlaceDongDesc"/>
 		<result column="absence_message" property="absenceMessage"/>
 		<result column="validation_code" property="validationCode"/>
 		<result column="expire_date" property="expireDate"/>
@@ -49,10 +55,16 @@
 					R.pickup_min_time as pickup_min_time,
 					R.pickup_max_time as pickup_max_time,
 					R.pickup_place as pickup_place,
+					PA.gu_description as pickup_place_gu_name,
+					PA.dong_desc as pickup_place_dong_desc,
 					R.pickup_place_desc as pickup_place_desc,
 					R.receiver_name as receiver_name,
 					R.receiver_phone as receiver_phone,
+					R.arrival_min_time as arrival_min_time,
+					R.arrival_max_time as arrival_max_time,
 					R.arrival_place as arrival_place,
+					AA.gu_description as arrival_place_gu_name,
+					AA.dong_desc as arrival_place_dong_desc,
 					R.arrival_place_desc as arrival_place_desc,
 					R.absence_message as absence_message,
 					R.validation_code as validation_code,
@@ -62,10 +74,17 @@
 					RC.user_id as request_cmts_user_id,
 					RC.reply_text as request_cmts_reply_text,
 					RC.reply_picture as request_cmts_reply_picture
-		from		REQUESTS R
+		from		(
+						select		*
+						from		REQUESTS
+						where		request_id=#{requestId}
+					) R
+		left join	ADDRESS_DONGS PA
+		on			R.pickup_place=PA.dong_id
+		left join	ADDRESS_DONGS AA
+		on			R.arrival_place=AA.dong_id
 		left join	REQUEST_CMTS RC
 		on			R.request_id=RC.request_id
-		where		R.request_id=#{requestId}
 		order by	RC.cmt_id DESC
 	</select>
 
