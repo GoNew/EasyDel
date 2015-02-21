@@ -14,8 +14,22 @@ address {
 	font-style: normal;
 }
 
-ul, ol {
+/* ul, ol {
 	list-style: name;
+} */
+
+#background_div{
+	/* border: 1px solid blue; */
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+#background_div_up{
+	/* border: 1px solid blue; */
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	background: rgba(0,0,0,0.6);
 }
 
 #fullbrowser {
@@ -53,7 +67,6 @@ ul, ol {
 
 #login {
 	padding: 7px 15px 7px;
-	line-height: 38px;
 	font-size: 30px;
 	border-radius: 5px;
 	margin: 15px 0;
@@ -61,8 +74,12 @@ ul, ol {
 
 #join {
 	padding: 7px 15px 7px;
-	line-height: 38px;
 	font-size: 30px;
 	border-radius: 5px;
 	margin: 15px 0;
+}
+
+div.wrapper_login{
+	height: 600px;
+	/* background: rgba(0,0,0,0.6); */
 }
