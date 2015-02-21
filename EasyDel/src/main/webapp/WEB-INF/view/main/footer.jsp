@@ -4,7 +4,7 @@
 <html>
 <head>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/uikit/css/uikit.gradient.css" />
+	href="<%=request.getContextPath()%>/uikit/css/uikit.almost-flat.css" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/footer.css" />
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>

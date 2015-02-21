@@ -12,7 +12,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>전체 글 보기</title>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/list.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/uikit/css/uikit.almost-flat.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/list.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/header.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/footer.css" />
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
 
 <script type="text/javascript">
 	function getStartDongList() {
