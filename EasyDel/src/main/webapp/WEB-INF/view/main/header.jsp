@@ -10,7 +10,59 @@
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
 <script type="text/javascript">
+	function getNumOfAlertAjax() {
+		var ajaxUrl = "<%=request.getContextPath() %>/alert/ajax/getCount";
+		$.ajax({
+			type : "get",
+			url : ajaxUrl,
+			success : function(args) {
+				if(args == 0) {
+					$("#numOfAlertLog").css("display", "none");
+				} else {
+					$("#numOfAlertLog").css("display", "");
+				}
+				$("#numOfAlertLog span").html(args);
+			}
+		});
+	};
 	
+	function getAlertLogAjax() {
+		var ajaxUrl = "<%=request.getContextPath() %>/alert/ajax/getList";
+		$.ajax({
+			type : "get",
+			url : ajaxUrl,
+			success : function(args) {
+				$("#alertLogDropDownList").html(args);
+			}
+		});
+	}
+	
+	function removeAndHiddenAlertLog(thisElement, id) {
+		var ajaxUrl = "<%=request.getContextPath() %>/alert/ajax/remove";
+		$.ajax({
+			type : "post",
+			url : ajaxUrl,
+			data : {
+				alertId : id
+			},
+			success : function(args) {
+				if(args == "true") {
+					var numOfAlert = Number($("#numOfAlertLog span").html());
+					numOfAlert = numOfAlert - 1;
+					$("#numOfAlertLog span").html(numOfAlert);
+					if(numOfAlert == 0) {
+						$("#numOfAlertLog").css("display", "none");
+					}
+					$(thisElement).css("display", "none");
+				}
+			}
+		});
+	}
+	
+	$(document).ready(function() {
+		getNumOfAlertAjax();
+		getAlertLogAjax();
+	});
 </script>
 
 <%
@@ -36,7 +88,6 @@
 						<li><a href="<%=request.getContextPath()%>/board">전체 의뢰 보기</a></li>
 						<li><a href="<%=request.getContextPath()%>/register/selecttype">의뢰 올리기</a></li>
 						<li><a href="<%=request.getContextPath()%>/edmoney">EDMoney</a></li>
-
 					</ul>
 
 				</div>
@@ -47,11 +98,12 @@
 	<div class="uk-navbar-flip">
 		<ul class="uk-navbar-nav">
 			<li>
-				<div class="uk-button-dropdown" data-uk-dropdown="{mode:'click'}">
-					<div id="log" align="center" class="uk-button"
-						style="background-image: url('<%=request.getContextPath() %>/img/alertBell.png')"></div>
-					<div class="uk-dropdown uk-dropdown-stack">
-						<ul class="uk-nav uk-nav-dropdown">
+				<div class="uk-button-dropdown" data-uk-dropdown="{delay:1000 }">
+					<div id="log" align="center" style="background-image: url('<%=request.getContextPath() %>/img/alertBell1.png')">
+						<div id="numOfAlertLog" style="display: none;"><span class="uk-text-center uk-text-middle"></span></div>
+					</div>
+					<div id="wrapperDivForAlertLogDropDownList" class="uk-dropdown">
+						<ul id="alertLogDropDownList" class="uk-nav uk-nav-dropdown">
 							
 						</ul>
 					</div>

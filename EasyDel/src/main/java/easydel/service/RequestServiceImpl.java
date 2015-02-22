@@ -362,5 +362,8 @@ public class RequestServiceImpl implements IRequestService {
 		if(requestDao.updateStatusAndApplyCourier(exeUserId, requestId)
 				<= 0)
 			throw new ServiceFailException("신청 실패");
+		alertService.insertAlert(currRequest.getSenderId(),
+				"'" + currRequest.getCargoName() + "'의뢰에 대한 신청이 있습니다.",
+				AlertStatus.sender);
 	}
 }
