@@ -165,6 +165,6 @@ $(document).ready(function() {
 		<%	} %>
 		</div>
 	</div>
-	<jsp:include page="/WEB-INF/view/main/footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/view/main/footer.jsp"></jsp:include>
 </body>
 </html>
