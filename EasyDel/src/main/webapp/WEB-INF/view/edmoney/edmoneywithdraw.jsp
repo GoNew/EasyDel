@@ -8,8 +8,8 @@
 <style type="text/css">
 *{
    margin: 0; padding:0;
-/*    border: 1px solid red;
- */}
+    border: 1px solid red;
+ }
 img{ border: 0;}
 address{font-style: normal;}
 ul, ol{list-style:name;}
@@ -23,8 +23,16 @@ ul, ol{list-style:name;}
    margin: 150px auto;
 }
 </style>
+<script type="text/javascript"></script>
 </head>
 <body>
+
+<div id="fullbrowser">
+<div id="middlebrowser">
+
+</div>
+</div>
+
 
 </body>
 </html>
