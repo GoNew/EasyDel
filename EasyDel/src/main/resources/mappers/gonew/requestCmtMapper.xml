@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="easydel.gonew.mapper.requestCmts">
+	<insert id="insertRequestCmt" parameterType="RequestCmt">
+		insert into	REQUEST_CMTS
+					(
+						request_id
+						, user_id
+						<if test="replyText != null">
+							, reply_text
+						</if>
+						<if test="replyPicture != null">
+							, reply_picture
+						</if>
+					)
+		values		(
+						#{requestId}
+						, #{userId}
+						<if test="replyText != null">
+							, #{replyText}
+						</if>
+						<if test="replyPicture != null">
+							, #{replyPicture}
+						</if>
+					)
+	</insert>
+</mapper>

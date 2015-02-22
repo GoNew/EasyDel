@@ -292,8 +292,11 @@ display: none;
 	font-size: 26px;
 	color: white;
 	background-color: #dfd9d0;
+	background-position: center center;
+	background-size: cover;
+	display: inline-block;
 	overflow: hidden;
-} 
+}
 
 #add_reply_btn{
 	height: 60px;

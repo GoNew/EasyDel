@@ -21,6 +21,7 @@ public class RequestCmt implements Serializable {
 
 	/** 회원. */
 	private String userId;
+	private String saveUserPictureByJoinWithUsers;
 
 	/** 코멘트내용. */
 	private String replyText;
@@ -146,8 +147,18 @@ public class RequestCmt implements Serializable {
 	@Override
 	public String toString() {
 		return "RequestCmt [cmtId=" + cmtId + ", requestId=" + requestId
-				+ ", userId=" + userId + ", replyText=" + replyText
+				+ ", userId=" + userId + ", saveUserPictureByJoinWithUsers="
+				+ saveUserPictureByJoinWithUsers + ", replyText=" + replyText
 				+ ", replyPicture=" + replyPicture + "]";
+	}
+
+	public String getSaveUserPictureByJoinWithUsers() {
+		return saveUserPictureByJoinWithUsers;
+	}
+
+	public void setSaveUserPictureByJoinWithUsers(
+			String saveUserPictureByJoinWithUsers) {
+		this.saveUserPictureByJoinWithUsers = saveUserPictureByJoinWithUsers;
 	}
 
 }

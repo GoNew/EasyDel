@@ -37,6 +37,7 @@
 			<result column="request_cmts_user_id" property="userId"/>
 			<result column="request_cmts_reply_text" property="replyText"/>
 			<result column="request_cmts_reply_picture" property="replyPicture"/>
+			<result column="request_cmts_user_profile" property="saveUserPictureByJoinWithUsers"/>
 		</collection>
 	</resultMap>
 	
@@ -73,7 +74,8 @@
 					RC.request_id as request_cmts_request_id,
 					RC.user_id as request_cmts_user_id,
 					RC.reply_text as request_cmts_reply_text,
-					RC.reply_picture as request_cmts_reply_picture
+					RC.reply_picture as request_cmts_reply_picture,
+					U.user_picture as request_cmts_user_profile
 		from		(
 						select		*
 						from		REQUESTS
@@ -85,6 +87,8 @@
 		on			R.arrival_place=AA.dong_id
 		left join	REQUEST_CMTS RC
 		on			R.request_id=RC.request_id
+		left join	USERS U
+		on			RC.user_id=U.user_id
 		order by	RC.cmt_id DESC
 	</select>
 
