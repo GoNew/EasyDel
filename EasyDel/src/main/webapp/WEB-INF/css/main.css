@@ -72,6 +72,12 @@ image{border:0px;}
 #mainnull{
 	width:30px;
 }
+#mainnull_left{
+	margin-left: 30px;
+}
+#mainnull_right{
+	margin-right: 75px;
+}
 #mainleftone{
 	display: -webkit-box;
 }

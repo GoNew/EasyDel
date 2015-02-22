@@ -117,10 +117,26 @@ $(document).ready(function() {
 				String cargoPicturePath = req.getCargoPicture() != null ? req.getCargoPicture() : "/img/has_no_img.gif";
 				cargoPicturePath = request.getContextPath() + cargoPicturePath;
 			%>
-			<a href="<%=cargoPicturePath %>" class="uk-overlay" data-uk-lightbox title="물품 원본 사진" id="wrapper_product_img_div">
+			<a href="<%=cargoPicturePath %>" class="uk-overlay" id="wrapper_product_img_div">
 				<img id="wrapper_product_img" class="uk-img-preserve" src="<%=cargoPicturePath %>">
 				<div class="uk-overlay-area"></div>
 			</a>
+			
+			<div class="uk-thumbnail uk-overlay-hover" data-uk-modal="{target:'#modal-1'}">
+                                        <figure class="uk-overlay">
+                                            <img width="300" height="300" src="<%=request.getContextPath() %>/img/temp/hpcase.jpg" alt="">
+                                            <figcaption class="uk-overlay-panel uk-overlay-icon uk-overlay-background uk-overlay-fade"></figcaption>
+                                            <a class="uk-position-cover" href="#"></a>
+                                        </figure>
+       	 	</div>
+       	 	
+       	 	<div id="modal-1" class="uk-modal" style="display: none; overflow-y: scroll;">
+	                                        <div class="uk-modal-dialog uk-modal-dialog-lightbox">
+	                                            <a href="" class="uk-modal-close uk-close uk-close-alt"></a>
+	                                            <img width="600" height="400" src="<%=request.getContextPath() %>/img/temp/hpcase.jpg" alt="">
+	                                        </div>
+	    	</div>
+			
 			<div id="wrapper_product_div"> 
 				<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">물품명</div><div class="text_middle unfixed_font_color"><%=req.getCargoName() %></div></div>
 				<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">비용</div><div class="text_middle unfixed_font_color"><%=req.getDeliveryPrice() %></div><div style="margin-left: 10px;" class="text_middle fixed_font_color">원</div></div>

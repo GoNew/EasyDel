@@ -92,33 +92,27 @@
 		<div id = "mainleft">
 			<div align = "left"><label id="mainbigfont">발송인</label><img id="mainphotos" src= "<%=request.getContextPath()%>/img/man.jpg"/></div>
 			<div id = "mainleftone">
-				<div id = "mainnull"></div>
+				<div id = "mainnull_left"></div>
 				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/time.png"/></div>
 				<div id = "null"></div>
 				<div id = "maincontents"><label id="mainsmallfont">time precision</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc1%>"/> </div>
 				<div id = "null"></div>
-				<div id = "mainscore"><br><div align="right" id ="mainmiddlefont"><%=senderAvgTime%>/5</div></div>
-				<div id = "mainnull"></div>
 			</div>
 			<br>
 			<div id = "mainleftone">
-				<div id = "mainnull"></div>
+				<div id = "mainnull_left"></div>
 				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe.jpg"/></div>
 				<div id = "null"></div>
 				<div id = "maincontents"><label id="mainsmallfont">accuracy</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc2%>"/></div>
 				<div id = "null"></div>
-				<div id = "mainscore"><br><div align="right" id ="mainmiddlefont"><%=senderAvgThing%>/5</div></div>
-				<div id = "mainnull"></div>
 			</div> 
 			<br>
 			<div id = "mainleftone">
-				<div id = "mainnull"></div>
+				<div id = "mainnull_left"></div>
 				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/smile.jpg"/></div>
 				<div id = "null"></div>
 				<div id = "maincontents"><label id="mainsmallfont">kind</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc3%>"/></div>
 				<div id = "null"></div>
-				<div id = "mainscore"><br><div align="right" id ="mainmiddlefont"><%=senderAvgKind%>/5</div></div>
-				<div id = "mainnull"></div>
 			</div>
 			<br>
 			<div id = "maintwo">
@@ -143,31 +137,27 @@
 		<div id = "mainrignt">
 			<div align ="right" ><img id="mainphotos" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/deliveryman.png"><label id="mainbigfont">운송인</label></div>
 			<div id = "mainrightone">
-				<div id = "mainscore"><br><div align="left" id ="mainmiddlefont"><%= courierAvgTime%>/5</div></div>
-				<div id = "null"></div>
+				<div id = "mainnull_right"></div>
 				<div id = "maincontents" align="right"><label id="mainsmallfont">time precision</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc4%>"/> </div>
 				<div id = "null"></div>
 				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/time.png"/></div>
 			</div>
 			<br>
 			<div id = "mainleftone">
-				<div id = "mainscore"><br><div align="left" id ="mainmiddlefont"><%= courierAvgSafe%>/5</div></div>
-				<div id = "null"></div>
+				<div id = "mainnull_right"></div>
 				<div id = "maincontents" align="right"><label id="mainsmallfont">safe</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc5%>"/></div>
 				<div id = "null"></div>
 				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe.jpg"/></div>
 			</div>
 			<br>
 			<div id = "mainleftone">
-				<div id = "mainscore"><br><div align="left" id ="mainmiddlefont"><%= courierAvgKind%>/5</div></div>
-				<div id = "null"></div>
+				<div id = "mainnull_right"></div>
 				<div id = "maincontents" align="right"><label id="mainsmallfont">kind</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc6%>"/></div>
 				<div id = "null"></div>
 				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/smile.jpg"/></div>
 			</div>
 			<br>
 			<div id = "maintwo">
-				<div id = "mainnull"></div>
 				<div align="left" id ="mainsmallmediumfont"><%=courierSuccesscnt%>/<%=courierTotalcnt%>건</div>
 				<div id = "maintwopercent" align = "center">
 					<label id="mainsmallfont2">거래완료율</label><br>
@@ -178,8 +168,10 @@
 	</div>
 	
 	<div>
-	
+		
 	</div>
+	
+		
 
 </div>
 </div>
