@@ -76,8 +76,8 @@
  	else if(courierAvgKind == 1){starsrc6 = "img/onestarr.JPG";} else if(courierAvgKind == 0){starsrc6 = "img/zerostar.JPG";}
 %>
 </head>
-<body>
 <jsp:include page = "/WEB-INF/view/main/header.jsp"></jsp:include>
+<body>
 <div class="uk-clearfix">
 <div id="formcss" class="uk-align-center">
 	<div style="height:40px"></div>

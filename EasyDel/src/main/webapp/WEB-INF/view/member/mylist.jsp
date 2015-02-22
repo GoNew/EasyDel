@@ -21,7 +21,6 @@
 	List<ViewMySendRequest> sendListOnDel = (List<ViewMySendRequest>) request.getAttribute("sendListOnDel");
 	List<ViewMySendRequest> sendListAfterDel = (List<ViewMySendRequest>) request.getAttribute("sendListAfterDel");
 %>
-<jsp:include page="/WEB-INF/view/main/header.jsp"></jsp:include>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/uikit/css/uikit.gradient.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/header.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/footer.css" />
@@ -188,7 +187,8 @@
 <title>내 진행 글 보기</title>
 </head>
 <body>
-	<div id="fullbrowser">
+	<jsp:include page="/WEB-INF/view/main/header.jsp"></jsp:include>
+	<div id="fullbrowser" class="">
 		<div id="middlebrowser">
 			<div class="uk-width-medium-1-1">
 				<ul class="uk-tab" data-uk-tab="{connect:'#tab-content'}">

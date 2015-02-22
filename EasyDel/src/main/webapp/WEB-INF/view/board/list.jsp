@@ -138,7 +138,7 @@
 %>
 
 <body>
-	<div id="mainBox" class="uk-container-center">
+	<div id="mainBox" class="uk-container-center uk-clearfix">
 		<div class="middlebrowser">
 			<div id="selectBox" class="uk-panel uk-panel-box">
 		
@@ -207,7 +207,7 @@
 				<button class="uk-button order_btn " id="sortSenderAvg">평점 순 정렬</button>
 				<button class="uk-button order_btn " id="sortExpireDate">게시만료 순 정렬</button>
 			
-				<div class="margin_small_left">
+				<div class="margin_7px_left">
 					<select id="typeFilterSelect" class="same_select_order_font_size">
 						<option value="total" selected="selected">전체</option>
 						<option value="nomal">단순 운송</option>
