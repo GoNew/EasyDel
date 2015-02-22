@@ -31,25 +31,18 @@ img{ border: 0;}
 address{font-style: normal;}
 ul, ol{list-style:name;}
 
-* {
+/* * {
 	border: 1px solid red;
-}
+} */
 
 #fullbrowser {
    width: 1025px;
    margin: 0px auto;
+   align: center;   
 }
 #middlebrowser {
    width: 1009px;
    margin: 150px auto;
-}
-#mainbox{
-align: center;
-width: 300px;
-height: 20px;
-backgroud: peachpuff;
-line-height: 20px; text-align: center;
-color:black;
 }
 
 #text2{
@@ -57,22 +50,26 @@ border: 2px solid black;
 font-size: 20px;
 }
 
+
 </style>
 
 
 </head>
 <body>
 	<div id="fullbrowser">
-		<div id="middlebrowser">
-			<div class="uk-width-1-1">
-				<span id="text1" > 현재 <%=loginUserInfo.getUserId()%>님의 EDmoney 잔고는</span><br>
-				<span id="text2" > ${edmoneyBalance}</span><br>
-				<span id="text3" > 원 입니다.</span><br>
+		<div id="middlebrowser" style="border:1px solid blue;width:400px;margin:5px auto;">
+			<div class=".uk-container-center" align="center">
+				<span>현재 <%=loginUserInfo.getUserId()%>님의 EDmoney 잔고는</span><br>
+				<span class="uk-text-large uk-text-bold"> ${edmoneyBalance} 원</span><br>
+				<span >입니다.</span><br>
 			</div>
 			<div class="uk-width-1-1">
 				<div class="uk-panel uk-width-2-3 uk-container-center">
-					<div id="edmoneyDeposit" class="uk-width-2-5 uk-pull-2-5 uk-button"> EDmoney 충전</div>
-					<div id="edmoneyWithdraw" class="uk-width-2-5 uk-push-2-5 uk-button"> EDmoney 인출</div>
+					<p align="center"><br><br><br>
+                	<button id="button1" class="uk-button uk-button-large" type="button"><a href="<%=request.getContextPath()%>/edmoneydeposit"><font color="black">EDmoney 충전</font></button>
+                	<button class="uk-button uk-button-large" type="button"><a href="<%=request.getContextPath()%>/edmoneywithdraw">EDmoney 인출</button>
+                    </p>
+                    <br><br>
 				</div>
 			</div>
 		</div>

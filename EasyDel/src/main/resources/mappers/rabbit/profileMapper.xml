@@ -3,23 +3,35 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="easydel.rabbit.mapper.profile">	
- 	<select id="selectCourierInfos" parameterType="String"
+ 	<select id="selectCourierInfos" parameterType="hashmap"
  		resultMap="CourierInfoResultMap">
- 		select	U.user_id AS user_id, 
- 				U.user_picture AS user_picture, 
- 				U.courier_avg_time AS courier_avg_time, 
- 				U.courier_avg_kind AS courier_avg_kind, 
- 				U.courier_avg_safe AS courier_avg_safe, 
- 				U.courier_successcnt AS courier_successcnt, 
- 				U.courier_totalcnt AS courier_totalcnt,
-				C.courier_id AS courier_id,
- 				C.courier_cmt AS courier_cmt, 
- 				C.reg_date AS reg_date
- 		from 		Users U
- 		left join	COURIER_EVALS C
- 		on			U.user_id=C.courier_id
- 		where		U.user_id=#{userId}
- 		order by	C.reg_date DESC
+ 		select	*
+ 		from	(
+ 				select		U.user_id AS user_id, 
+ 							U.user_picture AS user_picture, 
+ 							U.courier_avg_time AS courier_avg_time, 
+ 							U.courier_avg_kind AS courier_avg_kind, 
+ 							U.courier_avg_safe AS courier_avg_safe, 
+ 							U.courier_successcnt AS courier_successcnt, 
+ 							U.courier_totalcnt AS courier_totalcnt,
+							C.courier_id AS courier_id,
+ 							C.courier_cmt AS courier_cmt, 
+ 							C.reg_date AS reg_date,
+ 							ROWNUM AS RNUM
+ 				from 		Users U
+ 				left join	COURIER_EVALS C
+ 				on			U.user_id=C.courier_id
+ 				where		U.user_id=#{userId}
+ 				<if test="pageNum != null">
+ 					and		((#{pageNum} - 1) * 5) + 1 &lt;= ROWNUM
+ 				</if>
+ 				order by	C.reg_date DESC
+ 				)
+ 		<where>
+ 			<if test="pageNum != null">
+ 				((#{pageNum} * 5) + 1 &gt; ROWNUM
+ 			</if>
+ 		</where>
  	</select>
  	
  	<resultMap id="CourierInfoResultMap" type="User">
