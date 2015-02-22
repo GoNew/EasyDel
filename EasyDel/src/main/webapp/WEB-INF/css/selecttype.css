@@ -17,7 +17,7 @@ ul, ol{list-style:name;}
 	margin: 150px auto;
 }
 
-#navbar {
+/* #navbar {
 	height: 42px;
 	background: #f7f7f7;
 	color: #444444;
@@ -27,7 +27,7 @@ ul, ol{list-style:name;}
 	background-origin: border-box;
 	background-image: -webkit-linear-gradient(top, #49A6D7, #1BC1F2);
 	background-image: linear-gradient(to bottom, #00b4f5, #008dc5);
-}
+} */
 
 #imgcontainer{
 	display: -webkit-box;
