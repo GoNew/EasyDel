@@ -9,6 +9,9 @@
 	href="<%=request.getContextPath()%>/css/header.css" />
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
+<script type="text/javascript">
+	
+</script>
 
 <%
 	User loginUserInfo = (User) session.getAttribute("loginSession");
