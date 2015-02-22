@@ -12,7 +12,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>전체 글 보기</title>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/list.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/uikit/css/uikit.almost-flat.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/list.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/header.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/footer.css" />
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
 
 <script type="text/javascript">
 	function getStartDongList() {
@@ -129,14 +138,15 @@
 %>
 
 <body>
-	<div id="mainBox"
-		class="tm-grid-truncate uk-text-center uk-container-center">
-		<div id="selectBox" class="uk-grid uk-panel uk-panel-box">
-			<div class="uk-grid uk-width-1-1">
-				<div class="uk-width-small-1-4">출발장소</div>
-				<div class="uk-width-small-1-4">서울특별시</div>
-				<div class="uk-width-small-1-4">
-					<select id="startPosGuList">
+	<div id="mainBox" class="uk-container-center">
+		<div class="middlebrowser">
+			<div id="selectBox" class="uk-panel uk-panel-box">
+		
+			<div class="wrapper_columm">
+				<div class="same_subject_font_size">출발장소</div>
+				<div class="same_font_size margin_50px_left">서울특별시</div>
+				<div class="margin_50px_left">
+					<select id="startPosGuList" class="same_select_font_size">
 						<%
 							for (AddressGu gu : guList) {
 						%>
@@ -146,15 +156,16 @@
 						%>
 					</select>
 				</div>
-				<div class="uk-width-small-1-4">
-					<select id="startPosDongList"></select>
+				<div class="margin_7px_left">
+					<select id="startPosDongList" class="same_select_font_size"></select>
 				</div>
 			</div>
-			<div class="uk-grid uk-width-1-1">
-				<div class="uk-width-small-1-4">도착장소</div>
-				<div class="uk-width-small-1-4">서울특별시</div>
-				<div class="uk-width-small-1-4">
-					<select id="arrivePosGuList">
+			
+			<div class="wrapper_columm">
+				<div class="same_subject_font_size">도착장소</div>
+				<div class="same_font_size margin_50px_left">서울특별시</div>
+				<div class="margin_50px_left">
+					<select id="arrivePosGuList" class="same_select_font_size">
 						<%
 							for (AddressGu gu : guList) {
 						%>
@@ -164,48 +175,58 @@
 						%>
 					</select>
 				</div>
-				<div class="uk-width-small-1-4">
-					<select id="arrivePosDongList"></select>
+				<div class="margin_7px_left">
+					<select id="arrivePosDongList" class="same_select_font_size"></select>
 				</div>
 			</div>
-			<div class="uk-grid uk-width-1-1">
-				<div class="uk-width-small-1-4">출발시각</div>
-				<div class="uk-width-small-3-4">
-					<input type="datetime-local" id="startTime">
+			
+				<div class="wrapper_refer_columm">
+					<div>
+						<div class="wrapper_time_columm">
+							<div class="uk-width-1-4 same_subject_font_size">출발시각</div>
+							<div class="uk-width-2-4">
+								<input type="datetime-local" class="same_date_font_size" id="startTime">
+							</div>
+						</div>
+						
+						<div class="wrapper_time_columm">
+							<div class="uk-width-1-4 same_subject_font_size">도착시각</div>
+							<div class="uk-width-2-4">
+								<input type="datetime-local" class="same_date_font_size" id="arriveTime">
+							</div>
+						</div>
+					</div>
+					
+					<div class="wrapper_recomendation_btn">
+						<button class="uk-button recomendation_btn" id="exeRecommendation">추천하기</button>
+					</div>
 				</div>
-			</div>
-			<div class="uk-grid uk-width-1-1">
-				<div class="uk-width-small-1-4">도착시각</div>
-				<div class="uk-width-small-3-4">
-					<input type="datetime-local" id="arriveTime">
-				</div>
-			</div>
-			<div class="uk-grid uk-width-1-1">
-				<div class="uk-width-1-1 uk-text-center uk-button" id="exeRecommendation">추천하기</div>
-			</div>
-			<div class="uk-grid uk-width-1-1">
-				<div class="uk-width-small-1-3 uk-button" id="sortPrice">가격 순 정렬</div>
-				<div class="uk-width-small-1-3 uk-button" id="sortSenderAvg">평점 순 정렬</div>
-				<div class="uk-width-small-1-3 uk-button" id="sortExpireDate">게시만료 순 정렬</div>
-			</div>
-			<div class="uk-grid uk-width-1-1">
-				<div class="uk-width-small-1-3"></div>
-				<div class="uk-width-small-1-3">
-					<select id="typeFilterSelect">
+			
+		<div class="wrapper_order_columm" >
+				<button class="uk-button order_btn " id="sortPrice">가격 순 정렬</button>
+				<button class="uk-button order_btn " id="sortSenderAvg">평점 순 정렬</button>
+				<button class="uk-button order_btn " id="sortExpireDate">게시만료 순 정렬</button>
+			
+				<div class="margin_small_left">
+					<select id="typeFilterSelect" class="same_select_order_font_size">
 						<option value="total" selected="selected">전체</option>
 						<option value="nomal">단순 운송</option>
 						<option value="purchase">구매 운송</option>
 					</select>
 				</div>
-				<div class="uk-width-small-1-3">
-					<select id="statusFilterSelect">
+				
+				<div class="">
+					<select id="statusFilterSelect" class="same_select_order_font_size">
 						<option value="total" selected="selected">전체</option>
 						<option value="onDelivery">진행중 제외</option>
 					</select>
 				</div>
-			</div>
 		</div>
-		<div id="boardBox" class="uk-grid uk-panel uk-panel-box uk-panel-box-primary">
+		
+	</div>
+		
+		
+		<div id="boardBox" class="uk-panel uk-panel-box uk-panel-box-primary">
 			<table id="printBoardList" class="uk-table uk-table-hover">
 			</table>
 			<div class="uk-width-1-1 uk-text-center uk-button" id="selectMore">
@@ -213,7 +234,7 @@
 			</div>
 		</div>
 	</div>
-
+</div>
 </body>
 
 <jsp:include page="/WEB-INF/view/main/footer.jsp"></jsp:include>

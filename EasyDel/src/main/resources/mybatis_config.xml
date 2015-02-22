@@ -40,5 +40,6 @@
 		<mapper resource="mappers/rabbit/evalMapper.xml"/>
 		<mapper resource="mappers/gonew/usersMapper.xml"/>
 		<mapper resource="mappers/rabbit/profileMapper.xml"/>
+		<mapper resource="mappers/gonew/requestCmtMapper.xml"/>
 	</mappers>
 </configuration>

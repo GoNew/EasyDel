@@ -52,7 +52,7 @@ a,
 a:hover,
 .uk-link:hover {
   color: #005599;
-  text-decoration: underline;
+  text-decoration: none;
 }
 /* Text-level semantics
  ========================================================================== */
@@ -3427,7 +3427,7 @@ select.uk-form-width-mini {
 .uk-button-link:active,
 .uk-button-link.uk-active {
   color: #005599;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .uk-button-link:disabled {
   color: #999999;
@@ -7488,7 +7488,7 @@ a.uk-thumbnail:focus {
   }
   a,
   a:visited {
-    text-decoration: underline;
+    text-decoration: none;
   }
   pre,
   blockquote {

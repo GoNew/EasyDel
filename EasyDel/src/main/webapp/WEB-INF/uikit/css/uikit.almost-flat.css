@@ -1618,7 +1618,7 @@ ul.uk-nav-sub {
  * Items
  */
 .uk-nav-navbar > li > a {
-  color: #444444;
+  color: #ffffff;
 }
 /*
  * Hover
@@ -1661,11 +1661,13 @@ ul.uk-nav-sub {
  * Items
  */
 .uk-nav-offcanvas > li > a {
-  color: #cccccc;
+  color: #808080;
+  font-size: 20px;
+  font-weight: bold;
   padding: 10px 15px;
   border-top: 1px solid rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+ /*  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05); */
+  /* text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5); */
 }
 /*
  * Hover
@@ -1676,7 +1678,8 @@ ul.uk-nav-sub {
 .uk-nav-offcanvas > .uk-open > a,
 html:not(.uk-touch) .uk-nav-offcanvas > li > a:hover,
 html:not(.uk-touch) .uk-nav-offcanvas > li > a:focus {
-  background: #404040;
+  /* background: #393940; */
+  background: #00A7E6;
   color: #ffffff;
   /* 2 */
   outline: none;
@@ -6657,7 +6660,8 @@ a.uk-thumbnail:focus {
   /* 2 */
   width: 270px;
   max-width: 100%;
-  background: #333333;
+  /* background: #333333; */
+  background: #ffffff;
   /* 3 */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;

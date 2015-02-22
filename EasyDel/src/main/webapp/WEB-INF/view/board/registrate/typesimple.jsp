@@ -13,7 +13,7 @@
 <html>
 <head>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/uikit/css/uikit.gradient.css" />
+	href="<%=request.getContextPath()%>/uikit/css/uikit.almost-flat.css" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/typesimple.css" />
 <link rel="stylesheet"

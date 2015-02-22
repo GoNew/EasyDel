@@ -59,30 +59,33 @@ public class TitleController {
 			}
 			result.append("\" onclick=\"location.href='")
 				.append(request.getContextPath())
-				.append("/board/show?rid=")
+				.append("/show/predeli?requestId=")
 				.append(title.getRequestId())
 				.append("'\"><td>");
 			if(title.getRequestType() == 0) {
-				result.append("단순운송/ ");
+				result.append("단순운송&nbsp;<span class=\"gonew_boardliststandard\">/</span>&nbsp;")
+					.append(title.getCargoName())
+					.append("<br><span class=\"gonew_boardliststandard\">출발:</span>&nbsp;서울시&nbsp;")
+					.append(title.getPickUpGu())
+					.append("&nbsp;")
+					.append(title.getPickUpDong())
+					.append("<br>");
 			} else {
-				result.append("구매운송/ ");
+				result.append("구매운송 <span class=\"gonew_boardliststandard\">/</span>&nbsp;")
+					.append(title.getCargoName())
+					.append("<br>");
 			}
-			result.append(title.getCargoName())
-				.append("<br>출발 : 서울시 ")
-				.append(title.getPickUpGu())
-				.append(" ")
-				.append(title.getPickUpDong())
-				.append(" 도착 : 서울시 ")
+			result.append("<span class=\"gonew_boardliststandard\">도착:</span>&nbsp;서울시 ")
 				.append(title.getArrivalPlaceGu())
-				.append(" ")
+				.append("&nbsp;")
 				.append(title.getArrivalPlaceDong())
-				.append("<br>")
+				.append("<br><span class=\"gonew_boardliststandard\">만료시각:</span>&nbsp;")
 				.append(title.getExpireDate().toString())
 				.append("</td><td>")
 				.append(title.getSenderId())
-				.append("<br>")
+				.append("<br><span class=\"gonew_boardliststandard\">평점:</span>&nbsp;")
 				.append(title.getSenderAvg())
-				.append("<br>")
+				.append("<br><span class=\"gonew_boardliststandard\">의뢰비:</span>&nbsp;")
 				.append(title.getDeliveryPrice());
 			result.append("</td></tr>");
 		}

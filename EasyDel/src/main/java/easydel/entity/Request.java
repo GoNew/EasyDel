@@ -55,6 +55,8 @@ public class Request implements Serializable {
 
 	/** 동 테이블. */
 	private Integer pickupPlace;
+	private String pickupPlaceGuName;
+	private String pickupPlaceDongDesc;
 
 	/** 전달_상세 장소. */
 	private String pickupPlaceDesc;
@@ -73,6 +75,8 @@ public class Request implements Serializable {
 
 	/** 동 테이블. */
 	private Integer arrivalPlace;
+	private String arrivalPlaceGuName;
+	private String arrivalPlaceDongDesc;
 
 	/** 배달장소_상세. */
 	private String arrivalPlaceDesc;
@@ -513,6 +517,38 @@ public class Request implements Serializable {
 		this.arrivalPlace = arrivalPlace;
 	}
 
+	public String getPickupPlaceGuName() {
+		return pickupPlaceGuName;
+	}
+
+	public void setPickupPlaceGuName(String pickupPlaceGuName) {
+		this.pickupPlaceGuName = pickupPlaceGuName;
+	}
+
+	public String getPickupPlaceDongDesc() {
+		return pickupPlaceDongDesc;
+	}
+
+	public void setPickupPlaceDongDesc(String pickupPlaceDongDesc) {
+		this.pickupPlaceDongDesc = pickupPlaceDongDesc;
+	}
+
+	public String getArrivalPlaceGuName() {
+		return arrivalPlaceGuName;
+	}
+
+	public void setArrivalPlaceGuName(String arrivalPlaceGuName) {
+		this.arrivalPlaceGuName = arrivalPlaceGuName;
+	}
+
+	public String getArrivalPlaceDongDesc() {
+		return arrivalPlaceDongDesc;
+	}
+
+	public void setArrivalPlaceDongDesc(String arrivalPlaceDongDesc) {
+		this.arrivalPlaceDongDesc = arrivalPlaceDongDesc;
+	}
+
 	/**
 	 * 거래완료 목록을 가져옵니다..
 	 * 
@@ -575,14 +611,18 @@ public class Request implements Serializable {
 				+ ", cargoPicture=" + cargoPicture + ", cargoDesc=" + cargoDesc
 				+ ", senderPhone=" + senderPhone + ", pickupMinTime="
 				+ pickupMinTime + ", pickupMaxTime=" + pickupMaxTime
-				+ ", pickupPlace=" + pickupPlace + ", pickupPlaceDesc="
-				+ pickupPlaceDesc + ", receiverName=" + receiverName
-				+ ", receiverPhone=" + receiverPhone + ", arrivalMinTime="
-				+ arrivalMinTime + ", arrivalMaxTime=" + arrivalMaxTime
-				+ ", arrivalPlace=" + arrivalPlace + ", arrivalPlaceDesc="
-				+ arrivalPlaceDesc + ", absenceMessage=" + absenceMessage
-				+ ", validationCode=" + validationCode + ", expireDate="
-				+ expireDate + ", completeDeliverysSet=" + completeDeliverysSet
+				+ ", pickupPlace=" + pickupPlace + ", pickupPlaceGuName="
+				+ pickupPlaceGuName + ", pickupPlaceDongDesc="
+				+ pickupPlaceDongDesc + ", pickupPlaceDesc=" + pickupPlaceDesc
+				+ ", receiverName=" + receiverName + ", receiverPhone="
+				+ receiverPhone + ", arrivalMinTime=" + arrivalMinTime
+				+ ", arrivalMaxTime=" + arrivalMaxTime + ", arrivalPlace="
+				+ arrivalPlace + ", arrivalPlaceGuName=" + arrivalPlaceGuName
+				+ ", arrivalPlaceDongDesc=" + arrivalPlaceDongDesc
+				+ ", arrivalPlaceDesc=" + arrivalPlaceDesc
+				+ ", absenceMessage=" + absenceMessage + ", validationCode="
+				+ validationCode + ", expireDate=" + expireDate
+				+ ", completeDeliverysSet=" + completeDeliverysSet
 				+ ", requestCmtsList=" + requestCmtsList + "]";
 	}
 }

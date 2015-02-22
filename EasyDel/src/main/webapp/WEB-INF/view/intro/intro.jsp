@@ -23,19 +23,27 @@
 
 </head>
 <body>
-	<div id="fullbrowser" class="uk-clearfix" align="center">
-		<div id="logoimg" class="uk-width-1-2">
-			<img id="logo" alt="" src="img/easydel.png">
-		</div>
+<div id="background_div" class="uk-cover-background uk-position-cover" style="background-image: url('<%=request.getContextPath() %>/img/background/back2.jpg')">
+	<div id="background_div_up">
+	<div id="fullbrowser" class="uk-clearfix" align="center" >
+	
+		<div class="wrapper_login" >
+			<div id="logoimg" class="uk-width-1-2">
+			<img id="logo" alt="" src="img/easydel_logo.png">
+			</div>
 
-		<div id="formcss" align="center">
+			<div id="formcss" align="center">
 			<form class="uk-form uk-width-1-3" method="post" action="<%=request.getContextPath()%>/login">
 				<input id="userid" name="userid" type="text" placeholder="아이디를 입력하세요" class="uk-width-1-1">
 				<input id="userpass" name="userpassword" type="password" placeholder="비밀번호를 입력하세요" class="uk-width-1-1">
 				<button id="login" type="submit" class="uk-button uk-button-primary uk-width-1-1">로그인</button>
 			</form>
 				<button id="join" class="uk-button uk-button-primary uk-width-1-3">회원가입</button>
+			</div>
 		</div>
 	</div>
+	</div>
+</div>	 
+
 </body>
 </html>

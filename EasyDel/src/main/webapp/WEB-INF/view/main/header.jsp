@@ -4,7 +4,7 @@
 <%@page import="easydel.entity.User"%>
 
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/uikit/css/uikit.gradient.css" />
+	href="<%=request.getContextPath()%>/uikit/css/uikit.almost-flat.css" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/header.css" />
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>

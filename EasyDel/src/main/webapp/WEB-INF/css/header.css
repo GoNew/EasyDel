@@ -17,8 +17,7 @@ border: 1px solid rgba(0, 0, 0, 0.1);
 border-bottom-color: rgba(0, 0, 0, 0.3);
 border-radius: 4px;
 background-origin: border-box;
-background-image: -webkit-linear-gradient(top, #00B1F2, #009BD7);
-background-image: linear-gradient(to bottom, #00B1F2, #009BD7);
+background-color: #00B1F2;
 }
 
 #logo1{
@@ -27,20 +26,21 @@ background-image: linear-gradient(to bottom, #00B1F2, #009BD7);
 	overflow: hidden;
 }
 
-.uk-button-primary {
+/* .uk-button-primary {
 height: 100%;
-background-color: #009dd8;
 color: #ffffff;
-background-image: -webkit-linear-gradient(top, #00B1F2, #009BD7);
-background-image: linear-gradient(to bottom, #00B1F2, #009BD7);
-border-color: rgba(0, 0, 0, 0.2);
+background-color: #00B1F2;
+border-color: rgba(0, 0, 0, 0.0);
 border-bottom-color: rgba(0, 0, 0, 0.4);
 text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-
-}
+} */
 
 #mainbtn{
 	width: 80px;
+	background-color: #00B1F2;
+	height: 100%;
+	border-color: rgba(0, 0, 0, 0.0);
+	
 }
 
 #navbtn{

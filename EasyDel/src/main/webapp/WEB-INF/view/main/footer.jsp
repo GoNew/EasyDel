@@ -4,7 +4,7 @@
 <html>
 <head>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/uikit/css/uikit.gradient.css" />
+	href="<%=request.getContextPath()%>/uikit/css/uikit.almost-flat.css" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/footer.css" />
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -13,6 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div class="replace_hr"></div>
 	<div id="footer" class="tm-footer">
 		<div id="container" class="uk-container uk-container-center uk-text-center">
 

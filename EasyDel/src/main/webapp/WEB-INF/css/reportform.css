@@ -1,0 +1,111 @@
+@CHARSET "UTF-8";
+
+/* ************************모든 CSS FILE에 공통 적용한다.********************************* */
+*{
+	margin: 0; padding:0;
+/* 	border: 1px solid red;
+ */}
+img{ border: 0;}
+address{font-style: normal;}
+ul, ol{list-style:name;}
+
+#fullbrowser {
+	width: 1025px;
+	margin: 0px auto;
+}
+#middlebrowser {
+	/* border: 1px solid brown; */
+	width: 1009px;
+	margin: 150px auto;
+}
+/* ************************class를 이용한 공통 적용********************************* */
+
+
+/* display */
+
+
+/* margin */
+div.report_notice_margin{
+	margin: 50px 20px;
+}
+div.report_btn_margin{
+	margin: 30px 0px;
+}
+
+/* div */
+div.wrapper_columm{
+	display: -webkit-box;
+	height: 50px;
+	width: 100%;
+	overflow: hidden;
+	text-align: left;
+	margin: 10px 20px;
+}
+div.report_standard_subject{
+	/* border: 1px solid blue; */
+	width: 300px;
+	font-size: 36px;
+	line-height: 40px;
+	color: #808080;
+	
+}
+div.report_contents{
+	/* border: 1px solid pink; */
+	width: 100%;
+	font-size: 30px;
+	line-height: 40px;
+	color: #BCBCBC;
+}
+
+div.report_main_notice{
+	/* border: 1px solid pink; */
+	text-align:left;
+	width: 100%;
+	font-size: 30px;
+	line-height: 35px;
+	color: red;
+}
+
+div.report_sub_notice{
+	text-align: left;
+	width: 100%;
+	font-size: 25px;
+	line-height: 30px;
+	
+}
+
+/* select */
+select.report_select_size{
+	height: 45px;
+	width: 665px;
+	border-color: #E0DDDD;
+}
+/* img */
+
+
+/* button */
+button.btn_size{
+	height: 50px;
+	font-size: 30px;
+	color: #808080;
+}
+
+/* textarea */
+textarea.report_textarea_details{
+	text-align:left;
+	font-size: 30px;
+	line-height: 45px;
+	resize: none;
+	width: 970px;
+	height: 200px;
+	overflow: hidden;
+	margin: 0px 20px;
+	border-color: #CCCACA;
+	color: #BCBCBC;
+}
+
+/* table 처럼 설정하기 */
+
+
+
+/* ************************개인 태그의 id 적용********************************* */
