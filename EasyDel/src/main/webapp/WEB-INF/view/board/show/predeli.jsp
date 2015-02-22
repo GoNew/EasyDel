@@ -117,24 +117,24 @@ $(document).ready(function() {
 				String cargoPicturePath = req.getCargoPicture() != null ? req.getCargoPicture() : "/img/has_no_img.gif";
 				cargoPicturePath = request.getContextPath() + cargoPicturePath;
 			%>
-			<a href="<%=cargoPicturePath %>" class="uk-overlay" id="wrapper_product_img_div">
+			<%-- <a href="<%=cargoPicturePath %>" class="uk-overlay" id="wrapper_product_img_div">
 				<img id="wrapper_product_img" class="uk-img-preserve" src="<%=cargoPicturePath %>">
 				<div class="uk-overlay-area"></div>
-			</a>
+			</a> --%>
 			
 			<div class="uk-thumbnail uk-overlay-hover" data-uk-modal="{target:'#modal-1'}">
-                                        <figure class="uk-overlay">
-                                            <img width="300" height="300" src="<%=request.getContextPath() %>/img/temp/hpcase.jpg" alt="">
-                                            <figcaption class="uk-overlay-panel uk-overlay-icon uk-overlay-background uk-overlay-fade"></figcaption>
-                                            <a class="uk-position-cover" href="#"></a>
-                                        </figure>
+				<figure class="uk-overlay">
+					<img id="wrapper_product_img" src="<%=cargoPicturePath %>" alt="">
+					<figcaption class="uk-overlay-panel uk-overlay-icon uk-overlay-background uk-overlay-fade"></figcaption>
+					<a class="uk-position-cover" href="#"></a>
+				</figure>
        	 	</div>
        	 	
        	 	<div id="modal-1" class="uk-modal" style="display: none; overflow-y: scroll;">
-	                                        <div class="uk-modal-dialog uk-modal-dialog-lightbox">
-	                                            <a href="" class="uk-modal-close uk-close uk-close-alt"></a>
-	                                            <img width="600" height="400" src="<%=request.getContextPath() %>/img/temp/hpcase.jpg" alt="">
-	                                        </div>
+				<div class="uk-modal-dialog uk-modal-dialog-lightbox">
+					<a href="" class="uk-modal-close uk-close uk-close-alt"></a>
+					<img src="<%=cargoPicturePath %>" alt="">
+				</div>
 	    	</div>
 			
 			<div id="wrapper_product_div"> 
@@ -156,7 +156,20 @@ $(document).ready(function() {
 						<div id="deli_userid" class="text_middle_extra fixed_font_color"><%=cmt.getUserId() %></div>
 					</div>
 			<%		if(cmt.getReplyPicture() != null) {	%>
-					<a href="<%=request.getContextPath() %><%=cmt.getReplyPicture() %>" data-uk-lightbox title="물품 원본 사진" class="margin_left_50px uk-overlay"><img class="img_fixed_size_extra" src="<%=request.getContextPath() %><%=cmt.getReplyPicture() %>"><div class="uk-overlay-area"></div></a>
+					<div class="uk-thumbnail uk-overlay-hover margin_left_50px" data-uk-modal="{target:'#_cmt_modal_picture_<%=cmt.getCmtId() %>'}">
+						<figure class="uk-overlay">
+							<img class="img_fixed_size_extra" src="<%=request.getContextPath() %><%=cmt.getReplyPicture() %>" alt="">
+							<figcaption class="uk-overlay-panel uk-overlay-icon uk-overlay-background uk-overlay-fade"></figcaption>
+							<a class="uk-position-cover" href="#"></a>
+						</figure>
+		       	 	</div>
+		       	 	
+		       	 	<div id="_cmt_modal_picture_<%=cmt.getCmtId() %>" class="uk-modal" style="display: none; overflow-y: scroll;">
+						<div class="uk-modal-dialog uk-modal-dialog-lightbox">
+							<a href="" class="uk-modal-close uk-close uk-close-alt"></a>
+							<img src="<%=request.getContextPath() %><%=cmt.getReplyPicture() %>" alt="">
+						</div>
+			    	</div>
 			<%		}	%>
 					<div class="row_request_extra_long"> 
 						<div class="margin_left_50px text_middle_extra_long unfixed_font_color"><%=cmt.getReplyText() != null ? cmt.getReplyText() : "" %></div> 
