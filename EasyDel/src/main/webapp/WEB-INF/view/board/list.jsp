@@ -7,7 +7,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 
-<jsp:include page="/WEB-INF/view/main/header.jsp"></jsp:include>
 <html class="uk-height-1-1">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -138,9 +137,10 @@
 %>
 
 <body>
-	<div id="mainBox" class="uk-container-center uk-clearfix">
+<jsp:include page="/WEB-INF/view/main/header.jsp"></jsp:include>
+	<div id="mainBox" class="uk-clearfix">
 		<div class="middlebrowser">
-			<div id="selectBox" class="uk-panel uk-panel-box">
+			<div id="selectBox" class="lira_panel">
 		
 			<div class="wrapper_columm">
 				<div class="same_subject_font_size">출발장소</div>
@@ -226,7 +226,7 @@
 	</div>
 		
 		
-		<div id="boardBox" class="uk-panel uk-panel-box uk-panel-box-primary">
+		<div id="boardBox" class="lira_panel_primary">
 			<table id="printBoardList" class="uk-table uk-table-hover">
 			</table>
 			<div class="uk-width-1-1 uk-text-center uk-button" id="selectMore">

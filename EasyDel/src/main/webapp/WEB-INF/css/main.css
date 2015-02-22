@@ -6,12 +6,15 @@ image{border:0px;}
 
 #uk-clearfix{
 	width:1024px;
-	height:100%
+	height:100%;
+	
 }
 #formcss{
-	margin-top: 100px;
+	margin-top: 120px;
 	width:1009px;
 	/* height:600px; */
+	border: 1px solid #EFE4B0;
+	border-radius: 8px;
 }
 
 #mainphoto{
@@ -24,14 +27,14 @@ image{border:0px;}
 	height:200px;
 }
 
-
 #mainlineform{
 	width : 100%;
 	height : 100px;
 	display: -webkit-box;
 }
+
 #mainlineleft{
-	width : 440px;
+	width : 400px;
 	height : 100px;
 }
 #mainlinemiddle{
@@ -39,7 +42,7 @@ image{border:0px;}
 	height : 100px;
 }
 #mainlineright{
-	width : 440px;
+	width : 400px;
 	height : 100px;
 }
 
@@ -47,17 +50,19 @@ image{border:0px;}
 #mainbelowform{
 	width : 100%;
 	display: -webkit-box;
+	margin: 0px auto;
 }
 #mainleft{
-	width : 440px;
+	width : 370px;
 	height : 450px;
 }
 #mainmiddle{
-	width : 126px;
+	width : 230px;
 	height : 450px;
+	margin-left: 20px;
 }
 #mainrignt{
-	width : 440px;
+	width : 370px;
 	height : 450px;
 }
 #mainphotos{
@@ -65,7 +70,7 @@ image{border:0px;}
 	height:39px;
 }
 #mainnull{
-	width:70px;
+	width:30px;
 }
 #mainleftone{
 	display: -webkit-box;
@@ -106,7 +111,7 @@ image{border:0px;}
 }
 #mainbigfont{
 	font-size: 33px;	
-	margin : 10px;
+	margin : 10px 20px;
 }
 #mainsmallfont{
 	font-size:20px;
