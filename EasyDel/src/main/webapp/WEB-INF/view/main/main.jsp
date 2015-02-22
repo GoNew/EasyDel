@@ -134,7 +134,7 @@
 		</div>
 		
 		
-		<div id = "mainrignt">
+		<div id = "mainright">
 			<div align ="right" ><img id="mainphotos" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/deliveryman.png"><label id="mainbigfont">운송인</label></div>
 			<div id = "mainrightone">
 				<div id = "mainnull_right"></div>
@@ -167,10 +167,22 @@
 		</div>
 	</div>
 	
+	
 	<div>
 		
-	</div>
+		<div class="uk-cover">
+			<video id="video_deco" class="uk-cover-object" autoplay="autoplay" loop="loop" src="<%=request.getContextPath()%>/img/toomuch.mp4" ></video>
+		</div>
+		
+		<div>
+		
+		</div>
 	
+		<div>
+		
+		</div>
+		
+	</div>
 		
 
 </div>
