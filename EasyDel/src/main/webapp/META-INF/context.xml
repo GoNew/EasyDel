@@ -36,6 +36,11 @@
     		base="c:\db\uploaded\request"
     		webAppMount="/WEB-INF/request"
     	></PreResources>
+    	<PreResources 
+    		className="org.apache.catalina.webresources.DirResourceSet"
+    		base="c:\db\uploaded\cmt"
+    		webAppMount="/WEB-INF/cmt"
+    	></PreResources>
     </Resources>
     
 </Context>

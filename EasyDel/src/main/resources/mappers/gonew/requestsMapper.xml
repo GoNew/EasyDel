@@ -3,6 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="easydel.gonew.mapper.requests">
+	<update id="updateStatusAndApplyCourier" parameterType="hashmap">
+		update		REQUESTS
+		set			request_status=2,
+					courier_id=#{courierId}
+		where		request_id=#{requestId}
+	</update>
+
 	<resultMap type="Request" id="RequestJoinRequestCmt">
 		<id column="request_id" property="requestId"/>
 		<result column="sender_id" property="senderId"/>

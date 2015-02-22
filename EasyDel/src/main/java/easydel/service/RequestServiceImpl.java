@@ -342,4 +342,20 @@ public class RequestServiceImpl implements IRequestService {
 			throw new ServiceFailException("존재하지 않는 글");
 		return result;
 	}
+	
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public void applyRequest(String exeUserId, Integer requestId) throws ServiceFailException {
+		if(exeUserId == null || requestId == null)
+			throw new ServiceFailException("잘못된 접근");
+		Request currRequest = requestDao.selectRequestByRequestId(requestId);
+		if(currRequest == null)
+			throw new ServiceFailException("존재하지 않는 글");
+		if(currRequest.getRequestStatus() != RequestStatus.request.getStatusCode()
+				|| currRequest.getSenderId() == exeUserId)
+			throw new ServiceFailException("신청이 불가능한 의뢰");
+		if(requestDao.updateStatusAndApplyCourier(exeUserId, requestId)
+				<= 0)
+			throw new ServiceFailException("신청 실패");
+	}
 }
