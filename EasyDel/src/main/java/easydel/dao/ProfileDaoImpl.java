@@ -1,11 +1,15 @@
 package easydel.dao;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 
-import easydel.entity.User;
+import easydel.entity.CourierEval;
 
 public class ProfileDaoImpl implements IProfileDao {
 	public static final Logger logger = LoggerFactory.getLogger(TitleDaoImpl.class);
@@ -17,9 +21,12 @@ public class ProfileDaoImpl implements IProfileDao {
 	public ProfileDaoImpl(){}
 	
 	@Override
-	public User selectCourierInfos(String courierId) {
+	public List<CourierEval> selectCourierInfos(Integer pageNum, String courierId) {
 		String stmt = namespace + ".selectCourierInfos";
-		User result = session.selectOne(stmt, courierId);
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("pageNum", pageNum);
+		
+		List<CourierEval> result = session.selectList(stmt, params);
 		return result;
 	}
 
