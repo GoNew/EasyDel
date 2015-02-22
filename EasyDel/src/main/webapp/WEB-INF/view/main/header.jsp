@@ -69,7 +69,7 @@
 	User loginUserInfo = (User) session.getAttribute("loginSession");
 %>
 
-<nav id=navbar class="uk-navbar" data-uk-sticky="{boundary:'#define-an-offset'}">
+<nav id="navbar" class="uk-navbar" data-uk-sticky="{boundary:'#define-an-offset'}">
 	<ul class="uk-navbar-nav">
 		<li>
 			<div id="navbtn">

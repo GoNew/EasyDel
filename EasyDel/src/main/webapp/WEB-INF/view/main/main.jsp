@@ -13,7 +13,7 @@
 <title>메인</title>
 <%
 	User loginUserInfo = (User) session.getAttribute("loginSession");
-	loginUserInfo.setSenderAvgKind(3);
+	/* loginUserInfo.setSenderAvgKind(3);
 	loginUserInfo.setSenderAvgThing(4);
 	loginUserInfo.setSenderAvgTime(2);
 	loginUserInfo.setSenderSuccesscnt(10);
@@ -22,7 +22,7 @@
 	loginUserInfo.setCourierAvgSafe(5);
 	loginUserInfo.setCourierAvgTime(0);
 	loginUserInfo.setCourierSuccesscnt(10);
-	loginUserInfo.setCourierTotalcnt(300);
+	loginUserInfo.setCourierTotalcnt(300); */
 
  	int senderAvgTime = loginUserInfo.getSenderAvgTime();
  	int senderAvgThing = loginUserInfo.getSenderAvgThing();
@@ -30,7 +30,7 @@
  	int senderSuccesscnt = loginUserInfo.getSenderSuccesscnt();
  	int senderTotalcnt = loginUserInfo.getSenderTotalcnt();
  	double senderPercentage = 0.0;
- 	String sPercentage = null;
+ 	String sPercentage = "0.0";
  	if(senderTotalcnt != 0){
  		senderPercentage = ((double)senderSuccesscnt/(double)senderTotalcnt) * 100;
  		sPercentage = String.format("%.1f" , senderPercentage);
@@ -42,7 +42,7 @@
  	int courierSuccesscnt = loginUserInfo.getCourierSuccesscnt();
  	int courierTotalcnt = loginUserInfo.getCourierTotalcnt();
  	double courierPercentage = 0.0;
- 	String cPercentage = null;
+ 	String cPercentage = "0.0";
  	if(courierTotalcnt != 0){
  		courierPercentage = ((double)courierSuccesscnt/(double)courierTotalcnt) * 100;
  		cPercentage = String.format("%.1f" , courierPercentage);
