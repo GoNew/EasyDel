@@ -1,7 +1,9 @@
 package easydel.dao;
 
-import easydel.entity.User;
+import java.util.List;
+
+import easydel.entity.CourierEval;
 
 public interface IProfileDao {
-	public User selectCourierInfos(String courierId);
+	public List<CourierEval> selectCourierInfos(Integer pageNum, String courierId);
 }
