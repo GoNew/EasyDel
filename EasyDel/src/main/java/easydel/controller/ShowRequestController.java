@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import easydel.contant.RequestStatus;
 import easydel.entity.Request;
 import easydel.entity.User;
 import easydel.exception.ServiceFailException;
@@ -26,6 +27,8 @@ public class ShowRequestController {
 		String resultPage = "/board/show/predeli";
 		try {
 			Request readRequest = reqService.getRequestWithRequestCmts(requestId);
+			if((readRequest == null) || (readRequest.getRequestStatus() != RequestStatus.request.getStatusCode()))
+				throw new ServiceFailException();
 			model.addAttribute("requestWithCmts", readRequest);
 		} catch (ServiceFailException e) {
 			resultPage = "/error";
