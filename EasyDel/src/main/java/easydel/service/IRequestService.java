@@ -47,4 +47,7 @@ public interface IRequestService {
 	
 	public Request getRequestWithRequestCmts(Integer requestId)
 			throws ServiceFailException;
+
+	public void applyRequest(String exeUserId, Integer requestId)
+			throws ServiceFailException;
 }

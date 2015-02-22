@@ -90,5 +90,13 @@ public class RequestDaoImpl implements IRequestDao {
 		return result;
 	}
 
-	
+	@Override
+	public int updateStatusAndApplyCourier(String courierId, Integer requestId) {
+		String stmt = gonew_namespace + ".updateStatusAndApplyCourier";
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("courierId", courierId);
+		params.put("requestId", requestId);
+		int result = session.update(stmt, params);
+		return result;
+	}
 }

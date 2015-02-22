@@ -32,7 +32,7 @@ $(document).ready(function() {
 	
 	$("#imgFileInput").change(function() {
 		var files = !!this.files ? this.files : [];
-		if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+		if (!files.length || !window.FileReader) return false; // no file selected, or no FileReader support
 
 		if (/^image/.test(files[0].type)){ // only image file
 			$("#imagePreview").html("");
@@ -43,7 +43,9 @@ $(document).ready(function() {
 			}
 		} else {
 			alert("사진만 등록가능합니다.");
+			return false;
 		}
+		return true;
 	});
 });
 </script>
@@ -141,19 +143,20 @@ $(document).ready(function() {
 					<a href="<%=request.getContextPath() %><%=cmt.getReplyPicture() %>" data-uk-lightbox title="물품 원본 사진" class="margin_left_50px uk-overlay"><img class="img_fixed_size_extra" src="<%=request.getContextPath() %><%=cmt.getReplyPicture() %>"><div class="uk-overlay-area"></div></a>
 			<%		}	%>
 					<div class="row_request_extra_long"> 
-						<div class="margin_left_50px text_middle_extra_long unfixed_font_color"><%=cmt.getReplyText() %></div> 
+						<div class="margin_left_50px text_middle_extra_long unfixed_font_color"><%=cmt.getReplyText() != null ? cmt.getReplyText() : "" %></div> 
 					</div>
 					<div class="replace_hr_plus"></div>
 				</div>
 			<%	}	%>
-				<form method="post">
+				<form method="post" enctype="multipart/form-data" action="<%=request.getContextPath()%>/show/addcmt">
 				<div class="standard_row_request_reply margin_top_10px">
-					<div class="webkit_box"> 
+					<div class="webkit_box">
 						<div id="wrapper_btn_div" class="margin_left_50px">
 							<label for="imgFileInput"><div id="imagePreview"><div class="reply_img_text_middle">+사진</div></div></label>		
 							<input type="file" id="imgFileInput" name="imgFileInput">
+							<input type="hidden" name="requestId" value="<%=req.getRequestId() %>">
 						</div> 
-						<div><textarea id="add_textarea"></textarea></div>
+						<div><textarea id="add_textarea" name="replyContent"></textarea></div>
 						<div id="wrapper_btn_div"><button id="add_reply_btn" class="uk-button">완료</button></div>  
 					</div>
 				</div>
@@ -161,10 +164,14 @@ $(document).ready(function() {
 			</div>
 <!-- ------------------------------버튼------------------------------- -->
 		<%	if(!req.getSenderId().equals(loginUser.getUserId()) && (req.getRequestStatus() == RequestStatus.request.getStatusCode())) {	%>
-		<div id="wrapper_recept_deli_btn_div" align="center"><button id="" class="uk-button uk-width-1-2 recept_deli_btn">운송 신청</button></div>
+		
+		<div id="wrapper_recept_deli_btn_div" align="center"><button class="uk-button uk-width-1-2 recept_deli_btn" onclick="$('#applyTransferRequest').submit()">운송 신청</button></div>
 		<%	} %>
 		</div>
 	</div>
+<form id="applyTransferRequest" action="<%=request.getContextPath()%>/show/predeli/apply" method="post" style="display: none;">
+	<input type="hidden" value="<%=req.getRequestId() %>" name="requestId">
+</form>
 <jsp:include page="/WEB-INF/view/main/footer.jsp"></jsp:include>
 </body>
 </html>
