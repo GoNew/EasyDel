@@ -15,9 +15,6 @@
 %>
 
 <nav id=navbar class="uk-navbar" data-uk-sticky="{boundary:'#define-an-offset'}">
-
-
-
 	<ul class="uk-navbar-nav">
 		<li>
 			<div id="navbtn">
@@ -47,7 +44,7 @@
 	<div class="uk-navbar-flip">
 		<ul class="uk-navbar-nav">
 			<li>
-				<div class="uk-button-dropdown" data-uk-dropdown="{boundary:'#boundary'}">
+				<div class="uk-button-dropdown" data-uk-dropdown="{mode:'click'}">
 					<div id="log" align="center" class="uk-button"
 						style="background-image: url('<%=request.getContextPath() %>/img/alertBell.png')"></div>
 					<div class="uk-dropdown uk-dropdown-stack">

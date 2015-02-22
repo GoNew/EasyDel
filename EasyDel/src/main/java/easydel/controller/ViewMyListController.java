@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -69,7 +71,7 @@ public class ViewMyListController {
 		} catch (ServiceFailException e) {
 			e.printStackTrace();
 			model.addAttribute("errorMsg", e.getMessage());
-			resultPage = "redirect:/error";
+			resultPage = "/error";
 		}
 		
 		return resultPage;
@@ -79,7 +81,7 @@ public class ViewMyListController {
 	public String deleteSenderRequest(HttpSession session, Model model,
 			@RequestParam Integer requestId) {
 		User loginUser = (User) session.getAttribute("loginSession");
-		String resultPage = "/mylist";
+		String resultPage = "redirect:/mylist";
 		try {
 			reqService.serviceRemoveRequest(loginUser.getUserId(), requestId);
 		} catch (ServiceFailException e) {
@@ -88,13 +90,13 @@ public class ViewMyListController {
 			e.printStackTrace();
 		}
 		
-		return "redirect:" + resultPage;
+		return resultPage;
 	}
 	
 	@RequestMapping(value="/send/admit", params={"requestId"}, method=RequestMethod.POST)
 	public String admitSenderRequest(HttpSession session, Model model,
 			@RequestParam Integer requestId) {
-		String resultPage = "/mylist";
+		String resultPage = "redirect:/mylist";
 		User loginUser = (User) session.getAttribute("loginSession");
 		try {
 			reqService.admitCourierToPerformRequest(loginUser.getUserId(), requestId);
@@ -104,13 +106,13 @@ public class ViewMyListController {
 			e.printStackTrace();
 		}
 		
-		return "redirect:" + resultPage;
+		return resultPage;
 	}
 	
 	@RequestMapping(value="/send/reject", params={"requestId"}, method=RequestMethod.POST)
 	public String rejectSenderRequest(HttpSession session, Model model,
 			@RequestParam Integer requestId) {
-		String resultPage = "/mylist";
+		String resultPage = "redirect:/mylist";
 		User loginUser = (User) session.getAttribute("loginSession");
 		try {
 			reqService.rejectCourierToPerformRequest(loginUser.getUserId(), requestId);
@@ -120,13 +122,13 @@ public class ViewMyListController {
 			e.printStackTrace();
 		}
 		
-		return "redirect:" + resultPage;
+		return resultPage;
 	}
 	
 	@RequestMapping(value="/send/complete", params={"requestId"}, method=RequestMethod.POST)
 	public String completeSenderRequest(HttpSession session, Model model,
 			@RequestParam Integer requestId) {
-		String resultPage = "/mylist";
+		String resultPage = "redirect:/mylist";
 		User loginUser = (User) session.getAttribute("loginSession");
 		try {
 			reqService.completeRequest(loginUser.getUserId(), requestId);
@@ -135,13 +137,13 @@ public class ViewMyListController {
 			resultPage = "/error";
 			e.printStackTrace();
 		}
-		return "redirect:" + resultPage;
+		return resultPage;
 	}
 	
 	@RequestMapping(value="/carry/cancel", params={"requestId"}, method=RequestMethod.POST)
 	public String cancelCourierRequest(HttpSession session, Model model,
 			@RequestParam Integer requestId) {
-		String resultPage = "/mylist";
+		String resultPage = "redirect:/mylist";
 		User loginUser = (User) session.getAttribute("loginSession");
 		try {
 			reqService.cancelRequestBeforeDelFromCourier(loginUser.getUserId(), requestId);
@@ -151,13 +153,15 @@ public class ViewMyListController {
 			e.printStackTrace();
 		}
 		
-		return "redirect:" + resultPage;
+		return resultPage;
 	}
-	
+	public static final Logger logger = LoggerFactory
+			.getLogger(ViewMyListController.class);
 	@RequestMapping(value="/carry/arrive", params={"requestId"}, method=RequestMethod.POST)
 	public String arriveCourierRequest(HttpSession session, Model model,
 			@RequestParam Integer requestId) {
-		String resultPage = "/mylist";
+		logger.trace("mylog: " + requestId);
+		String resultPage = "redirect:/mylist";
 		User loginUser = (User) session.getAttribute("loginSession");
 		try {
 			reqService.arriveRequest(loginUser.getUserId(), requestId);
@@ -166,6 +170,6 @@ public class ViewMyListController {
 			resultPage = "/error";
 			e.printStackTrace();
 		}
-		return "redirect:" + resultPage;
+		return resultPage;
 	}
 }

@@ -53,15 +53,14 @@ public class TitleController {
 		for(Title title: list) {
 			result.append("<tr class=\"");
 			if(title.getRequestStatus() == 1) {
-				result.append("beforeDel");
+				result.append("beforeDel\" onclick=\"location.href='")
+					.append(request.getContextPath())
+					.append("/show/predeli?requestId=")
+					.append(title.getRequestId())
+					.append("'\"><td>");
 			} else {
-				result.append("onDel");
+				result.append("onDel\"><td>");
 			}
-			result.append("\" onclick=\"location.href='")
-				.append(request.getContextPath())
-				.append("/show/predeli?requestId=")
-				.append(title.getRequestId())
-				.append("'\"><td>");
 			if(title.getRequestType() == 0) {
 				result.append("단순운송&nbsp;<span class=\"gonew_boardliststandard\">/</span>&nbsp;")
 					.append(title.getCargoName())

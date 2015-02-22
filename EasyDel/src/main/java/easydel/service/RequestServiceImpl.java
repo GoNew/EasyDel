@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import easydel.contant.AlertStatus;
 import easydel.contant.RequestStatus;
+import easydel.dao.ICompleteDeliveryDao;
 import easydel.dao.IRequestDao;
 import easydel.dao.IUserDao;
 import easydel.dao.IViewMyCarryRequestDao;
@@ -41,6 +42,8 @@ public class RequestServiceImpl implements IRequestService {
 	private IViewMySendRequestDao viewMySendDao;
 	@Autowired
 	private IAlertService alertService;
+	@Autowired
+	private ICompleteDeliveryDao compDelDao;
 
 	@Override
 	@Transactional(rollbackFor = { ServiceFailException.class })
@@ -132,9 +135,9 @@ public class RequestServiceImpl implements IRequestService {
 			case on:
 			case cancelBySender:
 			case cancelByDeliver:
+			case arrive:
 				onDel.add(req);
 				break;
-			case arrive:
 			case quit:
 				afterDel.add(req);
 				break;
@@ -186,9 +189,9 @@ public class RequestServiceImpl implements IRequestService {
 			case on:
 			case cancelBySender:
 			case cancelByDeliver:
+			case arrive:
 				onDel.add(req);
 				break;
-			case arrive:
 			case quit:
 				afterDel.add(req);
 				break;
@@ -282,7 +285,9 @@ public class RequestServiceImpl implements IRequestService {
 			throw new ServiceFailException("거래 완료 권한이 없는 유저");
 		if(currRequest.getCourierId() == null)
 			throw new ServiceFailException("의뢰를 진행중인 유저가 존재하지 않습니다.");
-		
+		if(compDelDao.insertCompleteDelivery(requestId)
+				<= 0)
+			throw new ServiceFailException("거래완료 처리중 에러 발생");
 		if(userDao.updateUserEDMoney(currRequest.getCourierId(), currRequest.getDeliveryPrice())
 				<= 0)
 			throw new ServiceFailException("운송인의 EDMoney를 갱신하는 중 에러");

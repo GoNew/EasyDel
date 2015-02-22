@@ -125,7 +125,7 @@
 			<form id="alertMessagePopUpForArriveMyCourierRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/carry/arrive">
 				<input type="hidden" id="saveRequestIdForArriveMyCourierRequest" name="requestId">
 				<div class="uk-button uk-modal-close">돌아가기</div>
-				<div class="uk-button uk-button-primary">신청취소</div>
+				<div class="uk-button uk-button-primary">운송완료</div>
 			</form>
 		</div>
 	</div>
@@ -158,7 +158,8 @@
 	function carry_readyForCancelMyRequest(id) {
 		$("#saveRequestIdForCancelMyCourierRequest").val(id);
 	}
-	function carry_arriveForCancelMyRequest(id) {
+	function carry_readyForArriveMyRequest(id) {
+		console.log(id);
 		$("#saveRequestIdForArriveMyCourierRequest").val(id);
 	}
 	$(document).ready(function() {
@@ -183,7 +184,6 @@
 	});
 </script>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>내 진행 글 보기</title>
 </head>
 <body>
@@ -210,28 +210,26 @@
 									<div class="replace_hr"></div>
 									<div class="row_request">
 										<div class="uk-width-1-2"><div class="text_middle"><%=req.getCargoName()%></div></div>
+									<%		if (req.getRequestStatus() == RequestStatus.request.getStatusCode()) {	%>	
 										<div class="uk-width-3-10">
-									<%
-											if (req.getRequestStatus() == RequestStatus.wait.getStatusCode()) {
-									%>
-											<div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div>
-										</div>
-										<div class="uk-width-2-10 button_middle">send_readyForAdmitMyRequest
-											<div class="uk-button uk-width-1-3" onclick="send_readyForAdmitMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForAdmitMySendRequest'}">수락</div>
-											<div class="uk-button uk-width-1-3" onclick="send_readyForRejectMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForRejectMySendRequest'}">거절</div>
-										</div>
-<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
-<%@include file="/WEB-INF/view/member/mylistCourierProfile" %>
-<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
-									<%
-											} else {
-									%>
 										</div>
 										<div class="uk-width-2-10 button_middle">
 											<div class="uk-button uk-width-2-3" onclick="send_readyForDeleteMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForDeleteMySendRequest'}">삭제하기</div>
 										</div>
-									<%		}	%>
 									</div>
+									<%		} else {	%>
+										<div class="uk-width-3-10">
+											<div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div>
+										</div>
+										<div class="uk-width-2-10 button_middle">
+											<div class="uk-button uk-width-1-3" onclick="send_readyForAdmitMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForAdmitMySendRequest'}">수락</div>
+											<div class="uk-button uk-width-1-3" onclick="send_readyForRejectMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForRejectMySendRequest'}">거절</div>
+										</div>
+									</div>
+<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
+<%@include file="/WEB-INF/view/member/mylistCourierProfile" %>
+<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
+									<%		}	%>
 									<%	}	%>
 								<div class="replace_hr"></div>
 							</div>
@@ -306,7 +304,7 @@
 										<div class="uk-width-2-5"><div class="text_middle"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-1-5"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId() %></div></div>
 									<%	Date currDate = new Date();	%>
-										<div class="uk-width-1-5 webkit_box"><div class="text_middle right_margin_5px">TimeOut:</div><div class="text_middle webkit_box"><%=req.getExpireDate().getMinutes() - currDate.getMinutes() %><div>분</div></div></div>
+										<div class="uk-width-1-5 webkit_box"><div class="text_middle right_margin_5px">TimeOut:</div><div class="text_middle webkit_box"><%=(req.getExpireDate().getTime()-currDate.getTime())/6000 %><div>분</div></div></div>
 										<div class="uk-width-1-5 button_middle"><div class="uk-button uk-width-2-3" onclick="carry_readyForCancelMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForCancelMyCourierRequest'}">신청취소</div></div>
 									</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
