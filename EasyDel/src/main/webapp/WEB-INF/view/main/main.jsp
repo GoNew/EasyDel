@@ -175,11 +175,13 @@
 		</div>
 		
 		<div class="main_menu_box" style="margin-left: 41px;" align="center">
-			<i id="AllRegisteredList" class="uk-icon-list-alt uk-icon-large"></i>
+			<img id="AllBoardList" alt="" src="<%=request.getContextPath()%>/img/button/allboardlist_blue.bmp">
+			<div class="MenuFont" >전체 의뢰 보기</div>
 		</div>
 	
-		<div class="main_menu_box">
-			<i id="AllRegisteredList" class="uk-icon-pencil-square-o uk-icon-large"></i>
+		<div class="main_menu_box" align="center">
+			<img id="UploadRequest" alt="" src="<%=request.getContextPath()%>/img/button/write_board_blue.bmp">
+			<div class="MenuFont">의뢰 올리기</div>
 		</div>
 		
 	</div>
@@ -190,12 +192,14 @@
 		
 		</div>
 		
-		<div class="main_menu_box">
-		<i id="AllRegisteredList" class="uk-icon-money uk-icon-large"></i>
+		<div class="main_menu_box" align="center">
+			<img id="MyRequestProgress" alt="" src="<%=request.getContextPath()%>/img/button/mypage.bmp">
+			<div class="MenuFont">내 진행 보기 </div>
 		</div>
 		
-		<div class="main_menu_box">
-		<i id="AllRegisteredList" class="uk-icon-user uk-icon-large"></i>
+		<div class="main_menu_box" align="center">
+			<img id="Edmoney" alt="" src="<%=request.getContextPath()%>/img/button/edmoney_blue.bmp">
+			<div class="MenuFont">EDMoney</div>
 		</div>
 	
 		<div class="main_menu_box">

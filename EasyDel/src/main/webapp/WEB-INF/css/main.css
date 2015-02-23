@@ -23,7 +23,7 @@ div.main_margin_top_20px{
 
 div.wrapper_videoNbox{
 	
-	border: 1px solid #ff80c0; /* 나중에 지우기 */
+	/* border: 1px solid #ff80c0; */ /* 나중에 지우기 */
 	display: -webkit-box;
 	width: 100%;
 	height: 270px;
@@ -179,13 +179,19 @@ i.icon-center{
 }
 
 div.main_menu_box{
-	/* border: 1px solid #ff80c0; */ /* 나중에 지우기 */
+	/* border: 1px solid #c4bfbb; */ /* 나중에 지우기 */
 	border-radius: 10px;
 	margin-bottom: 17px;
 	margin-top: 17px;
 	margin-left: 20px;
 	margin-right: ;
-	
 	height: 230px;
 	width: 230px;
+	opacity: 0.8;
+	filter: alpha(opacity = 80);
+}
+
+@import url(http://fonts.googleapis.com/css?family=Oswald:700);
+div.MenuFont{
+	font-family: 'Oswald' !important;
 }
