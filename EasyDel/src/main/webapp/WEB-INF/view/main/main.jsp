@@ -91,8 +91,7 @@
 	<div id = "mainbelowform" class="uk-align-center">
 		<div id = "mainleft">
 			<div class="request_people " align = "left">
-				<div id="mainbigfont1">발송인</div>
-				<div class="webkit_box"><img id="mainphotos" src= "<%=request.getContextPath()%>/img/man_gray.jpg"/></div>
+				<div id="mainbigfont1">발송인</div><div class="webkit_box"><img id="mainphotos" src= "<%=request.getContextPath()%>/img/man_gray.jpg"/></div>
 			</div>
 			<div id = "mainleftone">
 				<div id = "mainnull_left"></div>
