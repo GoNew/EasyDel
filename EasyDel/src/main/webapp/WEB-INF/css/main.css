@@ -6,7 +6,7 @@ image{border:0px;}
 
 @font-face { 
 	font-family: namsan;
-	src: url('/EasyDel/webfont/SSeoulNamsanM.woff') format('woff');
+	src: url('/EasyDel/webfont/SeoulNamsanM.woff') format('woff');
 }
 
 *{
@@ -26,9 +26,10 @@ image{border:0px;}
 	border-radius: 8px;
 }
 
-div.main_margin_top_20px{
-	margin-top: 20px;
+dib.webkit_box{
+	display: -webkit-box;
 }
+
 
 div.wrapper_videoNbox{
 	
@@ -94,6 +95,12 @@ div.wrapper_videoNbox{
 	width:36px;
 	height:39px;
 }
+
+#mainphotos2{
+	width:38px;
+	height:39px;
+	margin-left: 230px;
+}
 #mainnull{
 	width:30px;
 }
@@ -140,10 +147,22 @@ div.wrapper_videoNbox{
 	width : 190px;
 	height : 37px; 
 }
-#mainbigfont{
+#mainbigfont1{
 	font-size: 33px;	
-	margin : 10px 20px;
+	width: 90px;
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-right: 5px;
 }
+#mainbigfont2{
+	font-size: 33px;	
+	width: 100px;
+	margin-right: 0px;
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+
 #mainsmallfont{
 	font-size:20px;
 	width : 200px;
@@ -160,7 +179,7 @@ div.wrapper_videoNbox{
 }
 #mainsmallmediumfont{
 	font-size:24px;
-	width : 100px;
+	width : 110px;
 }
 
 #video_deco{
@@ -170,7 +189,7 @@ div.wrapper_videoNbox{
 	border-radius: 4px;
 	margin-bottom: 12px;
 	margin-top: 15px;
-	margin-left: 50px;
+	margin-left: 20px;
 	margin-right: ;
 }
 
@@ -200,7 +219,23 @@ div.main_menu_box{
 	filter: alpha(opacity = 80);
 }
 
-@import url(http://fonts.googleapis.com/css?family=Oswald:700);
 div.MenuFont{
-	font-family: 'Oswald' !important;
+	line-height: 36px;
+	font-size: 32px;
+	font-family: namsan;
+}
+
+div.request_people{
+	/* border: 1px solid blue; */
+	display: -webkit-box;
+	height: 40px; 
+	margin: 10px 0px;
+}
+
+div.courier_people{
+	/* border: 1px solid blue; */
+	display: -webkit-box;
+	height: 40px; 
+	margin: 10px 0px;
+	text-align: right;
 }

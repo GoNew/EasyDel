@@ -90,12 +90,15 @@
 	
 	<div id = "mainbelowform" class="uk-align-center">
 		<div id = "mainleft">
-			<div class="main_margin_top_20px" align = "left"><label id="mainbigfont">발송인</label><img id="mainphotos" src= "<%=request.getContextPath()%>/img/man.jpg"/></div>
+			<div class="request_people " align = "left">
+				<div id="mainbigfont1">발송인</div>
+				<div class="webkit_box"><img id="mainphotos" src= "<%=request.getContextPath()%>/img/man.jpg"/></div>
+			</div>
 			<div id = "mainleftone">
 				<div id = "mainnull_left"></div>
 				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/time.png"/></div>
 				<div id = "null"></div>
-				<div id = "maincontents"><label id="mainsmallfont">time precision</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc1%>"/> </div>
+				<div id = "maincontents"><label id="mainsmallfont">시간 정확성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc1%>"/> </div>
 				<div id = "null"></div>
 			</div>
 			<br>
@@ -103,7 +106,7 @@
 				<div id = "mainnull_left"></div>
 				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe.jpg"/></div>
 				<div id = "null"></div>
-				<div id = "maincontents"><label id="mainsmallfont">accuracy</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc2%>"/></div>
+				<div id = "maincontents"><label id="mainsmallfont">물품 신뢰성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc2%>"/></div>
 				<div id = "null"></div>
 			</div> 
 			<br>
@@ -111,7 +114,7 @@
 				<div id = "mainnull_left"></div>
 				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/smile.jpg"/></div>
 				<div id = "null"></div>
-				<div id = "maincontents"><label id="mainsmallfont">kind</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc3%>"/></div>
+				<div id = "maincontents"><label id="mainsmallfont">인성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc3%>"/></div>
 				<div id = "null"></div>
 			</div>
 			<br>
@@ -122,7 +125,7 @@
 					<label id="mainsmallfont2">거래완료율</label><br>
 					<div id = "mainbigfont"> <%=sPercentage%>%</div>
 				</div>
-				<div align="right" id ="mainsmallmediumfont"> <%= senderSuccesscnt%>/<%= senderTotalcnt%>건</div>
+				<div align="right" id ="mainsmallmediumfont"><%= senderSuccesscnt%>/<%= senderTotalcnt%>건</div>
 				<div id = "mainnull"></div>
 			</div>
 		</div>
@@ -135,24 +138,29 @@
 		
 		
 		<div id = "mainright">
-			<div class="main_margin_top_20px" align ="right" ><img id="mainphotos" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/deliveryman.png"><label id="mainbigfont">운송인</label></div>
+			<div class="courier_people" align="right">
+				<div class="webkit_box"><img id="mainphotos2" src= "<%=request.getContextPath()%>/img/deliveryman.png"></div>
+				<div id="mainbigfont2">운송인</div>
+			</div>
+			
+			
 			<div id = "mainrightone">
 				<div id = "mainnull_right"></div>
-				<div id = "maincontents" align="right"><label id="mainsmallfont">time precision</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc4%>"/> </div>
+				<div id = "maincontents" align="right"><label id="mainsmallfont">시간 정확성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc4%>"/> </div>
 				<div id = "null"></div>
 				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/time.png"/></div>
 			</div>
 			<br>
 			<div id = "mainleftone">
 				<div id = "mainnull_right"></div>
-				<div id = "maincontents" align="right"><label id="mainsmallfont">safe</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc5%>"/></div>
+				<div id = "maincontents" align="right"><label id="mainsmallfont">안정성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc5%>"/></div>
 				<div id = "null"></div>
 				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe.jpg"/></div>
 			</div>
 			<br>
 			<div id = "mainleftone">
 				<div id = "mainnull_right"></div>
-				<div id = "maincontents" align="right"><label id="mainsmallfont">kind</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc6%>"/></div>
+				<div id = "maincontents" align="right"><label id="mainsmallfont">인성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc6%>"/></div>
 				<div id = "null"></div>
 				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/smile.jpg"/></div>
 			</div>
@@ -170,11 +178,11 @@
 	
 	<div class="wrapper_videoNbox">
 		
-		<div class="uk-cover"> <!-- style="width: 430px; height: 232px; border: 1px solid blue;" -->
+		<div class="uk-cover" style="border: 1px solid blue;"> <!-- style="width: 430px; height: 232px; border: 1px solid blue;" -->
 			<!-- autoplay="autoplay" loop="loop" --><video id="video_deco" class="uk-cover-object" src="<%=request.getContextPath()%>/img/toomuch.mp4" ></video>
 		</div>
 		
-		<div class="main_menu_box" style="margin-left: 41px;" align="center">
+		<div class="main_menu_box" style="margin-left: 70px;" align="center">
 			<img id="AllBoardList" alt="" src="<%=request.getContextPath()%>/img/button/allboardlist_blue.bmp">
 			<div class="MenuFont" >전체 의뢰 보기</div>
 		</div>
@@ -188,13 +196,12 @@
 	<div class="wrapper_videoNbox">
 		
 		
-		<div id="" class="main_menu_box" style="margin-left: 10px;">
+		<div id="" class="main_menu_box" align="center" style="margin-left: 10px;">
 		
 		</div>
 		
 		<div class="main_menu_box" align="center">
-			<img id="MyRequestProgress" alt="" src="<%=request.getContextPath()%>/img/button/mypage.bmp">
-			<div class="MenuFont">내 진행 보기 </div>
+			
 		</div>
 		
 		<div class="main_menu_box" align="center">
@@ -202,8 +209,9 @@
 			<div class="MenuFont">EDMoney</div>
 		</div>
 	
-		<div class="main_menu_box">
-		
+		<div class="main_menu_box" align="center">
+			<img id="MyRequestProgress" alt="" src="<%=request.getContextPath()%>/img/button/mypage.bmp">
+			<div class="MenuFont">내 진행 보기 </div>
 		</div>
 		
 	</div>
