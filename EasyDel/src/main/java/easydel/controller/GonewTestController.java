@@ -14,8 +14,8 @@ public class GonewTestController {
 	
 	@RequestMapping("/gonew/test")
 	public String test() {
-		Request temp = dao.selectRequestJoinRequestCmtByRequestId(1);
-		System.out.println(temp.toString());
-		return "showMessage";
+		/*Request temp = dao.selectRequestJoinRequestCmtByRequestId(1);
+		System.out.println(temp.toString());*/
+		return "profile/courier";
 	}
 }

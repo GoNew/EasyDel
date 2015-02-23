@@ -132,6 +132,24 @@
 </div>
 </div>
 
+<script type="text/javascript">
+	function ready_ForShowingProfileOfCourier(userId) {
+		$("#saveCourierIdForShowingProfileOfCourier").val(userId);
+		/* $("#courierProfileContent").addClass("uk-modal-spinner"); */
+		
+	}
+</script>
+<div>
+	<input type="hidden" id="saveCourierIdForShowingProfileOfCourier">
+	<div id="profileOfCourierUsingModal" class="uk-modal" style="display: none; overflow-y: scroll;">
+		<div class="uk-modal-dialog uk-modal-dialog-large">
+		    <div id="courierProfileContent">
+		    	
+		    </div>
+		</div>
+	</div>
+</div>
+
 <head>
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
