@@ -64,7 +64,7 @@
 
 <div class="uk-clearfix">
 <div id="formcss" class="uk-align-center">
-<pre>                            호잇             
+<pre>                                                          
                               </pre>
 
 	<form class="uk-form" enctype="multipart/form-data" action="<%=request.getContextPath()%>/modify" id="modifyForm" method="post">
@@ -99,11 +99,11 @@
 		    		<div align="left" id="middleform"><input id="my" value="<%=birth %>" readonly="readonly"/></div> 						
 				</div>
 			</div>
-			<div align="right" id="rightform">
-				<div id="null">프로필 사진을 변경하려면 사진을 선택하세요!</div>
+			<div style="width:70px"></div>
+			<div align="center" id="rightform">
+				<div style="height:50px">프로필 사진을 변경하려면 사진을 선택하세요!</div>
 				<label for="imgFileInput">
-					<div id="imagePreview" class="uk-width-1-1 uk-text-center"
-					style="background-image:url('<%=request.getContextPath() %><%=user.getUserPicture() %>')">
+					<div id="imagePreview" class="uk-width-1-1 uk-text-center" style="background-image:url('<%=request.getContextPath() %><%=user.getUserPicture() %>')">
 					</div>
 				</label>
 				<input type="file" id="imgFileInput" name="imgFileInput">
@@ -111,12 +111,12 @@
 		</section>
 		
 		<div>
-			<input type="email" value="<%=user.getUserEmail()%>" placeholder="이메일" class="uk-width-7-10" name="userEmail" required> <br>
+			<input type="email" value="<%=user.getUserEmail()%>" placeholder="이메일" class="uk-width-7-10" id="modifyInfo" name="userEmail" required> <br>
 			<input type="hidden" value="<%=user.getUserPhone()%>" id="hiddentelephone"></input>
       	    <input type="tel" value="<%=user.getUserPhone()%>" id="telephone" pattern="[0-9]{10,11}" title="10~11자리 숫자만 사용할 수 있습니다." placeholder="휴대폰전화번호" name="userPhone" class="uk-width-7-10" required> 
-      	    <button class="uk-button uk-button uk-width-1-5" type="button" data-uk-button id="button2">전송</button> <br>
-     	    <input type="text" placeholder="인증번호" class="uk-width-7-10"> 
-     		<button class="uk-button uk-button uk-width-1-5" type="button" data-uk-button id="button2">확인</button>
+      	    <button class="uk-button" type="button" data-uk-button id="button2">전송</button> <br>
+     	    <input type="text" placeholder="인증번호" class="uk-width-7-10" id="modifyInfo" > 
+     		<button class="uk-button" type="button" data-uk-button id="button2">확인</button>
         </div>
      	<br>
      	<div align="center">
