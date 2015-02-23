@@ -175,11 +175,11 @@
 		</div>
 		
 		<div class="main_menu_box" style="margin-left: 41px;" align="center">
-			<i class="uk-icon-spin uk-icon-list-alt uk-icon-large icon-center"></i>
+			<i id="AllRegisteredList" class="uk-icon-list-alt uk-icon-large"></i>
 		</div>
 	
 		<div class="main_menu_box">
-		
+			<i id="AllRegisteredList" class="uk-icon-pencil-square-o uk-icon-large"></i>
 		</div>
 		
 	</div>
@@ -191,11 +191,11 @@
 		</div>
 		
 		<div class="main_menu_box">
-		
+		<i id="AllRegisteredList" class="uk-icon-money uk-icon-large"></i>
 		</div>
 		
 		<div class="main_menu_box">
-		
+		<i id="AllRegisteredList" class="uk-icon-user uk-icon-large"></i>
 		</div>
 	
 		<div class="main_menu_box">
