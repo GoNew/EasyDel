@@ -132,6 +132,7 @@
 </div>
 </div>
 
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/mylistcourier.css" />
 <script type="text/javascript">
 	function ready_ForShowingProfileOfCourier(userId) {
 		$("#saveCourierIdForShowingProfileOfCourier").val(userId);
@@ -144,7 +145,12 @@
 	<div id="profileOfCourierUsingModal" class="uk-modal" style="display: none; overflow-y: scroll;">
 		<div class="uk-modal-dialog uk-modal-dialog-large">
 		    <div id="courierProfileContent">
-		    	
+		    	<table>
+		    		<tr>
+		    			<td>asdfadf</td>
+		    			<td>asdfadf</td>
+		    		</tr>
+		    	</table>
 		    </div>
 		</div>
 	</div>

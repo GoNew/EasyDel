@@ -67,9 +67,10 @@ public class ModifyController {
 	@RequestMapping(value="/withdraw", method=RequestMethod.GET)
 	public String withdraw(Model model, HttpSession session){
 		String resultPage = "intro/intro";
-		String loginUserId = (String) session.getAttribute("loginSession");
+		User loginUser = (User) session.getAttribute("loginSession");
 		try {
-			service.serviceDeleteUser(loginUserId);
+			service.serviceDeleteUser(loginUser.getUserId());
+			session.removeAttribute("loginSession");
 		} catch (ServiceFailException e) {
 			model.addAttribute("errorMsg", "알수없는 원인");
 			resultPage = "error/errorPage";
