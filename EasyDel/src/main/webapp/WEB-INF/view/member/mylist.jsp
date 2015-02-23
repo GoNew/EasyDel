@@ -145,16 +145,121 @@
 	<div id="profileOfCourierUsingModal" class="uk-modal" style="display: none; overflow-y: scroll;">
 		<div class="uk-modal-dialog uk-modal-dialog-large">
 		    <div id="courierProfileContent">
-		    	<table>
-		    		<tr>
-		    			<td>asdfadf</td>
-		    			<td>asdfadf</td>
-		    		</tr>
-		    	</table>
+				<div class="uk-clearfix">
+				<div id="formcss" class="uk-align-center"> 
+					<div style="height:40px"></div>
+					<div id="profileid" align="center" style="font-size: 25px">
+					 			' 메롱~ ' 님의 운송인 평가 정보 입니다.
+					</div><br>
+					<div id="profileupform">
+						<div style="width:100px;"></div>
+						
+						<div id="profilephoto">
+							<img id="profileimg" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/bart.PNG">
+						</div>
+						<div style="width:130px;"></div>
+						<div id="profileupsmallform">
+							
+							<div id="profileinfo">
+								<div style="height:20px;"></div>
+									<div id="profiledangdang">
+										<div><img id = "courierimg" src= "<%=request.getContextPath()%>/img/time.png"/></div> 
+										<div style="width:10px"></div>
+										<div>
+											<div style="height:8px"></div>
+											<div id="profilediv">time precision</div>
+										</div>
+										<div>
+											<div style="height:8px"></div>
+											<div style="width: 10px"> : </div>
+										</div>
+										 	<div id="profilediv"><img id = "mainstar" src= "<%=request.getContextPath()%>/img/twostarl.JPG"/> </div> 
+										<div>
+											<div style="height:8px"></div>
+											<div style="font-size: 23px; width: 100px;" align="center">2점</div>
+										</div>
+									</div>
+								  	<div id="profiledangdang">
+									  	<div><img id = "courierimg" src= "<%=request.getContextPath()%>/img/safe.jpg"/></div>
+									  	<div style="width:10px"></div>
+									  	<div>
+											<div style="height:10px"></div>
+								  			<div id="profilediv">safe</div>
+								  		</div>
+								  		<div>
+											<div style="height:8px"></div>
+								  			<div style="width: 10px"> : </div>
+								  		</div>
+								  		<div id="profilediv"><img id = "mainstar" src= "<%=request.getContextPath()%>/img/threestarl.JPG"/> </div>
+								  		<div>
+											<div style="height:8px"></div>
+								  			<div style="font-size: 23px; width: 100px;" align="center">3점</div>
+								  		 </div>
+								  	</div>
+								  	<div id="profiledangdang">
+								  		<div><img id = "courierimg" src= "<%=request.getContextPath()%>/img/smile.jpg"/></div> 
+								  		<div style="width:10px"></div>
+								  		<div>
+											<div style="height:10px"></div>
+								  			<div id="profilediv">kind</div>
+								  		</div>
+								  		<div>
+											<div style="height:8px"></div>
+								  			<div style="width: 10px"> : </div>
+								  		</div>
+								  		<div id="profilediv"><img id = "mainstar" src= "<%=request.getContextPath()%>/img/fivestar.jpg"/> </div>
+								  		<div>
+											<div style="height:8px"></div>
+								  			<div style="font-size: 23px; width: 100px;" align="center">5점</div>
+								  		</div>
+								  	</div>
+								  	<div style="height:3px;"></div>
+							</div>
+							<div id="profiledangdang2">
+								<div style="width:25px"></div>
+								<div id="profilediv">거래완료율</div>
+								<div style="width: 15px"> : </div> 
+								<div id="profilediv" align="center">100%</div>
+								<div style="font-size: 23px; width: 100px;" align="center">1/1건</div>
+							</div>
+						</div>
+					</div>
+					<div style="height:33px;"></div>
+					<div id="profiledownform">
+						<div id ="profiledowntext">
+							<div id="profiletwo">
+								<div style="width:70px;"></div>
+								<div style="width:700px;"><strong>평가댓글</strong></div>
+								<div style="width:200px;"><strong>댓글 등록일</strong></div>
+							</div>	
+							<div class="replacehr"></div>
+							<table id="firsttable" style="width:100%">
+								<tbody>
+									<tr>
+										<td height="1" colspan="3" bgcolor="#dddddd"></td>
+									</tr>
+									<tr>
+										<div id="profiletwo">
+											<div style="width:700px;line-height:20px;padding:7px;word-break:break-all;overflow:hidden;clear:both;font-size:12px;"> 
+												여기에 댓글이 올라옵니다.
+											</div>
+											<div style="width:200px;line-height:20px;padding:7px;word-break:break-all;overflow:hidden;clear:both;color:#888888;font-size:13px">
+												여기는 날짜입력
+											</div>
+										</div>
+									</tr>
+								</tbody>
+							</table>
+						</div>	
+					</div>
+				</div>
+				</div>
 		    </div>
 		</div>
 	</div>
 </div>
+
+
 
 <head>
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
