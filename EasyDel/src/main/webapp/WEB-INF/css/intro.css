@@ -40,8 +40,8 @@ address {
 
 #logoimg {
 	margin-top: 100px ;
-	opacity: 0.7;
-	filter: alpha(opacity = 50);
+	/* opacity: 0.7;
+	filter: alpha(opacity = 50); */
 }
 
 #formcss {
@@ -92,4 +92,10 @@ address {
 div.wrapper_login{
 	height: 600px;
 	/* background: rgba(0,0,0,0.6); */
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+background-color: #ffffff250255189;
+background-image: none;
+color: rgb(0, 0, 0);
 }
