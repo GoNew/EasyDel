@@ -13,7 +13,7 @@
 <title>메인</title>
 <%
 	User loginUserInfo = (User) session.getAttribute("loginSession");
-	/* loginUserInfo.setSenderAvgKind(3);
+	loginUserInfo.setSenderAvgKind(3);
 	loginUserInfo.setSenderAvgThing(4);
 	loginUserInfo.setSenderAvgTime(2);
 	loginUserInfo.setSenderSuccesscnt(10);
@@ -22,7 +22,7 @@
 	loginUserInfo.setCourierAvgSafe(5);
 	loginUserInfo.setCourierAvgTime(0);
 	loginUserInfo.setCourierSuccesscnt(10);
-	loginUserInfo.setCourierTotalcnt(300); */
+	loginUserInfo.setCourierTotalcnt(300);
 
  	int senderAvgTime = loginUserInfo.getSenderAvgTime();
  	int senderAvgThing = loginUserInfo.getSenderAvgThing();
@@ -30,7 +30,7 @@
  	int senderSuccesscnt = loginUserInfo.getSenderSuccesscnt();
  	int senderTotalcnt = loginUserInfo.getSenderTotalcnt();
  	double senderPercentage = 0.0;
- 	String sPercentage = "0.0";
+ 	String sPercentage = null;
  	if(senderTotalcnt != 0){
  		senderPercentage = ((double)senderSuccesscnt/(double)senderTotalcnt) * 100;
  		sPercentage = String.format("%.1f" , senderPercentage);
@@ -42,7 +42,7 @@
  	int courierSuccesscnt = loginUserInfo.getCourierSuccesscnt();
  	int courierTotalcnt = loginUserInfo.getCourierTotalcnt();
  	double courierPercentage = 0.0;
- 	String cPercentage = "0.0";
+ 	String cPercentage = null;
  	if(courierTotalcnt != 0){
  		courierPercentage = ((double)courierSuccesscnt/(double)courierTotalcnt) * 100;
  		cPercentage = String.format("%.1f" , courierPercentage);
@@ -90,7 +90,7 @@
 	
 	<div id = "mainbelowform" class="uk-align-center">
 		<div id = "mainleft">
-			<div align = "left"><label id="mainbigfont">발송인</label><img id="mainphotos" src= "<%=request.getContextPath()%>/img/man.jpg"/></div>
+			<div class="main_margin_top_20px" align = "left"><label id="mainbigfont">발송인</label><img id="mainphotos" src= "<%=request.getContextPath()%>/img/man.jpg"/></div>
 			<div id = "mainleftone">
 				<div id = "mainnull_left"></div>
 				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/time.png"/></div>
@@ -128,14 +128,14 @@
 		</div>
 		
 		<div id = "mainmiddle">
-		<div id="mainphoto" class="uk-align-center">
+		<div id="mainphoto" class="uk-align-center" style="margin-top: 70px;">
 			<img id="mainimg" class="uk-border-circle" src="<%=request.getContextPath()%><%=loginUserInfo.getUserPicture() %>">
 		</div>
 		</div>
 		
 		
 		<div id = "mainright">
-			<div align ="right" ><img id="mainphotos" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/deliveryman.png"><label id="mainbigfont">운송인</label></div>
+			<div class="main_margin_top_20px" align ="right" ><img id="mainphotos" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/deliveryman.png"><label id="mainbigfont">운송인</label></div>
 			<div id = "mainrightone">
 				<div id = "mainnull_right"></div>
 				<div id = "maincontents" align="right"><label id="mainsmallfont">time precision</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc4%>"/> </div>
@@ -168,17 +168,17 @@
 	</div>
 	
 	
-	<div>
+	<div class="wrapper_videoNbox">
 		
-		<div class="uk-cover">
-			<video id="video_deco" class="uk-cover-object" autoplay="autoplay" loop="loop" src="<%=request.getContextPath()%>/img/toomuch.mp4" ></video>
+		<div id="video_deco" style="width: 430px; height: 232px; border: 1px solid blue;" class="uk-cover ">
+			<%-- <video id="video_deco" class="uk-cover-object" autoplay="autoplay" loop="loop" src="<%=request.getContextPath()%>/img/toomuch.mp4" ></video> --%>
 		</div>
 		
-		<div>
+		<div class="main_menu_box">
 		
 		</div>
 	
-		<div>
+		<div class="main_menu_box">
 		
 		</div>
 		
