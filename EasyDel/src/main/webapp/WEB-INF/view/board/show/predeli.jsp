@@ -122,8 +122,8 @@ $(document).ready(function() {
 				<div class="uk-overlay-area"></div>
 			</a> --%>
 			
-			<div class="uk-thumbnail uk-overlay-hover" data-uk-modal="{target:'#modal-1'}">
-				<figure class="uk-overlay">
+			<div class="uk-overlay-hover" data-uk-modal="{target:'#modal-1'}">
+				<figure class="uk-overlay" id="wrapper_product_img_div">
 					<img id="wrapper_product_img" src="<%=cargoPicturePath %>" alt="">
 					<figcaption class="uk-overlay-panel uk-overlay-icon uk-overlay-background uk-overlay-fade"></figcaption>
 					<a class="uk-position-cover" href="#"></a>
@@ -131,12 +131,12 @@ $(document).ready(function() {
        	 	</div>
        	 	
        	 	<div id="modal-1" class="uk-modal" style="display: none; overflow-y: scroll;">
-				<div class="uk-modal-dialog uk-modal-dialog-lightbox">
+				<div class="uk-modal-dialog uk-overflow-container modal_change">
 					<a href="" class="uk-modal-close uk-close uk-close-alt"></a>
 					<img src="<%=cargoPicturePath %>" alt="">
 				</div>
 	    	</div>
-			
+	    	
 			<div id="wrapper_product_div"> 
 				<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">물품명</div><div class="text_middle unfixed_font_color"><%=req.getCargoName() %></div></div>
 				<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">비용</div><div class="text_middle unfixed_font_color"><%=req.getDeliveryPrice() %></div><div style="margin-left: 10px;" class="text_middle fixed_font_color">원</div></div>
@@ -156,7 +156,8 @@ $(document).ready(function() {
 						<div id="deli_userid" class="text_middle_extra fixed_font_color"><%=cmt.getUserId() %></div>
 					</div>
 			<%		if(cmt.getReplyPicture() != null) {	%>
-					<div class="uk-thumbnail uk-overlay-hover margin_left_50px" data-uk-modal="{target:'#_cmt_modal_picture_<%=cmt.getCmtId() %>'}">
+					
+					<div class="uk-overlay-hover margin_left_50px" data-uk-modal="{target:'#_cmt_modal_picture_<%=cmt.getCmtId() %>'}">
 						<figure class="uk-overlay">
 							<img class="img_fixed_size_extra" src="<%=request.getContextPath() %><%=cmt.getReplyPicture() %>" alt="">
 							<figcaption class="uk-overlay-panel uk-overlay-icon uk-overlay-background uk-overlay-fade"></figcaption>
@@ -164,12 +165,13 @@ $(document).ready(function() {
 						</figure>
 		       	 	</div>
 		       	 	
-		       	 	<div id="_cmt_modal_picture_<%=cmt.getCmtId() %>" class="uk-modal" style="display: none; overflow-y: scroll;">
-						<div class="uk-modal-dialog uk-modal-dialog-lightbox">
+		       	 	<div id="_cmt_modal_picture_<%=cmt.getCmtId() %>" class="uk-modal" style="display: none; overflow-y: scroll; overflow-x: scroll; ">
+						<div align="center" class="uk-modal-dialog uk-modal-dialog-lightbox modal_change" >
 							<a href="" class="uk-modal-close uk-close uk-close-alt"></a>
 							<img src="<%=request.getContextPath() %><%=cmt.getReplyPicture() %>" alt="">
 						</div>
 			    	</div>
+			    	
 			<%		}	%>
 					<div class="row_request_extra_long"> 
 						<div class="margin_left_50px text_middle_extra_long unfixed_font_color"><%=cmt.getReplyText() != null ? cmt.getReplyText() : "" %></div> 

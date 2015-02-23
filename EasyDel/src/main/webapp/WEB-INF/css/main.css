@@ -49,9 +49,10 @@ image{border:0px;}
 
 #mainbelowform{
 	width : 100%;
+	height: 370px;
 	display: -webkit-box;
-	margin: 0px auto;
-	border: 1px solid red;
+	margin: 20px auto;
+	/* border: 1px solid red; */
 }
 #mainleft{
 	width : 370px;
@@ -140,7 +141,8 @@ image{border:0px;}
 }
 
 #video_deco{
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	width: 600px;
 	height: 400px;
+	border-radius: 4px;
 }

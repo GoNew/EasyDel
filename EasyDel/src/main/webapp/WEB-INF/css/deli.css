@@ -176,6 +176,10 @@ div.fixed_font_color{
 div.unfixed_font_color{
 	color: #a5a5a5;
 }
+/* 모달을 투명화 시키는 부분 */
+div.modal_change{
+	background: rgba(0,0,0,0.1);
+}
 button.recept_deli_btn{
 	height: 65px;
 	width: 250px;
@@ -308,6 +312,7 @@ display: none;
 #wrapper_recept_deli_btn_div{
 	margin: 50px 0px;
 }
+
 
 /* #sub_panel{
 	margin-left: 44px;

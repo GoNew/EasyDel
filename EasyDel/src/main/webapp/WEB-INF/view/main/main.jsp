@@ -80,7 +80,7 @@
 <body>
 <div class="uk-clearfix">
 <div id="formcss" class="uk-align-center">
-	<div style="height:40px"></div>
+	<!-- <div style="height:40px"></div> -->
 	
 	<!-- <div id = "mainlineform" class="uk-align-center">
 		<div id = "mainlineleft"></div>
