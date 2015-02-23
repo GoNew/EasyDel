@@ -24,7 +24,11 @@ public class EvalController {
 	//운송인 평가
 	@RequestMapping(value="/courier", method=RequestMethod.GET)
 	public String moveToEvalCourier(@RequestParam Integer requestId, Model model){
-		model.addAttribute("courierInfo", service.serviceGetCourier(requestId));
+		try {
+			model.addAttribute("courierInfo", service.serviceGetCourier(requestId));
+		} catch (ServiceFailException e) {
+			e.printStackTrace();
+		}
 		model.addAttribute("requestId", requestId);
 		return "profile/eval/couriereval";
 	}

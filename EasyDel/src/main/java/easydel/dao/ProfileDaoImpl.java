@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 
 import easydel.entity.CourierEval;
 
@@ -23,12 +22,19 @@ public class ProfileDaoImpl implements IProfileDao {
 	@Override
 	public List<CourierEval> selectCourierInfos(Integer pageNum, String courierId) {
 		String stmt = namespace + ".selectCourierInfos";
+		if((pageNum == null) || (pageNum <= 0))
+			pageNum = new Integer(1);
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("pageNum", pageNum);
-		
+		params.put("userId", courierId);
 		List<CourierEval> result = session.selectList(stmt, params);
 		return result;
 	}
-
-
+	
+	@Override
+	public Integer selectCountOfCourierInfosByUserId(String userId) {
+		String stmt = namespace + ".selectCountOfCourierInfosByUserId";
+		Integer result = session.selectOne(stmt, userId);
+		return result;
+	}
 }

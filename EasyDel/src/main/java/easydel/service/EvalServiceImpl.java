@@ -22,9 +22,13 @@ public class EvalServiceImpl implements IEvalService {
 	private SqlSession session;
 	
 	@Override
-	public User serviceGetCourier(Integer requestId){
+	public User serviceGetCourier(Integer requestId) throws ServiceFailException{
+		if(requestId == null)
+			throw new ServiceFailException("존재하지 않는 의뢰 글");
 		User user = null;
 		user = dao.selectCourierByRequestId(requestId);
+		if(user == null)
+			throw new ServiceFailException("해당 유저를 찾을 수 없음");
 		return user;
 	}
 	@Override
