@@ -1,8 +1,16 @@
 @CHARSET "UTF-8";
 
-/*    *{border:solid 1px blue;}    */ 
+  *{border:solid 1px blue;}    
 *{margin:0px;padding:0px;} 
 image{border:0px;}
+@font-face { 
+	font-family: namsan;
+	src: url('/EasyDel/webfont/SeoulNamsanM.woff') format('woff');
+}
+
+*{
+	font-family: namsan;
+}
 
 #uk-clearfix{
 	width:1024px;
@@ -16,6 +24,11 @@ image{border:0px;}
 #errorimg{
 	width:600px;
 	height:600px;
+}
+#errormsg{
+	width:200px;
+	height:70px;
+	font-size: 30px;
 }
 #errornull{
 	display: -webkit-box;
