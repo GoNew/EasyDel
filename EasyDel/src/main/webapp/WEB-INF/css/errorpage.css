@@ -27,7 +27,8 @@ image{border:0px;}
 }
 #errormsg{
 	width:200px;
-	height:100px;
+	height:70px;
+	font-size: 30px;
 }
 #errornull{
 	display: -webkit-box;
