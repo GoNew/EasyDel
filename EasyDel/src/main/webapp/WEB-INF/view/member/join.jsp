@@ -70,7 +70,7 @@
 <div id="background_div" class="uk-cover-background uk-position-cover" style="background-image: url('<%=request.getContextPath() %>/img/background/back2.jpg')">
 <div id="background_div_up">
 <div id="fullbrowser" class="uk-clearfix" align="center" >
-<div id="logoimg"> <img id="logo" src="<%=request.getContextPath()%>/img/easydel_logo.png" class="uk-align-center"> </div>
+<div id="logoimg"> <img id="logo" src="<%=request.getContextPath()%>/img/easydel_Real_Log.jpg" class="uk-align-center"> </div>
 <div id="formcss" class="uk-align-center">
 <div style="height:20px"></div>
 	<form class="uk-form" enctype="multipart/form-data" action="<%=request.getContextPath()%>/join" id="joinForm" method="post">
