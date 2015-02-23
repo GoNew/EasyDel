@@ -21,7 +21,7 @@
 		<div style="width:203px"></div>
 		<div><img id="errorimg" src="<%=request.getContextPath()%>/img/error.png"></div>
 	</div>
-	<div style="height:70px">
+	<div id="errormsg">
 		<%=errormsg %>
 	</div>
 	<div id="errornull">

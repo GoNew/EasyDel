@@ -96,7 +96,7 @@
 			</div>
 			<div id = "mainleftone">
 				<div id = "mainnull_left"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/time.png"/></div>
+				<div id = "mainicon"><img id = "mainleftonephoto"class="uk-border-circle" src= "<%=request.getContextPath()%>/img/time.png"/></div>
 				<div id = "null"></div>
 				<div id = "maincontents"><label id="mainsmallfont">시간 정확성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc1%>"/> </div>
 				<div id = "null"></div>
@@ -104,7 +104,7 @@
 			<br>
 			<div id = "mainleftone">
 				<div id = "mainnull_left"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe.jpg"/></div>
+				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe.png"/></div>
 				<div id = "null"></div>
 				<div id = "maincontents"><label id="mainsmallfont">물품 신뢰성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc2%>"/></div>
 				<div id = "null"></div>
@@ -112,7 +112,7 @@
 			<br>
 			<div id = "mainleftone">
 				<div id = "mainnull_left"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/smile.jpg"/></div>
+				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/smile.png"/></div>
 				<div id = "null"></div>
 				<div id = "maincontents"><label id="mainsmallfont">인성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc3%>"/></div>
 				<div id = "null"></div>
@@ -155,14 +155,14 @@
 				<div id = "mainnull_right"></div>
 				<div id = "maincontents" align="right"><label id="mainsmallfont">안정성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc5%>"/></div>
 				<div id = "null"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe.jpg"/></div>
+				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe.png"/></div>
 			</div>
 			<br>
 			<div id = "mainleftone">
 				<div id = "mainnull_right"></div>
 				<div id = "maincontents" align="right"><label id="mainsmallfont">인성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc6%>"/></div>
 				<div id = "null"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/smile.jpg"/></div>
+				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/smile.png"/></div>
 			</div>
 			<br>
 			<div id = "maintwo">
