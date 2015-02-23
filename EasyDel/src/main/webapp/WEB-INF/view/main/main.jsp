@@ -92,11 +92,11 @@
 		<div id = "mainleft">
 			<div class="request_people " align = "left">
 				<div id="mainbigfont1">발송인</div>
-				<div class="webkit_box"><img id="mainphotos" src= "<%=request.getContextPath()%>/img/man.jpg"/></div>
+				<div class="webkit_box"><img id="mainphotos" src= "<%=request.getContextPath()%>/img/man_gray.jpg"/></div>
 			</div>
 			<div id = "mainleftone">
 				<div id = "mainnull_left"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto"class="uk-border-circle" src= "<%=request.getContextPath()%>/img/time.png"/></div>
+				<div id = "mainicon"><img id = "mainleftonephoto" src= "<%=request.getContextPath()%>/img/time_blue.jpg"/></div>
 				<div id = "null"></div>
 				<div id = "maincontents"><label id="mainsmallfont">시간 정확성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc1%>"/> </div>
 				<div id = "null"></div>
@@ -104,7 +104,7 @@
 			<br>
 			<div id = "mainleftone">
 				<div id = "mainnull_left"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe.png"/></div>
+				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe_blue.jpg"/></div>
 				<div id = "null"></div>
 				<div id = "maincontents"><label id="mainsmallfont">물품 신뢰성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc2%>"/></div>
 				<div id = "null"></div>
@@ -112,7 +112,7 @@
 			<br>
 			<div id = "mainleftone">
 				<div id = "mainnull_left"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/smile.png"/></div>
+				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/smile_blue.jpg"/></div>
 				<div id = "null"></div>
 				<div id = "maincontents"><label id="mainsmallfont">인성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc3%>"/></div>
 				<div id = "null"></div>
@@ -121,12 +121,13 @@
 			<div id = "maintwo">
 				<div id = "null"></div>
 				<div id = "null"></div>
-				<div id = "maintwopercent" align = "center">
-					<label id="mainsmallfont2">거래완료율</label><br>
-					<div id = "mainbigfont1"> <%=sPercentage%>%</div>
+				<div id = "maintwopercent" align="center">
+					<label id="mainsmallfont2">거래완료율</label>
+					<div class="webkit_box" align="left" >
+						<div id = "completedRate_font_left"> <%=sPercentage%>%</div>
+						<div id ="mainsmallmediumfont_left">(<%= senderSuccesscnt%>/<%= senderTotalcnt%>건)</div>
+					</div>
 				</div>
-				<div align="right" id ="mainsmallmediumfont"><%= senderSuccesscnt%>/<%= senderTotalcnt%>건</div>
-				<div id = "mainnull"></div>
 			</div>
 		</div>
 		
@@ -139,7 +140,7 @@
 		
 		<div id = "mainright">
 			<div class="courier_people" align="right">
-				<div class="webkit_box"><img id="mainphotos2" src= "<%=request.getContextPath()%>/img/deliveryman.png"></div>
+				<div class="webkit_box"><img id="mainphotos2" src= "<%=request.getContextPath()%>/img/delivery_gray.jpg"></div>
 				<div id="mainbigfont2">운송인</div>
 			</div>
 			
@@ -148,28 +149,29 @@
 				<div id = "mainnull_right"></div>
 				<div id = "maincontents" align="right"><label id="mainsmallfont">시간 정확성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc4%>"/> </div>
 				<div id = "null"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/time.png"/></div>
+				<div id = "mainicon"><img id ="mainleftonephoto"  src= "<%=request.getContextPath()%>/img/time_blue.jpg"/></div>
 			</div>
 			<br>
 			<div id = "mainleftone">
 				<div id = "mainnull_right"></div>
 				<div id = "maincontents" align="right"><label id="mainsmallfont">안정성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc5%>"/></div>
 				<div id = "null"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe.png"/></div>
+				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe_blue.jpg"/></div>
 			</div>
 			<br>
 			<div id = "mainleftone">
 				<div id = "mainnull_right"></div>
 				<div id = "maincontents" align="right"><label id="mainsmallfont">인성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc6%>"/></div>
 				<div id = "null"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/smile.png"/></div>
+				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/smile_blue.jpg"/></div>
 			</div>
 			<br>
 			<div id = "maintwo">
-				<div align="left" id ="mainsmallmediumfont"><%=courierSuccesscnt%>/<%=courierTotalcnt%>건</div>
-				<div id = "maintwopercent" align = "center">
+				<div id = "maintwopercent_right" align ="right">
 					<label id="mainsmallfont2">거래완료율</label><br>
-					<div id = "mainbigfont1"> <%=cPercentage%>%</div>
+					<div class="webkit_box" align="right"><div id ="mainsmallmediumfont_right">(<%=courierSuccesscnt%>/<%=courierTotalcnt%>건)</div>
+					<div id = "completedRate_font_right"> <%=cPercentage%>%</div></div>
+					
 				</div>
 			</div>
 		</div>
@@ -178,7 +180,7 @@
 	
 	<div class="wrapper_videoNbox">
 		
-		<div class="uk-cover" style="border: 1px solid blue;"> <!-- style="width: 430px; height: 232px; border: 1px solid blue;" -->
+		<div class="uk-cover"> <!-- style="width: 430px; height: 232px; border: 1px solid blue;" -->
 			<!-- autoplay="autoplay" loop="loop" --><video id="video_deco" class="uk-cover-object" src="<%=request.getContextPath()%>/img/toomuch.mp4" ></video>
 		</div>
 		
