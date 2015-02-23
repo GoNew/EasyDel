@@ -170,12 +170,12 @@
 	
 	<div class="wrapper_videoNbox">
 		
-		<div class="uk-cover "> <!-- style="width: 430px; height: 232px; border: 1px solid blue;" -->
-			<video id="video_deco" class="uk-cover-object" autoplay="autoplay" loop="loop" src="<%=request.getContextPath()%>/img/toomuch.mp4" ></video>
+		<div class="uk-cover"> <!-- style="width: 430px; height: 232px; border: 1px solid blue;" -->
+			<!-- autoplay="autoplay" loop="loop" --><video id="video_deco" class="uk-cover-object" src="<%=request.getContextPath()%>/img/toomuch.mp4" ></video>
 		</div>
 		
-		<div class="main_menu_box" style="margin-left: 41px;">
-		
+		<div class="main_menu_box" style="margin-left: 41px;" align="center">
+			<i class="uk-icon-spin uk-icon-list-alt uk-icon-large icon-center"></i>
 		</div>
 	
 		<div class="main_menu_box">
