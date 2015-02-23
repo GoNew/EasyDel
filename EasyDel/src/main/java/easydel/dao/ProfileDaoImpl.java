@@ -37,4 +37,14 @@ public class ProfileDaoImpl implements IProfileDao {
 		Integer result = session.selectOne(stmt, userId);
 		return result;
 	}
+	
+	@Override
+	public List<CourierEval> selectCourierEvalsByUserId(Integer pageNum, String courierId) {
+		String stmt = namespace + ".selectCourierEvalsByUserId";
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("pageNum", pageNum);
+		params.put("userId", courierId);
+		List<CourierEval> result = session.selectList(stmt, params);
+		return result;
+	}
 }

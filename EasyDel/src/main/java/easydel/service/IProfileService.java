@@ -7,5 +7,5 @@ import easydel.entity.CourierEval;
 public interface IProfileService {
 	public List<CourierEval> serviceGetCourierInfos(Integer pageNum, String courierId);
 
-	public int serviceGetCountOfCourierInfos(String courierId);
+	int serviceGetTotalPageNumOfCourierEval(String courierId);
 }

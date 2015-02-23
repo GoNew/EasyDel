@@ -10,6 +10,6 @@ public class ErrorController {
 	@ExceptionHandler(Exception.class)
 	@RequestMapping("/error")
 	public String errorHandling(){
-		return "error/errorPage";
+		return "error/errorpage";
 	}
 }

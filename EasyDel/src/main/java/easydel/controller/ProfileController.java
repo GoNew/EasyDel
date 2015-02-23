@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import easydel.service.IProfileService;
 
@@ -20,11 +21,11 @@ public class ProfileController {
 	
 	
 	//운송인의 프로필
-	@RequestMapping(value="/courier", params={"userId"}, method=RequestMethod.GET)
-	public String moveToProfileCourier(	@RequestParam String userId, Model model){
-		/*model.addAttribute("courierInfos", service.serviceGetCourierInfos(pageNum, userId));
-		model.addAttribute("countCourierInfos", service.serviceGetCountOfCourierInfos(userId));*/
-		return "profile/courier";
+	@RequestMapping(value="/courierInfo", params={"userId"}, method=RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public @ResponseBody String getCourierProfile(@RequestParam String userId, Model model){
+		StringBuilder builder = new StringBuilder();
+		
+		return builder.toString();
 	}
 
 }
