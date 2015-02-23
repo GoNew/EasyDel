@@ -35,6 +35,7 @@
 			<div class="uk-modal-header">
 				<h2>정말 삭제하시겠습니까?</h2>
 			</div>
+			
 		<p>삭제하시면 해당 글은 닷~시~는 복구할 수 없습니다.</p>
 		<div class="uk-modal-footer uk-text-right">
 			<form id="alertMessagePopUpForDeleteMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/delete">

@@ -1,7 +1,12 @@
 @CHARSET "UTF-8";
 
 /*  *{border:solid 1px blue;}   
- */*{margin:0px;padding:0px;} 
+ */
+@font-face { 
+	font-family: hangang;
+	src: url('/EasyDel/webfont/SeoulHangangM.woff') format('woff');
+}
+*{margin:0px;padding:0px;} 
 image{border:0px;}
 #background_div{
 	width: 100%;
@@ -33,6 +38,7 @@ span.red{
 	filter: alpha(opacity = 50);
 }
 #label{
+	font-family:hangang;
 	font-size: 20px;
 	color: grey;
 }

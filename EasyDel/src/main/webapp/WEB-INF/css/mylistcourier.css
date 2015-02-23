@@ -8,7 +8,6 @@
 #formcss{
 	width:1009px;
 }
-
 #profilephoto{
 	width:220px;
 	width: expression(this.width > 220 ? 220: true); 
@@ -18,7 +17,6 @@
 	width:220px;
 	height:220px;
 }
-
 #profileupform{
 	display: -webkit-box;
 	height : 300px;
