@@ -12,12 +12,14 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/footer.css"/>
 <title>운송인 프로필</title>
 <%
- 	User courierInfos = (User) request.getAttribute("courierInfos");
+ 	/* User courierInfos = (User) request.getAttribute("courierInfos");
+	Integer countOfCourierInfos = (Integer) request.getAttribute("countCourierInfos"); */
+	User courierInfos = new User();
  	courierInfos.setCourierAvgKind(4);
  	courierInfos.setCourierAvgSafe(5);
  	courierInfos.setCourierAvgTime(3);
  	courierInfos.setCourierSuccesscnt(30);
- 	courierInfos.setCourierTotalcnt(31); 
+ 	courierInfos.setCourierTotalcnt(31);
 	
  	int courierAvgTime = courierInfos.getCourierAvgTime();
  	int courierAvgSafe = courierInfos.getCourierAvgSafe();

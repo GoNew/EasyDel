@@ -1,7 +1,5 @@
 package easydel.controller;
 
-import java.io.InputStream;
-
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -33,12 +31,18 @@ public class ShowRequestController {
 	private IRequestCmtService reqCmtService;
 	
 	@RequestMapping(value="/predeli", params={"requestId"}, method=RequestMethod.GET)
-	public String showRequestPredel(@RequestParam Integer requestId, Model model) {
+	public String showRequestPredel(@RequestParam Integer requestId, Model model,
+			HttpSession session) {
 		String resultPage = "/board/show/predeli";
+		User loginUser = (User) session.getAttribute("loginSession");
 		try {
 			Request readRequest = reqService.getRequestWithRequestCmts(requestId);
-			if((readRequest == null) || (readRequest.getRequestStatus() != RequestStatus.request.getStatusCode()))
-				throw new ServiceFailException("더 이상 의뢰글이 아닌 의뢰입니다.");
+			if(readRequest == null)
+				throw new ServiceFailException("존재하지 않는 글");
+			if(readRequest.getRequestStatus() != RequestStatus.request.getStatusCode()
+					&& !loginUser.getUserId().equals(readRequest.getSenderId())
+					&& !loginUser.getUserId().equals(readRequest.getCourierId()))
+				throw new ServiceFailException("해당 글에 대한 접근 권한이 없음");
 			model.addAttribute("requestWithCmts", readRequest);
 		} catch (ServiceFailException e) {
 			resultPage = "/error";

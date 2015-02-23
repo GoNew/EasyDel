@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import easydel.dao.IProfileDao;
 import easydel.entity.CourierEval;
-import easydel.entity.Title;
-import easydel.entity.User;
 
 public class ProfileServiceImpl implements IProfileService {
 	static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
@@ -25,6 +23,14 @@ public class ProfileServiceImpl implements IProfileService {
 	public List<CourierEval> serviceGetCourierInfos(Integer pageNum, String courierId){
 		List<CourierEval> result = null;
 		result = dao.selectCourierInfos(pageNum, courierId);
+		return result;
+	}
+	
+	@Override
+	public int serviceGetCountOfCourierInfos(String courierId) {
+		Integer result = dao.selectCountOfCourierInfosByUserId(courierId);
+		if(result == null)
+			result = new Integer(0);
 		return result;
 	}
 }

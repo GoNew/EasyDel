@@ -34,6 +34,13 @@
  		</where>
  	</select>
  	
+ 	<select id="selectCountOfCourierInfosByUserId" parameterType="string"
+ 		resultType="integer">
+ 		select		count(*)
+ 		from		COURIER_EVALS
+ 		where		user_id=#{userId}
+ 	</select>
+ 	
  	<resultMap id="CourierInfoResultMap" type="User">
  		<id column="user_id" property="userId"/>
  		<result column="user_picture" property="userPicture"/>

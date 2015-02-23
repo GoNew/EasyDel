@@ -29,7 +29,9 @@
 		from		REQUESTS R
 		join		COMPLETE_DELIVERYS C
 		on			R.request_id=C.request_id
-		where		(R.sender_id=#{userId} and C.sender_evalstatus=1)
-		or			(R.courier_id=#{userId} and C.courier_evalstatus=1)
+		where		(R.sender_id=#{userId})
+		and			(C.sender_evalstatus=1)
+		or			(R.courier_id=#{userId})
+		and			(C.courier_evalstatus=1)
 	</select>
 </mapper>

@@ -15,4 +15,12 @@ public enum AlertStatus {
 	public int getAlertStatusCode() {
 		return alertStatusCode;
 	}
+	public static AlertStatus valueOf(int statusCode) {
+		AlertStatus[] all = AlertStatus.values();
+		for(AlertStatus state: all) {
+			if(state.getAlertStatusCode() == statusCode)
+				return state;
+		}
+		return null;
+	}
 }
