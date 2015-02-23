@@ -46,7 +46,7 @@
 		
 		$("#imgFileInput").change(function() {
 			var files = !!this.files ? this.files : [];
-			if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+			if (!files.length || !window.FileReader) return false; // no file selected, or no FileReader support
 			
 			if (/^image/.test(files[0].type)){ // only image file
 				$("#imagePreview").html("");
@@ -58,68 +58,66 @@
 	            }
         	} else {
         		alert("사진만 등록가능합니다.");
+        		return false;
         	}
+			return true;
 		});
 	});
  
-
-/* </head>
-<body>
-<div id="imagePreview"></div><br>
-<input id="image" type="file" onchange="InputImage();">
-</body> */
-	
 </script>
 </head>
 <body>
-<div class="uk-clearfix">
-<div id="logoimg"> <img id="logo" src="<%=request.getContextPath()%>/img/EHlogo.PNG" alt="" class="uk-align-center"> </div>
+<div id="background_div" class="uk-cover-background uk-position-cover" style="background-image: url('<%=request.getContextPath() %>/img/background/back2.jpg')">
+<div id="background_div_up">
+<div id="fullbrowser" class="uk-clearfix" align="center" >
+<div id="logoimg"> <img id="logo" src="<%=request.getContextPath()%>/img/easydel_logo.png" class="uk-align-center"> </div>
 <div id="formcss" class="uk-align-center">
+<div style="height:20px"></div>
 	<form class="uk-form" enctype="multipart/form-data" action="<%=request.getContextPath()%>/join" id="joinForm" method="post">
-	<label> <span class="red">* </span> 는 항목은 필수 항목입니다. </label> <br>
+	 <label id="label"><span class="red">* </span> 는 항목은 필수 항목입니다. </label> <br>
+    	<div style="height:20px"></div>
     	<section id="aaa">    		
-	    	<div align="left" id="leftform">
-	    		<div id="marg"><span class="red">* </span> <input type="text" id="userId" name="userId" size="27" pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." placeholder="아이디" required></div>
-   		        <div id="marg"><span class="red">* </span> <input type="password" id="userPassword" name="userPassword" size="27" pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." placeholder="비밀번호" required></div>
-			    <div id="marg"><span class="red">* </span> <input type="password" id="userPassword2" name="userPassword2" size="27" pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." placeholder="비밀번호 확인" required></div>
-			    <div id="marg"><span class="red">* </span> <input type="text" name="userName" maxlength="5" size="27" placeholder="이름" required></div> 
-				<!-- <div data-uk-switcher="{connect:'#switch-from-content'}" align="center">
-		           	<a id="sex" class="uk-button uk-active" name="userGender">남자</a>
-		            <button id="sex" class="uk-button" type="button" name="userGender">여자</button>
-				</div> -->
-				<div data-uk-button-radio id="sex" align="center">
-					<label for="sex_man">
-						<div class="uk-button uk-active">남자</div>
-					</label>
-					<input type="radio" id="sex_man" class="radio" name="userGender" value="1" checked="checked">
-					<label for="sex_woman">
-						<div class="uk-button">여자</div>
-					</label>
-					<input type="radio" id="sex_woman" class="radio" name="userGender" value="2">
-				</div>					
+	    	<div align="left">
+	    		<div class="marg"><span class="red">* </span> <input type="text" id="userId" name="userId" pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." placeholder="아이디" required></div>
+   		        <div class="marg"><span class="red">* </span> <input type="password" id="userPassword" name="userPassword"  pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." placeholder="비밀번호" required></div> 
+			    <div class="marg"><span class="red">* </span> <input type="password" id="userPassword2" name="userPassword2"  pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." placeholder="비밀번호 확인" required> </div>
+			    <div class="marg"><span class="red">* </span> <input type="text" id="userName" name="userName" maxlength="5"  placeholder="이름" required> </div> 				
+				<div id="formbirth" class="uk-form-controls uk-form-controls-text">
+					<div class="uk-form-icon" ></div> 
+			    	<span class="red">* </span> <i class="uk-icon-birthday-cake" style="color:pink"></i>    	
+			   		<label><input type="date" name="birthdate" id="userDate"></label>
+				</div>
 			</div>
-		
-			<div align="right" id="rightform">
+			<div style="width:40px"></div>
+			<div id="rightform">
+				<div style="height:10px;"></div>
 				<div id="CheckId" align="center"></div>
-				<label for="imgFileInput">
-					<div id="imagePreview" class="uk-width-1-1 uk-text-center">
-						<br><br>프로필 사진을 등록하려면 여기를 선택하세요!
-					</div>
-				</label>
+				<div id="aaa">
+					<div style="width:40px"></div>
+					<label for="imgFileInput">
+						<div id="imagePreview" align="center">
+							<br><br><br><br>프로필 사진을 등록하려면
+							<br> 여기를 선택하세요!
+						</div>
+					</label>
+				</div>
 				<input type="file" id="imgFileInput" name="imgFileInput">
+				
+				<div data-uk-button-radio id="sex" align="center">
+					<label for="sex_man"><div class="uk-button uk-button-primary uk-width-1-3 uk-active">남자</div></label>
+					<input type="radio" id="sex_man" class="radio" name="userGender" value="1" checked="checked">				
+					<label for="sex_woman"><div class="uk-button uk-button-primary uk-width-1-3">여자</div></label>
+					<input type="radio" id="sex_woman" class="radio" name="userGender" value="2">
+				</div>	
 			</div>
 		</section>
 		<div>
-			<div id="formbirth" class="uk-form-controls uk-form-controls-text">
-				<div class="uk-form-icon" ></div> 
-		    	<span class="red">* </span> <i class="uk-icon-birthday-cake"></i>    	
-		   		<label><input type="date" name="birthdate" class="uk-width-7-10"></label>
-			</div>
-			<div id="marg"><span class="red">* </span> <input type="email" name="userEmail" placeholder="이메일" class="uk-width-7-10" required></div>
-      	    <div id="marg"><span class="red">* </span> <input type="tel" name="userPhone" pattern="[0-9]{10,11}" title="10~11자리 숫자만 사용할 수 있습니다." placeholder="휴대폰전화번호 (-를 제외하고 입력하세요)" class="uk-width-7-10" required> 
-      	    <button class="uk-button uk-button uk-width-1-5" type="button" data-uk-button id="button2">전송</button></div>
-     	    <div id="marg"><span class="red">* </span> <input type="text" name="identifyingNumber" placeholder="인증번호" class="uk-width-7-10" required> 
-     		<button class="uk-button uk-button uk-width-1-5" type="button" data-uk-button id="button2">확인</button></div>
+			
+			<div class="marg"><span class="red">* </span> <input type="email" name="userEmail" id="userInfo" placeholder="이메일" class="uk-width-7-10" required></div>
+      	    <div class="marg"><span class="red">* </span> <input type="tel" name="userPhone"  id="userInfo" pattern="[0-9]{10,11}" title="10~11자리 숫자만 사용할 수 있습니다." placeholder="휴대폰전화번호 (-를 제외하고 입력하세요)" class="uk-width-7-10" required> 
+      	    <button class="uk-button uk-button-primary" type="button" data-uk-button id="button2">전송</button></div>
+     	    <div class="marg"><span class="red">* </span> <input type="text" name="identifyingNumber" id="userInfo" placeholder="인증번호" class="uk-width-7-10" required> 
+     		<button class="uk-button uk-button-primary" type="button" data-uk-button id="button2">확인</button></div>
         </div>
      	<br>
      	<div align="center">
@@ -128,6 +126,8 @@
         	<a href="<%=request.getContextPath() %>/intro"><button class="uk-button uk-button-primary uk-width-2-5" type="button" data-uk-button id="button">취소</button></a>
   		</div>
 	</form>
+</div>
+</div>
 </div>
 </div>
 </body>
