@@ -4,6 +4,15 @@
 *{margin:0px;padding:0px;} 
 image{border:0px;}
 
+@font-face { 
+	font-family: namsan;
+	src: url('/EasyDel/webfont/SSeoulNamsanM.woff') format('woff');
+}
+
+*{
+	font-family: namsan;
+}
+
 #uk-clearfix{
 	width:1024px;
 	height:100%;

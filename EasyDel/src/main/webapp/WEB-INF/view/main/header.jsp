@@ -144,7 +144,7 @@
 
 	<div class="uk-navbar-content uk-navbar-center">
 		<img id="logo1"
-			src="<%=request.getContextPath()%>/img/easydel_logo.png">
+			src="<%=request.getContextPath()%>/img/easydel_Real_Log.jpg">
 	</div>
 
 </nav>
