@@ -29,7 +29,7 @@
 	
 		<div class="wrapper_login" >
 			<div id="logoimg" class="uk-width-1-2">
-			<img id="logo" alt="" src="img/easydel_logo.png">
+			<img id="logo" alt="" src="img/temp/easydel_logo_temp2.png">
 			</div>
 
 			<div id="formcss" align="center">
