@@ -1,64 +1,81 @@
 @CHARSET "UTF-8";
 
-*{border:solid 1px blue;} 
+/* *{border:solid 1px blue;}  */
 *{margin:0px;padding:0px;} 
 image{border:0px;}
-
 #uk-clearfix{
 	width:1025px;
 	height:100%;
 }
-
 #logo{
 	width: 20%;
 	height: 20%;
 }
-
 #formcss{
 	margin-top: 120px;
 	width:1009px;
 }
-
 #smallform{
+	padding:10px 15px 10px;  
+	font-size: 25px; 
+	border-radius: 5px; 
+	margin:15px 0px; 
 	display: -webkit-box;
-	margin:10px;
+	width:550px;
 }
-
 #aaa{
 	display: -webkit-box;
 }
-
 #leftform{
- 	width:120px;
- }
- 
+ 	width:300px;
+ } 
  #middleform{
- 	width:130px;
+ 	width:230px;
  }
- 
 #rightform{
-	max-width: 160px; 
 	width: expression(this.width > 500 ? 500: true); 
-	height: 210px;
+	height: 360px;
 }
-
 #imagePreview{
-	background-position: center center;
-	background-size: cover;
-	height: 160px;
-	display: inline-block;
+	width: 250px;
+	height: 250px;
+	display:inline-block;
+	background-size:250px 250px;
+	color:grey;
 }
-
 #imgFileInput{
 	display: none;
 }
-
-
 #my{
-	color:skyblue;
+	color:grey;
+}
+#modifyInfo{
+	padding:20px 15px 20px; 
+	line-height: 30px; 
+	font-size: 25px; 
+	border-radius: 5px; 
+	margin:15px 0px;  
+	width:700px;
 }
 
-#null{
-	height:50px;
+#telephone{
+	padding:20px 15px 20px; 
+	line-height: 30px; 
+	font-size: 25px; 
+	border-radius: 5px; 
+	margin:15px 0px;  
+	width:700px;
 }
-
+#button{
+	padding: 5px 7px 5px;
+	font-size: 17px;
+	margin: 10px 10px;
+	width:240px;
+}
+#button2{
+	padding: 5px 7px 5px;
+	font-size: 17px;
+	margin: 10px 10px;
+	width:240px;
+	background-color: #d1df20;
+}
