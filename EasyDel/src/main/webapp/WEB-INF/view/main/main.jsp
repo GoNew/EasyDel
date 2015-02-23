@@ -123,7 +123,7 @@
 				<div id = "null"></div>
 				<div id = "maintwopercent" align = "center">
 					<label id="mainsmallfont2">거래완료율</label><br>
-					<div id = "mainbigfont"> <%=sPercentage%>%</div>
+					<div id = "mainbigfont1"> <%=sPercentage%>%</div>
 				</div>
 				<div align="right" id ="mainsmallmediumfont"><%= senderSuccesscnt%>/<%= senderTotalcnt%>건</div>
 				<div id = "mainnull"></div>
@@ -169,7 +169,7 @@
 				<div align="left" id ="mainsmallmediumfont"><%=courierSuccesscnt%>/<%=courierTotalcnt%>건</div>
 				<div id = "maintwopercent" align = "center">
 					<label id="mainsmallfont2">거래완료율</label><br>
-					<div id = "mainbigfont"> <%=cPercentage%>%</div>
+					<div id = "mainbigfont1"> <%=cPercentage%>%</div>
 				</div>
 			</div>
 		</div>
