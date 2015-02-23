@@ -1,0 +1,62 @@
+@CHARSET "UTF-8";
+/* 
+*{border: 1px solid blue;}  */
+
+* { 
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+img{ border: 0;}
+address{font-style: normal;}
+ul, ol{list-style:name;}
+
+@font-face { 
+	font-family: namsan;
+	src: url('/EasyDel/webfont/SeoulNamsanM.woff') format('woff');
+}
+*{
+	font-family:namsan;
+}
+#uk-clearfix{
+	width:1025px;
+	height:100%;
+}
+#formcss{
+	margin-top: 120px;
+	width:1009px;
+}
+#edchung{
+	font-size: 40px;
+}
+#edchung2{
+	font-size: 35px;
+}
+#edchung3{
+	font-size: 40px;
+	color: #00B1F2; 
+}
+#money{
+	padding: 8px 7px 8px;
+	line-height:30px;
+	border-radius: 7px; 
+	margin:15px 5px; 
+	font-size: 25px; 
+	height:30px;
+	width:330px;
+}
+#webkitbox{
+	display: -webkit-box;
+}
+.radioclass{
+	margin:35px 15px; 
+	font-size: 25px; 
+}
+#button{
+	padding: 5px 7px 5px;
+	font-size: px;
+	margin: 10px 10px;
+	width:240px;
+}
+
+
