@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
- /**{border:solid 1px blue;} */
+*{border:solid 1px blue;} 
 *{margin:0px;padding:0px;} 
 image{border:0px;}
 
@@ -16,8 +16,7 @@ image{border:0px;}
 
 #formcss{
 	margin-top: 120px;
-	width:460px;
-	height:575px;
+	width:1009px;
 }
 
 #smallform{

@@ -40,6 +40,8 @@ address {
 
 #logoimg {
 	margin-top: 100px ;
+	opacity: 0.7;
+	filter: alpha(opacity = 50);
 }
 
 #formcss {
@@ -55,6 +57,8 @@ address {
 	font-size: 30px;
 	border-radius: 5px;
 	margin: 15px 0;
+	background: rgba(0,0,0,0.3); 
+	color:white;
 }
 
 #userpass {
@@ -63,6 +67,8 @@ address {
 	font-size: 30px;
 	border-radius: 5px;
 	margin: 15px 0;
+	background: rgba(0,0,0,0.3); 
+	color:white;
 }
 
 #login {
@@ -70,6 +76,8 @@ address {
 	font-size: 30px;
 	border-radius: 5px;
 	margin: 15px 0;
+	background: rgba(0,153,255,0.3); 
+	color:white;
 }
 
 #join {
@@ -77,6 +85,8 @@ address {
 	font-size: 30px;
 	border-radius: 5px;
 	margin: 15px 0;
+	background: rgba(0,153,255,0.3); 
+	color:white;
 }
 
 div.wrapper_login{
