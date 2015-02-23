@@ -13,7 +13,6 @@
 <title>EDMoney balance</title>
 <%
 	User loginUserInfo = (User) session.getAttribute("loginSession");
-	int edmoneyBalance = loginUserInfo.getEdmoneyBalance();
 %>
 </head>
 <body>
@@ -21,21 +20,26 @@
 
 <div class="uk-clearfix">
 <div id="formcss" class="uk-align-center">
-<pre>                                                          
-                              </pre>
-		<div class=".uk-container-center" align="center">
-			<span>현재 <%=loginUserInfo.getUserId()%>님의 EDmoney 잔고는</span><br>
-			<span class="uk-text-large uk-text-bold"> ${edmoneyBalance} 원</span><br>
-			<span >입니다.</span><br>
+	<div style="height:100px"></div>
+        <div class=".uk-container-center">
+			<div  id="edmsg">
+				<div style="width:170px"></div>
+				<div>현재</div>
+			 	<div style="color: #00B1F2; font-style:bold; width:220px; font-size: 45px" align="right" ><%=loginUserInfo.getUserId()%></div>  
+				<div>님의 EDmoney 잔고는</div>
+			</div>
+			<div style="height:70px"></div>
+			<div  id="edmsg">
+				<div style="width:240px"></div>
+				<div style="color: #00B1F2; font-style:bold; width:200px; font-size: 45px" align="right"><%=loginUserInfo.getEdmoneyBalance()%></div>
+				<div>원 입니다.</div>
+			</div>
 		</div>
 		<div class="uk-width-1-1">
-			<div class="uk-panel uk-width-2-3 uk-container-center">
-				<p align="center"><br><br><br>
-               	<button id="button1" class="uk-button uk-button-large" type="button"><a href="<%=request.getContextPath()%>/edmoneydeposit"><font color="black">EDmoney 충전</font></button>
-               	<button class="uk-button uk-button-large" type="button"><a href="<%=request.getContextPath()%>/edmoneywithdraw">EDmoney 인출</button>
-                </p>
-                <br><br>
-			</div>
+			<p align="center"><br><br><br>
+	        	<a href="<%=request.getContextPath()%>/edmoneydeposit"><button id="bu" class="uk-button uk-button-large uk-button-primary " type="button"><font color="black">EDmoney 충전</font></button></a>
+	            <a href="<%=request.getContextPath()%>/edmoneywithdraw"><button id="bu" class="uk-button uk-button-large uk-button-primary " type="button">EDmoney 인출</button></a>
+	        </p>
 		</div>
 	</div>
 </div>
