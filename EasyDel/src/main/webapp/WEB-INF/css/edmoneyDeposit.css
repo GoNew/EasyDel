@@ -84,10 +84,10 @@ div.possible_withdraw_price_div{
 	float:left;
 	color: red;
 	font-size: 30px;
-	width: 70px;
+	width: 90px;
 	margin-left: 10px;
 	margin-right: 10px;
-	/* float: left; */
+	float: left;
 }
 
 

@@ -120,7 +120,7 @@
 	<div id="subproductinfo">
 		<div id="row1"><div id="col1">물품명</div><div id=""><input class="producttext" type="text" name="cargoName" required></div></div>
 		<div id="row2"><div id="col1">비용</div><div id=""><input class="producttext" type="number" name="deliveryPrice" required placeholder="*비용을 콤마 없이 입력하여 주세요."></div></div>
-		<div id="row3"><div id="col1">물품 상세</div><div id=""><textarea class="productdetails" name="cargoDesc" required placeholder="*상세 정보는 거래 시 중요한 정보이므로, 최대한 자세하게 작성하기실 부탁드립니다."></textarea></div></div>
+		<div id="row3"><div id="col1">물품 상세</div><div id=""><textarea class="productdetails" name="cargoDesc" required placeholder="*상세 정보는 거래 시 중요한 정보이므로, 최대한 자세하게 작성하시길 부탁드립니다."></textarea></div></div>
 	</div>
 
 </div>
