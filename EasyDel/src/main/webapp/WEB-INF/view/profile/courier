@@ -81,7 +81,7 @@
 								<div style="height: 20px;"></div>
 								<div id="courierProfile_profiledangdang">
 									<div>
-										<img id="courierProfile_courierimg" src="<%=request.getContextPath()%>/img/time.png" />
+										<img id="courierProfile_courierimg" src="<%=request.getContextPath()%>/img/time_blue.jpg" />
 									</div>
 									<div style="width: 10px"></div>
 									<div>
@@ -93,7 +93,7 @@
 										<div style="width: 10px">:</div>
 									</div>
 									<div id="courierProfile_profilediv">
-										<img id="courierProfile_mainstar" src="<%=request.getContextPath()%>/img/twostarl.JPG" />
+										<img id="courierProfile_mainstar" src="<%=request.getContextPath()%>/img/stars/twostarl.png" />
 									</div>
 									<div>
 										<div style="height: 8px"></div>
@@ -103,7 +103,7 @@
 								<div id="courierProfile_profiledangdang">
 									<div>
 										<img id="courierProfile_courierimg"
-											src="<%=request.getContextPath()%>/img/safe.jpg" />
+											src="<%=request.getContextPath()%>/img/safe_blue.jpg" />
 									</div>
 									<div style="width: 10px"></div>
 									<div>
@@ -116,7 +116,7 @@
 									</div>
 									<div id="courierProfile_profilediv">
 										<img id="courierProfile_mainstar"
-											src="<%=request.getContextPath()%>/img/threestarl.JPG" />
+											src="<%=request.getContextPath()%>/img/stars/threestarl.png" />
 									</div>
 									<div>
 										<div style="height: 8px"></div>
@@ -126,7 +126,7 @@
 								<div id="courierProfile_profiledangdang">
 									<div>
 										<img id="courierProfile_courierimg"
-											src="<%=request.getContextPath()%>/img/smile.jpg" />
+											src="<%=request.getContextPath()%>/img/smile_blue.jpg" />
 									</div>
 									<div style="width: 10px"></div>
 									<div>
@@ -139,7 +139,7 @@
 									</div>
 									<div id="courierProfile_profilediv">
 										<img id="courierProfile_mainstar"
-											src="<%=request.getContextPath()%>/img/fivestar.jpg" />
+											src="<%=request.getContextPath()%>/img/stars/fivestar.png" />
 									</div>
 									<div>
 										<div style="height: 8px"></div>
