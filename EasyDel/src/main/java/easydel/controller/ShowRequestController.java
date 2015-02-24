@@ -104,7 +104,8 @@ public class ShowRequestController {
 			User senderUserInfo = userService.serviceGetUser(readRequest.getSenderId());
 			if((readRequest.getRequestStatus() != RequestStatus.on.getStatusCode()
 					&& readRequest.getRequestStatus() != RequestStatus.cancelByDeliver.getStatusCode()
-					&& readRequest.getRequestStatus() != RequestStatus.cancelBySender.getStatusCode())
+					&& readRequest.getRequestStatus() != RequestStatus.cancelBySender.getStatusCode()
+					&& readRequest.getRequestStatus() != RequestStatus.arrive.getStatusCode())
 					&& !loginUser.getUserId().equals(readRequest.getSenderId())
 					&& !loginUser.getUserId().equals(readRequest.getCourierId()))
 				throw new ServiceFailException("해당 글에 대한 접근 권한이 없음");

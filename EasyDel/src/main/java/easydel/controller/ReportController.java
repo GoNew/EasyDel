@@ -46,6 +46,7 @@ public class ReportController {
 			case on:
 			case cancelByDeliver:
 			case cancelBySender:
+			case arrive:
 				break;
 			default:
 				throw new ServiceFailException("신고 불가능한 글 상태");
