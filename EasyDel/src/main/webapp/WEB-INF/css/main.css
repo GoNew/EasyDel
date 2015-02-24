@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
  
-    *{border:solid 1px blue;}     
+    *{/* border:solid 1px blue; */}     
 *{margin:0px;padding:0px;} 
 image{border:0px;}
 
@@ -33,13 +33,6 @@ div.webkit_box{
 }
 
 
-div.wrapper_videoNbox{
-	/* border: 1px solid #ff80c0;  *//* 나중에 지우기 */
-	display: -webkit-box;
-	width: 100%;
-	height: 250px;
-	margin-top: 5px;
-}
 
 
 
@@ -181,17 +174,6 @@ div.wrapper_videoNbox{
 	height : 35px;
 }
 
-#video_deco{
-	/* 비디오 크기: 430 * 232.444 */
-	/* border: 1px solid red; */
-	width: 400px;
-	border-radius: 4px;
-	margin-bottom: 12px;
-	margin-top: 15px;
-	margin-left: 20px;
-	margin-right: ;
-}
-
 i.icon-center{
 	/* border: 1px solid red; */
 	margin: 0px auto;
@@ -205,30 +187,7 @@ i.icon-center{
 	font-size: 400%;
 }
 
-div.main_menu_box{
-	/* border: 1px solid #c4bfbb; */ /* 나중에 지우기 */
-	border-radius: 10px;
-	margin-bottom: 17px;
-	margin-top: 17px;
-	margin-left: 20px;
-	margin-right: ;
-	height: 230px;
-	width: 230px;
-	opacity: 0.8;
-	filter: alpha(opacity = 80);
-}
-div.main_menu_long_box{
-	/* border: 1px solid #c4bfbb; */ /* 나중에 지우기 */
-	border-radius: 10px;
-	margin-bottom: 17px;
-	margin-top: 17px;
-	margin-left: 20px;
-	margin-right: ;
-	height: 245px;
-	width: 500px;
-	opacity: 0.5;
-	filter: alpha(opacity = 50);
-}
+
 
 div.MenuFont{
 	line-height: 36px;
@@ -301,3 +260,91 @@ div.courier_people{
 	width:65px;
 	height:65px;
 }
+
+/* 비디오와 두 버튼을 감싸는 columm을 감싼다. */
+div.wrapper_videoNbox{
+	/* border: 1px solid #ff80c0;  *//* 나중에 지우기 */
+	display: -webkit-box;
+	width: 100%;
+	height: 250px;
+	margin-top: ;
+}
+
+
+/* 큰 메인 메뉴를 감싸는 div */
+div.main_menu_box{
+	border: 3px solid #BDBDBD; /* 나중에 지우기 */
+	border-radius: 10px;
+	/* margin-bottom: 2px; */
+	margin-top: 8px;
+	margin-left: 10px;
+	margin-right: ;
+	height: 230px;
+	width: 230px;
+	opacity: 0.8;
+	filter: alpha(opacity = 80);
+}
+
+/* 비디오를 감싸는 애~~~ */
+#video_deco{
+	border: 3px solid #BDBDBD;
+	/* 비디오 크기: 430 * 232.444 */
+	/* border: 1px solid red; */
+	width: 492px;
+	height: 230px;
+	border-radius: 10px;
+	/* margin-bottom: 12px; */
+	margin-top: 3px;
+	/* margin-left: 20px; */
+	margin-right: ;
+}
+
+/* 배너 사진  틀*/
+div.main_menu_long_box{
+	/* border: 1px solid #c4bfbb; */ /* 나중에 지우기 */
+	border-radius: 10px;
+	margin-top: 4px;
+	/* margin-left: 20px; */
+	margin-right: ;
+	/* opacity: 0.5;
+	filter: alpha(opacity = 50); */
+	width:  492px;
+	height:  230px;
+}
+/* 배너 사진 */
+img.banner_class{
+	width:  492px;
+	height:  230px; 
+	border-radius:10px; 
+}
+
+div.MenuFont{
+	margin-top: 7px;
+	text-align: center;
+}
+
+/* lira_main에서 4가지 버튼~ 시작시작시작 */
+#MyRequestProgress{
+	margin-top: 5px;
+	height: 170px;
+	width: 160px;
+}
+#Edmoney {
+	margin-top: 5px;
+	height: 170px;
+	width: 170px;
+}
+#UploadRequest {
+	margin-left: 20px;
+	margin-top: 5px;
+	height: 170px;
+	width: 190px;
+}
+#AllBoardList{
+	margin-top: 5px;
+	/* text-align: center; */
+	height: 170px;
+	width: 170px;
+}
+
+/* lira_main에서 4가지 버튼~ 끝~~~~~~~~~~~*/

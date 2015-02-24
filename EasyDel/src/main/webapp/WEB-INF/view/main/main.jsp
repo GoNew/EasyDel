@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/uikit/css/components/slideshow.almost-flat.css" />
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
-<script src="<%=request.getContextPath()%>/uikit/js/slideshow-fx.js"></script>
+<script src="<%=request.getContextPath()%>/uikit/js/components/slideshow-fx.js"></script>
+<script src="<%=request.getContextPath()%>/uikit/js/components/slideshow.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/main.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/header.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/footer.css"/>
@@ -188,13 +189,13 @@
 	
 	<div class="wrapper_videoNbox">
 		
-		<div class="uk-cover"> <!-- style="width: 430px; height: 232px; border: 1px solid blue;" -->
-			<!-- autoplay="autoplay" loop="loop" --><video id="video_deco" class="uk-cover-object" src="<%=request.getContextPath()%>/img/toomuch.mp4" ></video>
+		<div class="uk-cover main_menu_long_box"> <!-- style="width: 430px; height: 232px; border: 1px solid blue;" -->
+			<!-- autoplay="autoplay" loop="loop" --><video id="video_deco" class="uk-cover-object" src="<%=request.getContextPath()%>/img/toomuch.mp4" autoplay="autoplay" loop="loop" ></video>
 		</div>
 		
-		<div class="main_menu_box" style="margin-left: 70px;" align="center">
+		<div class="main_menu_box" style="margin-left: 35px;" align="center">
 			<img id="AllBoardList" alt="" src="<%=request.getContextPath()%>/img/button/allboardlist.png">
-			<div class="MenuFont" >전체 의뢰 보기</div>
+			<div class="MenuFont">전체 의뢰 보기</div>
 		</div>
 	
 		<div class="main_menu_box" align="center">
@@ -207,13 +208,17 @@
 		
 		
 		<div id="" class="main_menu_long_box" align="center" style="margin-left: 10px;">
-			<img id="Edmoney" alt="" src="<%=request.getContextPath()%>/img/banner/real_banner3.jpg">
+			<ul class="uk-slideshow" data-uk-slideshow="{autoplay:true}">
+   				 <li><img style="animation-duration:500ms;" class="banner_class" src="<%=request.getContextPath()%>/img/banner/real_banner3.jpg" width="" height="" alt=""></li>
+   				 <li><img style="animation-duration:500ms;" class="banner_class" src="<%=request.getContextPath()%>/img/banner/banner2.jpg" width="" height="" alt=""></li>
+   				 <li><img style="animation-duration:500ms;" class="banner_class" src="<%=request.getContextPath()%>/img/banner/banner1.jpg" width="" height="" alt=""></li>
+			</ul>
 		</div>
 		
 		
-		<div class="main_menu_box" align="center">
+		<div class="main_menu_box" style="margin-left: 28px;" align="center">
 
-			<img id="Edmoney" alt="" src="<%=request.getContextPath()%>/img/button/edmoney.png">
+			<img id="Edmoney" alt=""  src="<%=request.getContextPath()%>/img/button/edmoney.png">
 			<div class="MenuFont">EDMoney</div>
 		</div>
 	
