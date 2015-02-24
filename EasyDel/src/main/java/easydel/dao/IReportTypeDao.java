@@ -7,7 +7,6 @@ import easydel.entity.Request;
 
 public interface IReportTypeDao {
 //	public List<ReportType> getReportType();
-
 	public List<ReportType> selectAllReportType();
 	public List<Request> getrequestByRequestId();
 }

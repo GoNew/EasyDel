@@ -50,6 +50,8 @@ $(document).ready(function() {
 });
 </script>
 
+<%@include file="/WEB-INF/view/profile/sender" %>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>의뢰 자세히 보기</title>
 </head>
@@ -63,9 +65,13 @@ $(document).ready(function() {
 		
 		<div class="margin_top_10px uk-panel uk-panel-box">
 			<div class="standard_row_request">
-			<div id="senderprofimg_main"><img src="<%=request.getContextPath()%>/img/bart.PNG" class="uk-border-circle"></div>
-			<div id="deli_userid" class="text_middle fixed_font_color webkit_box"><a class="atag_color" data-uk-toggle="{target:'#my-profbtn'}"><%=req.getSenderId() %></a></div>
-			<div class="uk-hidden" id="my-profbtn"><button id="searchprofbtn" class="uk-button">프로필 보기</button></div>
+				<div id="senderprofimg_main"><img src="<%=request.getContextPath()%><%=loginUser.getUserPicture() %>" class="uk-border-circle"></div>
+				<div id="deli_userid" class="text_middle fixed_font_color webkit_box"><a class="atag_color" data-uk-toggle="{target:'#my-profbtn'}"><%=req.getSenderId() %></a></div>
+				<div class="uk-hidden" id="my-profbtn">
+					<%	if(!loginUser.getUserId().equals(req.getSenderId())) {	%>
+					<button id="searchprofbtn" class="uk-button" onclick="ready_ForShowingProfileOfSender('<%=req.getSenderId() %>')" data-uk-modal="{target:'#profileOfSenderUsingModal'}">프로필 보기</button>
+					<%	}	%>
+				</div>
 			</div>
 		</div>
 
