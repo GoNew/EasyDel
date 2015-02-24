@@ -121,7 +121,7 @@
 				<div id = "null"></div>
 				<div id = "null"></div>
 				<div id = "maintwopercent" align="center">
-					<label id="mainsmallfont2">거래완료율</label>
+					<label id="mainsmallfont2_left">거래완료율</label>
 					<div class="webkit_box" align="left" >
 						<div id = "completedRate_font_left"> <%=sPercentage%>%</div>
 						<div id ="mainsmallmediumfont_left">(<%= senderSuccesscnt%>/<%= senderTotalcnt%>건)</div>
@@ -153,9 +153,14 @@
 			<br>
 			<div id = "mainleftone">
 				<div id = "mainnull_right"></div>
-				<div id = "maincontents" align="right"><label id="mainsmallfont">안정성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc5%>"/></div>
+				<div id = "maincontents" align="right">
+					<label id="mainsmallfont">안정성</label>
+					<img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc5%>"/>
+				</div>
 				<div id = "null"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe_blue.jpg"/></div>
+				<div id = "mainicon">
+					<img id = "safe_blue" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe_blue.jpg"/>
+				</div>
 			</div>
 			<br>
 			<div id = "mainleftone">
@@ -167,9 +172,11 @@
 			<br>
 			<div id = "maintwo">
 				<div id = "maintwopercent_right" align ="right">
-					<label id="mainsmallfont2">거래완료율</label><br>
-					<div class="webkit_box" align="right"><div id ="mainsmallmediumfont_right">(<%=courierSuccesscnt%>/<%=courierTotalcnt%>건)</div>
-					<div id = "completedRate_font_right"> <%=cPercentage%>%</div></div>
+					<label id="mainsmallfont2_right">거래완료율</label>
+					<div class="webkit_box" align="right">
+						<div id ="mainsmallmediumfont_right">(<%=courierSuccesscnt%>/<%=courierTotalcnt%>건)</div>
+						<div id = "completedRate_font_right"> <%=cPercentage%>%</div>
+					</div>
 					
 				</div>
 			</div>
