@@ -111,7 +111,7 @@
 	<div align="center">
 		<label for="imgFileInput">
 			<div id="imagePreview">
-				<div id="imgnotice" >물품 사진을 등록하려면 여기를 클릭하세요!<div id="imgnoticetext">*사진은 필수는 아니오나 첨부하지 않을 시, 배송 사고 발생 시에 불이익이 발생할 수 있으니 사진첨부를 부탁드립니다.</div></div>
+				<div id="imgnotice" >물품 사진을 등록하려면 여기를 클릭하세요!<div id="imgnoticetext">*사진은 필수는 아니오나 첨부하지 않을 시,<br> 배송 사고 발생 시에 불이익이 발생할 수 있으니 사진첨부를 부탁드립니다.</div></div>
 			</div>
 		</label>
 		<input type="file" id="imgFileInput" name="imgFileInput">
