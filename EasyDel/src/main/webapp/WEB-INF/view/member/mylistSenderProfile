@@ -18,7 +18,7 @@
 			<div style="margin: 0px auto; display: -webkit-box">
 				<div class="">
 					<img class="grade_icon"
-						src="<%=request.getContextPath()%>/img/time.png">
+						src="<%=request.getContextPath()%>/img/time_blue.jpg">
 				</div>
 				<div style="margin-left: 10px" class="grade_text webkit_box">
 					<div id="time_grade" class="text_middle_grade"><%=req.getSenderAvgTime()%></div>
@@ -31,7 +31,7 @@
 			<div style="margin: 0px auto; display: -webkit-box">
 				<div class="">
 					<img class="grade_icon"
-						src="<%=request.getContextPath()%>/img/safe.jpg">
+						src="<%=request.getContextPath()%>/img/safe_blue.jpg">
 				</div>
 				<div style="margin-left: 10px" class="grade_text webkit_box">
 					<div id="safe_grade" class="text_middle_grade"><%=req.getSenderAvgThing()%></div>
@@ -44,7 +44,7 @@
 			<div style="margin: 0px auto; display: -webkit-box">
 				<div class="">
 					<img class="grade_icon"
-						src="<%=request.getContextPath()%>/img/smile.jpg">
+						src="<%=request.getContextPath()%>/img/smile_blue.jpg">
 				</div>
 				<div style="margin-left: 10px" class="grade_text webkit_box">
 					<div id="smile_grade" class="text_middle_grade"><%=req.getSenderAvgKind()%></div>

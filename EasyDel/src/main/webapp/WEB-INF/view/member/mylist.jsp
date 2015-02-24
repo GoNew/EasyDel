@@ -206,7 +206,13 @@
 <!-- ==========================================작성한 의뢰글 -->
 						<div id="all_mylist_sender" class="mylistsenderlist">
 							<div id="registered_requests_div" class="request_box">
-								<div class="subject">작성한 의뢰글</div>
+								<div class="webkit_box">
+									<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
+									<div>
+										<div style="height:5px"></div>
+										<div class="subject">작성한 의뢰글</div>
+									</div>
+								</div>
 								<hr>
 								<div class="ajax_requests_list">
 									<%	for (ViewMySendRequest req : sendListBeforeDel) {	%>
@@ -240,17 +246,23 @@
 							</div>
 <!-- ==========================================진행중 의뢰글 -->
 							<div id="processing_requests_div" class="request_box">
-								<div class="subject">진행중 의뢰글</div>
+								<div class="webkit_box">
+									<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
+									<div>
+										<div style="height:5px"></div>
+										<div class="subject">진행중 의뢰글</div>
+									</div>
+								</div>
 								<hr>
 								<div class="ajax_requests_list">
 									<%	for (ViewMySendRequest req : sendListOnDel) {	%>
 									<div class="replace_hr"></div>
 									<%		if(req.getRequestStatus() == RequestStatus.cancelByDeliver.getStatusCode()) {	%>
-									<div class="row_request pannel-cancel">
+									<div class="row_request pannel-cancel"></div>
 									<%		} else {	%>
 									<div class="row_request">
 									<%		}	%>
-										<div class="uk-width-1-2 "><div class="text_middle"><%=req.getCargoName() %></div></div>
+										<div class="uk-width-1-2 "><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/ondeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div></div>
 									<%		if(req.getRequestStatus() == RequestStatus.arrive.getStatusCode()) {	%>
 										<div class="button_middle uk-width-2-10"><div class="uk-button uk-width-2-3" onclick="send_readyForCompleteMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForCompleteMySendRequest'}">거래완료</div></div>
@@ -263,11 +275,18 @@
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	}	%>
 									<div class="replace_hr"></div>
+								
 								</div>
 							</div>
 <!-- ==========================================완료된 의뢰글 -->
 							<div id="completed_requests_div" class="request_box">
-								<div id="" class="subject">완료된 의뢰글<div style="color: red; margin-left: 5px;">(7일이 지나면 자동 삭제됩니다.)</div></div>
+								<div class="webkit_box">
+									<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
+									<div>
+										<div style="height:5px"></div>
+										<div class="subject">완료된 의뢰글<div style="color: red; margin-left: 5px;">(7일이 지나면 자동 삭제됩니다.)</div></div>
+									</div>
+								</div>
 								<hr>
 								<div class="ajax_requests_list">
 									<%	for (ViewMySendRequest req : sendListAfterDel) {	%>
@@ -298,9 +317,16 @@
 <!-- ******************************************운송 탭********************************************************************************-->					
 					<li class="">
 						<div id="all_mylist_courier" class="mylistsenderlist">
-<!-- ==========================================의뢰 수락을 기다리고 있는 의뢰글 -->					
+<!-- ==========================================의뢰 수락을 기다리고 있는 의뢰글 -->				
 							<div id="registered_requests_div" class="request_box">
-								<div class="subject">의뢰 수락을 기다리고 있는 의뢰글</div>
+								<div class="webkit_box">
+									<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
+									<div>
+										<div style="height:5px"></div>
+										<div class="subject">의뢰 수락을 기다리고 있는 의뢰글</div>	
+									</div>
+								</div>
+								
 								<hr>
 								<div class="ajax_requests_list">
 									<%	for(ViewMyCarryRequest req: carryListBeforeDel) {	%>
@@ -320,7 +346,13 @@
 								</div>
 							</div>
 							<div id="processing_requests_div" class="request_box">
-								<div id="" class="subject">수행 중 의뢰글</div>
+								<div class="webkit_box">
+									<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
+									<div>
+										<div style="height:5px"></div>
+										<div class="subject">수행 중 의뢰글</div>
+									</div>
+								</div>
 								<hr>
 								<div class="ajax_requests_list">
 									<%	for(ViewMyCarryRequest req: carryListOnDel) {	%>
@@ -330,7 +362,7 @@
 									<%		} else {	%>
 									<div class="row_request">
 									<%		}	%>
-										<div class="uk-width-1-2 "><div class="text_middle"><%=req.getCargoName() %></div></div>
+										<div class="uk-width-1-2 "><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/ondeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId() %></div></div>
 									<%		if(req.getRequestStatus() == RequestStatus.arrive.getStatusCode()) {	%>
 										<div class="button_middle uk-width-2-10"><div class="uk-button uk-width-2-3">인증하기</div></div>
@@ -346,7 +378,13 @@
 								</div>
 							</div>
 							<div id="completed_requests_div" class="request_box">
-								<div class="subject">완료된 의뢰글 <div style="color: red; margin-left: 5px;"> (7일이 지나면 자동 삭제됩니다.)</div></div>
+								<div class="webkit_box">
+									<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
+									<div>
+										<div style="height:5px"></div>
+										<div class="subject">완료된 의뢰글 <div style="color: red; margin-left: 5px;"> (7일이 지나면 자동 삭제됩니다.)</div></div>
+									</div>
+								</div>
 								<hr>
 								<div class="ajax_requests_list">
 									<%	for(ViewMyCarryRequest req: carryListAfterDel) {	%>
@@ -378,7 +416,13 @@
 					<li class="">
 						<div id="all_mylist_reporter" class="mylistsenderlist">
 							<div id="registered_requests_div" class="request_box">
-								<div id="" class="subject">나의 신고 현황<div style="color: red; margin-left: 5px;"> (처리 완료된 글은 30일 후에 지워집니다.)</div></div>
+								<div class="webkit_box">
+									<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
+									<div>
+										<div style="height:5px"></div>
+										<div class="subject">나의 신고 현황<div style="color: red; margin-left: 5px;"> (처리 완료된 글은 30일 후에 지워집니다.)</div></div>
+									</div>
+								</div>
 								<hr>
 						<!-- List<ViewMyReportRequest> reportListReported = (List<ViewMyReportRequest>) request.getAttribute("reportListReported"); -->
 								<div class="ajax_requests_list">
@@ -417,7 +461,13 @@
 							</div>
 							
 							<div id="registered_requests_div" class="request_box">
-								<div id="" class="subject">신고 받은 현황</div>
+								<div class="webkit_box">
+									<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
+									<div>
+										<div style="height:5px"></div>
+										<div id="" class="subject">신고 받은 현황</div>	
+									</div>
+								</div>
 								<hr>
 									<div class="ajax_requests_list">
 									<div id="Ex_request_01" class="row_request uk-text-bold">

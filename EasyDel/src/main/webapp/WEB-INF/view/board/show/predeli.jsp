@@ -148,7 +148,7 @@ $(document).ready(function() {
 				<div class="standard_row_request_product"><div class="row_standard_text_middle_product fixed_font_color">비용</div><div class="text_middle unfixed_font_color"><%=req.getDeliveryPrice() %></div><div style="margin-left: 10px;" class="text_middle fixed_font_color">원</div></div>
 				<div id="wrapper_product_details"><div class="row_standard_text_middle_product fixed_font_color">상세설명</div><div id="product_detail" class="unfixed_font_color"><%=req.getCargoDesc() %></div></div> 
 			</div>
-		</div> 
+		</div>
 
 <!-- --------------------------------추가 대화---------------------------------------------- -->		
 		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">추가 사항</div></div>

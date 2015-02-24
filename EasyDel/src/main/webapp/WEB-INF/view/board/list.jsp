@@ -131,8 +131,7 @@
 </head>
 
 <%
-	List<AddressGu> guList = (List<AddressGu>) request
-			.getAttribute("gu");
+	List<AddressGu> guList = (List<AddressGu>) request.getAttribute("gu");
 	guList = guList != null ? guList : new ArrayList<AddressGu>();
 %>
 
@@ -143,7 +142,12 @@
 			<div id="selectBox" class="lira_panel">
 		
 			<div class="wrapper_columm">
-				<div class="same_subject_font_size">출발장소</div>
+				<div>
+					<div style="height:10px"></div>
+					<div class="webkit_box"><img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/></div>
+				</div>
+				<div style="width:7px"></div>
+				<div class="same_subject_font_size">출발장소 : </div>
 				<div class="same_font_size margin_50px_left">서울특별시</div>
 				<div class="margin_50px_left">
 					<select id="startPosGuList" class="same_select_font_size">
@@ -156,13 +160,18 @@
 						%>
 					</select>
 				</div>
-				<div class="margin_7px_left">
+				<div class="margin_30px_left">
 					<select id="startPosDongList" class="same_select_font_size"></select>
 				</div>
 			</div>
 			
 			<div class="wrapper_columm">
-				<div class="same_subject_font_size">도착장소</div>
+				<div>
+					<div style="height:10px"></div>
+					<div class="webkit_box"><img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/></div>
+				</div>
+				<div style="width:7px"></div>
+				<div class="same_subject_font_size">도착장소 : </div>
 				<div class="same_font_size margin_50px_left">서울특별시</div>
 				<div class="margin_50px_left">
 					<select id="arrivePosGuList" class="same_select_font_size">
@@ -175,7 +184,7 @@
 						%>
 					</select>
 				</div>
-				<div class="margin_7px_left">
+				<div class="margin_30px_left">
 					<select id="arrivePosDongList" class="same_select_font_size"></select>
 				</div>
 			</div>
@@ -183,14 +192,24 @@
 				<div class="wrapper_refer_columm">
 					<div>
 						<div class="wrapper_time_columm">
-							<div class="uk-width-1-4 same_subject_font_size">출발시각</div>
+							<div>
+								<div style="height:10px"></div>
+								<div class="webkit_box"><img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/></div>
+							</div>
+							<div style="width:7px"></div>
+							<div class="uk-width-1-4 same_subject_font_size">출발시각 : </div>
 							<div class="uk-width-2-4">
 								<input type="datetime-local" class="same_date_font_size" id="startTime">
 							</div>
 						</div>
 						
 						<div class="wrapper_time_columm">
-							<div class="uk-width-1-4 same_subject_font_size">도착시각</div>
+							<div>
+								<div style="height:10px"></div>
+								<div class="webkit_box"><img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/></div>
+							</div>
+							<div style="width:7px"></div>
+							<div class="uk-width-1-4 same_subject_font_size">도착시각 : </div>
 							<div class="uk-width-2-4">
 								<input type="datetime-local" class="same_date_font_size" id="arriveTime">
 							</div>
@@ -198,7 +217,7 @@
 					</div>
 					
 					<div class="wrapper_recomendation_btn">
-						<button class="uk-button recomendation_btn" id="exeRecommendation">추천하기</button>
+						<button class="uk-button recomendation_btn" id="exeRecommendation" style="background-color:#BDBDBD">추천하기</button>
 					</div>
 				</div>
 			
