@@ -142,15 +142,15 @@
 			<div id="selectBox" class="lira_panel">
 		
 			<div class="wrapper_columm">
-				<div>
+<%-- 				<div>
 					<div style="height:10px"></div>
 					<div class="webkit_box"><img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/></div>
-				</div>
+				</div> --%>
 				<div style="width:7px"></div>
 				<div class="same_subject_font_size">출발장소 : </div>
 				<div class="same_font_size margin_50px_left">서울특별시</div>
 				<div class="margin_50px_left">
-					<select id="startPosGuList" class="same_select_font_size">
+					<select id="startPosGuList" class="same_select_font_size greycolor">
 						<%
 							for (AddressGu gu : guList) {
 						%>
@@ -161,20 +161,20 @@
 					</select>
 				</div>
 				<div class="margin_30px_left">
-					<select id="startPosDongList" class="same_select_font_size"></select>
+					<select id="startPosDongList" class="same_select_font_size greycolor"></select>
 				</div>
 			</div>
 			
 			<div class="wrapper_columm">
-				<div>
+<%-- 				<div>
 					<div style="height:10px"></div>
 					<div class="webkit_box"><img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/></div>
-				</div>
+				</div> --%>
 				<div style="width:7px"></div>
 				<div class="same_subject_font_size">도착장소 : </div>
 				<div class="same_font_size margin_50px_left">서울특별시</div>
 				<div class="margin_50px_left">
-					<select id="arrivePosGuList" class="same_select_font_size">
+					<select id="arrivePosGuList" class="same_select_font_size greycolor">
 						<%
 							for (AddressGu gu : guList) {
 						%>
@@ -185,74 +185,71 @@
 					</select>
 				</div>
 				<div class="margin_30px_left">
-					<select id="arrivePosDongList" class="same_select_font_size"></select>
+					<select id="arrivePosDongList" class="same_select_font_size greycolor"></select>
 				</div>
 			</div>
 			
 				<div class="wrapper_refer_columm">
 					<div>
 						<div class="wrapper_time_columm">
-							<div>
+<%-- 							<div>
 								<div style="height:10px"></div>
 								<div class="webkit_box"><img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/></div>
-							</div>
+							</div> --%>
 							<div style="width:7px"></div>
 							<div class="uk-width-1-4 same_subject_font_size">출발시각 : </div>
 							<div class="uk-width-2-4">
-								<input type="datetime-local" class="same_date_font_size" id="startTime">
+								<input type="datetime-local" class="same_date_font_size greycolor" id="startTime">
 							</div>
 						</div>
 						
 						<div class="wrapper_time_columm">
-							<div>
+<%-- 							<div>
 								<div style="height:10px"></div>
 								<div class="webkit_box"><img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/></div>
-							</div>
+							</div> --%>
 							<div style="width:7px"></div>
 							<div class="uk-width-1-4 same_subject_font_size">도착시각 : </div>
 							<div class="uk-width-2-4">
-								<input type="datetime-local" class="same_date_font_size" id="arriveTime">
+								<input type="datetime-local" class="same_date_font_size greycolor" id="arriveTime">
 							</div>
 						</div>
 					</div>
 					
 					<div class="wrapper_recomendation_btn">
-						<button class="uk-button recomendation_btn" id="exeRecommendation" style="background-color:#BDBDBD">추천하기</button>
+						<button class="uk-button recomendation_btn uk-button-primary" id="exeRecommendation" >추천하기</button>
 					</div>
 				</div>
-			
+		<div style="height:20px"></div>
 		<div class="wrapper_order_columm" >
-				<button class="uk-button order_btn " id="sortPrice">가격 순 정렬</button>
-				<button class="uk-button order_btn " id="sortSenderAvg">평점 순 정렬</button>
-				<button class="uk-button order_btn " id="sortExpireDate">게시만료 순 정렬</button>
-			
-				<div class="margin_7px_left">
-					<select id="typeFilterSelect" class="same_select_order_font_size">
-						<option value="total" selected="selected">전체</option>
-						<option value="nomal">단순 운송</option>
-						<option value="purchase">구매 운송</option>
-					</select>
-				</div>
-				
-				<div class="">
-					<select id="statusFilterSelect" class="same_select_order_font_size">
-						<option value="total" selected="selected">전체</option>
-						<option value="onDelivery">진행중 제외</option>
-					</select>
-				</div>
-		</div>
-		
-	</div>
-		
-		
-		<div id="boardBox" class="lira_panel_primary">
-			<table id="printBoardList" class="uk-table uk-table-hover">
-			</table>
-			<div class="uk-width-1-1 uk-text-center uk-button" id="selectMore">
-				다음 항목 더 보기
+			<button class="uk-button order_btn sbcolor" id="sortPrice">가격 순 정렬</button>
+			<button class="uk-button order_btn sbcolor" id="sortSenderAvg">평점 순 정렬</button>
+			<button class="uk-button order_btn sbcolor" id="sortExpireDate">게시만료 순 정렬</button>
+			<div class="margin_7px_left">
+				<select id="typeFilterSelect" class="same_select_order_font_size">
+					<option value="total" selected="selected">전체</option>
+					<option value="nomal">단순 운송</option>
+					<option value="purchase">구매 운송</option>
+				</select>
+			</div>
+			<div>
+				<select id="statusFilterSelect" class="same_select_order_font_size">
+					<option value="total" selected="selected">전체</option>
+					<option value="onDelivery">진행중 제외</option>
+				</select>
 			</div>
 		</div>
 	</div>
+	<hr>	
+	<div id="boardBox" class="lira_panel_primary">
+
+		<table id="printBoardList" class="uk-table uk-table-hover">
+		</table>
+		<div class="uk-width-1-1 uk-text-center uk-button" id="selectMore">
+			다음 항목 더 보기
+		</div>
+	</div>
+</div>
 </div>
 </body>
 
