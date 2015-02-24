@@ -5,6 +5,12 @@
 	padding: 0;
 	/* border: 1px solid black;
  */
+ font-family: namsan;
+}
+
+@font-face { 
+	font-family: namsan;
+	src: url('/EasyDel/webfont/SeoulNamsanM.woff') format('woff');
 }
 
 img {

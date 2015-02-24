@@ -193,7 +193,7 @@
 			<!-- autoplay="autoplay" loop="loop" --><video id="video_deco" class="uk-cover-object" src="<%=request.getContextPath()%>/img/toomuch.mp4" autoplay="autoplay" loop="loop" ></video>
 		</div>
 		
-		<div class="main_menu_box" style="margin-left: 35px;" align="center">
+		<div class="main_menu_box" style="margin-left: 28px;" align="center">
 			<img id="AllBoardList" alt="" src="<%=request.getContextPath()%>/img/button/allboardlist.png">
 			<div class="MenuFont">전체 의뢰 보기</div>
 		</div>
@@ -207,11 +207,11 @@
 	<div class="wrapper_videoNbox">
 		
 		
-		<div id="" class="main_menu_long_box" align="center" style="margin-left: 10px;">
+		<div id="" class="main_menu_long_box" align="center">
 			<ul class="uk-slideshow" data-uk-slideshow="{autoplay:true}">
-   				 <li><img style="animation-duration:500ms;" class="banner_class" src="<%=request.getContextPath()%>/img/banner/real_banner3.jpg" width="" height="" alt=""></li>
-   				 <li><img style="animation-duration:500ms;" class="banner_class" src="<%=request.getContextPath()%>/img/banner/banner2.jpg" width="" height="" alt=""></li>
-   				 <li><img style="animation-duration:500ms;" class="banner_class" src="<%=request.getContextPath()%>/img/banner/banner1.jpg" width="" height="" alt=""></li>
+   				 <li><img style="animation-duration:500ms;" class="uk-border-rounded" src="<%=request.getContextPath()%>/img/banner/real_banner3.jpg"></li>
+   				 <li><img style="animation-duration:500ms;" class="uk-border-rounded" src="<%=request.getContextPath()%>/img/banner/banner2.jpg" ></li>
+   				 <li><img style="animation-duration:500ms;" class="uk-border-rounded" src="<%=request.getContextPath()%>/img/banner/banner1.jpg"></li>
 			</ul>
 		</div>
 		

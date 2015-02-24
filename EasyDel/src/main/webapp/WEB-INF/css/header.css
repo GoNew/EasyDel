@@ -4,7 +4,15 @@
 	margin: 0;
 	padding: 0;
 	/* 	border: 1px solid black; */
+	font-family: namsan;
 }
+
+@font-face { 
+	font-family: namsan;
+	src: url('/EasyDel/webfont/SeoulNamsanM.woff') format('woff');
+}
+
+
 
 img {
 	border: 0;
@@ -35,7 +43,7 @@ ul, ol {
 
 #logo1 {
 	margin-top: 15px;
-	width: 500px;
+	width: 400px;
 	height: 75px;
 	overflow: hidden;
 }
