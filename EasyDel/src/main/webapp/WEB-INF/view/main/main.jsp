@@ -162,7 +162,7 @@
 				</div>
 				<div id = "null"></div>
 				<div id = "mainicon">
-					<img id = "safe_blue" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe_blue.jpg"/>
+					<img id ="mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe_blue.jpg"/>
 				</div>
 			</div>
 			<br>
@@ -193,22 +193,20 @@
 			<!-- autoplay="autoplay" loop="loop" --><video id="video_deco" class="uk-cover-object" src="<%=request.getContextPath()%>/img/toomuch.mp4" autoplay="autoplay" loop="loop" ></video>
 		</div>
 		
-		<div class="main_menu_box" style="margin-left: 28px;" align="center">
+		<a id="a_font" href="<%=request.getContextPath()%>/board"><div class="main_menu_box" style="margin-left: 28px;" align="center">
 			<img id="AllBoardList" alt="" src="<%=request.getContextPath()%>/img/button/allboardlist.png">
 			<div class="MenuFont">전체 의뢰 보기</div>
-		</div>
+		</div></a>
 	
-		<div class="main_menu_box" align="center">
+		<a id="a_font" href="<%=request.getContextPath()%>/register/selecttype"><div class="main_menu_box" align="center">
 			<img id="UploadRequest" alt="" src="<%=request.getContextPath()%>/img/button/write_board.png">
 			<div class="MenuFont">의뢰 올리기</div>
-		</div>
+		</div></a>
 		
 	</div>
 	<div class="wrapper_videoNbox">
-		
-		
 		<div id="" class="main_menu_long_box" align="center">
-			<ul class="uk-slideshow uk-border-rounded" data-uk-slideshow="{autoplay:true, animation: 'fade'}">
+			<ul id="advertisement_img_ul" class="uk-slideshow uk-border-rounded" data-uk-slideshow="{autoplay:true, animation: 'fade'}">
    				 <li><img style="animation-duration:500ms;" src="<%=request.getContextPath()%>/img/banner/banner2.jpg" ></li>
    				 <li><img style="animation-duration:500ms;" src="<%=request.getContextPath()%>/img/banner/banner1.jpg"></li>
    				 <li><img style="animation-duration:500ms;" src="<%=request.getContextPath()%>/img/banner/real_banner3.jpg"></li>
@@ -216,16 +214,15 @@
 		</div>
 		
 		
-		<div class="main_menu_box" style="margin-left: 28px;" align="center">
-
-			<img id="Edmoney" alt=""  src="<%=request.getContextPath()%>/img/button/edmoney.png">
+		<a id="a_font" href="<%=request.getContextPath()%>/edmoney"><div class="main_menu_box" style="margin-left: 28px;" align="center">
+			<img id="Edmoney" src="<%=request.getContextPath()%>/img/button/edmoney.png">
 			<div class="MenuFont">EDMoney</div>
-		</div>
+		</div></a>
 	
-		<div class="main_menu_box" align="center">
+		<a id="a_font" href="<%=request.getContextPath()%>/mylist"><div class="main_menu_box" align="center">
 			<img id="MyRequestProgress" alt="" src="<%=request.getContextPath()%>/img/button/mypage.png">
 			<div class="MenuFont">내 진행 보기 </div>
-		</div>
+		</div></a>
 		
 	</div>
 		
