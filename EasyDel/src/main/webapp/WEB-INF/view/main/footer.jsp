@@ -18,16 +18,16 @@
 		<div id="container" class="uk-container uk-container-center uk-text-center">
 
 			<ul id="subnav" class="uk-subnav uk-subnav-line">
-				<li><a href="http://github.com/uikit/uikit" id="a">사이트맵</a></li>
-				<li><a href="http://github.com/uikit/uikit/issues" id="b">Issues</a></li>
+				<li><a href="http://localhost:9090/EasyDel/main" id="a">사이트맵</a></li>
+				<li><a href="http://localhost:9090/EasyDel/main" id="b">Issues</a></li>
 				<li><a
-					href="http://github.com/uikit/uikit/blob/master/CHANGELOG.md" id="c">Changelog</a></li>
-				<li><a href="https://twitter.com/getuikit" id="d">Twitter</a></li>
+					href="http://localhost:9090/EasyDel/main" id="c">Changelog</a></li>
+				<li><a href="http://localhost:9090/EasyDel/main" id="d">Twitter</a></li>
 			</ul>
 
 			<div id="panel" class="uk-panel">
 				<p>
-					Made by <a href="#">TOOMUCH</a> Crazy People<br>.
+					Made by <a href="http://localhost:9090/EasyDel/main">TOOMUCH</a> Crazy People<br>.
 				</p>
 				<a href="../index.html"><img src="<%=request.getContextPath()%>/img/images.jpg"
 					width="90" height="30" title="UIkit" alt="UIkit"></a>

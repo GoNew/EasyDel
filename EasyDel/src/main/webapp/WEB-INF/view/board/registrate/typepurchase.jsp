@@ -99,7 +99,15 @@
 
 <form action="<%=request.getContextPath()%>/register/typepurchase" enctype="multipart/form-data" method="post">
 <div id="allproductinfo">
-<div id="subject">물품 정보</div>
+<div class="webkit_box">
+	<div>
+		<div style="height:15px"></div>
+		<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
+	</div>	
+	<div style="width:7px"></div>
+	<div id="subject">물품 정보</div>	
+</div>
+
 <hr color="#808080">
 	<div align="center">
 		<label for="imgFileInput">
@@ -119,7 +127,17 @@
 </div>
 
 <div id="allreceiver">
-<div id="subjectdiv"> <div id="subject">받는 사람</div></div>
+<div id="subjectdiv"> 
+<div class="webkit_box">
+	<div>
+		<div style="height:15px"></div>
+		<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
+	</div>	
+	<div style="width:7px"></div>
+	<div id="subject">받는 사람</div>
+</div>
+</div>
+
 <hr color="#808080">
 	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input id="receiverName" class="nametext" type="text" name="receiverName" value="<%=loginUser.getUserName() %>" readonly></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input id="receiverPhone" class="phonetext" type="text" name="receiverPhone" value="<%=loginUser.getUserPhone() %>" required></div></div></div>
 	<div id="row2"><div id="col1">주소</div><div id="col2">서울특별시</div>
@@ -130,7 +148,7 @@
 	<div id="row4"><div id="col1">만날 시간</div><div id=""><input class="date" type="datetime-local" name="arrivalMinTimeBeforeParse" required></div><div id="from">부터</div><div id=""><input class="date" type="datetime-local" name="arrivalMaxTimeBeforeParse" required></div><div id="to">까지</div></div>
 </div>
 
-<div align="center"><button id="enterbtn" class="uk-button" type="submit">의뢰 등록</button></div>
+<div align="center"><button id="enterbtn" class="uk-button uk-button-primary" type="submit">의뢰 등록</button></div>
 
 </form>
 </div>

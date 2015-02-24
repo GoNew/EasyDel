@@ -106,7 +106,15 @@
 
 <form action="<%=request.getContextPath()%>/register/typesimple" enctype="multipart/form-data" method="post">
 <div id="allproductinfo">
-<div id="subject">물품 정보</div>
+<div class="webkit_box">
+	<div>
+		<div style="height:15px"></div>
+		<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
+	</div>	
+	<div style="width:7px"></div>
+	<div id="subject">물품 정보</div>	
+</div>
+
 <hr color="#808080">
 	<div align="center">
 		<label for="imgFileInput">
@@ -127,7 +135,15 @@
 
 
 <div id="allregistrater">
-<div id="subject" >보내는 사람</div>
+<div class="webkit_box">
+	<div>
+		<div style="height:15px"></div>
+		<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
+	</div>	
+	<div style="width:7px"></div>
+	<div id="subject" >보내는 사람</div>	
+</div>
+
 <hr color="#808080">
 	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input class="nametext" type="text" value="<%=loginUser.getUserName() %>" readonly></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input class="phonetext" type="text" name="senderPhone" value="<%=loginUser.getUserPhone() %>" required></div></div></div>
 	<div id="row2"><div id="col1" style="color: ;">주소</div><div id="col2">서울특별시</div>
@@ -139,7 +155,25 @@
 </div>
 
 <div id="allreceiver">
-<div id="subjectdiv"> <div id="subject" >받는 사람</div><div id="ischeckbox" ><input id="receiverchk" class="receiverchk" type="checkbox"><div class="chktext">부재중일 경우 체크</div></div><div id="samebtn"><input id="personalInfoInsert" class="uk-button" type="button" value="본인 정보 입력"></div> </div>
+<div id="subjectdiv"> 
+	<div class="webkit_box">
+		<div>
+			<div style="height:15px"></div>
+			<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
+		</div>	
+		<div style="width:7px"></div>
+		<div id="subject" >받는 사람</div>
+		<div id="ischeckbox" >
+			<div style="height:25px"></div>
+			<input id="receiverchk" class="receiverchk" type="checkbox">
+				<div class="chktext">부재중일 경우 체크</div>
+		</div>
+		<div id="samebtn">
+			<div style="height:15px"></div>
+			<input id="personalInfoInsert" class="uk-button uk-button-primary" type="button" value="본인 정보 입력">
+		</div> 
+	</div>	
+</div>
 <hr color="#808080">
 	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input id="receiverName" class="nametext" type="text" name="receiverName" required></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input id="receiverPhone" class="phonetext" type="text" name="receiverPhone" required></div></div></div>
 	<div id="row2"><div id="col1">주소</div><div id="col2">서울특별시</div>
@@ -151,7 +185,7 @@
 	<div id="absencemessage" style="display: none;"><div id="col1">전달 메시지</div><div id=""><textarea class="absencemessage" name="absenceMessage" placeholder="ex)경비실에 맡겨주세요."></textarea></div></div>
 </div>
 
-<div  align="center"><button id="enterbtn" class="uk-button" type="submit">의뢰 등록</button></div>
+<div  align="center"><button id="enterbtn" class="uk-button uk-button-primary" type="submit">의뢰 등록</button></div>
 
 </form>
 </div>

@@ -10,6 +10,14 @@
 	margin:0px;
 	padding:0px;
 }
+div.webkit_box{
+	display: -webkit-box;
+}
+#icon{
+	width:30px;
+	height:30px;
+}
+
 img{ border: 0;}
 address{font-style: normal;}
 ul, ol{list-style:name;}
