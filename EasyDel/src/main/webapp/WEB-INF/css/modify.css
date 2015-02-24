@@ -7,8 +7,10 @@
 }
 *{
 	font-family:namsan;
+	margin:0px;
+	padding:0px;
 }
-*{margin:0px;padding:0px;} 
+
 image{border:0px;}
 #uk-clearfix{
 	width:1025px;

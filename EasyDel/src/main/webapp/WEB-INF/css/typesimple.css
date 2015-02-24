@@ -1,8 +1,14 @@
 @CHARSET "UTF-8";
 
+/*  *{border:solid 1px blue;}    */ 
+@font-face { 
+	font-family: namsan;
+	src: url('/EasyDel/webfont/SeoulNamsanM.woff') format('woff');
+}
 *{
-	margin: 0; padding:0;
-	/* border: 1px solid red; */
+	font-family:namsan;
+	margin:0px;
+	padding:0px;
 }
 img{ border: 0;}
 address{font-style: normal;}
