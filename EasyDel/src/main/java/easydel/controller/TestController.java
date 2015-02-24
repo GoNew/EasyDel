@@ -16,8 +16,7 @@ public class TestController {
 
 	@RequestMapping("/test")
 	public String test() {
-		List<CourierEval> result = dao.selectCourierInfos(1, "james");
-		System.out.println(result.toString());
+		
 		return "showMessage";
 	}
 }
