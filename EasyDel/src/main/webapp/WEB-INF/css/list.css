@@ -1,18 +1,54 @@
 @CHARSET "UTF-8";
+@font-face { 
+	font-family: namsan;
+	src: url('/EasyDel/webfont/SeoulNamsanM.woff') format('woff');
+}
 
 *{
 	margin: 0; padding:0;
+	font-family: namsan;
 }
 img{ border: 0;}
 address{font-style: normal;}
 ul, ol{list-style:name;}
 
+div.webkit_box{
+	display: -webkit-box;
+}
+#icon{
+	width:30px;
+	height:30px;
+}
+
+#startPosGuList{
+	border-radius: 8px;
+	width:170px;
+	line-height: 30px;
+	font-size: 25px; 
+}
+#startPosDongList{
+	border-radius: 8px;
+	width:170px;
+	line-height: 30px;
+	font-size: 25px; 
+}
+#arrivePosGuList{
+	border-radius: 8px;
+	width:170px;
+	line-height: 30px;
+	font-size: 25px; 
+}
+#arrivePosDongList{
+	border-radius: 8px;
+	width:170px;
+	line-height: 30px;
+	font-size: 25px; 
+}
+
 #mainBox {
 	position: relative;
 	width: 1025px;
 	margin: 100px auto;
-}
-#mainBox * {
 }
 
 div.middlebrowser {
@@ -35,6 +71,7 @@ div.middlebrowser {
 #selectMore{
 	font-size: 25px;
 	background-color: #EBF7FD;
+	border-radius: 8px;
 }
 
 /* -------------------------------내가 만든 class --------------------------------------- */
@@ -76,8 +113,8 @@ div.wrapper_recomendation_btn{
 	margin: 10px 0px;
 }
 
-div.margin_7px_left{
-	margin-left: 7px;
+div.margin_30px_left{
+	margin-left: 30px;
 }
 div.margin_50px_left{
 	margin-left: 50px;
@@ -107,6 +144,7 @@ button.recomendation_btn{
 	margin-bottom: 8px;
 	margin-left: 90px;	
 	font-size: 40px;
+	border-radius: 8px;
 }
 button.order_btn{
 	width: 220px;
@@ -114,6 +152,7 @@ button.order_btn{
 	margin-top: 8px;
 	margin-bottom: 8px;
 	font-size: 25px;
+	border-radius: 8px;
 }
 /* 1묶음  끝*/
 
@@ -121,6 +160,7 @@ div.same_subject_font_size{
 	font-size: 25px;
 	height: 30px;
 	margin: 15px 0px;
+	border-radius: 8px;
 	/* border: 1px solid blue; */
 }
 div.same_font_size{
@@ -128,6 +168,7 @@ div.same_font_size{
 	height: 30px;
 	margin-top: 15px;
 	margin-bottom: 15px;
+	border-radius: 8px;
 /* 	border: 1px solid blue;
  */}
 
@@ -136,13 +177,16 @@ select.same_select_font_size{
 	width: 200px;
 	height: 30px;
 	font-size: 25px;
+	border-radius: 8px;
 }
+
 
 select.same_select_order_font_size{
 	margin: 8px 3px;
 	width: 150px;
 	height: 40px;
 	font-size: 25px;
+	border-radius: 8px;
 }
 
 input.same_date_font_size{
@@ -152,11 +196,11 @@ input.same_date_font_size{
 	margin-top: 8px;
 	margin-bottom: 8px;
 	margin-left: 50px;
-	
+	border-radius: 8px;
 }
 
 tr.onDel{
-	background-color: #ffeeee;
+	background-color: #dfdfdf;
 }
 
 
@@ -169,3 +213,5 @@ tr.onDel{
 /* tr{
 	background-color: #ffeeee;
 } */
+
+
