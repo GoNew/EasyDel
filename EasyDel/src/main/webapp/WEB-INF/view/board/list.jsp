@@ -139,6 +139,7 @@
 <jsp:include page="/WEB-INF/view/main/header.jsp"></jsp:include>
 	<div id="mainBox" class="uk-clearfix">
 		<div class="middlebrowser">
+			
 			<div id="selectBox" class="lira_panel">
 		
 			<div class="wrapper_columm">
@@ -220,29 +221,29 @@
 						<button class="uk-button recomendation_btn uk-button-primary" id="exeRecommendation" >추천하기</button>
 					</div>
 				</div>
-		<div style="height:20px"></div>
-		<div class="wrapper_order_columm" >
+		
+	</div>
+	
+	<div id="boardBox" class="lira_panel_primary">
+	<div class="wrapper_order_columm" >
 			<button class="uk-button order_btn sbcolor" id="sortPrice">가격 순 정렬</button>
 			<button class="uk-button order_btn sbcolor" id="sortSenderAvg">평점 순 정렬</button>
 			<button class="uk-button order_btn sbcolor" id="sortExpireDate">게시만료 순 정렬</button>
 			<div class="margin_7px_left">
-				<select id="typeFilterSelect" class="same_select_order_font_size">
+				<select id="typeFilterSelect" class="same_select_order_font_size greycolor">
 					<option value="total" selected="selected">전체</option>
 					<option value="nomal">단순 운송</option>
 					<option value="purchase">구매 운송</option>
 				</select>
 			</div>
 			<div>
-				<select id="statusFilterSelect" class="same_select_order_font_size">
+				<select id="statusFilterSelect" class="same_select_order_font_size greycolor">
 					<option value="total" selected="selected">전체</option>
 					<option value="onDelivery">진행중 제외</option>
 				</select>
 			</div>
-		</div>
 	</div>
-	<hr>	
-	<div id="boardBox" class="lira_panel_primary">
-
+	<div class="replace_hr"></div>
 		<table id="printBoardList" class="uk-table uk-table-hover">
 		</table>
 		<div class="uk-width-1-1 uk-text-center uk-button" id="selectMore">
