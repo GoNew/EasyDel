@@ -42,5 +42,6 @@
 		<mapper resource="mappers/rabbit/profileMapper.xml"/>
 		<mapper resource="mappers/gonew/requestCmtMapper.xml"/>
 		<mapper resource="mappers/gonew/completeDeliverysMapper.xml"/>
+		<mapper resource="mappers/gonew/edmoneyLogsMapper.xml"/>
 	</mappers>
 </configuration>

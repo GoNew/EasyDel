@@ -37,8 +37,8 @@
 		</div>
 		<div class="uk-width-1-1">
 			<p align="center"><br><br><br>
-	        	<a href="<%=request.getContextPath()%>/edmoneydeposit"><button id="bu" class="uk-button uk-button-large uk-button-primary " type="button"><font color="black">EDmoney 충전</font></button></a>
-	            <a href="<%=request.getContextPath()%>/edmoneywithdraw"><button id="bu" class="uk-button uk-button-large uk-button-primary " type="button">EDmoney 인출</button></a>
+	        	<a href="<%=request.getContextPath()%>/edmoney/deposit"><button id="bu" class="uk-button uk-button-large uk-button-primary " type="button"><font color="black">EDmoney 충전</font></button></a>
+	            <a href="<%=request.getContextPath()%>/edmoney/withdraw"><button id="bu" class="uk-button uk-button-large uk-button-primary " type="button">EDmoney 인출</button></a>
 	        </p>
 		</div>
 	</div>

@@ -46,6 +46,15 @@ ul, ol{list-style:name;}
 	height:30px;
 	width:330px;
 }
+#account{
+	padding: 8px 7px 8px;
+	line-height:30px;
+	border-radius: 7px; 
+	margin:15px 5px; 
+	font-size: 25px; 
+	height:30px;
+	width:330px;
+}
 #webkitbox{
 	display: -webkit-box;
 }
@@ -84,8 +93,8 @@ div.possible_withdraw_price_div{
 	float:left;
 	color: red;
 	font-size: 30px;
-	width: 70px;
+	width: 90px;
 	margin-left: 10px;
 	margin-right: 10px;
-	/* float: left; */
+	float: left;
 }
