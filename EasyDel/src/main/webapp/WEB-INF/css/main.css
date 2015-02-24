@@ -324,22 +324,22 @@ div.MenuFont{
 
 /* lira_main에서 4가지 버튼~ 시작시작시작 */
 #UploadRequest {
-	margin-top: 5px;
+	margin-top: 9px;
 	height: 170px;
 	width: 190px;
 }
 #MyRequestProgress{
-	margin-top: 5px;
+	margin-top: 9px;
 	height: 170px;
 	width: 160px;
 }
 #Edmoney {
-	margin-top: 5px;
+	margin-top: 9px;
 	height: 170px;
 	width: 170px;
 }
 #AllBoardList{
-	margin-top: 5px;
+	margin-top: 9px;
 	/* text-align: center; */
 	height: 170px;
 	width: 170px;

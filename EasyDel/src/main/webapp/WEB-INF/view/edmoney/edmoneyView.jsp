@@ -24,21 +24,21 @@
         <div class=".uk-container-center">
 			<div  id="edmsg">
 				<div style="width:170px"></div>
-				<div>현재</div>
-			 	<div style="color: #00B1F2; font-style:bold; width:220px; font-size: 45px" align="right" ><%=loginUserInfo.getUserId()%></div>  
-				<div>님의 EDmoney 잔고는</div>
+				<div style="color: #7F7F7F;">현재</div>
+			 	<div style="color: #00B1F2; font-style:bold; width:220px; font-size: 45px" align="center" ><%=loginUserInfo.getUserId()%></div>  
+				<div style="color: #7F7F7F;">님의 EDmoney 잔고는</div>
 			</div>
 			<div style="height:70px"></div>
 			<div  id="edmsg">
 				<div style="width:240px"></div>
 				<div style="color: #00B1F2; font-style:bold; width:200px; font-size: 45px" align="right"><%=loginUserInfo.getEdmoneyBalance()%></div>
-				<div>원 입니다.</div>
+				<div style="margin-left: 15px;color:#7F7F7F;">원 입니다.</div>
 			</div>
 		</div>
 		<div class="uk-width-1-1">
 			<p align="center"><br><br><br>
-	        	<a href="<%=request.getContextPath()%>/edmoney/deposit"><button id="bu" class="uk-button uk-button-large uk-button-primary " type="button"><font color="black">EDmoney 충전</font></button></a>
-	            <a href="<%=request.getContextPath()%>/edmoney/withdraw"><button id="bu" class="uk-button uk-button-large uk-button-primary " type="button">EDmoney 인출</button></a>
+	        	<a href="<%=request.getContextPath()%>/edmoney/deposit"><button id="bu" class="uk-button uk-button-large uk-button-primary uk-animation-shake" type="button">EDmoney 충전</button></a>
+	            <a href="<%=request.getContextPath()%>/edmoney/withdraw"><button id="bu" class="uk-button uk-button-large uk-button-primary uk-animation-shake" type="button">EDmoney 인출</button></a>
 	        </p>
 		</div>
 	</div>

@@ -208,10 +208,10 @@
 		
 		
 		<div id="" class="main_menu_long_box" align="center">
-			<ul class="uk-slideshow" data-uk-slideshow="{autoplay:true}">
-   				 <li><img style="animation-duration:500ms;" class="uk-border-rounded" src="<%=request.getContextPath()%>/img/banner/real_banner3.jpg"></li>
-   				 <li><img style="animation-duration:500ms;" class="uk-border-rounded" src="<%=request.getContextPath()%>/img/banner/banner2.jpg" ></li>
-   				 <li><img style="animation-duration:500ms;" class="uk-border-rounded" src="<%=request.getContextPath()%>/img/banner/banner1.jpg"></li>
+			<ul class="uk-slideshow uk-border-rounded" data-uk-slideshow="{autoplay:true, animation: 'fade'}">
+   				 <li><img style="animation-duration:500ms;" src="<%=request.getContextPath()%>/img/banner/banner2.jpg" ></li>
+   				 <li><img style="animation-duration:500ms;" src="<%=request.getContextPath()%>/img/banner/banner1.jpg"></li>
+   				 <li><img style="animation-duration:500ms;" src="<%=request.getContextPath()%>/img/banner/real_banner3.jpg"></li>
 			</ul>
 		</div>
 		

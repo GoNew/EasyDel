@@ -80,7 +80,7 @@ $(document).ready(function() {
 			
 			<div id="edchung2">계좌 번호 : <input type="text" id="account" placeholder=""></div>
 			
-			<div class="uk-button uk-width-1-5 uk-button-primary" id="pay_button">출금요청</div>
+			<div class="uk-button uk-width-1-5 uk-button-primary uk-animation-scale" id="pay_button">출금요청</div>
 		</div>
     </div>
 </div>

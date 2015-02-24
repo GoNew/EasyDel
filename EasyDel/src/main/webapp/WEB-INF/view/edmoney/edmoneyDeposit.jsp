@@ -75,7 +75,7 @@
 				</div>
 			</div>
 			
-			<div class="uk-button uk-width-1-5 uk-button-primary" id="pay_button">
+			<div class="uk-button uk-width-1-5 uk-button-primary uk-animation-scale" id="pay_button">
 				결제요청
 			</div>
 		</div>
