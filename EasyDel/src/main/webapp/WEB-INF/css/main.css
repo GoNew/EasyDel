@@ -1,7 +1,8 @@
 @CHARSET "UTF-8";
  
-<<<<<<< HEAD
-/*     *{border:solid 1px blue;}     */ 
+*{
+    /* border:solid 1px blue; */
+    }     
 *{margin:0px;padding:0px;} 
 image{border:0px;}
 
@@ -32,10 +33,6 @@ image{border:0px;}
 div.webkit_box{
 	display: -webkit-box;
 }
-
-
-
-
 
 #mainphoto{
 	width:200px;
@@ -96,7 +93,7 @@ div.webkit_box{
 #mainphotos2{
 	width:38px;
 	height:41px;
-	margin-left: 230px;
+	margin-left: 219px;
 }
 #mainnull{
 	width:30px;
@@ -150,13 +147,15 @@ div.webkit_box{
 	height : 37px; 
 }
 #mainbigfont1{
-	font-size: 33px;	
+	font-size: 33px;
+	font-weight: bold;	
 	width: 90px;
-	margin-left: 20px;
+	margin-left: 35px;
 	margin-top: 10px;
-	margin-right: 5px;
 }
 #mainbigfont2{
+	/* border: 1px solid blue; */
+	font-weight: bold;	
 	font-size: 33px;	
 	width: 95px;
 	margin-top: 10px;
@@ -217,18 +216,19 @@ div.courier_people{
 
 #mainsmallfont2_left{
 	/* border: 1px solid blue; */
-	font-size:20px;
+	font-size:27px;
 	width : 200px;
-	margin : 3px 3px 3px 15px;
+	margin : 3px 3px 3px 48px;
 }
 #mainsmallfont2_right{
 	/* border: 1px solid blue; */
-	font-size:20px;
+	font-size:27px;
 	width : 300px;
 	margin : 3px 32px 3px 30px;
 }
 
 #completedRate_font_left{
+	color: #00B1F2;
 	font-size: 33px;	
 	margin-top: 10px;
 	margin-right: 5px;
@@ -240,6 +240,7 @@ div.courier_people{
 	margin-right: 5px;
 }
 #completedRate_font_right{
+	color: #00B1F2;
 	font-size: 33px;	
 	margin-top: 10px;
 	margin-left: 70px;
@@ -307,7 +308,7 @@ div.main_menu_long_box{
 	/* margin-left: 20px; */
 	/* opacity: 0.5;
 	filter: alpha(opacity = 50); */
-	width:  492px;
+	width:  494px;
 	height:  230px;
 }
 /* 배너 사진 */
@@ -330,13 +331,13 @@ div.MenuFont{
 	filter: alpha(opacity = 70); */
 	text-decoration: none;
 }
-a:hover{
-	z-index: 2;
-	background-color: white;
-	opacity: 0.7;
-	filter: alpha(opacity = 70);
+#a_font:hover{
+	color: #00B1F2 !important;
 }
 
+#MyRequestProgress_hover:hover{
+	background-image: url('<%=request.getContextPath()%>/img/button/mypage.bmp'); !important;
+}
 
 #UploadRequest {
 	margin-top: 9px;
@@ -346,7 +347,7 @@ a:hover{
 #MyRequestProgress{
 	margin-top: 9px;
 	height: 170px;
-	width: 160px;
+	width: 170px;
 }
 #Edmoney {
 	margin-top: 9px;

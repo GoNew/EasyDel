@@ -13,6 +13,34 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/main.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/header.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/footer.css"/>
+<script type="text/javascript">
+
+function hover_mypage(element) {
+    element.setAttribute('src', '<%=request.getContextPath()%>/img/button/mypage.bmp');
+}
+function unhover_mypage(element) {
+    element.setAttribute('src', '<%=request.getContextPath()%>/img/button/mypage.png');
+}
+function hover_edmoney(element) {
+    element.setAttribute('src', '<%=request.getContextPath()%>/img/button/edmoney_blue.bmp');
+}
+function unhover_edmoney(element) {
+    element.setAttribute('src', '<%=request.getContextPath()%>/img/button/edmoney.png');
+}
+function hover_upload(element) {
+    element.setAttribute('src', '<%=request.getContextPath()%>/img/button/write_board_blue.bmp');
+}
+function unhover_upload(element) {
+    element.setAttribute('src', '<%=request.getContextPath()%>/img/button/write_board.png');
+}
+function hover_list(element) {
+    element.setAttribute('src', '<%=request.getContextPath()%>/img/button/allboardlist_blue.bmp');
+}
+function unhover_list(element) {
+    element.setAttribute('src', '<%=request.getContextPath()%>/img/button/allboardlist.png');
+}
+
+</script>
 <title>메인</title>
 <%
 	User loginUserInfo = (User) session.getAttribute("loginSession");
@@ -190,16 +218,16 @@
 	<div class="wrapper_videoNbox">
 		
 		<div class="uk-cover main_menu_long_box"> <!-- style="width: 430px; height: 232px; border: 1px solid blue;" -->
-			<!-- autoplay="autoplay" loop="loop" --><video id="video_deco" class="uk-cover-object" src="<%=request.getContextPath()%>/img/toomuch.mp4" autoplay="autoplay" loop="loop" ></video>
+			<!-- autoplay="autoplay" loop="loop" --><video id="video_deco" class="uk-cover-object" src="<%=request.getContextPath()%>/img/toomuch.mp4"></video>
 		</div>
 		
 		<a id="a_font" href="<%=request.getContextPath()%>/board"><div class="main_menu_box" style="margin-left: 28px;" align="center">
-			<img id="AllBoardList" alt="" src="<%=request.getContextPath()%>/img/button/allboardlist.png">
+			<img id="AllBoardList" alt="" src="<%=request.getContextPath()%>/img/button/allboardlist.png" onmouseover="hover_list(this);" onmouseout="unhover_list(this);">
 			<div class="MenuFont">전체 의뢰 보기</div>
 		</div></a>
 	
 		<a id="a_font" href="<%=request.getContextPath()%>/register/selecttype"><div class="main_menu_box" align="center">
-			<img id="UploadRequest" alt="" src="<%=request.getContextPath()%>/img/button/write_board.png">
+			<img id="UploadRequest" alt="" src="<%=request.getContextPath()%>/img/button/write_board.png" onmouseover="hover_upload(this);" onmouseout="unhover_upload(this);">
 			<div class="MenuFont">의뢰 올리기</div>
 		</div></a>
 		
@@ -215,12 +243,12 @@
 		
 		
 		<a id="a_font" href="<%=request.getContextPath()%>/edmoney"><div class="main_menu_box" style="margin-left: 28px;" align="center">
-			<img id="Edmoney" src="<%=request.getContextPath()%>/img/button/edmoney.png">
+			<img id="Edmoney" src="<%=request.getContextPath()%>/img/button/edmoney.png" onmouseover="hover_edmoney(this);" onmouseout="unhover_edmoney(this);">
 			<div class="MenuFont">EDMoney</div>
 		</div></a>
 	
-		<a id="a_font" href="<%=request.getContextPath()%>/mylist"><div class="main_menu_box" align="center">
-			<img id="MyRequestProgress" alt="" src="<%=request.getContextPath()%>/img/button/mypage.png">
+		<a id="a_font" href="<%=request.getContextPath()%>/mylist"><div id="MyRequestProgress_hover" class="main_menu_box" align="center">
+			<img id="MyRequestProgress" alt="" src="<%=request.getContextPath()%>/img/button/mypage.png" onmouseover="hover_mypage(this);" onmouseout="unhover_mypage(this);">
 			<div class="MenuFont">내 진행 보기 </div>
 		</div></a>
 		
