@@ -11,6 +11,8 @@
 <title>Error Page!</title>
 <%
 	String errormsg = (String)request.getAttribute("errorMsg");
+	if(errormsg == null)
+		errormsg = "";
 %>
 </head>
 <body>
