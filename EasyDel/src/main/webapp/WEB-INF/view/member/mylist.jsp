@@ -250,7 +250,7 @@
 									<%		} else {	%>
 									<div class="row_request">
 									<%		}	%>
-										<div class="uk-width-1-2 "><div class="text_middle"><%=req.getCargoName() %></div></div>
+										<div class="uk-width-1-2 "><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/ondeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div></div>
 									<%		if(req.getRequestStatus() == RequestStatus.arrive.getStatusCode()) {	%>
 										<div class="button_middle uk-width-2-10"><div class="uk-button uk-width-2-3" onclick="send_readyForCompleteMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForCompleteMySendRequest'}">거래완료</div></div>
@@ -330,7 +330,7 @@
 									<%		} else {	%>
 									<div class="row_request">
 									<%		}	%>
-										<div class="uk-width-1-2 "><div class="text_middle"><%=req.getCargoName() %></div></div>
+										<div class="uk-width-1-2 "><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/ondeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId() %></div></div>
 									<%		if(req.getRequestStatus() == RequestStatus.arrive.getStatusCode()) {	%>
 										<div class="button_middle uk-width-2-10"><div class="uk-button uk-width-2-3">인증하기</div></div>

@@ -88,4 +88,30 @@ public class ShowRequestController {
 		}
 		return resultPage;
 	}
+	
+	@RequestMapping(value="/ondeli", params={"requestId"}, method=RequestMethod.GET)
+	public String showRequestOndel(@RequestParam Integer requestId, Model model,
+			HttpSession session) {
+		String resultPage = "/board/show/ondeli";
+		User loginUser = (User) session.getAttribute("loginSession");
+		try {
+			Request readRequest = reqService.getRequestWithRequestCmts(requestId);
+			if(readRequest == null)
+				throw new ServiceFailException("존재하지 않는 글");
+			User senderUserInfo = userService.serviceGetUser(readRequest.getSenderId());
+			if((readRequest.getRequestStatus() != RequestStatus.on.getStatusCode()
+					&& readRequest.getRequestStatus() != RequestStatus.cancelByDeliver.getStatusCode()
+					&& readRequest.getRequestStatus() != RequestStatus.cancelBySender.getStatusCode())
+					&& !loginUser.getUserId().equals(readRequest.getSenderId())
+					&& !loginUser.getUserId().equals(readRequest.getCourierId()))
+				throw new ServiceFailException("해당 글에 대한 접근 권한이 없음");
+			model.addAttribute("requestWithCmts", readRequest);
+			model.addAttribute("senderUserInfo", senderUserInfo);
+		} catch (ServiceFailException e) {
+			resultPage = "/error";
+			model.addAttribute("errorMsg", e.getMessage());
+			e.printStackTrace();
+		}
+		return resultPage;
+	}
 }

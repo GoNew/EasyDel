@@ -73,7 +73,7 @@ public class RegisterRequestController {
 			HttpSession session, Model model) {
 		SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'KK:mm");
 		User user = (User) session.getAttribute("loginSession");
-		String resultPage = "/register/selecttype";
+		String resultPage = "redirect:/register/selecttype";
 		
 		//시간 포멧 수정하여 setting
 		Date currDate = new Date(); 
@@ -102,12 +102,12 @@ public class RegisterRequestController {
 			
 			reqService.serviceRegistrateNewRequest(newRequest, file);
 		} catch (ParseException | ServiceFailException e) {
-			resultPage = "/error";
+			resultPage = "error/errorpage";
 			model.addAttribute("errorMsg", e.getMessage());
 			e.printStackTrace();
 		}
 		
-		return "redirect:" + resultPage;
+		return resultPage;
 	}
 	
 	@RequestMapping(value="/typepurchase", method=RequestMethod.GET)
@@ -123,7 +123,7 @@ public class RegisterRequestController {
 			HttpSession session, Model model) {
 		SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'KK:mm");
 		User user = (User) session.getAttribute("loginSession");
-		String resultPage = "/register/selecttype";
+		String resultPage = "redirect:/register/selecttype";
 		
 		logger.trace("mylog: " + file.isEmpty());
 		
@@ -146,11 +146,11 @@ public class RegisterRequestController {
 			
 			reqService.serviceRegistrateNewRequest(newRequest, file);
 		} catch (ParseException | ServiceFailException e) {
-			resultPage = "/error";
+			resultPage = "error/errorpage";
 			model.addAttribute("errorMsg", e.getMessage());
 			e.printStackTrace();
 		}
 		
-		return "redirect:" + resultPage;
+		return resultPage;
 	}
 }
