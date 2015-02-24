@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import easydel.contant.AlertStatus;
+import easydel.contant.RequestStatus;
 import easydel.dao.IReportDao;
+import easydel.dao.IRequestDao;
 import easydel.entity.Report;
+import easydel.entity.Request;
 import easydel.exception.ServiceFailException;
 
 public class ReportServiceImpl implements IReportService {
@@ -14,6 +17,8 @@ public class ReportServiceImpl implements IReportService {
 	IReportDao dao;
 	@Autowired
 	IAlertService alertService;
+	@Autowired
+	IRequestDao reqDao;
 
 	@Override
 	@Transactional(rollbackFor={ServiceFailException.class})
@@ -27,6 +32,17 @@ public class ReportServiceImpl implements IReportService {
 		report.setReportUserId(exeUserId);
 		report.setRequestId(requestId);
 		
+		Request req = reqDao.selectRequestByRequestId(requestId);
+		switch (RequestStatus.valueOf(req.getRequestStatus())) {
+		case on:
+		case cancelByDeliver:
+		case cancelBySender:
+		case arrive:
+			break;
+		default:
+			throw new ServiceFailException("해당 글은 신고가 불가능한 상태입니다.");
+		}
+		
 		if(reportCmt == null
 				|| reportedUserId == null
 				|| reportType == null
@@ -35,6 +51,6 @@ public class ReportServiceImpl implements IReportService {
 			throw new ServiceFailException("잘못된 입력 정보");
 		if(dao.insertReport(report) <= 0)
 			throw new ServiceFailException("신고 실패");
-		alertService.insertAlert(reportedUserId, "'", AlertStatus.system);
+		alertService.insertAlert(reportedUserId, "신고 건수가 있습니다. '내 진행보기-신고탭'에서 확인하세요.", AlertStatus.system);
 	}
 }
