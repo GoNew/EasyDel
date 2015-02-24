@@ -28,18 +28,20 @@ public class EdmoneyController {
 		return "edmoney/edmoneywithdraw";
 	}
 //	// ed머니 인출후 ed머니 조회로 보내주는 컨트롤러 
-//	@RequestMapping(value="/edmoneywithdraw",method=RequestMethod.POST)
-//	public String EDmoneyWithdraw(){
-//		return "edmoney/edmoneyView";
-//	}
+	@RequestMapping(value="/edmoneywithdraw",method=RequestMethod.POST)
+	public String EDmoneyWithdraw(){
+		return "edmoney/edmoneyView";
+	}
+
 	// ed머니 입금화면으로 보내주는 컨트롤러
 	@RequestMapping(value="/edmoneydeposit",method=RequestMethod.GET)
 	public String showEDmoneydeposit(){
 		return "edmoney/edmoneyDeposit";
 	}
+	
 //	// ed머니 입금 완료 후 ed머니 조회로 보내주는 컨트롤러
-//	@RequestMapping(value="/edmoneydeposit",method=RequestMethod.POST)
-//	public String EDmoneyDeposit(){
-//		return "edmoney/edmoneyView";
-//	}
+	@RequestMapping(value="/edmoneydeposit",method=RequestMethod.POST)
+	public String EDmoneyDeposit(){
+		return "edmoney/edmoneyView";
+	}
 }
