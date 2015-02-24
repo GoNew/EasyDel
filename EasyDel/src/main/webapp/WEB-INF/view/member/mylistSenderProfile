@@ -58,8 +58,13 @@
 				<div class="grade_text text_middle_grade">거래율</div>
 				<div style="margin-left: 10px" class="grade_text webkit_box">
 					<div id="transaction_rate" class="text_middle_grade">
-						<%=String.format("%.1f", (double) req.getSenderSuccesscnt()
-					/ req.getSenderTotalcnt() * 100.0)%>
+						<%
+							if(req.getSenderTotalcnt() == 0) {
+								out.print("0.00");
+							} else {
+								out.print(String.format("%.2f", (double) req.getSenderSuccesscnt()	/ req.getSenderTotalcnt() * 100.0));
+							}
+						%>
 					</div>
 					<div class="text_middle_grade">%</div>
 				</div>

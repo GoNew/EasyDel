@@ -24,68 +24,102 @@
 		$("#senderevalaccuracy").html("0");
 		$("#senderevalkind").html("0");
 		
+		$("#senderevaltime2").val(0);
+		$("#senderevalaccuracy2").val(0);
+		$("#senderevalkind2").val(0);
+		
 		$("#solostar11").click(function() {
 			$("#solostar11").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar12").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
 			$("#solostar13").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar14").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar15").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#senderevaltime").html("1"); $("#senderevaltime2").html("<input type='hidden' id='senderevaltime2' name='senderevaltime2' value='1'>")});
+			$("#senderevaltime").html("1"); $("#senderevaltime2").html("<input type='hidden' id='senderevaltime2' name='senderevaltime2' value='1'>")
+			$("#senderevaltime2").val(1);
+			});
 		$("#solostar12").click(function() {
 			$("#solostar11").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar12").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar13").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar14").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar15").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#senderevaltime").html("2"); $("#senderevaltime2").html("<input type='hidden' id='senderevaltime2' name='senderevaltime2' value='2'>")});
+			$("#senderevaltime").html("2"); $("#senderevaltime2").html("<input type='hidden' id='senderevaltime2' name='senderevaltime2' value='2'>")
+			$("#senderevaltime2").val(2);
+			});
 		$("#solostar13").click(function() {
 			$("#solostar11").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar12").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar13").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar14").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar15").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#senderevaltime").html("3"); $("#senderevaltime2").html("<input type='hidden' id='senderevaltime2' name='senderevaltime2' value='3'>")});
+			$("#senderevaltime").html("3"); $("#senderevaltime2").html("<input type='hidden' id='senderevaltime2' name='senderevaltime2' value='3'>")
+			$("#senderevaltime2").val(3);
+			});
 		$("#solostar14").click(function() { 
 			$("#solostar11").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar12").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar13").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar14").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar15").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#senderevaltime").html("4"); $("#senderevaltime2").html("<input type='hidden' id='senderevaltime2' name='senderevaltime2' value='4'>")});
+			$("#senderevaltime").html("4"); $("#senderevaltime2").html("<input type='hidden' id='senderevaltime2' name='senderevaltime2' value='4'>")
+			$("#senderevaltime2").val(4);
+			});
 		$("#solostar15").click(function() {
 			$("#solostar11").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar12").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar13").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar14").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar15").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
-			$("#senderevaltime").html("5"); $("#senderevaltime2").html("<input type='hidden' id='senderevaltime2' name='senderevaltime2' value='5'>")});
+			$("#senderevaltime").html("5"); $("#senderevaltime2").html("<input type='hidden' id='senderevaltime2' name='senderevaltime2' value='5'>")
+			$("#senderevaltime2").val(5);
+			});
 		
 		$("#solostar21").click(function() {
 			$("#solostar21").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar22").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
 			$("#solostar23").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar24").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar25").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#senderevalaccuracy").html("1"); $("#senderevalaccuracy2").html("<input type='hidden' id='senderevalaccuracy2' name='senderevalaccuracy2' value='1'>")});
+			$("#senderevalaccuracy").html("1"); $("#senderevalaccuracy2").html("<input type='hidden' id='senderevalaccuracy2' name='senderevalaccuracy2' value='1'>")
+			$("#senderevalaccuracy2").val(1);
+			});
 		$("#solostar22").click(function() {
 			$("#solostar21").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar22").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar23").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar24").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar25").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#senderevalaccuracy").html("2"); $("#senderevalaccuracy2").html("<input type='hidden' id='senderevalaccuracy2' name='senderevalaccuracy2' value='2'>")});
+			$("#senderevalaccuracy").html("2"); $("#senderevalaccuracy2").html("<input type='hidden' id='senderevalaccuracy2' name='senderevalaccuracy2' value='2'>")
+			$("#senderevalaccuracy2").val(2);
+			});
 		$("#solostar23").click(function() {
 			$("#solostar21").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar22").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar23").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar24").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar25").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#senderevalaccuracy").html("3"); $("#senderevalaccuracy2").html("<input type='hidden' id='senderevalaccuracy2' name='senderevalaccuracy2' value='3'>")});
+			$("#senderevalaccuracy").html("3"); $("#senderevalaccuracy2").html("<input type='hidden' id='senderevalaccuracy2' name='senderevalaccuracy2' value='3'>")
+			$("#senderevalaccuracy2").val(3);
+			});
 		$("#solostar24").click(function() { 
 			$("#solostar21").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar22").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar23").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar24").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar25").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#senderevalaccuracy").html("4"); $("#senderevalaccuracy2").html("<input type='hidden' id='senderevalaccuracy2' name='senderevalaccuracy2' value='4'>")});
+			$("#senderevalaccuracy").html("4"); $("#senderevalaccuracy2").html("<input type='hidden' id='senderevalaccuracy2' name='senderevalaccuracy2' value='4'>")
+			$("#senderevalaccuracy2").val(4);
+			});
 		$("#solostar25").click(function() {
 			$("#solostar21").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar22").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar23").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar24").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar25").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
-			$("#senderevalaccuracy").html("5"); $("#senderevalaccuracy2").html("<input type='hidden' id='senderevalaccuracy2' name='senderevalaccuracy2' value='5'>")});
+			$("#senderevalaccuracy").html("5"); $("#senderevalaccuracy2").html("<input type='hidden' id='senderevalaccuracy2' name='senderevalaccuracy2' value='5'>")
+			$("#senderevalaccuracy2").val(5);
+			});
 		
 		$("#solostar31").click(function() {
 			$("#solostar31").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar32").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
 			$("#solostar33").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar34").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar35").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#senderevalkind").html("1"); $("#senderevalkind2").html("<input type='hidden' id='senderevalkind2' name='senderevalkind2' value='1'>")});
+			$("#senderevalkind").html("1"); $("#senderevalkind2").html("<input type='hidden' id='senderevalkind2' name='senderevalkind2' value='1'>")
+			$("#senderevalkind2").val(1);
+			});
 		$("#solostar32").click(function() {
 			$("#solostar31").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar32").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar33").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar34").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar35").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#senderevalkind").html("2"); $("#senderevalkind2").html("<input type='hidden' id='senderevalkind2' name='senderevalkind2' value='2'>")});
+			$("#senderevalkind").html("2"); $("#senderevalkind2").html("<input type='hidden' id='senderevalkind2' name='senderevalkind2' value='2'>")
+			$("#senderevalkind2").val(2);
+			});
 		$("#solostar33").click(function() {
 			$("#solostar31").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar32").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar33").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar34").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar35").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#senderevalkind").html("3"); $("#senderevalkind2").html("<input type='hidden' id='senderevalkind2' name='senderevalkind2' value='3'>")});
+			$("#senderevalkind").html("3"); $("#senderevalkind2").html("<input type='hidden' id='senderevalkind2' name='senderevalkind2' value='3'>")
+			$("#senderevalkind2").val(3);
+			});
 		$("#solostar34").click(function() { 
 			$("#solostar31").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar32").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar33").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar34").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar35").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#senderevalkind").html("4"); $("#senderevalkind2").html("<input type='hidden' id='senderevalkind2' name='senderevalkind2' value='4'>")});
+			$("#senderevalkind").html("4"); $("#senderevalkind2").html("<input type='hidden' id='senderevalkind2' name='senderevalkind2' value='4'>")
+			$("#senderevalkind2").val(4);
+			});
 		$("#solostar35").click(function() {
 			$("#solostar31").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar32").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar33").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar34").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar35").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
-			$("#senderevalkind").html("5"); $("#senderevalkind2").html("<input type='hidden' id='senderevalkind2' name='senderevalkind2' value='5'>")});
+			$("#senderevalkind").html("5"); $("#senderevalkind2").html("<input type='hidden' id='senderevalkind2' name='senderevalkind2' value='5'>")
+			$("#senderevalkind2").val(5);
+			});
 	});
 </script>
 
@@ -175,7 +209,7 @@
 				<div>
 					<div style="height:10px"></div>
 					<div style="font-size: 23px; width: 100px;"><span id="senderevalkind" ></span>점</div>
-					<input type='hidden' id='senderevalkind2' name='senderevalkind2'>
+					<input type="hidden" id="senderevalkind2" name="senderevalkind2">
 				</div>
 			</div>
 			<div style="height:10px"></div>

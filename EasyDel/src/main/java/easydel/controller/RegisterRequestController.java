@@ -125,6 +125,8 @@ public class RegisterRequestController {
 		User user = (User) session.getAttribute("loginSession");
 		String resultPage = "/register/selecttype";
 		
+		logger.trace("mylog: " + file.isEmpty());
+		
 		//시간 포멧 수정하여 setting
 		Date currDate = new Date(); 
 		Date arrivalMinTime = null;

@@ -6,11 +6,9 @@ import easydel.entity.User;
 import easydel.exception.ServiceFailException;
 
 public interface IEvalService {
-	public User serviceGetCourier(Integer requestId) throws ServiceFailException;
+	public User serviceGetCourier(Integer requestId, String exeUserId) throws ServiceFailException;
 	public void serviceCourierEval(CourierEval courierEval) throws ServiceFailException;
-	public void serviceUpdateCourierEval(Integer requestId) throws ServiceFailException;
 	
-	public User serviceGetSender(Integer requestId);
+	public User serviceGetSender(Integer requestId, String exeUserId) throws ServiceFailException;
 	public void serviceSenderEval(SenderEval senderEval) throws ServiceFailException;
-	public void serviceUpdateSenderEval(Integer requestId) throws ServiceFailException;
 }

@@ -55,7 +55,13 @@
 				<div class="grade_text text_middle_grade">성사율</div>
 				<div style="margin-left: 10px" class="grade_text webkit_box">
 					<div class="text_middle_grade">
-						<%=String.format("%.1f", (double) req.getCourierSuccesscnt() / req.getCourierTotalcnt() * 100.0)%>
+						<%
+							if(req.getCourierTotalcnt() == 0) {
+								out.print(0.00);
+							} else {
+								out.print(String.format("%.2f", (double) req.getCourierSuccesscnt() / req.getCourierTotalcnt() * 100.0));
+							}
+						%>
 					</div>
 					<div class="text_middle_grade">%</div>
 				</div>

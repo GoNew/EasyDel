@@ -24,68 +24,102 @@
 		$("#courierevalsafe").html("0");
 		$("#courierevalkind").html("0");
 		
+		$("#courierevaltime2").val(0);
+		$("#courierevalsafe2").val(0);
+		$("#courierevalkind2").val(0);
+		
 		$("#solostar11").click(function() {
 			$("#solostar11").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar12").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
 			$("#solostar13").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar14").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar15").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#courierevaltime").html("1"); $("#courierevaltime2").html("<input type='hidden' id='courierevaltime2' name='courierevaltime2' value='1'>")});
+			$("#courierevaltime").html("1"); $("#courierevaltime2").html("<input type='hidden' id='courierevaltime2' name='courierevaltime2' value='1'>")
+			$("#courierevaltime2").val(1);
+			});
 		$("#solostar12").click(function() {
 			$("#solostar11").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar12").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar13").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar14").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar15").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#courierevaltime").html("2"); $("#courierevaltime2").html("<input type='hidden' id='courierevaltime2' name='courierevaltime2' value='2'>")});
+			$("#courierevaltime").html("2"); $("#courierevaltime2").html("<input type='hidden' id='courierevaltime2' name='courierevaltime2' value='2'>")
+			$("#courierevaltime2").val(2);
+			});
 		$("#solostar13").click(function() {
 			$("#solostar11").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar12").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar13").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar14").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar15").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#courierevaltime").html("3"); $("#courierevaltime2").html("<input type='hidden' id='courierevaltime2' name='courierevaltime2' value='3'>")});
+			$("#courierevaltime").html("3"); $("#courierevaltime2").html("<input type='hidden' id='courierevaltime2' name='courierevaltime2' value='3'>")
+			$("#courierevaltime2").val(3);
+			});
 		$("#solostar14").click(function() { 
 			$("#solostar11").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar12").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar13").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar14").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar15").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#courierevaltime").html("4"); $("#courierevaltime2").html("<input type='hidden' id='courierevaltime2' name='courierevaltime2' value='4'>")});
+			$("#courierevaltime").html("4"); $("#courierevaltime2").html("<input type='hidden' id='courierevaltime2' name='courierevaltime2' value='4'>")
+			$("#courierevaltime2").val(4);
+			});
 		$("#solostar15").click(function() {
 			$("#solostar11").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar12").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar13").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar14").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar15").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
-			$("#courierevaltime").html("5"); $("#courierevaltime2").html("<input type='hidden' id='courierevaltime2' name='courierevaltime2' value='5'>")});
+			$("#courierevaltime").html("5"); $("#courierevaltime2").html("<input type='hidden' id='courierevaltime2' name='courierevaltime2' value='5'>")
+			$("#courierevaltime2").val(5);
+			});
 		
 		$("#solostar21").click(function() {
 			$("#solostar21").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar22").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
 			$("#solostar23").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar24").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar25").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#courierevalsafe").html("1"); $("#courierevalsafe2").html("<input type='hidden' id='courierevalsafe2' name='courierevalsafe2' value='1'>")});
+			$("#courierevalsafe").html("1"); $("#courierevalsafe2").html("<input type='hidden' id='courierevalsafe2' name='courierevalsafe2' value='1'>")
+			$("#courierevalsafe2").val(1);
+			});
 		$("#solostar22").click(function() {
 			$("#solostar21").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar22").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar23").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar24").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar25").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#courierevalsafe").html("2"); $("#courierevalsafe2").html("<input type='hidden' id='courierevalsafe2' name='courierevalsafe2' value='2'>")});
+			$("#courierevalsafe").html("2"); $("#courierevalsafe2").html("<input type='hidden' id='courierevalsafe2' name='courierevalsafe2' value='2'>")
+			$("#courierevalsafe2").val(2);
+			});
 		$("#solostar23").click(function() {
 			$("#solostar21").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar22").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar23").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar24").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar25").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#courierevalsafe").html("3"); $("#courierevalsafe2").html("<input type='hidden' id='courierevalsafe2' name='courierevalsafe2' value='3'>")});
+			$("#courierevalsafe").html("3"); $("#courierevalsafe2").html("<input type='hidden' id='courierevalsafe2' name='courierevalsafe2' value='3'>")
+			$("#courierevalsafe2").val(3);
+			});
 		$("#solostar24").click(function() { 
 			$("#solostar21").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar22").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar23").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar24").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar25").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#courierevalsafe").html("4"); $("#courierevalsafe2").html("<input type='hidden' id='courierevalsafe2' name='courierevalsafe2' value='4'>")});
+			$("#courierevalsafe").html("4"); $("#courierevalsafe2").html("<input type='hidden' id='courierevalsafe2' name='courierevalsafe2' value='4'>")
+			$("#courierevalsafe2").val(4);
+			});
 		$("#solostar25").click(function() {
 			$("#solostar21").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar22").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar23").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar24").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar25").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
-			$("#courierevalsafe").html("5"); $("#courierevalsafe2").html("<input type='hidden' id='courierevalsafe2' name='courierevalsafe2' value='5'>")});
+			$("#courierevalsafe").html("5"); $("#courierevalsafe2").html("<input type='hidden' id='courierevalsafe2' name='courierevalsafe2' value='5'>")
+			$("#courierevalsafe2").val(5);
+			});
 		
 		$("#solostar31").click(function() {
 			$("#solostar31").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar32").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
 			$("#solostar33").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar34").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar35").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#courierevalkind").html("1"); $("#courierevalkind2").html("<input type='hidden' id='courierevalkind2' name='courierevalkind2' value='1'>")});
+			$("#courierevalkind").html("1"); $("#courierevalkind2").html("<input type='hidden' id='courierevalkind2' name='courierevalkind2' value='1'>")
+			$("#courierevalkind2").val(1);
+			});
 		$("#solostar32").click(function() {
 			$("#solostar31").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar32").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar33").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar34").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar35").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#courierevalkind").html("2"); $("#courierevalkind2").html("<input type='hidden' id='courierevalkind2' name='courierevalkind2' value='2'>")});
+			$("#courierevalkind").html("2"); $("#courierevalkind2").html("<input type='hidden' id='courierevalkind2' name='courierevalkind2' value='2'>")
+			$("#courierevalkind2").val(2);
+			});
 		$("#solostar33").click(function() {
 			$("#solostar31").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar32").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar33").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar34").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");$("#solostar35").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#courierevalkind").html("3"); $("#courierevalkind2").html("<input type='hidden' id='courierevalkind2' name='courierevalkind2' value='3'>")});
+			$("#courierevalkind").html("3"); $("#courierevalkind2").html("<input type='hidden' id='courierevalkind2' name='courierevalkind2' value='3'>")
+			$("#courierevalkind2").val(3);
+			});
 		$("#solostar34").click(function() { 
 			$("#solostar31").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar32").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar33").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar34").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar35").html("<img src='<%=request.getContextPath()%>/img/solostar.JPG'/></div>");
-			$("#courierevalkind").html("4"); $("#courierevalkind2").html("<input type='hidden' id='courierevalkind2' name='courierevalkind2' value='4'>")});
+			$("#courierevalkind").html("4"); $("#courierevalkind2").html("<input type='hidden' id='courierevalkind2' name='courierevalkind2' value='4'>")
+			$("#courierevalkind2").val(4);
+			});
 		$("#solostar35").click(function() {
 			$("#solostar31").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar32").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
 			$("#solostar33").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar34").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");$("#solostar35").html("<img src='<%=request.getContextPath()%>/img/filledstar.JPG'/></div>");
-			$("#courierevalkind").html("5"); $("#courierevalkind2").html("<input type='hidden' id='courierevalkind2' name='courierevalkind2' value='5'>")});
+			$("#courierevalkind").html("5"); $("#courierevalkind2").html("<input type='hidden' id='courierevalkind2' name='courierevalkind2' value='5'>")
+			$("#courierevalkind2").val(5);
+			});
 	});
 </script>
 
