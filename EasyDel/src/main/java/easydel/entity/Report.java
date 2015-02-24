@@ -32,11 +32,21 @@ public class Report implements Serializable {
 	private String reportStatus;
 	
 	private Date reportDate;
+	
+	private String reportTypeDesc;
 
 	/**
 	 * 생성자.
 	 */
 	public Report() {
+	}
+
+	public String getReportTypeDesc() {
+		return reportTypeDesc;
+	}
+
+	public void setReportTypeDesc(String reportTypeDesc) {
+		this.reportTypeDesc = reportTypeDesc;
 	}
 
 	public Integer getRequestId() {
@@ -100,6 +110,7 @@ public class Report implements Serializable {
 		return "Report [requestId=" + requestId + ", reportType=" + reportType
 				+ ", reportedUserId=" + reportedUserId + ", reportUserId="
 				+ reportUserId + ", reportCmt=" + reportCmt + ", reportStatus="
-				+ reportStatus + ", reportDate=" + reportDate + "]";
+				+ reportStatus + ", reportDate=" + reportDate
+				+ ", reportTypeDesc=" + reportTypeDesc + "]";
 	}
 }

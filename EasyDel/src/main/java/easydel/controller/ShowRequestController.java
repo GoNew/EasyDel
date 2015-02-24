@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import easydel.contant.RequestStatus;
+import easydel.entity.Report;
 import easydel.entity.Request;
 import easydel.entity.User;
 import easydel.exception.ServiceFailException;
+import easydel.service.IReportService;
 import easydel.service.IRequestCmtService;
 import easydel.service.IRequestService;
 import easydel.service.IUserService;
@@ -30,6 +32,8 @@ public class ShowRequestController {
 	private IUserService userService;
 	@Autowired
 	private IRequestCmtService reqCmtService;
+	@Autowired
+	private IReportService repService;
 	
 	@RequestMapping(value="/predeli", params={"requestId"}, method=RequestMethod.GET)
 	public String showRequestPredel(@RequestParam Integer requestId, Model model,
@@ -128,6 +132,55 @@ public class ShowRequestController {
 			reqService.cancelRequestOnDel(loginUser.getUserId(), requestId);
 		} catch (ServiceFailException e) {
 			resultPage = "error/errorpage";
+			model.addAttribute("errorMsg", e.getMessage());
+			e.printStackTrace();
+		}
+		return resultPage;
+	}
+	
+	@RequestMapping(value="/enddeli", params={"requestId"}, method=RequestMethod.GET)
+	public String showRequestEnddel(@RequestParam Integer requestId, Model model,
+			HttpSession session) {
+		String resultPage = "/board/show/enddeli";
+		User loginUser = (User) session.getAttribute("loginSession");
+		try {
+			Request readRequest = reqService.getRequestWithRequestCmts(requestId);
+			if(readRequest == null)
+				throw new ServiceFailException("존재하지 않는 글");
+			User senderUserInfo = userService.serviceGetUser(readRequest.getSenderId());
+			if(readRequest.getRequestStatus() != RequestStatus.quit.getStatusCode()
+					&& !loginUser.getUserId().equals(readRequest.getSenderId())
+					&& !loginUser.getUserId().equals(readRequest.getCourierId()))
+				throw new ServiceFailException("해당 글에 대한 접근 권한이 없음");
+			model.addAttribute("requestWithCmts", readRequest);
+			model.addAttribute("senderUserInfo", senderUserInfo);
+		} catch (ServiceFailException e) {
+			resultPage = "/error";
+			model.addAttribute("errorMsg", e.getMessage());
+			e.printStackTrace();
+		}
+		return resultPage;
+	}
+	
+	@RequestMapping(value="/reported", params={"requestId"}, method=RequestMethod.GET)
+	public String showReportedRequest(@RequestParam Integer requestId, Model model,
+			HttpSession session) {
+		String resultPage = "/board/show/reported";
+		User loginUser = (User) session.getAttribute("loginSession");
+		try {
+			Request readRequest = reqService.getRequestWithRequestCmts(requestId);
+			if(readRequest == null)
+				throw new ServiceFailException("존재하지 않는 글");
+			User senderUserInfo = userService.serviceGetUser(readRequest.getSenderId());
+			Report reportInfo = repService.getReport(requestId);
+			if(!loginUser.getUserId().equals(reportInfo.getReportedUserId())
+					&& !loginUser.getUserId().equals(reportInfo.getReportUserId()))
+				throw new ServiceFailException("해당 글에 대한 접근 권한이 없음");
+			model.addAttribute("requestWithCmts", readRequest);
+			model.addAttribute("senderUserInfo", senderUserInfo);
+			model.addAttribute("reportInfo", reportInfo);
+		} catch (ServiceFailException e) {
+			resultPage = "/error";
 			model.addAttribute("errorMsg", e.getMessage());
 			e.printStackTrace();
 		}
