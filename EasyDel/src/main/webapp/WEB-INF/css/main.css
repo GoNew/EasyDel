@@ -34,7 +34,7 @@ div.webkit_box{
 
 
 div.wrapper_videoNbox{
-	border: 1px solid #ff80c0; /* 나중에 지우기 */
+	/* border: 1px solid #ff80c0;  *//* 나중에 지우기 */
 	display: -webkit-box;
 	width: 100%;
 	height: 250px;
@@ -74,7 +74,7 @@ div.wrapper_videoNbox{
 
 
 #mainbelowform{
-	border: 2px solid #86e0fb;
+	/* border: 2px solid #86e0fb; */
 	width : 100%;
 	height: 400px;
 	display: -webkit-box;
