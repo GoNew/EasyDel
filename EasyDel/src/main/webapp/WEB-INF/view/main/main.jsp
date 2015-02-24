@@ -5,8 +5,10 @@
 <html>
 <head>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/uikit/css/uikit.almost-flat.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/uikit/css/components/slideshow.almost-flat.css" />
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
+<script src="<%=request.getContextPath()%>/uikit/js/slideshow-fx.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/main.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/header.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/footer.css"/>
@@ -204,15 +206,13 @@
 	<div class="wrapper_videoNbox">
 		
 		
-		<div id="" class="main_menu_box" align="center" style="margin-left: 10px;">
-		
+		<div id="" class="main_menu_long_box" align="center" style="margin-left: 10px;">
+			<img id="Edmoney" alt="" src="<%=request.getContextPath()%>/img/banner/real_banner3.jpg">
 		</div>
 		
-		<div class="main_menu_box" align="center">
-			
-		</div>
 		
 		<div class="main_menu_box" align="center">
+
 			<img id="Edmoney" alt="" src="<%=request.getContextPath()%>/img/button/edmoney.png">
 			<div class="MenuFont">EDMoney</div>
 		</div>

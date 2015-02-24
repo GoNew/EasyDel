@@ -217,6 +217,18 @@ div.main_menu_box{
 	opacity: 0.8;
 	filter: alpha(opacity = 80);
 }
+div.main_menu_long_box{
+	/* border: 1px solid #c4bfbb; */ /* 나중에 지우기 */
+	border-radius: 10px;
+	margin-bottom: 17px;
+	margin-top: 17px;
+	margin-left: 20px;
+	margin-right: ;
+	height: 245px;
+	width: 500px;
+	opacity: 0.5;
+	filter: alpha(opacity = 50);
+}
 
 div.MenuFont{
 	line-height: 36px;
