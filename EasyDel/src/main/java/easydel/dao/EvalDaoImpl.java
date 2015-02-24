@@ -1,5 +1,7 @@
 package easydel.dao;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,10 +22,13 @@ public static final Logger logger = LoggerFactory.getLogger(TitleDaoImpl.class);
 	public EvalDaoImpl(){}
 	
 	@Override
-	public User selectCourierByRequestId(Integer requestId) {
+	public User selectCourierByRequestId(Integer requestId, String exeUserId) {
 		User user;
 		String stmt = rabbit_namespace + ".selectCourierByRequestId";
-		user = session.selectOne(stmt, requestId);
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("requestId", requestId);
+		params.put("senderId", exeUserId);
+		user = session.selectOne(stmt, params);
 		return user;
 	}
 	@Override
@@ -41,10 +46,13 @@ public static final Logger logger = LoggerFactory.getLogger(TitleDaoImpl.class);
 	
 	
 	@Override
-	public User selectSenderByRequestId(Integer requestId) {
+	public User selectSenderByRequestId(Integer requestId, String exeUserId) {
 		User user;
 		String stmt = rabbit_namespace + ".selectSenderByRequestId";
-		user = session.selectOne(stmt, requestId);
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("requestId", requestId);
+		params.put("courierId", exeUserId);
+		user = session.selectOne(stmt, params);
 		return user;
 	}
 	@Override
@@ -57,6 +65,20 @@ public static final Logger logger = LoggerFactory.getLogger(TitleDaoImpl.class);
 	public int updateSenderEvalScore(Integer requestId) {
 		String stmt = rabbit_namespace + ".updateSenderEvalScore";
 		int result = session.update(stmt,requestId);
+		return result;
+	}
+
+	@Override
+	public int checkAndUpdateCourierEvalStatusSetComplete(Integer requestId) {
+		String stmt = rabbit_namespace + ".checkAndUpdateCourierEvalStatusSetComplete";
+		int result = session.update(stmt, requestId);
+		return result;
+	}
+
+	@Override
+	public int checkAndUpdateSenderEvalStatusSetComplete(Integer requestId) {
+		String stmt = rabbit_namespace + ".checkAndUpdateSenderEvalStatusSetComplete";
+		int result = session.update(stmt, requestId);
 		return result;
 	}
 

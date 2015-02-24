@@ -280,7 +280,7 @@
 										<div class="uk-width-1-2"><div class="text_middle"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div></div>
 									<%		if(req.getSenderEvalstatus().equals(EvalStatus.beforeEval.getStatusCode())) {	%>
-										<div class="uk-width-2-10 button_middle"><div class="uk-button uk-width-2-3">평가하기</div></div>
+										<div class="uk-width-2-10 button_middle"><div class="uk-button uk-width-2-3" onclick="location.href='<%=request.getContextPath() %>/eval/courier?requestId=<%=req.getRequestId() %>'">평가하기</div></div>
 									<%		} else {	%>
 										<div class="uk-width-2-10"><div class="text_middle">평가완료</div></div>
 									<%		}	%>
@@ -357,13 +357,16 @@
 									<div class="row_request uk-panel-box-primary">
 									<%		}	%>
 										<div class="uk-width-1-2"><div class="text_middle"><%=req.getCargoName() %></div></div>
-										<div class="uk-width-3-10"><div class="text_middle"><%=req.getUserId() %></div></div>
+										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId() %></div></div>
 									<%		if(req.getCourierEvalstatus().equals(EvalStatus.beforeEval.getStatusCode())) {	%>
-										<div class="uk-width-2-10 button_middle"><div class="uk-button uk-width-2-3">평가하기</div></div>
+										<div class="uk-width-2-10 button_middle"><div class="uk-button uk-width-2-3" onclick="location.href='<%=request.getContextPath() %>/eval/sender?requestId=<%=req.getRequestId() %>'">평가하기</div></div>
 									<%		} else {	%>
 										<div class="uk-width-2-10"><div class="text_middle">평가완료</div></div>
 									<%		}	%>
 									</div>
+<!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
+<%@include file="/WEB-INF/view/member/mylistSenderProfile" %>
+<!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	}	%>
 									<div class="replace_hr"></div>
 								</div>

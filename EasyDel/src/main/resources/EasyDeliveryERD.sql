@@ -17,11 +17,11 @@ DROP TRIGGER TRI_request_cmts_cmt_id;
 
 /* Drop Tables */
 
-DROP TABLE request_cmts CASCADE CONSTRAINTS;
-DROP TABLE Reports CASCADE CONSTRAINTS;
-DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
 DROP TABLE Sender_Evals CASCADE CONSTRAINTS;
+DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
 DROP TABLE Complete_Deliverys CASCADE CONSTRAINTS;
+DROP TABLE Reports CASCADE CONSTRAINTS;
+DROP TABLE request_cmts CASCADE CONSTRAINTS;
 DROP TABLE Requests CASCADE CONSTRAINTS;
 DROP TABLE address_dongs CASCADE CONSTRAINTS;
 DROP TABLE address_gus CASCADE CONSTRAINTS;
@@ -77,7 +77,7 @@ CREATE TABLE alert_logs
 (
 	alert_id number NOT NULL,
 	user_id varchar2(10) NOT NULL,
-	alert_comment varchar2(50) NOT NULL,
+	alert_comment varchar2(100) NOT NULL,
 	-- 0 - 시스템 로그
 	-- 1 - 발송인 로그
 	-- 2 - 운송인 로그
@@ -198,7 +198,7 @@ CREATE TABLE request_cmts
 	user_id varchar2(10) NOT NULL,
 	reply_text varchar2(200),
 	-- 텍스트(주소)
-	reply_picture varchar2(300),
+	reply_picture varchar2(30),
 	PRIMARY KEY (cmt_id)
 );
 
@@ -265,13 +265,13 @@ ALTER TABLE address_dongs
 ;
 
 
-ALTER TABLE Courier_Evals
+ALTER TABLE Sender_Evals
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Complete_Deliverys (request_id)
 ;
 
 
-ALTER TABLE Sender_Evals
+ALTER TABLE Courier_Evals
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Complete_Deliverys (request_id)
 ;
@@ -283,50 +283,32 @@ ALTER TABLE Reports
 ;
 
 
-ALTER TABLE request_cmts
-	ADD FOREIGN KEY (request_id)
-	REFERENCES Requests (request_id)
-;
-
-
-ALTER TABLE Reports
-	ADD FOREIGN KEY (request_id)
-	REFERENCES Requests (request_id)
-;
-
-
 ALTER TABLE Complete_Deliverys
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Requests (request_id)
 ;
 
 
-ALTER TABLE Sender_Evals
-	ADD FOREIGN KEY (sender_id)
-	REFERENCES Users (user_id)
+ALTER TABLE Reports
+	ADD FOREIGN KEY (request_id)
+	REFERENCES Requests (request_id)
 ;
 
 
 ALTER TABLE request_cmts
-	ADD FOREIGN KEY (user_id)
+	ADD FOREIGN KEY (request_id)
+	REFERENCES Requests (request_id)
+;
+
+
+ALTER TABLE Reports
+	ADD FOREIGN KEY (report_user_id)
 	REFERENCES Users (user_id)
 ;
 
 
 ALTER TABLE Requests
 	ADD FOREIGN KEY (courier_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE Reports
-	ADD FOREIGN KEY (reported_user_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE edmoney_logs
-	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
 ;
 
@@ -337,20 +319,38 @@ ALTER TABLE Courier_Evals
 ;
 
 
-ALTER TABLE Requests
-	ADD FOREIGN KEY (sender_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE alert_logs
+ALTER TABLE request_cmts
 	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
 ;
 
 
 ALTER TABLE Reports
-	ADD FOREIGN KEY (report_user_id)
+	ADD FOREIGN KEY (reported_user_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE Requests
+	ADD FOREIGN KEY (sender_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE Sender_Evals
+	ADD FOREIGN KEY (sender_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE edmoney_logs
+	ADD FOREIGN KEY (user_id)
+	REFERENCES Users (user_id)
+;
+
+
+ALTER TABLE alert_logs
+	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
 ;
 

@@ -33,10 +33,10 @@
 		</div>
 	</div>
 	<div id="errornull">
-		<div style="width:435px"></div>
+		<div style="width:355px"></div>
         <div>
         	<a href="<%=request.getContextPath() %>/main">
-        	<button class="uk-button uk-button-primary uk-button uk-width-1-1 uk-button-large" type="button" id="button">메인으로 가기</button>
+        	<button class="uk-button uk-button-primary" type="button" id="button">메인으로 가기</button>
 			</a>
 		</div>
 	</div>

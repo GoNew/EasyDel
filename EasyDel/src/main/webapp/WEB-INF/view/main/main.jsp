@@ -53,29 +53,29 @@
  	String starsrc1 = null; String starsrc2 = null; String starsrc3 = null;
  	String starsrc4 = null; String starsrc5 = null; String starsrc6 = null;
  	
- 	if(senderAvgTime == 5){starsrc1 = "img/fivestar.jpg";} else if(senderAvgTime == 4){starsrc1 = "img/fourstarl.JPG";} 
- 	else if(senderAvgTime == 3){starsrc1 = "img/threestarl.JPG";} else if(senderAvgTime == 2){starsrc1 = "img/twostarl.JPG";} 
- 	else if(senderAvgTime == 1){starsrc1 = "img/onestar1.JPG";} else if(senderAvgTime == 0){starsrc1 = "img/zerostar.JPG";}
+ 	if(senderAvgTime == 5){starsrc1 = "img/stars/fivestar.png";} else if(senderAvgTime == 4){starsrc1 = "img/stars/fourstarl.png";} 
+ 	else if(senderAvgTime == 3){starsrc1 = "img/stars/threestarl.png";} else if(senderAvgTime == 2){starsrc1 = "img/stars/twostarl.png";} 
+ 	else if(senderAvgTime == 1){starsrc1 = "img/stars/onestarl.png";} else if(senderAvgTime == 0){starsrc1 = "img/stars/zerostar.png";}
  	
- 	if(senderAvgThing == 5){starsrc2 = "img/fivestar.jpg";} else if(senderAvgThing == 4){starsrc2 = "img/fourstarl.JPG";} 
- 	else if(senderAvgThing == 3){starsrc2 = "img/threestarl.JPG";} else if(senderAvgThing == 2){starsrc2 = "img/twostarl.JPG";} 
- 	else if(senderAvgThing == 1){starsrc2 = "img/onestar1.JPG";} else if(senderAvgThing == 0){starsrc2 = "img/zerostar.JPG";}
+ 	if(senderAvgThing == 5){starsrc2 = "img/stars/fivestar.png";} else if(senderAvgThing == 4){starsrc2 = "img/stars/fourstarl.png";} 
+ 	else if(senderAvgThing == 3){starsrc2 = "img/stars/threestarl.png";} else if(senderAvgThing == 2){starsrc2 = "img/stars/twostarl.png";} 
+ 	else if(senderAvgThing == 1){starsrc2 = "img/stars/onestarl.png";} else if(senderAvgThing == 0){starsrc2 = "img/stars/zerostar.png";}
  	
- 	if(senderAvgKind == 5){starsrc3 = "img/fivestar.jpg";} else if(senderAvgKind == 4){starsrc3 = "img/fourstarl.JPG";} 
- 	else if(senderAvgKind == 3){starsrc3 = "img/threestarl.JPG";} else if(senderAvgKind == 2){starsrc3 = "img/twostarl.JPG";} 
- 	else if(senderAvgKind == 1){starsrc3 = "img/onestar1.JPG";} else if(senderAvgKind == 0){starsrc3 = "img/zerostar.JPG";}
+ 	if(senderAvgKind == 5){starsrc3 = "img/stars/fivestar.png";} else if(senderAvgKind == 4){starsrc3 = "img/stars/fourstarl.png";} 
+ 	else if(senderAvgKind == 3){starsrc3 = "img/stars/threestarl.png";} else if(senderAvgKind == 2){starsrc3 = "img/stars/twostarl.png";} 
+ 	else if(senderAvgKind == 1){starsrc3 = "img/stars/onestarl.png";} else if(senderAvgKind == 0){starsrc3 = "img/stars/zerostar.png";}
  	
- 	if(courierAvgTime == 5){starsrc4 = "img/fivestar.jpg";} else if(courierAvgTime == 4){starsrc4 = "img/fourstarr.JPG";} 
- 	else if(courierAvgTime == 3){starsrc4 = "img/threestarr.JPG";} else if(courierAvgTime == 2){starsrc4 = "img/twostarr.JPG";} 
- 	else if(courierAvgTime == 1){starsrc4 = "img/onestarr.JPG";} else if(courierAvgTime == 0){starsrc4 = "img/zerostar.JPG";}
+ 	if(courierAvgTime == 5){starsrc4 = "img/stars/fivestar.png";} else if(courierAvgTime == 4){starsrc4 = "img/stars/fourstarr.png";} 
+ 	else if(courierAvgTime == 3){starsrc4 = "img/stars/threestarr.png";} else if(courierAvgTime == 2){starsrc4 = "img/stars/twostarr.png";} 
+ 	else if(courierAvgTime == 1){starsrc4 = "img/stars/onestarr.png";} else if(courierAvgTime == 0){starsrc4 = "img/stars/zerostar.png";}
  	
- 	if(courierAvgSafe == 5){starsrc5 = "img/fivestar.jpg";} else if(courierAvgSafe == 4){starsrc5 = "img/fourstarr.JPG";} 
- 	else if(courierAvgSafe == 3){starsrc5 = "img/threestarr.JPG";} else if(courierAvgSafe == 2){starsrc5 = "img/twostarr.JPG";} 
- 	else if(courierAvgSafe == 1){starsrc5 = "img/onestarr.JPG";} else if(courierAvgSafe == 0){starsrc5 = "img/zerostar.JPG";}
+ 	if(courierAvgSafe == 5){starsrc5 = "img/stars/fivestar.png";} else if(courierAvgSafe == 4){starsrc5 = "img/stars/fourstarr.png";} 
+ 	else if(courierAvgSafe == 3){starsrc5 = "img/stars/threestarr.png";} else if(courierAvgSafe == 2){starsrc5 = "img/stars/twostarr.png";} 
+ 	else if(courierAvgSafe == 1){starsrc5 = "img/stars/onestarr.png";} else if(courierAvgSafe == 0){starsrc5 = "img/stars/zerostar.png";}
  	
- 	if(courierAvgKind == 5){starsrc6 = "img/fivestar.jpg";} else if(courierAvgKind == 4){starsrc6 = "img/fourstarr.JPG";} 
- 	else if(courierAvgKind == 3){starsrc6 = "img/threestarr.JPG";} else if(courierAvgKind == 2){starsrc6 = "img/twostarr.JPG";} 
- 	else if(courierAvgKind == 1){starsrc6 = "img/onestarr.JPG";} else if(courierAvgKind == 0){starsrc6 = "img/zerostar.JPG";}
+ 	if(courierAvgKind == 5){starsrc6 = "img/stars/fivestar.png";} else if(courierAvgKind == 4){starsrc6 = "img/stars/fourstarr.png";} 
+ 	else if(courierAvgKind == 3){starsrc6 = "img/stars/threestarr.png";} else if(courierAvgKind == 2){starsrc6 = "img/stars/twostarr.png";} 
+ 	else if(courierAvgKind == 1){starsrc6 = "img/stars/onestarr.png";} else if(courierAvgKind == 0){starsrc6 = "img/stars/zerostar.png";}
 %>
 </head>
 <jsp:include page = "/WEB-INF/view/main/header.jsp"></jsp:include>
@@ -193,12 +193,12 @@
 		</div>
 		
 		<div class="main_menu_box" style="margin-left: 70px;" align="center">
-			<img id="AllBoardList" alt="" src="<%=request.getContextPath()%>/img/button/allboardlist_blue.bmp">
+			<img id="AllBoardList" alt="" src="<%=request.getContextPath()%>/img/button/allboardlist.png">
 			<div class="MenuFont" >전체 의뢰 보기</div>
 		</div>
 	
 		<div class="main_menu_box" align="center">
-			<img id="UploadRequest" alt="" src="<%=request.getContextPath()%>/img/button/write_board_blue.bmp">
+			<img id="UploadRequest" alt="" src="<%=request.getContextPath()%>/img/button/write_board.png">
 			<div class="MenuFont">의뢰 올리기</div>
 		</div>
 		
@@ -212,11 +212,13 @@
 		
 		
 		<div class="main_menu_box" align="center">
+
+			<img id="Edmoney" alt="" src="<%=request.getContextPath()%>/img/button/edmoney.png">
 			<div class="MenuFont">EDMoney</div>
 		</div>
 	
 		<div class="main_menu_box" align="center">
-			<img id="MyRequestProgress" alt="" src="<%=request.getContextPath()%>/img/button/mypage.bmp">
+			<img id="MyRequestProgress" alt="" src="<%=request.getContextPath()%>/img/button/mypage.png">
 			<div class="MenuFont">내 진행 보기 </div>
 		</div>
 		

@@ -33,3 +33,10 @@ image{border:0px;}
 #errornull{
 	display: -webkit-box;
 }
+#button{
+	padding: 10px 7px 10px;
+	font-size: 25px;
+	margin: 20px 20px;
+	width:240px;
+	border-radius: 10px; 
+}

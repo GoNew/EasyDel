@@ -1,5 +1,7 @@
 package easydel.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import easydel.entity.CourierEval;
 import easydel.entity.SenderEval;
+import easydel.entity.User;
 import easydel.exception.ServiceFailException;
 import easydel.service.IEvalService;
 
@@ -23,18 +26,22 @@ public class EvalController {
 	
 	//운송인 평가
 	@RequestMapping(value="/courier", method=RequestMethod.GET)
-	public String moveToEvalCourier(@RequestParam Integer requestId, Model model){
+	public String moveToEvalCourier(@RequestParam Integer requestId, Model model, HttpSession session){
+		User loginUser = (User) session.getAttribute("loginSession");
+		String resultPage = "profile/eval/couriereval";
 		try {
-			model.addAttribute("courierInfo", service.serviceGetCourier(requestId));
+			model.addAttribute("courierInfo", service.serviceGetCourier(requestId, loginUser.getUserId()));
+			model.addAttribute("requestId", requestId);
 		} catch (ServiceFailException e) {
+			resultPage = "error/errorpage";
+			model.addAttribute("errorMsg", e.getMessage());
 			e.printStackTrace();
 		}
-		model.addAttribute("requestId", requestId);
-		return "profile/eval/couriereval";
+		return resultPage;
 	}
 	
 	@RequestMapping(value="/courier", method=RequestMethod.POST)
-	public String evalCourier(Model model, 
+	public String evalCourier(Model model,
 			@RequestParam Integer courierevaltime2, @RequestParam Integer courierevalsafe2, 
 			@RequestParam Integer courierevalkind2, @RequestParam String courierevalcmt,
 			@RequestParam String courierId, @RequestParam Integer requestId){
@@ -52,29 +59,35 @@ public class EvalController {
 		
 		try {
 			service.serviceCourierEval(couriereval);
-			service.serviceUpdateCourierEval(requestId);
 		} catch (ServiceFailException e) {
 			model.addAttribute("errorMsg", e.getMessage());
-			resultPage = "redirect:/error";
+			resultPage = "error/errorpage";
 			e.printStackTrace();
 		}
 		
 		return resultPage;
 	}
-
-	
-	
 	
 	//발송인 평가
 	@RequestMapping(value="/sender", method=RequestMethod.GET)
-	public String moveToEvalSender(@RequestParam Integer requestId, Model model){
-		model.addAttribute("senderInfo", service.serviceGetSender(requestId));
-		model.addAttribute("requestId", requestId);
-		return "profile/eval/sendereval";
+	public String moveToEvalSender(@RequestParam Integer requestId, Model model, HttpSession session){
+		
+		User loginUser = (User) session.getAttribute("loginSession");
+		String resultPage = "profile/eval/sendereval";
+		try {
+			model.addAttribute("senderInfo", service.serviceGetSender(requestId, loginUser.getUserId()));
+			model.addAttribute("requestId", requestId);
+		} catch (ServiceFailException e) {
+			resultPage = "error/errorpage";
+			model.addAttribute("errorMsg", e.getMessage());
+			e.printStackTrace();
+		}
+		return resultPage;
 	}
 	
 	@RequestMapping(value="/sender", method=RequestMethod.POST)
-	public String evalSender(Model model, @RequestParam Integer senderevaltime2, @RequestParam Integer senderevalsafe2, 
+	public String evalSender(Model model,
+			@RequestParam Integer senderevaltime2, @RequestParam Integer senderevalaccuracy2, 
 			@RequestParam Integer senderevalkind2, @RequestParam String senderevalcmt,
 			@RequestParam String senderId, @RequestParam Integer requestId){
 		//resultPage는 내 진행보기로 이동
@@ -85,16 +98,15 @@ public class EvalController {
 		sendereval.setRequestId(requestId);
 		sendereval.setSenderId(senderId);
 		sendereval.setSenderTime(senderevaltime2); 
-		sendereval.setSenderThing(senderevalsafe2); 
+		sendereval.setSenderThing(senderevalaccuracy2); 
 		sendereval.setSenderKind(senderevalkind2);
 		sendereval.setSenderCmt(senderevalcmt);
 		
 		try {
 			service.serviceSenderEval(sendereval);
-			service.serviceUpdateSenderEval(requestId);
 		} catch (ServiceFailException e) {
 			model.addAttribute("errorMsg", e.getMessage());
-			resultPage = "redirect:/error";
+			resultPage = "error/errorpage";
 			e.printStackTrace();
 		}
 		

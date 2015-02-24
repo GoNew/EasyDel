@@ -3,21 +3,15 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="easydel.rabbit.mapper.eval">
-	<select id="selectCourierEvalByUserId" parameterType="string"
-		resultType="CourierEval">
-		select		*
-		from		COURIER_EVALS
-		where		
-	</select>
-
- 	<select id="selectCourierByRequestId" parameterType="integer"
+ 	<select id="selectCourierByRequestId" parameterType="hashmap"
  		resultType="User">
  		select	* <!-- user_id, user_picture -->
  		from 	USERS
  		where	user_id=(
- 							select courier_id
- 							from REQUESTS
- 							where request_id=#{requestId}
+ 							select	courier_id
+ 							from	REQUESTS
+ 							where	request_id=#{requestId}
+ 							and		sender_id=#{senderId}
  						)
  	</select>
  	
@@ -60,30 +54,34 @@
  							)
  	</update>
  	
-
+ 	<update id="checkAndUpdateCourierEvalStatusSetComplete" parameterType="integer">
+ 		update	COMPLETE_DELIVERYS
+ 		set		sender_evalstatus=2
+ 		where	sender_evalstatus=1
+ 		and		request_id=#{requestId}
+ 	</update>
  	
- 	
- 	
- 	<select id="selectSenderByRequestId" parameterType="integer"
+ 	<select id="selectSenderByRequestId" parameterType="hashmap"
  		resultType="User">
  		select	* <!-- user_id, user_picture -->
  		from 	USERS
  		where	user_id=(
- 							select sender_id
- 							from REQUESTS
- 							where request_id=#{requestId}
- 				)
+ 							select	sender_id
+ 							from	REQUESTS
+ 							where	request_id=#{requestId}
+ 							and		courier_id=#{courierId}
+ 						)
  	</select>
  	
  	<insert id="insertSenderEval" parameterType="SenderEval">
  		insert into SENDER_EVALS(request_id, sender_id, 
- 			sender_safe, sender_kind, sender_time
+ 			sender_thing, sender_kind, sender_time
  			<if test="senderCmt != null">
 				,sender_cmt
 			</if>
 		)
 		values	(#{requestId}, #{senderId},
-				#{senderSafe}, #{senderKind}, #{senderTime}
+				#{senderThing}, #{senderKind}, #{senderTime}
 			<if test="senderCmt != null">
 				,#{senderCmt}
 			</if>	
@@ -94,11 +92,11 @@
  		update 	Users
  		set		(
  					sender_avg_time,
- 					sender_avg_safe,
+ 					sender_avg_thing,
  					sender_avg_kind
  				) = (
  					select	avg(sender_time),
- 							avg(sender_safe),
+ 							avg(sender_thing),
  							avg(sender_kind)
  					from	SENDER_EVALS
  					where	sender_id=	(
@@ -112,6 +110,13 @@
  								from	REQUESTS
  								where	request_id=#{requestId}
  							)
+ 	</update>
+ 	
+ 	<update id="checkAndUpdateSenderEvalStatusSetComplete" parameterType="integer">
+ 		update	COMPLETE_DELIVERYS
+ 		set		courier_evalstatus=2
+ 		where	courier_evalstatus=1
+ 		and		request_id=#{requestId}
  	</update>
 
 </mapper>
