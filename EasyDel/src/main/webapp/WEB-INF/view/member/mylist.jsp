@@ -35,7 +35,6 @@
 			<div class="uk-modal-header">
 				<h2>정말 삭제하시겠습니까?</h2>
 			</div>
-			
 		<p>삭제하시면 해당 글은 닷~시~는 복구할 수 없습니다.</p>
 		<div class="uk-modal-footer uk-text-right">
 			<form id="alertMessagePopUpForDeleteMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/delete">
@@ -213,8 +212,10 @@
 									<%	for (ViewMySendRequest req : sendListBeforeDel) {	%>
 									<div class="replace_hr"></div>
 									<div class="row_request">
-										<div class="uk-width-1-2"><div class="text_middle"><%=req.getCargoName()%></div></div>
-									<%		if (req.getRequestStatus() == RequestStatus.request.getStatusCode()) {	%>	
+										<div class="uk-width-1-2"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/predeli?requestId=<%=req.getRequestId() %>'">
+											<%=req.getCargoName()%>
+										</div></div>
+									<%		if (req.getRequestStatus() == RequestStatus.request.getStatusCode()) {	%>
 										<div class="uk-width-3-10">
 										</div>
 										<div class="uk-width-2-10 button_middle">
@@ -305,7 +306,7 @@
 									<%	for(ViewMyCarryRequest req: carryListBeforeDel) {	%>
 									<div class="replace_hr"></div>
 									<div class="row_request">
-										<div class="uk-width-2-5"><div class="text_middle"><%=req.getCargoName() %></div></div>
+										<div class="uk-width-2-5"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/predeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-1-5"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId() %></div></div>
 									<%	Date currDate = new Date();	%>
 										<div class="uk-width-1-5 webkit_box"><div class="text_middle right_margin_5px">TimeOut:</div><div class="text_middle webkit_box"><%=(req.getExpireDate().getTime()-currDate.getTime())/6000 %><div>분</div></div></div>
