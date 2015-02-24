@@ -1,9 +1,11 @@
 package easydel.dao;
 
+import easydel.entity.User;
+
 
 public interface IEdmoneyDao {
-	public int getEdmoneyByUserId(String userId);
-	public int depositEdmoney(String userId);
-	public int withdrawEdmoney(String userId);
+	public int getEdmoneyByUserId(User user);
+	public int depositEdmoney(User user);
+	public int withdrawEdmoney(User user);
 	
 }
