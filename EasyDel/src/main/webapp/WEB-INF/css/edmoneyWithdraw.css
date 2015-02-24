@@ -57,7 +57,7 @@ ul, ol{list-style:name;}
 	padding: 6px 8px 6px;
 	font-size: 25px;
 	margin: 20px 10px 40px 10px;
-	width: 240px;
+	width:240px;
 }
 
 div.possible_withdraw_price_Wrapperdiv{
@@ -67,7 +67,7 @@ div.possible_withdraw_price_Wrapperdiv{
 }
 
 #lira_align_left{
-	margin: 60px 340px 5px 340px;
+	margin: 60px 340px 10px 340px;
 }
 
 #poss_withdraw_price_text1{
@@ -89,5 +89,3 @@ div.possible_withdraw_price_div{
 	margin-right: 10px;
 	/* float: left; */
 }
-
-

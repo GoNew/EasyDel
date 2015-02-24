@@ -25,7 +25,7 @@ public class EdmoneyController {
 	// ed머니 인출화면으로 보내주는 컨트롤러 
 	@RequestMapping(value="/edmoneywithdraw",method=RequestMethod.GET)
 	public String showEDmoneyWithdraw(){
-		return "edmoney/edmoneywithdraw";
+		return "edmoney/edmoneyWithdraw";
 	}
 //	// ed머니 인출후 ed머니 조회로 보내주는 컨트롤러 
 //	@RequestMapping(value="/edmoneywithdraw",method=RequestMethod.POST)
