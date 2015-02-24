@@ -50,4 +50,7 @@ public interface IRequestService {
 
 	public void applyRequest(String exeUserId, Integer requestId)
 			throws ServiceFailException;
+
+	public void cancelRequestOnDel(String exeUserId, Integer requestId)
+			throws ServiceFailException;
 }

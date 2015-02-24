@@ -17,11 +17,11 @@ DROP TRIGGER TRI_request_cmts_cmt_id;
 
 /* Drop Tables */
 
-DROP TABLE request_cmts CASCADE CONSTRAINTS;
+DROP TABLE Reports CASCADE CONSTRAINTS;
 DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
 DROP TABLE Sender_Evals CASCADE CONSTRAINTS;
 DROP TABLE Complete_Deliverys CASCADE CONSTRAINTS;
-DROP TABLE Reports CASCADE CONSTRAINTS;
+DROP TABLE request_cmts CASCADE CONSTRAINTS;
 DROP TABLE Requests CASCADE CONSTRAINTS;
 DROP TABLE address_dongs CASCADE CONSTRAINTS;
 DROP TABLE address_gus CASCADE CONSTRAINTS;
@@ -268,12 +268,14 @@ ALTER TABLE address_dongs
 ALTER TABLE Courier_Evals
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Complete_Deliverys (request_id)
+	ON DELETE SET NULL
 ;
 
 
 ALTER TABLE Sender_Evals
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Complete_Deliverys (request_id)
+	ON DELETE SET NULL
 ;
 
 
@@ -283,7 +285,7 @@ ALTER TABLE Reports
 ;
 
 
-ALTER TABLE request_cmts
+ALTER TABLE Reports
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Requests (request_id)
 	ON DELETE CASCADE
@@ -297,35 +299,17 @@ ALTER TABLE Complete_Deliverys
 ;
 
 
-ALTER TABLE Reports
+ALTER TABLE request_cmts
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Requests (request_id)
-;
-
-
-ALTER TABLE Requests
-	ADD FOREIGN KEY (courier_id)
-	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE request_cmts
-	ADD FOREIGN KEY (user_id)
-	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
 
 
-ALTER TABLE Requests
+ALTER TABLE Sender_Evals
 	ADD FOREIGN KEY (sender_id)
 	REFERENCES Users (user_id)
 	ON DELETE CASCADE
-;
-
-
-ALTER TABLE alert_logs
-	ADD FOREIGN KEY (user_id)
-	REFERENCES Users (user_id)
 ;
 
 
@@ -335,7 +319,35 @@ ALTER TABLE edmoney_logs
 ;
 
 
-ALTER TABLE Sender_Evals
+ALTER TABLE Reports
+	ADD FOREIGN KEY (report_user_id)
+	REFERENCES Users (user_id)
+	ON DELETE CASCADE
+;
+
+
+ALTER TABLE Requests
+	ADD FOREIGN KEY (courier_id)
+	REFERENCES Users (user_id)
+	ON DELETE SET NULL
+;
+
+
+ALTER TABLE Courier_Evals
+	ADD FOREIGN KEY (courier_id)
+	REFERENCES Users (user_id)
+	ON DELETE CASCADE
+;
+
+
+ALTER TABLE alert_logs
+	ADD FOREIGN KEY (user_id)
+	REFERENCES Users (user_id)
+	ON DELETE CASCADE
+;
+
+
+ALTER TABLE Requests
 	ADD FOREIGN KEY (sender_id)
 	REFERENCES Users (user_id)
 	ON DELETE CASCADE
@@ -349,15 +361,8 @@ ALTER TABLE Reports
 ;
 
 
-ALTER TABLE Reports
-	ADD FOREIGN KEY (report_user_id)
-	REFERENCES Users (user_id)
-	ON DELETE CASCADE
-;
-
-
-ALTER TABLE Courier_Evals
-	ADD FOREIGN KEY (courier_id)
+ALTER TABLE request_cmts
+	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
@@ -444,7 +449,10 @@ left join       ADDRESS_DONGS A1
 on              R.pickup_place=A1.dong_id
 left join       ADDRESS_DONGS A2
 on              R.arrival_place=A2.dong_id
-where         R.request_status <= 3;
+left join       REPORTS RE
+on              R.request_id=RE.request_id
+where         (R.request_status=1 or R.request_status=2 or R.request_status=3 or R.request_status=6 or R.request_status=7)
+and            RE.request_id is null;
 
 
 

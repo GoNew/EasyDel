@@ -11,6 +11,7 @@
 	User loginUser = (User) session.getAttribute("loginSession");
 	Request req = (Request) request.getAttribute("requestWithCmts");
 	SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd a kk:mm");
+	User senderUserInfo = (User) request.getAttribute("senderUserInfo");
 %>
 <!DOCTYPE html PUBLIC>
 <jsp:include page="/WEB-INF/view/main/header.jsp"></jsp:include>
@@ -65,7 +66,7 @@ $(document).ready(function() {
 		
 		<div class="margin_top_10px uk-panel uk-panel-box">
 			<div class="standard_row_request">
-				<div id="senderprofimg_main"><img src="<%=request.getContextPath()%><%=loginUser.getUserPicture() %>" class="uk-border-circle"></div>
+				<div id="senderprofimg_main"><img src="<%=request.getContextPath()%><%=senderUserInfo.getUserPicture() %>" class="uk-border-circle"></div>
 				<div id="deli_userid" class="text_middle fixed_font_color webkit_box"><a class="atag_color" data-uk-toggle="{target:'#my-profbtn'}"><%=req.getSenderId() %></a></div>
 				<div class="uk-hidden" id="my-profbtn">
 					<%	if(!loginUser.getUserId().equals(req.getSenderId())) {	%>

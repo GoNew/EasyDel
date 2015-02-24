@@ -1,3 +1,4 @@
+<%@page import="easydel.contant.RequestStatus"%>
 <%@page import="easydel.contant.RequestType"%>
 <%@page import="easydel.entity.RequestCmt"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -65,7 +66,7 @@ $(document).ready(function() {
 		
 		<div class="margin_top_10px uk-panel uk-panel-box">
 			<div class="standard_row_request">
-				<div id="senderprofimg_main"><img src="<%=request.getContextPath()%><%=loginUser.getUserPicture() %>" class="uk-border-circle"></div>
+				<div id="senderprofimg_main"><img src="<%=request.getContextPath()%><%=senderUserInfo.getUserPicture() %>" class="uk-border-circle"></div>
 				<div id="deli_userid" class="text_middle fixed_font_color webkit_box"><a class="atag_color" data-uk-toggle="{target:'#my-profbtn'}"><%=req.getSenderId() %></a></div>
 				<div class="uk-hidden" id="my-profbtn">
 					<%	if(!loginUser.getUserId().equals(req.getSenderId())) {	%>
@@ -116,7 +117,8 @@ $(document).ready(function() {
 		<div class="standard_row_request"> <div class="row_standard_text_middle fixed_font_color">종류</div>
 		 	<div class="text_middle unfixed_font_color"><%=req.getRequestType() == RequestType.nomal.getTypeCode() ? "단순 운송" : "구매 후 운송" %></div></div>
 		
-<!-- --------------------------------보내는 사람---------------------------------------------- -->		
+<!-- --------------------------------보내는 사람---------------------------------------------- -->
+		<%	if(req.getRequestType() == RequestType.nomal.getTypeCode()) {	%>
 		<div class="row_request margin_top_40px"><div class="text_middle_subject_sub fixed_font_color">보내는 사람</div></div>
 		<div class="replace_hr_sub"></div>
 		
@@ -134,22 +136,33 @@ $(document).ready(function() {
 		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color"></div>
 		<div class="text_middle_sub unfixed_font_color"><%=req.getPickupPlaceDesc() %></div> </div>
 		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">전달 희망 시간</div>
-		<%
-		%>
-		<div class="text_middle_sub unfixed_font_color">(2015/02/12 오후 14:45)</div> <div class="text_middle_sub margin_LR_10px">-</div>
-		<div class="text_middle_sub unfixed_font_color">(2015/02/12 오후 14:45)</div> </div>
-		
+		<div class="text_middle_sub unfixed_font_color"><%=format.format(req.getPickupMinTime()) %></div> <div class="text_middle_sub margin_LR_10px">-</div>
+		<div class="text_middle_sub unfixed_font_color"><%=format.format(req.getPickupMaxTime()) %></div> </div>
+		<%	}	%>
 <!-- --------------------------------받는 사람---------------------------------------------- -->		
 		<div class="row_request margin_top_40px"><div class="text_middle_subject_sub fixed_font_color">받는 사람</div></div>
 		<div class="replace_hr_sub"></div>
 		
 		<div class="margin_top_10px"></div>
-		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">이름</div> 				<div class="text_middle_sub unfixed_font_color">최은혜</div> </div>
-		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">전화번호</div> 			<div class="text_middle_sub unfixed_font_color">010-2324-1249</div> </div>
-		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">주소</div> 				<div class="text_middle_sub unfixed_font_color">사랑시 고백구 행복동</div> </div>
-		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color"></div> 				<div class="text_middle_sub unfixed_font_color">대박터지자마을 자이아파트 293동 1023동</div> </div>
-		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">도착 희망 시간</div> 		<div class="text_middle_sub unfixed_font_color">(2015/02/12 오후 14:45)</div> <div class="text_middle_sub margin_LR_10px" >-</div> <div class="text_middle_sub unfixed_font_color">(2015/02/12 오후 14:45)</div> </div>
-		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">전달 메시지(부재시)</div> 	<div class="text_middle_sub unfixed_font_color">연락 후, 부재시 경비실에 맡겨주세요~ </div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">이름</div>
+		<div class="text_middle_sub unfixed_font_color"><%=req.getReceiverName() %></div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">전화번호</div>
+		<div class="text_middle_sub unfixed_font_color"><%=req.getReceiverPhone() %></div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">주소</div>
+		<%
+				StringBuilder arriveAddress = new StringBuilder();
+				arriveAddress.append("서울시 ").append(req.getArrivalPlaceGuName()).append(" ").append(req.getArrivalPlaceDongDesc());
+		%>
+		<div class="text_middle_sub unfixed_font_color"><%=arriveAddress %></div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color"></div>
+		<div class="text_middle_sub unfixed_font_color"><%=req.getArrivalPlaceDesc() %></div> </div>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">도착 희망 시간</div>
+		<div class="text_middle_sub unfixed_font_color"><%=format.format(req.getArrivalMinTime()) %></div> <div class="text_middle_sub margin_LR_10px" >-</div>
+		<div class="text_middle_sub unfixed_font_color"><%=format.format(req.getArrivalMaxTime()) %></div> </div>
+		<%	if(req.getAbsenceMessage() != null) {	%>
+		<div class="standard_row_request_deli_sub"> <div class="row_standard_text_middle_sub fixed_font_color">전달 메시지(부재시)</div>
+		<div class="text_middle_sub unfixed_font_color"><%=req.getAbsenceMessage() %></div> </div>
+		<%	}	%>
 		</div>
 <!-- --------------------------------추가 대화---------------------------------------------- -->		
 			<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">추가 사항</div></div>
@@ -195,7 +208,7 @@ $(document).ready(function() {
 							<input type="hidden" name="requestId" value="<%=req.getRequestId() %>">
 						</div> 
 						<div><textarea id="add_textarea" name="replyContent"></textarea></div>
-						<div id="wrapper_btn_div"><button id="add_reply_btn" class="uk-button">완료</button></div>  
+						<div id="wrapper_btn_div"><button id="add_reply_btn" class="uk-button">완료</button></div>
 					</div>
 				</div>
 				</form>
@@ -203,8 +216,26 @@ $(document).ready(function() {
 <!-- ------------------------------버튼------------------------------- -->		
 			<div class="webkit_box margin_top_80px" >		
 				<div align="center">
-					<button class="uk-button recept_deli_btn">취소 요청</button>
-					<button class="uk-button recept_deli_btn">신고 하기</button>
+					<%
+						switch(RequestStatus.valueOf(req.getRequestStatus())) {
+						case on:
+					%>		<button class="uk-button recept_deli_btn" onclick="location.href='<%=request.getContextPath() %>/show/ondeli/cancel?requestId=<%=req.getRequestId() %>'">취소 요청</button>	<%
+							break;
+						case cancelByDeliver:
+							if(loginUser.getUserId().equals(req.getSenderId())) {
+					%>		<button class="uk-button recept_deli_btn" onclick="location.href='<%=request.getContextPath() %>/show/ondeli/cancel?requestId=<%=req.getRequestId() %>'">취소 요청 확인</button>		<%
+							}
+							break;
+						case cancelBySender:
+							if(loginUser.getUserId().equals(req.getCourierId())) {
+					%>		<button class="uk-button recept_deli_btn" onclick="location.href='<%=request.getContextPath() %>/show/ondeli/cancel?requestId=<%=req.getRequestId() %>'">취소 요청 확인</button>		<%
+							}
+							break;
+						default:
+							break;
+						}
+					%>
+					<button class="uk-button recept_deli_btn" onclick="location.href='<%=request.getContextPath() %>/report?requestId=<%=req.getRequestId() %>'">신고 하기</button>
 				</div>
 			</div>
 		

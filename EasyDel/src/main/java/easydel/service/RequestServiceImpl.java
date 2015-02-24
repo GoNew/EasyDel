@@ -366,4 +366,63 @@ public class RequestServiceImpl implements IRequestService {
 				"'" + currRequest.getCargoName() + "'의뢰에 대한 신청이 있습니다.",
 				AlertStatus.sender);
 	}
+	
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public void cancelRequestOnDel(String exeUserId, Integer requestId) throws ServiceFailException {
+		if(exeUserId == null || requestId == null)
+			throw new ServiceFailException("잘못된 접근");
+		Request currRequest = requestDao.selectRequestByRequestId(requestId);
+		if(currRequest == null)
+			throw new ServiceFailException("존재하지 않는 글");
+		switch (RequestStatus.valueOf(currRequest.getRequestStatus())) {
+		case on:
+			RequestStatus changeStatus = null;
+			if(exeUserId.equals(currRequest.getSenderId())) {
+				changeStatus = RequestStatus.cancelBySender;
+			} else if(exeUserId.equals(currRequest.getCourierId())) {
+				changeStatus = RequestStatus.cancelByDeliver;
+			} else {
+				throw new ServiceFailException("취소 권한이 없는 유저");
+			}
+			if(requestDao.updateStatusOfRequest(changeStatus, requestId)
+					<= 0)
+				throw new ServiceFailException("취소 요청중 에러 발생");
+			alertService.insertAlert(currRequest.getSenderId(),
+					"'" + currRequest.getCargoName() + "'의뢰 취소 신청되었습니다.",
+					AlertStatus.sender);
+			alertService.insertAlert(currRequest.getCourierId(),
+					"'" + currRequest.getCargoName() + "'의뢰 취소 신청되었습니다.",
+					AlertStatus.deliver);
+			break;
+		case cancelByDeliver:
+			if(exeUserId.equals(currRequest.getSenderId()))
+				deleteRequest(currRequest);
+			break;
+		case cancelBySender:
+			if(exeUserId.equals(currRequest.getCourierId()))
+				deleteRequest(currRequest);
+			break;
+		default:
+			throw new ServiceFailException("취소가 불가능한 글");
+		}
+	}
+	
+	private void deleteRequest(Request currRequest) throws ServiceFailException {
+		if(userDao.updateUserEDMoney(currRequest.getSenderId(), currRequest.getDeliveryPrice())
+				<= 0)
+			throw new ServiceFailException("EDMoney 환불 실패 - 알 수 없는 원인");
+		if(requestDao.deleteRequestrByRequestId(currRequest.getRequestId())
+				<= 0)
+			throw new ServiceFailException("request 삭제 실패 - 알 수 없는 원인");
+		alertService.insertAlert(currRequest.getSenderId(),
+				"'" + currRequest.getCargoName() + "'의뢰가 삭제되었습니다.",
+				AlertStatus.system);
+		if(currRequest.getCourierId() != null) {
+			alertService.insertAlert(currRequest.getCourierId(),
+					"'" + currRequest.getCargoName() + "'의뢰가 삭제되었습니다.",
+					AlertStatus.system);
+		}
+	}
+	
 }

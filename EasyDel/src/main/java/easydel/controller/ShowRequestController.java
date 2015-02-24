@@ -1,5 +1,6 @@
 package easydel.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -39,11 +40,13 @@ public class ShowRequestController {
 			Request readRequest = reqService.getRequestWithRequestCmts(requestId);
 			if(readRequest == null)
 				throw new ServiceFailException("존재하지 않는 글");
+			User senderUserInfo = userService.serviceGetUser(readRequest.getSenderId());
 			if(readRequest.getRequestStatus() != RequestStatus.request.getStatusCode()
 					&& !loginUser.getUserId().equals(readRequest.getSenderId())
 					&& !loginUser.getUserId().equals(readRequest.getCourierId()))
 				throw new ServiceFailException("해당 글에 대한 접근 권한이 없음");
 			model.addAttribute("requestWithCmts", readRequest);
+			model.addAttribute("senderUserInfo", senderUserInfo);
 		} catch (ServiceFailException e) {
 			resultPage = "/error";
 			model.addAttribute("errorMsg", e.getMessage());
@@ -59,14 +62,14 @@ public class ShowRequestController {
 	public String addCmt(@RequestParam Integer requestId,
 			@RequestParam("imgFileInput") MultipartFile file,
 			@RequestParam String replyContent,
-			HttpSession session, Model model) {
-		String resultPage = "redirect:/show/predeli?requestId=" + requestId;
+			HttpSession session, Model model, HttpServletRequest request) {
+		String resultPage = "redirect:" + request.getHeader("referer");
 		User loginUser = (User) session.getAttribute("loginSession");
 		
 		try {
 			reqCmtService.addNewRequestCmt(requestId, loginUser.getUserId(), replyContent, file);
 		} catch (ServiceFailException e) {
-			resultPage = "/error";
+			resultPage = "error/errorpage";
 			model.addAttribute("errorMsg", e.getMessage());
 			e.printStackTrace();
 		}
@@ -109,6 +112,21 @@ public class ShowRequestController {
 			model.addAttribute("senderUserInfo", senderUserInfo);
 		} catch (ServiceFailException e) {
 			resultPage = "/error";
+			model.addAttribute("errorMsg", e.getMessage());
+			e.printStackTrace();
+		}
+		return resultPage;
+	}
+	
+	@RequestMapping(value="/ondeli/cancel", params={"requestId"}, method=RequestMethod.GET)
+	public String cancelRequest(@RequestParam Integer requestId, Model model,
+			HttpSession session) {
+		String resultPage = "redirect:/mylist";
+		User loginUser = (User) session.getAttribute("loginSession");
+		try {
+			reqService.cancelRequestOnDel(loginUser.getUserId(), requestId);
+		} catch (ServiceFailException e) {
+			resultPage = "error/errorpage";
 			model.addAttribute("errorMsg", e.getMessage());
 			e.printStackTrace();
 		}

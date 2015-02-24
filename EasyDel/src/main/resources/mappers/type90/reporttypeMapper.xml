@@ -6,16 +6,10 @@
 	<select id="selectAllReportType" resultType="ReportType">
 		select		*
 		from		Report_type
-		<!-- KEY 랑 VALUE로 쓸거 두개 다 가져옴. 리절트타입은 마이배티스의 alias와 같이설정 -->
-		<!-- 용도 : reportform.jsp의 셀렉트박스에 집어넣어줄 것들임 -->
 	</select>
 	
- 	<select id="selectRequestByRequestId" resultType="Request">
-		select		senderId, cargoName
-		from		Requests
-		where		gu_description=#{guDescription}
-		기존 session? 에 있는 requestId를 기준으로 같은 requetId를 가진 걸 받아오기 
-		용도 : reportform.jsp의 reportedId, reportedCargo에 집어넣어줄것들	
-	</select>
-	
+	<insert id="insertReport" parameterType="Report">
+		insert into	REPORTS(request_id, report_type, reported_user_id, report_user_id, report_cmt)
+		values(#{requestId}, #{reportType}, #{reportedUserId}, #{reportUserId}, #{reportCmt})
+	</insert>
 </mapper>
