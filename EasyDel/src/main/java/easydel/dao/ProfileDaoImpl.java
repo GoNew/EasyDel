@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import easydel.entity.CourierEval;
+import easydel.entity.SenderEval;
 
 public class ProfileDaoImpl implements IProfileDao {
 	public static final Logger logger = LoggerFactory.getLogger(TitleDaoImpl.class);
@@ -18,18 +19,6 @@ public class ProfileDaoImpl implements IProfileDao {
 	private String namespace = "easydel.rabbit.mapper.profile";
 	
 	public ProfileDaoImpl(){}
-	
-	@Override
-	public List<CourierEval> selectCourierInfos(Integer pageNum, String courierId) {
-		String stmt = namespace + ".selectCourierInfos";
-		if((pageNum == null) || (pageNum <= 0))
-			pageNum = new Integer(1);
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("pageNum", pageNum);
-		params.put("userId", courierId);
-		List<CourierEval> result = session.selectList(stmt, params);
-		return result;
-	}
 	
 	@Override
 	public Integer selectCountOfCourierInfosByUserId(String userId) {
@@ -45,6 +34,23 @@ public class ProfileDaoImpl implements IProfileDao {
 		params.put("pageNum", pageNum);
 		params.put("userId", courierId);
 		List<CourierEval> result = session.selectList(stmt, params);
+		return result;
+	}
+
+	@Override
+	public Integer selectCountOfSenderInfosByUserId(String userId) {
+		String stmt = namespace + ".selectCountOfSenderInfosByUserId";
+		Integer result = session.selectOne(stmt, userId);
+		return result;
+	}
+	@Override
+	public List<SenderEval> selectSenderEvalsByUserId(Integer pageNum,
+			String senderId) {
+		String stmt = namespace + ".selectSenderEvalsByUserId";
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("pageNum", pageNum);
+		params.put("userId", senderId);
+		List<SenderEval> result = session.selectList(stmt, params);
 		return result;
 	}
 }

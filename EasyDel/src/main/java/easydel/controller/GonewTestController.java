@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import easydel.dao.IRequestDao;
-import easydel.entity.Request;
 
 @Controller
 public class GonewTestController {
@@ -16,6 +15,6 @@ public class GonewTestController {
 	public String test() {
 		/*Request temp = dao.selectRequestJoinRequestCmtByRequestId(1);
 		System.out.println(temp.toString());*/
-		return "profile/courier";
+		return "showMessage";
 	}
 }

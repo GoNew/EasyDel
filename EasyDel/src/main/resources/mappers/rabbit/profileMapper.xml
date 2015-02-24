@@ -5,10 +5,22 @@
 <mapper namespace="easydel.rabbit.mapper.profile">
 	<select id="selectCourierEvalsByUserId" parameterType="hashmap"
 		resultType="CourierEval">
-		select		*
+		select		CE.request_id as request_id,
+					CE.courier_id as courier_id,
+					CE.courier_cmt as courier_cmt,
+					CE.reg_date as reg_date,
+					CE.courier_safe as courier_safe,
+					CE.courier_kind as courier_kind,
+					CE.courier_time as courier_time
 		from		(
-						select		*,
-									ROWNUM AS RNUM
+						select		ROWNUM AS RNUM,
+									request_id,
+									courier_id,
+									courier_cmt,
+									reg_date,
+									courier_safe,
+									courier_kind,
+									courier_time
 						from		COURIER_EVALS
 						where		courier_id=#{userId}
 									<if test="pageNum != null">
@@ -18,67 +30,60 @@
 					 					and		1 &lt;= ROWNUM
 					 				</if>
 					 	order by	reg_date DESC
- 					)
+ 					) CE
  		where		<if test="pageNum != null">
-				 		((#{pageNum} * 5) + 1 &gt; RNUM
+				 		(#{pageNum} * 5) + 1 &gt; CE.RNUM
 				 	</if>
 				 	<if test="pageNum == null">
-						11 &gt; RNUM
+						6 &gt; CE.RNUM
 					</if>
 	</select>
-	
- 	<select id="selectCourierInfos" parameterType="hashmap"
- 		resultMap="CourierInfoResultMap">
- 		select	*
- 		from	(
- 				select		U.user_id AS user_id, 
- 							U.user_picture AS user_picture, 
- 							U.courier_avg_time AS courier_avg_time, 
- 							U.courier_avg_kind AS courier_avg_kind, 
- 							U.courier_avg_safe AS courier_avg_safe, 
- 							U.courier_successcnt AS courier_successcnt, 
- 							U.courier_totalcnt AS courier_totalcnt,
-							C.courier_id AS courier_id,
- 							C.courier_cmt AS courier_cmt, 
- 							C.reg_date AS reg_date,
- 							ROWNUM AS RNUM
- 				from 		Users U
- 				left join	COURIER_EVALS C
- 				on			U.user_id=C.courier_id
- 				where		U.user_id=#{userId}
- 				<if test="pageNum != null">
- 					and		((#{pageNum} - 1) * 5) + 1 &lt;= ROWNUM
- 				</if>
- 				order by	C.reg_date DESC
- 				)
- 		<where>
- 			<if test="pageNum != null">
- 				((#{pageNum} * 5) + 1 &gt; ROWNUM
- 			</if>
- 		</where>
- 	</select>
- 	
  	<select id="selectCountOfCourierInfosByUserId" parameterType="string"
  		resultType="integer">
  		select		count(*)
  		from		COURIER_EVALS
- 		where		user_id=#{userId}
+ 		where		courier_id=#{userId}
  	</select>
  	
- 	<resultMap id="CourierInfoResultMap" type="User">
- 		<id column="user_id" property="userId"/>
- 		<result column="user_picture" property="userPicture"/>
- 		<result column="courier_avg_time" property="courierAvgTime"/>
- 		<result column="courier_avg_kind" property="courierAvgKind"/>
- 		<result column="courier_avg_safe" property="courierAvgSafe"/>
- 		<result column="courier_successcnt" property="courierSuccesscnt"/>
- 		<result column="courier_totalcnt" property="courierTotalcnt"/>
- 		<collection property="courierEvalsList" ofType="CourierEval">
- 			<id column="request_id" property="requestId"/>
- 			<result column="courier_id" property="courierId"/>
- 			<result column="courier_cmt" property="courierCmt"/>
- 			<result column="reg_date" property="regDate"/>
- 		</collection>
- 	</resultMap>
- 	
+ 	<select id="selectSenderEvalsByUserId" parameterType="hashmap"
+		resultType="SenderEval">
+		select		SE.request_id as request_id,
+					SE.sender_id as sender_id,
+					SE.sender_cmt as sender_cmt,
+					SE.reg_date as reg_date,
+					SE.sender_time as sender_time,
+					SE.sender_kind as sender_kind,
+					SE.sender_thing as sender_thing
+		from		(
+						select		ROWNUM AS RNUM,
+									request_id,
+									sender_id,
+									sender_cmt,
+									reg_date,
+									sender_time,
+									sender_kind,
+									sender_thing
+						from		SENDER_EVALS
+						where		sender_id=#{userId}
+									<if test="pageNum != null">
+				 						and		((#{pageNum} - 1) * 5) + 1 &lt;= ROWNUM
+				 					</if>
+				 					<if test="pageNum == null">
+					 					and		1 &lt;= ROWNUM
+					 				</if>
+					 	order by	reg_date DESC
+ 					) SE
+ 		where		<if test="pageNum != null">
+				 		(#{pageNum} * 5) + 1 &gt; SE.RNUM
+				 	</if>
+				 	<if test="pageNum == null">
+						6 &gt; SE.RNUM
+					</if>
+	</select>
+ 	<select id="selectCountOfSenderInfosByUserId" parameterType="string"
+ 		resultType="integer">
+ 		select		count(*)
+ 		from		SENDER_EVALS
+ 		where		sender_id=#{userId}
+ 	</select>
  </mapper>

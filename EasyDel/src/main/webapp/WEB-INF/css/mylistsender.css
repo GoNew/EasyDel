@@ -6,77 +6,77 @@
 	height: 100%
 }
 
-#courierProfile_formcss {
+#senderProfile_formcss {
 	width: 1009px;
 }
 
-#courierProfile_profilephoto {
+#senderProfile_profilephoto {
 	width: 220px;
 	width: expression(this.width > 220 ? 220 : true);
 	height: 220px;
 }
 
-#courierProfile_profileimg {
+#senderProfile_profileimg {
 	width: 220px;
 	height: 220px;
 }
 
-#courierProfile_profileupform {
+#senderProfile_profileupform {
 	display: -webkit-box;
 	height: 300px;
 	width: 100%;
 }
 
-#courierProfile_profiledate {
+#senderProfile_profiledate {
 	align: left;
 }
 
-#courierProfile_profileid {
+#senderProfile_profileid {
 	height: 35px;
 	margin: 10px;
 }
 
-#courierProfile_profiletwo {
+#senderProfile_profiletwo {
 	display: -webkit-box;
 }
 
-#courierProfile_profileupsmallform {
+#senderProfile_profileupsmallform {
 	width: 630px;
 }
 
-#courierProfile_profileinfo {
+#senderProfile_profileinfo {
 	height: 200px;
 }
 
-#courierProfile_profiledangdang {
+#senderProfile_profiledangdang {
 	display: -webkit-box;
 	height: 50px;
 }
 
-#courierProfile_profiledangdang2 {
+#senderProfile_profiledangdang2 {
 	display: -webkit-box;
 	height: 70px;
 }
 
-#courierProfile_profilediv {
+#senderProfile_profilediv {
 	width: 170px;
 	height: 30px;
 	font-size: 22px;
 }
 
-#courierProfile_successRate {
+#senderProfile_successRate {
 	width: 170px;
 	height: 30px;
 	font-size: 22px;
 }
 
-#courierProfile_mainstar {
+#senderProfile_mainstar {
 	width: 180px;
 	width: expression(this.width > 180 ? 180 : true);
 	height: 33px;
 }
 
-#courierProfile_courierimg {
+#senderProfile_senderimg {
 	width: 40px;
 	height: 40px;
 }
