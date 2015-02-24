@@ -126,9 +126,9 @@
 	</div>
 	
 	<div id="subproductinfo">
-		<div id="row1"><div id="col1">물품명</div><div id=""><input class="producttext" type="text" name="cargoName" required></div></div>
-		<div id="row2"><div id="col1">비용</div><div id=""><input class="producttext" type="number" name="deliveryPrice" required placeholder="*비용을 콤마 없이 입력하여 주세요."></div></div>
-		<div id="row3"><div id="col1">물품 상세</div><div id=""><textarea class="productdetails" name="cargoDesc" required placeholder="*상세 정보는 거래 시 중요한 정보이므로, 최대한 자세하게 작성하시길 부탁드립니다."></textarea></div></div>
+		<div id="row1"><div id="col1">물품명</div><div><input class="producttext" type="text" name="cargoName" required></div></div>
+		<div id="row2"><div id="col1">비용</div><div><input id="biyong" class="producttext" type="number" name="deliveryPrice" required placeholder="*비용을 콤마 없이 입력하여 주세요."></div></div>
+		<div id="row3"><div id="col1">물품 상세</div><div><textarea class="productdetails" name="cargoDesc" required placeholder="*상세 정보는 거래 시 중요한 정보이므로, 최대한 자세하게 작성하시길 부탁드립니다."></textarea></div></div>
 	</div>
 
 </div>
@@ -145,13 +145,13 @@
 </div>
 
 <hr color="#808080">
-	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input class="nametext" type="text" value="<%=loginUser.getUserName() %>" readonly></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input class="phonetext" type="text" name="senderPhone" value="<%=loginUser.getUserPhone() %>" required></div></div></div>
+	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input class="nametext greycolor" type="text" value="<%=loginUser.getUserName() %>" readonly></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input class="phonetext greycolor" type="text" name="senderPhone" value="<%=loginUser.getUserPhone() %>" required></div></div></div>
 	<div id="row2"><div id="col1" style="color: ;">주소</div><div id="col2">서울특별시</div>
-		<div id="gudongselect"><select id="startPosGuList"><% for (AddressGu gu : guList) { %><option value="<%=gu.getGuName()%>"><%=gu.getGuName()%></option><% } %></select></div>
-		<div id="gudongselect"><select id="startPosDongList" name="pickupPlace"></select></div>
+		<div id="gudongselect"><select id="startPosGuList" class="greycolor"><% for (AddressGu gu : guList) { %><option value="<%=gu.getGuName()%>"><%=gu.getGuName()%></option><% } %></select></div>
+		<div id="gudongselect"><select id="startPosDongList" class="greycolor" name="pickupPlace"></select></div>
 	</div>
-	<div id="row3"><div id="col1"></div><div id="col2">상세주소</div><div id="col3"><input class="addressdetails" type="text" name="pickupPlaceDesc" required></div></div>
-	<div id="row4"><div id="col1">만날시간</div><div id=""><input class="date" type="datetime-local" name="pickupMinTimeBeforeParse" required></div><div id="from">부터</div><div id=""><input class="date" type="datetime-local" name="pickupMaxTimeBeforeParse" required></div><div id="to">까지</div></div>
+	<div id="row3"><div id="col1"></div><div id="col3">상세주소 : </div><div id="col3"><input class="addressdetails greycolor" type="text" name="pickupPlaceDesc" required></div></div>
+	<div id="row4"><div id="col1">만날시간</div><div id=""><input class="date greycolor" type="datetime-local" name="pickupMinTimeBeforeParse" required></div><div id="from">부터</div><div id=""><input class="date greycolor" type="datetime-local" name="pickupMaxTimeBeforeParse" required></div><div id="to">까지</div></div>
 </div>
 
 <div id="allreceiver">
@@ -164,8 +164,11 @@
 		<div style="width:7px"></div>
 		<div id="subject" >받는 사람</div>
 		<div id="ischeckbox" >
-			<div style="height:25px"></div>
-			<input id="receiverchk" class="receiverchk" type="checkbox">
+			<div>
+				<div style="height:3px"></div>
+				<input id="receiverchk" class="receiverchk" type="checkbox">
+			</div>
+			
 				<div class="chktext">부재중일 경우 체크</div>
 		</div>
 		<div id="samebtn">
@@ -175,13 +178,13 @@
 	</div>	
 </div>
 <hr color="#808080">
-	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input id="receiverName" class="nametext" type="text" name="receiverName" required></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input id="receiverPhone" class="phonetext" type="text" name="receiverPhone" required></div></div></div>
+	<div class="uk-width-1-1" id="row1"> <div class="uk-width-1-2" id="row1"><div id="col1">이름</div><div id=""><input id="receiverName" class="nametext greycolor" type="text" name="receiverName" required></div></div><div class="uk-width-1-2" id="row1"><div id="col1">전화번호</div><div id=""><input id="receiverPhone" class="phonetext greycolor" type="text" name="receiverPhone" required></div></div></div>
 	<div id="row2"><div id="col1">주소</div><div id="col2">서울특별시</div>
-		<div id="gudongselect"><select id="arrivePosGuList"><% for (AddressGu gu : guList) { %><option value="<%=gu.getGuName()%>"><%=gu.getGuName()%></option><% } %></select></div>
-		<div id="gudongselect"><select id="arrivePosDongList" name="arrivalPlace"></select></div>
+		<div id="gudongselect"><select id="arrivePosGuList" class="greycolor"><% for (AddressGu gu : guList) { %><option value="<%=gu.getGuName()%>"><%=gu.getGuName()%></option><% } %></select></div>
+		<div id="gudongselect"><select id="arrivePosDongList" class="greycolor" name="arrivalPlace"></select></div>
 	</div>
-	<div id="row3"><div id="col1"></div><div id="col2">상세주소</div><div id="col3"><input class="addressdetails" type="text" name="arrivalPlaceDesc" required></div></div>
-	<div id="row4"><div id="col1">도착시간</div><div id=""><input class="date" type="datetime-local" name="arrivalMinTimeBeforeParse" required></div><div id="from">부터</div><div id=""><input class="date" type="datetime-local" name="arrivalMaxTimeBeforeParse" required></div><div id="to">까지</div></div>
+	<div id="row3"><div id="col1"></div><div id="col3">상세주소 : </div><div id="col3"><input class="addressdetails greycolor" type="text" name="arrivalPlaceDesc" required></div></div>
+	<div id="row4"><div id="col1">도착시간</div><div id=""><input class="date greycolor" type="datetime-local" name="arrivalMinTimeBeforeParse" required></div><div id="from">부터</div><div id=""><input class="date greycolor" type="datetime-local" name="arrivalMaxTimeBeforeParse" required></div><div id="to">까지</div></div>
 	<div id="absencemessage" style="display: none;"><div id="col1">전달 메시지</div><div id=""><textarea class="absencemessage" name="absenceMessage" placeholder="ex)경비실에 맡겨주세요."></textarea></div></div>
 </div>
 

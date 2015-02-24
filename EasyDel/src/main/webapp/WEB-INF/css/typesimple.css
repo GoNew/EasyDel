@@ -1,9 +1,19 @@
 @CHARSET "UTF-8";
-
-/*  *{border:solid 1px blue;}    */ 
+/* 
+ *{border:solid 1px blue;}     */
 @font-face { 
 	font-family: namsan;
 	src: url('/EasyDel/webfont/SeoulNamsanM.woff') format('woff');
+}
+input.greycolor{
+	color:#7F7F7F;
+}
+select.greycolor{
+	color:#7F7F7F;
+}
+#biyong{
+	line-height: 23px; 
+	font-size: 20px; 
 }
 *{
 	font-family:namsan;
@@ -67,6 +77,14 @@ ul, ol{list-style:name;}
 	height: 40px;
 	text-align: left;
 	font-size: 25px;
+	display:table-cell;vertical-align:middle;
+	margin-left: 8px;
+}
+#col3{
+	width: 140px;
+	height: 40px;
+	text-align: left;
+	font-size: 20px;
 	display:table-cell;vertical-align:middle;
 	margin-left: 8px;
 }
