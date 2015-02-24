@@ -109,12 +109,12 @@
 					</div>
 				</div>
 			</li>
+			
 			<li>
 				<div id="profilebtn" data-uk-offcanvas="{target:'#my-id2'}">
 					<img id="idimg" class="uk-border-circle"
 						src="<%=request.getContextPath()%><%=loginUserInfo.getUserPicture() %>">
 					<div id="profilebtnsub" align="center"><%=loginUserInfo.getUserId() %></div>
-
 				</div>
 
 				<div id="my-id2" class="uk-offcanvas">
@@ -132,6 +132,7 @@
 					</div>
 				</div>
 			</li>
+			
 		</ul>
 	</div>
 
