@@ -1,11 +1,9 @@
 package easydel.service;
 
-import java.util.List;
-
-import easydel.entity.Report;
+import easydel.exception.ServiceFailException;
 
 public interface IReportService {
-	
-	public List<Report> getRequest();
-
+	public void takeOverReportRequest(Integer requestId, Integer reportType,
+			String reportedUserId, String exeUserId, String reportCmt)
+			throws ServiceFailException;
 }

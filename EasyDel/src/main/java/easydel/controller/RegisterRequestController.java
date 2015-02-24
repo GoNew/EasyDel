@@ -26,6 +26,7 @@ import easydel.exception.ServiceFailException;
 import easydel.service.IDongService;
 import easydel.service.IGuService;
 import easydel.service.IRequestService;
+import easydel.service.IUserService;
 
 @Controller
 @RequestMapping(value="/register")
@@ -39,6 +40,8 @@ public class RegisterRequestController {
 	private IDongService dongService;
 	@Autowired
 	private IRequestService reqService;
+	@Autowired
+	private IUserService userService;
 	
 	@RequestMapping(value="/ajax/getdong", params={"guName"}, method=RequestMethod.GET,
 			produces="text/plain;charset=UTF-8")
@@ -90,7 +93,7 @@ public class RegisterRequestController {
 					|| arrivalMaxTime.before(arrivalMinTime)
 					|| pickupMaxTime.before(currDate)
 					|| arrivalMaxTime.before(pickupMinTime)) {
-				throw new ServiceFailException();
+				throw new ServiceFailException("입력된 시간이 잘못되었습니다.");
 			}
 			newRequest.setSenderId(user.getUserId());
 			newRequest.setRequestType(RequestType.nomal.getTypeCode());
@@ -101,6 +104,7 @@ public class RegisterRequestController {
 			newRequest.setExpireDate(pickupMaxTime);
 			
 			reqService.serviceRegistrateNewRequest(newRequest, file);
+			session.setAttribute("loginSession", userService.serviceGetUser(user.getUserId()));
 		} catch (ParseException | ServiceFailException e) {
 			resultPage = "error/errorpage";
 			model.addAttribute("errorMsg", e.getMessage());
@@ -136,7 +140,7 @@ public class RegisterRequestController {
 			arrivalMaxTime = (Date) parser.parse(arrivalMaxTimeBeforeParse);
 			if(arrivalMaxTime.before(arrivalMinTime)
 					|| arrivalMaxTime.before(currDate)) {
-				throw new ServiceFailException();
+				throw new ServiceFailException("입력된 시간이 잘못되었습니다.");
 			}
 			newRequest.setSenderId(user.getUserId());
 			newRequest.setRequestType(RequestType.puchase.getTypeCode());
@@ -145,6 +149,7 @@ public class RegisterRequestController {
 			newRequest.setExpireDate(arrivalMaxTime);
 			
 			reqService.serviceRegistrateNewRequest(newRequest, file);
+			session.setAttribute("loginSession", userService.serviceGetUser(user.getUserId()));
 		} catch (ParseException | ServiceFailException e) {
 			resultPage = "error/errorpage";
 			model.addAttribute("errorMsg", e.getMessage());

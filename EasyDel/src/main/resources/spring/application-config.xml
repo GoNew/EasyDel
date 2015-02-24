@@ -41,6 +41,7 @@
 	<bean class="easydel.dao.RequestCmtDaoImpl"></bean>
 	<bean class="easydel.dao.CompleteDeliveryDaoImpl"></bean>
 	<bean class="easydel.dao.EdmoneyLogDaoImpl"></bean>
+	<bean class="easydel.dao.ReportDaoImpl"></bean>
 	
 	
 	<bean class="easydel.service.BoardServiceImpl"></bean>
@@ -54,6 +55,7 @@
 	<bean class="easydel.service.EvalServiceImpl"></bean>
 	<bean class="easydel.service.ProfileServiceImpl"></bean>
 	<bean class="easydel.service.RequestCmtServiceImpl"></bean>
+	<bean class="easydel.service.ReportServiceImpl"></bean>
 	
 	<context:annotation-config></context:annotation-config>
 	
