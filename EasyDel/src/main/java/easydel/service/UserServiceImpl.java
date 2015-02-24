@@ -6,7 +6,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import easydel.dao.IEdmoneyLogDao;
 import easydel.dao.IUserDao;
+import easydel.entity.EdmoneyLog;
 import easydel.entity.User;
 import easydel.exception.DuplicatedIdException;
 import easydel.exception.ServiceFailException;
@@ -20,6 +22,9 @@ public class UserServiceImpl implements IUserService {
 
 	@Autowired
 	private IUserDao dao;
+	
+	@Autowired
+	private IEdmoneyLogDao edLogDao;
 
 	@Autowired
 	private SqlSession session;
@@ -81,6 +86,42 @@ public class UserServiceImpl implements IUserService {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public void serviceDepositUserEDMoney(String userId, Integer amount) throws ServiceFailException {
+		if(userId == null || amount == null || amount < 0)
+			throw new ServiceFailException("잘못된 입력 정보");
+		
+		EdmoneyLog log = new EdmoneyLog();
+		log.setUserId(userId);
+		log.setWithdrawAmount(amount);
+		logger.trace("mylog: " + log);
+		if(dao.selectUserEDMoney(userId) + amount > 100000)
+			throw new ServiceFailException("최대 소지가능 금액을 벗어남");
+		if(dao.updateUserEDMoney(userId, amount) <= 0)
+			throw new ServiceFailException("충전 실패");
+		if(edLogDao.insertEdmoneylog(log) <= 0)
+			throw new ServiceFailException("로그 기록 실패");
+	}
+	
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public void serviceWithrawUserEDMoney(String userId, Integer amount) throws ServiceFailException {
+		if(userId == null || amount == null || amount < 0)
+			throw new ServiceFailException("잘못된 입력 정보");
+		
+		EdmoneyLog log = new EdmoneyLog();
+		log.setUserId(userId);
+		log.setWithdrawAmount(-amount);
+		
+		if(dao.selectUserEDMoney(userId) - amount < 0)
+			throw new ServiceFailException("최대 인출가능 금액을 벗어남");
+		if(dao.updateUserEDMoney(userId, -amount) <= 0)
+			throw new ServiceFailException("인출 실패");
+		if(edLogDao.insertEdmoneylog(log) <= 0)
+			throw new ServiceFailException("로그 기록 실패");
 	}
 
 	//회원정보 수정 시 default값을 본인의 원래 data로 설정해주는 서비스

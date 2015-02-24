@@ -15,4 +15,8 @@ public interface IUserService {
 	public void serviceUpdateUser(User user) throws ServiceFailException;
 	public User serviceGetUser(String userId);
 	public void serviceDeleteUser(String userId) throws ServiceFailException;
+	public void serviceWithrawUserEDMoney(String userId, Integer amount)
+			throws ServiceFailException;
+	public void serviceDepositUserEDMoney(String userId, Integer amount)
+			throws ServiceFailException;
 }

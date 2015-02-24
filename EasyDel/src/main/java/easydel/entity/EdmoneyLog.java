@@ -18,7 +18,7 @@ public class EdmoneyLog implements Serializable {
 	private Integer logId;
 
 	/** 회원. */
-	private User users;
+	private String userId;
 
 	/** 거래액. */
 	private Integer withdrawAmount;
@@ -51,23 +51,13 @@ public class EdmoneyLog implements Serializable {
 		return this.logId;
 	}
 
-	/**
-	 * 회원을 설정합니다..
-	 * 
-	 * @param users
-	 *            회원
-	 */
-	public void setUsers(User users) {
-		this.users = users;
+
+	public String getUserId() {
+		return userId;
 	}
 
-	/**
-	 * 회원을 가져옵니다..
-	 * 
-	 * @return 회원
-	 */
-	public User getUsers() {
-		return this.users;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	/**
@@ -142,6 +132,13 @@ public class EdmoneyLog implements Serializable {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "EdmoneyLog [logId=" + logId + ", userId=" + userId
+				+ ", withdrawAmount=" + withdrawAmount + ", actionDate="
+				+ actionDate + "]";
 	}
 
 }
