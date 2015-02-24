@@ -3,10 +3,19 @@
 	font-family: namsan;
 	src: url('/EasyDel/webfont/SeoulNamsanM.woff') format('woff');
 }
-
+/*  *{border:solid 1px blue;}   */
 *{
 	margin: 0; padding:0;
 	font-family: namsan;
+}
+input.greycolor{
+	color:#7F7F7F;
+}
+button.sbcolor{
+	color:#00B1F2;
+}
+select.greycolor{
+	color:#7F7F7F;
 }
 img{ border: 0;}
 address{font-style: normal;}
@@ -62,7 +71,6 @@ div.middlebrowser {
 	/* z-index: 1; */
 }
 #boardBox {
-	margin-top: 30px;
 	width: 980px;
 	font-size: 25px;
 	line-height: 30px;
@@ -121,7 +129,7 @@ div.margin_50px_left{
 }
 
 div.lira_panel{
-	padding: 30px 30px;
+	padding: 10px 10px;
 	background-color: #FAFAFA;
 	border-radius: 4px;
 }
