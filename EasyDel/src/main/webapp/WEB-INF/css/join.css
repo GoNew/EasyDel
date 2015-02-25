@@ -121,6 +121,28 @@ span.red{
 	width:700px;
 	color:white;
 }
+#userPhoneInfo {
+	font-family:namsan;
+	padding:20px 15px 20px; 
+	line-height: 30px; 
+	font-size: 25px; 
+	border-radius: 5px; 
+	margin:15px 0px;  
+	background: rgba(0,0,0,0.3); 
+	width:700px;
+	color:white;
+}
+#userValidateInfo {
+	font-family:namsan;
+	padding:20px 15px 20px; 
+	line-height: 30px; 
+	font-size: 25px; 
+	border-radius: 5px; 
+	margin:15px 0px;  
+	background: rgba(0,0,0,0.3); 
+	width:700px;
+	color:white;
+}
 div.marg{
 	margin:3px;
 }

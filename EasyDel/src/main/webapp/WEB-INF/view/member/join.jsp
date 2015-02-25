@@ -28,21 +28,70 @@
 			}
 		});
 	}
+	
+	function sendValidateMsg() {
+		var phoneNum = $("#userPhoneInfo").val();
+		if(phoneNum.length != 10 && phoneNum.length != 11) {
+			console.log("Asdfasdf");
+			alert("phone 번호가 제대로 입력되어야 합니다.");
+			return;
+		}
+		$.ajax({
+			type : "get",
+			url : "<%=request.getContextPath() %>/ajax/sendVC",
+			data : {
+				phoneNum: phoneNum
+			},
+			success : function(responseText) {
+				if(responseText == "true") {
+					alert("문자로 인증코드가 전송되었습니다.");
+				} else {
+					alert("인증코드 전송에 실패하였습니다. 다시 전송해주세요.");
+				}
+			}
+		});
+	}
+	function checkValidateCode() {
+		var valiCode = $("#userValidateInfo").val();
+		if(valiCode == null || valiCode.length < 1) {
+			alert("인증코드가 입력되어야 합니다.");
+			return;
+		}
+		$.ajax({
+			type : "get",
+			url : "<%=request.getContextPath() %>/ajax/checkVC",
+			data : {
+				valiCode: valiCode
+			},
+			success : function(responseText) {
+				if(responseText == "true") {
+					alert("인증에 성공하였습니다.");
+					$("#saveValidateInfo").val("true");
+				} else {
+					alert("인증에 실패하였습니다.");
+				}
+			}
+		});
+	}
 
 	$(document).ready(function() {
 		$("#userId").keyup(IdDuplicateCheck);
 	
 		$("#joinForm").submit(function() {
+			var vali = $("#saveValidateInfo").val();
+			if(vali != "true") {
+				alert("폰 번호 인증이 실시되어야 합니다.");
+				return false;
+			}
+			
 			var pw = $("#userPassword").val()
 			var pw2 = $("#userPassword2").val()
-			if (pw == pw2) {
-				return true;
-			} else {
+			if (pw != pw2) {
 				alert("2개의 비밀번호가 일치해야 합니다.");
 				return false;
 			}
-			return false;
-		})
+			return true;
+		});
 		
 		$("#imgFileInput").change(function() {
 			var files = !!this.files ? this.files : [];
@@ -61,6 +110,10 @@
         		return false;
         	}
 			return true;
+		});
+		
+		$("#userPhoneInfo").keyup(function() {
+			$("#saveValidateInfo").val("false");
 		});
 	});
  
@@ -114,16 +167,17 @@
 		<div>
 			
 			<div class="marg"><span class="red">* </span> <input type="email" name="userEmail" id="userInfo" placeholder="이메일" class="uk-width-7-10" required></div>
-      	    <div class="marg"><span class="red">* </span> <input type="tel" name="userPhone"  id="userInfo" pattern="[0-9]{10,11}" title="10~11자리 숫자만 사용할 수 있습니다." placeholder="휴대폰전화번호 (-를 제외하고 입력하세요)" class="uk-width-7-10" required> 
-      	    <button class="uk-button uk-button-primary" type="button" data-uk-button id="button2">전송</button></div>
-     	    <div class="marg"><span class="red">* </span> <input type="text" name="identifyingNumber" id="userInfo" placeholder="인증번호" class="uk-width-7-10" required> 
-     		<button class="uk-button uk-button-primary" type="button" data-uk-button id="button2">확인</button></div>
+      	    <div class="marg"><span class="red">* </span> <input type="tel" name="userPhone"  id="userPhoneInfo" pattern="[0-9]{10,11}" title="10~11자리 숫자만 사용할 수 있습니다." placeholder="휴대폰전화번호 (-를 제외하고 입력하세요)" class="uk-width-7-10" required> 
+      	    <button class="uk-button uk-button-primary" type="button" id="button2" onclick="sendValidateMsg()">전송</button></div>
+     	    <div class="marg"><span class="red">* </span> <input type="text" name="identifyingNumber" id="userValidateInfo" placeholder="인증번호" class="uk-width-7-10" required> 
+     		<button class="uk-button uk-button-primary" type="button" id="button2" onclick="checkValidateCode()">확인</button></div>
         </div>
      	<br>
      	<div align="center">
-        	<button class="uk-button uk-button-primary uk-width-2-5" type="submit" data-uk-button id="button">회원가입</button>
+     		<input type="hidden" id="saveValidateInfo" required="required" value="false">
+        	<button class="uk-button uk-button-primary uk-width-2-5" type="submit" id="button">회원가입</button>
         	
-        	<a href="<%=request.getContextPath() %>/intro"><button class="uk-button uk-button-primary uk-width-2-5" type="button" data-uk-button id="button">취소</button></a>
+        	<a href="<%=request.getContextPath() %>/intro"><button class="uk-button uk-button-primary uk-width-2-5" type="button" id="button">취소</button></a>
   		</div>
 	</form>
 </div>

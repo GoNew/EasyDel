@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import easydel.entity.User;
 import easydel.exception.DuplicatedIdException;
 import easydel.exception.ServiceFailException;
+import easydel.service.ISmsMessageService;
 import easydel.service.IUserService;
 
 @Controller
@@ -29,6 +30,8 @@ public class JoinController {
 			.getLogger(ModifyController.class);
 	@Autowired
 	private IUserService service;
+	@Autowired
+	private ISmsMessageService smsService;
 
 	// ------------------------------------회원가입-----------------------------------------------
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
@@ -51,23 +54,35 @@ public class JoinController {
 	}
 
 	// 회원가입에서 인증번호 보내기
-	@RequestMapping(value = "/ajax/sendVC")
-	public @ResponseBody String sendValidateCode(HttpSession session) {
+	@RequestMapping(value = "/ajax/sendVC", params={"phoneNum"})
+	public @ResponseBody String sendValidateCode(HttpSession session,
+			@RequestParam String phoneNum) {
 		Integer validateCode = (int) (Math.random() * 10000000);
 		session.setAttribute("checkPhoneValidateCode", validateCode);
-		return "";
+		logger.trace("mylog: " + validateCode);
+		logger.trace("mylog: " + phoneNum);
+		String sendMsg = "인증코드는 [" + validateCode + "] 입니다.";
+		String result = "true";
+		try {
+			if(!smsService.sendSms(sendMsg, phoneNum))
+				result = "false";
+		} catch (ServiceFailException e) {
+			e.printStackTrace();
+			result = "false";
+		}
+		return result;
 	}
 
 	// 회원가입에서 인증여부 확인하기
-	@RequestMapping(value = "/ajax/checkVC", params = { "vc" }, produces = "text/plain;charset=UTF-8")
-	public @ResponseBody String checkValidateCode(@RequestParam Integer vc,
+	@RequestMapping(value = "/ajax/checkVC", params = { "valiCode" }, produces = "text/plain;charset=UTF-8")
+	public @ResponseBody String checkValidateCode(@RequestParam Integer valiCode,
 			HttpSession session) {
-		String result = "f";
-		if (vc != null) {
+		String result = "false";
+		if (valiCode != null) {
 			Integer validateCode = (Integer) session
 					.getAttribute("checkPhoneValidateCode");
-			if (vc.equals(validateCode)) {
-				result = "t";
+			if (valiCode.equals(validateCode)) {
+				result = "true";
 				session.removeAttribute("checkPhoneValidateCode");
 			}
 		}
