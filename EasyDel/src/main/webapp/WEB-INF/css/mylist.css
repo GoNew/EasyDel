@@ -7,6 +7,15 @@ ul, ol{list-style:name;}
 	font-family: namsan;
 	src: url('/EasyDel/webfont/SeoulNamsanM.woff') format('woff');
 }
+
+
+div.text_grayColor{
+	color: #7F7F7F;
+}
+div.text_lightgrayColor{
+	color: #A4A2A2;
+}
+
 div.webkit_box{
 	display: -webkit-box;
 }
@@ -85,6 +94,7 @@ div.text_middle_grade{
 
 div.button_middle{
 	margin: 9px 0px;
+	
 }
 
 #Ex_completed_02{
@@ -99,12 +109,17 @@ div.tabfont{
 div.replace_hr{
 	border: 1px solid #C3C3C3;
 }
+
+div.replace_standard_hr{
+	border: 2px solid #808080;
+}
+
 div.replace_report_hr{
 	border: 1px solid #C3C3C3;
 	margin-left: 20px;
 }
 div.replace_report_subject_hr{
-	border: 1px solid #000000;
+	border: 2px solid #808080;
 	margin-left: 20px;
 	/* margin: 0px 20px; */
 }
@@ -143,6 +158,7 @@ div.margin_small{
 
 button{
 	 background-color:#ffffff; background: white; border:solid 1 #ffffff;
+	 color: #A4A2A2;
 }
 
 div.pannel-cancel {

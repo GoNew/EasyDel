@@ -215,9 +215,18 @@
 								</div>
 								<hr>
 								<div class="ajax_requests_list">
-									<%	for (ViewMySendRequest req : sendListBeforeDel) {	%>
-									<div class="replace_hr"></div>
 									<div class="row_request">
+										<div class="uk-width-1-2"><div class="text_middle uk-text-bold text_grayColor">글 제목</div></div>
+										<div class="uk-width-3-10"><div class="text_middle uk-text-bold text_grayColor">ID</div></div>
+										<div class="uk-width-2-10"></div>
+									</div>
+									<div class="replace_standard_hr"></div>
+								</div>
+									
+									
+								<div class="ajax_requests_list">
+									<%	for (ViewMySendRequest req : sendListBeforeDel) {	%>
+									<div class="row_request text_lightgrayColor">
 										<div class="uk-width-1-2"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/predeli?requestId=<%=req.getRequestId() %>'">
 											<%=req.getCargoName()%>
 										</div></div>
@@ -228,6 +237,7 @@
 											<div class="uk-button uk-width-2-3" onclick="send_readyForDeleteMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForDeleteMySendRequest'}">삭제하기</div>
 										</div>
 									</div>
+									<div class="replace_hr text_lightgrayColor"></div>
 									<%		} else {	%>
 										<div class="uk-width-3-10">
 											<div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div>
@@ -236,13 +246,14 @@
 											<div class="uk-button uk-width-1-3" onclick="send_readyForAdmitMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForAdmitMySendRequest'}">수락</div>
 											<div class="uk-button uk-width-1-3" onclick="send_readyForRejectMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForRejectMySendRequest'}">거절</div>
 										</div>
-									</div>
+										
+								</div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
 <%@include file="/WEB-INF/view/member/mylistCourierProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
+								<div class="replace_hr"></div>
 									<%		}	%>
 									<%	}	%>
-								<div class="replace_hr"></div>
 							</div>
 <!-- ==========================================진행중 의뢰글 -->
 							<div id="processing_requests_div" class="request_box">
@@ -254,13 +265,22 @@
 									</div>
 								</div>
 								<hr>
+								
+								<div class="ajax_requests_list">
+									<div class="row_request">
+										<div class="uk-width-1-2"><div class="text_middle uk-text-bold text_grayColor">글 제목</div></div>
+										<div class="uk-width-3-10"><div class="text_middle uk-text-bold text_grayColor">ID</div></div>
+										<div class="uk-width-2-10"></div>
+									</div>
+									<div class="replace_standard_hr"></div>
+								</div>
+								
 								<div class="ajax_requests_list">
 									<%	for (ViewMySendRequest req : sendListOnDel) {	%>
-									<div class="replace_hr"></div>
 									<%		if(req.getRequestStatus() == RequestStatus.cancelByDeliver.getStatusCode()) {	%>
-									<div class="row_request pannel-cancel"></div>
+									<div class="row_request pannel-cancel ">
 									<%		} else {	%>
-									<div class="row_request">
+									<div class="row_request text_lightgrayColor">
 									<%		}	%>
 										<div class="uk-width-1-2 "><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/ondeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div></div>
@@ -270,11 +290,13 @@
 										<div class="uk-width-2-10"></div>
 									<%		}	%>
 									</div>
+									<div class="replace_hr text_lightgrayColor"></div>
+									
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
 <%@include file="/WEB-INF/view/member/mylistCourierProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	}	%>
-									<div class="replace_hr"></div>
+									</div>
 								
 								</div>
 							</div>
@@ -288,11 +310,20 @@
 									</div>
 								</div>
 								<hr>
+								
+								<div class="ajax_requests_list">
+									<div class="row_request">
+										<div class="uk-width-1-2"><div class="text_middle uk-text-bold text_grayColor">글 제목</div></div>
+										<div class="uk-width-3-10"><div class="text_middle uk-text-bold text_grayColor">ID</div></div>
+										<div class="uk-width-2-10"></div>
+									</div>
+									<div class="replace_standard_hr"></div>
+								</div>
+								
 								<div class="ajax_requests_list">
 									<%	for (ViewMySendRequest req : sendListAfterDel) {	%>
-									<div class="replace_hr"></div>
 									<%		if(req.getSenderEvalstatus().equals(EvalStatus.beforeEval.getStatusCode())) {	%>
-									<div class="row_request">
+									<div class="row_request text_lightgrayColor">
 									<%		} else {	%>
 									<div class="row_request uk-panel-box-primary">
 									<%		}	%>
@@ -304,11 +335,11 @@
 										<div class="uk-width-2-10"><div class="text_middle">평가완료</div></div>
 									<%		}	%>
 									</div>
+								<div class="replace_hr text_lightgrayColor"></div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
 <%@include file="/WEB-INF/view/member/mylistCourierProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	} %>
-									<div class="replace_hr"></div>
 								</div>
 							</div>
 						</div>
@@ -328,21 +359,31 @@
 								</div>
 								
 								<hr>
+								
+								<div class="ajax_requests_list">
+									<div class="row_request">
+										<div class="uk-width-2-5"><div class="text_middle uk-text-bold text_grayColor">글 제목</div></div>
+										<div class="uk-width-1-5"><div class="text_middle uk-text-bold text_grayColor">ID</div></div>
+										<div class="uk-width-1-5"><div class="text_middle uk-text-bold text_grayColor">남은 시간</div></div>
+										<div class="uk-width-1-5"></div>
+									</div>
+									<div class="replace_standard_hr"></div>
+								</div>
+								
 								<div class="ajax_requests_list">
 									<%	for(ViewMyCarryRequest req: carryListBeforeDel) {	%>
-									<div class="replace_hr"></div>
-									<div class="row_request">
+									<div class="row_request text_lightgrayColor">
 										<div class="uk-width-2-5"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/predeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-1-5"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId() %></div></div>
 									<%	Date currDate = new Date();	%>
 										<div class="uk-width-1-5 webkit_box"><div class="text_middle right_margin_5px">TimeOut:</div><div class="text_middle webkit_box"><%=(req.getExpireDate().getTime()-currDate.getTime())/6000 %><div>분</div></div></div>
 										<div class="uk-width-1-5 button_middle"><div class="uk-button uk-width-2-3" onclick="carry_readyForCancelMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForCancelMyCourierRequest'}">신청취소</div></div>
 									</div>
+									<div class="replace_hr text_lightgrayColor"></div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
 <%@include file="/WEB-INF/view/member/mylistSenderProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	}	%>
-									<div class="replace_hr"></div>
 								</div>
 							</div>
 							<div id="processing_requests_div" class="request_box">
@@ -354,13 +395,22 @@
 									</div>
 								</div>
 								<hr>
+								
+								<div class="ajax_requests_list">
+									<div class="row_request">
+										<div class="uk-width-1-2"><div class="text_middle uk-text-bold text_grayColor">글 제목</div></div>
+										<div class="uk-width-3-10"><div class="text_middle uk-text-bold text_grayColor">ID</div></div>
+										<div class="uk-width-2-10"></div>
+									</div>
+									<div class="replace_standard_hr"></div>
+								</div>
+								
 								<div class="ajax_requests_list">
 									<%	for(ViewMyCarryRequest req: carryListOnDel) {	%>
-									<div class="replace_hr"></div>
 									<%		if(req.getRequestStatus() == RequestStatus.cancelBySender.getStatusCode()) {	%>
 									<div class="row_request pannel-cancel">
 									<%		} else {	%>
-									<div class="row_request">
+									<div class="row_request text_lightgrayColor">
 									<%		}	%>
 										<div class="uk-width-1-2 "><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/ondeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId() %></div></div>
@@ -370,11 +420,11 @@
 										<div class="button_middle uk-width-2-10"><div class="uk-button uk-width-2-3" onclick="carry_readyForArriveMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForArriveMyCourierRequest'}">운송완료</div></div>
 									<%		}	%>
 									</div>
+									<div class="replace_hr text_lightgrayColor"></div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
 <%@include file="/WEB-INF/view/member/mylistSenderProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	}	%>
-									<div class="replace_hr"></div>
 								</div>
 							</div>
 							<div id="completed_requests_div" class="request_box">
@@ -386,11 +436,20 @@
 									</div>
 								</div>
 								<hr>
+								
+								<div class="ajax_requests_list">
+									<div class="row_request">
+										<div class="uk-width-1-2"><div class="text_middle uk-text-bold text_grayColor">글 제목</div></div>
+										<div class="uk-width-3-10"><div class="text_middle uk-text-bold text_grayColor">ID</div></div>
+										<div class="uk-width-2-10"></div>
+									</div>
+									<div class="replace_standard_hr"></div>
+								</div>
+								
 								<div class="ajax_requests_list">
 									<%	for(ViewMyCarryRequest req: carryListAfterDel) {	%>
-									<div class="replace_hr"></div>
 									<%		if(req.getCourierEvalstatus().equals(EvalStatus.beforeEval.getStatusCode())) {	%>
-									<div class="row_request">
+									<div class="row_request text_lightgrayColor">
 									<%		} else {	%>
 									<div class="row_request uk-panel-box-primary">
 									<%		}	%>
@@ -402,11 +461,11 @@
 										<div class="uk-width-2-10"><div class="text_middle">평가완료</div></div>
 									<%		}	%>
 									</div>
+									<div class="replace_hr text_lightgrayColor"></div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
 <%@include file="/WEB-INF/view/member/mylistSenderProfile" %>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 끝-->
 									<%	}	%>
-									<div class="replace_hr"></div>
 								</div>
 							</div>
 						</div>
@@ -426,7 +485,7 @@
 								<hr>
 						<!-- List<ViewMyReportRequest> reportListReported = (List<ViewMyReportRequest>) request.getAttribute("reportListReported"); -->
 								<div class="ajax_requests_list">
-									<div class="row_request uk-text-bold">
+									<div class="row_request uk-text-bold text_grayColor">
 										<div class="uk-width-3-10"><div class="text_middle">신고 글 제목</div></div>
 										<div class="uk-width-2-10"><div class="text_middle">신고 대상</div></div>
 										<div class="uk-width-2-10"><div class="text_middle">신고사유</div></div>
@@ -435,7 +494,7 @@
 									</div>
 									<div class="replace_report_subject_hr"></div>
 									<%	for (ViewMyReportRequest req : reportListReport) {	%>
-									<div class="row_request right_margin_20px">
+									<div class="row_request right_margin_20px ">
 										<div class="uk-width-3-10"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/reported?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-2-10"><div class="text_middle"><%=req.getReportedUserId() %></div></div>
 										<div class="uk-width-2-10"><div class="text_middle"><%=req.getReportTypeDesc() %></div></div>
@@ -470,7 +529,7 @@
 								</div>
 								<hr>
 									<div class="ajax_requests_list">
-									<div id="Ex_request_01" class="row_request uk-text-bold">
+									<div id="Ex_request_01" class="row_request uk-text-bold text_grayColor">
 										<div class="uk-width-2-5"><div class="text_middle">신고 처리된 글 제목</div></div>
 										<div class="uk-width-1-5"><div class="text_middle">신고사유</div></div>
 										<div class="uk-width-1-5"><div class="text_middle">신고일</div></div>
