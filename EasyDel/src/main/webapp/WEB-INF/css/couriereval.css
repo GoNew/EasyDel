@@ -37,3 +37,11 @@ image{border:0px;}
 #courierbabo{
 	display : -webkit-box;
 }
+img.evalitems{
+	width: expression(this.width > 40 ? 40: true); 
+	height:40px;
+}
+#courierevalcmt{
+	font-size:20px;
+	line-height: 50px; 
+}
