@@ -54,6 +54,8 @@ public class ProfileController {
 		returnObj.put("successReq", courierInfo.getCourierSuccesscnt());
 		returnObj.put("totalReq", courierInfo.getCourierTotalcnt());
 		
+		logger.trace("mylog: " + courierInfo);
+		
 		return returnObj.toJSONString();
 	}
 	
