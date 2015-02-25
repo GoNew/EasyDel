@@ -10,6 +10,7 @@ input.greycolor{
 }
 select.greycolor{
 	color:#7F7F7F;
+	border-radius: 8px; 
 }
 #biyong{
 	line-height: 23px; 
@@ -47,6 +48,8 @@ ul, ol{list-style:name;}
 	height: 400px;
 	width: 600px;
 	border: 1px solid #B0949F;
+	border-radius: 8px; 
+	
 }
 
 #imgnoticetext{
@@ -84,7 +87,7 @@ ul, ol{list-style:name;}
 	width: 140px;
 	height: 40px;
 	text-align: left;
-	font-size: 20px;
+	font-size: 25px;
 	display:table-cell;vertical-align:middle;
 	margin-left: 8px;
 }
@@ -100,12 +103,17 @@ input.producttext{
 	height: 40px;
 	margin-left: 8px;
 	font-size: 20px;
+		border-radius: 8px; 
+	
+	
 }
 input.nametext, input.phonetext{
 	width: 340px;
 	height: 40px;
 	margin-left: 8px;
 	font-size: 25px;
+		border-radius: 8px; 
+	
 }
 
 input.date{
@@ -113,6 +121,8 @@ input.date{
 	height: 40px;
 	font-size: 25px;
 	margin-left: 8px;
+		border-radius: 8px; 
+	
 }
 
 textarea.productdetails{
@@ -122,6 +132,8 @@ textarea.productdetails{
 	height: 200px;
 	margin-left: 8px;
 	overflow: hidden;
+		border-radius: 8px; 
+	
 	
 }
 
@@ -139,6 +151,8 @@ textarea.absencemessage{
 	height: 100px;
 	margin-left: 8px;
 	overflow: hidden;
+		border-radius: 8px; 
+	
 }
 
 input.addressdetails{
@@ -146,6 +160,8 @@ input.addressdetails{
 	height: 40px;
 	margin-left: 8px;
 	font-size: 25px;
+		border-radius: 8px; 
+	
 }
 
 #my_id{
@@ -176,6 +192,8 @@ input.receiverchk{
 	width: 30px;
 	height: 30px;
 	margin-top: 9px;
+		border-radius: 8px; 
+	
 }
 div.chktext{
 	width: 250px;
@@ -184,7 +202,7 @@ div.chktext{
 }
 
 #samebtn{
-	margin-left: 445px;
+	margin-left: 410px;
 }
 input.uk-button{
 	display: inline-block;
@@ -201,7 +219,8 @@ input.uk-button{
 
 
 #enterbtn{
-	padding: 7px 15px 7px;
+	padding: 13px 25px 13px;
+	width: 300px;
 	line-height: 38px;
 	font-size: 30px;
 	border-radius: 5px;
@@ -209,5 +228,8 @@ input.uk-button{
 }
 
 
+#personalInfoInsert{
+	font-size: 20px;
+}
 
 

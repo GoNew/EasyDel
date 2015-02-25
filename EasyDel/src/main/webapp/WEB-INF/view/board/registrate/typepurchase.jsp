@@ -144,7 +144,7 @@
 		<div id="gudongselect"><select id="arrivePosGuList" class="greycolor"><% for (AddressGu gu : guList) { %><option value="<%=gu.getGuName()%>"><%=gu.getGuName()%></option><% } %></select></div>
 		<div id="gudongselect"><select id="arrivePosDongList" class="greycolor" name="arrivalPlace"></select></div>
 	</div>
-	<div id="row3"><div id="col1"></div><div id="col3">상세주소 : </div><div id="col3"><input class="addressdetails greycolor" type="text" name="arrivalPlaceDesc" required></div></div>
+	<div id="row3"><div id="col1"></div><div id="col3">상세주소 </div><div id="col3"><input class="addressdetails greycolor" type="text" name="arrivalPlaceDesc" required></div></div>
 	<div id="row4"><div id="col1">만날 시간</div><div id=""><input class="date greycolor" type="datetime-local" name="arrivalMinTimeBeforeParse" required></div><div id="from">부터</div><div id=""><input class="date greycolor" type="datetime-local" name="arrivalMaxTimeBeforeParse" required></div><div id="to">까지</div></div>
 </div>
 
