@@ -9,19 +9,21 @@ DROP VIEW titles;
 
 DROP TRIGGER TRI_address_dongs_dong_id;
 DROP TRIGGER TRI_alert_logs_alert_id;
+DROP TRIGGER TRI_Courier_Evals_eval_id;
 DROP TRIGGER TRI_edmoney_logs_log_id;
 DROP TRIGGER TRI_Requests_request_id;
 DROP TRIGGER TRI_request_cmts_cmt_id;
+DROP TRIGGER TRI_Sender_Evals_eval_id;
 
 
 
 /* Drop Tables */
 
-DROP TABLE Reports CASCADE CONSTRAINTS;
+DROP TABLE request_cmts CASCADE CONSTRAINTS;
 DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
 DROP TABLE Sender_Evals CASCADE CONSTRAINTS;
 DROP TABLE Complete_Deliverys CASCADE CONSTRAINTS;
-DROP TABLE request_cmts CASCADE CONSTRAINTS;
+DROP TABLE Reports CASCADE CONSTRAINTS;
 DROP TABLE Requests CASCADE CONSTRAINTS;
 DROP TABLE address_dongs CASCADE CONSTRAINTS;
 DROP TABLE address_gus CASCADE CONSTRAINTS;
@@ -36,9 +38,11 @@ DROP TABLE Users CASCADE CONSTRAINTS;
 
 DROP SEQUENCE SEQ_address_dongs_dong_id;
 DROP SEQUENCE SEQ_alert_logs_alert_id;
+DROP SEQUENCE SEQ_Courier_Evals_eval_id;
 DROP SEQUENCE SEQ_edmoney_logs_log_id;
 DROP SEQUENCE SEQ_Requests_request_id;
 DROP SEQUENCE SEQ_request_cmts_cmt_id;
+DROP SEQUENCE SEQ_Sender_Evals_eval_id;
 
 
 
@@ -47,9 +51,11 @@ DROP SEQUENCE SEQ_request_cmts_cmt_id;
 
 CREATE SEQUENCE SEQ_address_dongs_dong_id INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_alert_logs_alert_id INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_Courier_Evals_eval_id INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_edmoney_logs_log_id INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Requests_request_id INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_request_cmts_cmt_id INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_Sender_Evals_eval_id INCREMENT BY 1 START WITH 1;
 
 
 
@@ -102,14 +108,15 @@ CREATE TABLE Complete_Deliverys
 
 CREATE TABLE Courier_Evals
 (
-	request_id number NOT NULL,
+	eval_id number NOT NULL,
+	request_id number,
 	courier_id varchar2(10) NOT NULL,
 	courier_cmt varchar2(300),
 	reg_date date DEFAULT SYSDATE NOT NULL,
 	courier_safe number DEFAULT 0 NOT NULL,
 	courier_kind number DEFAULT 0 NOT NULL,
 	courier_time number DEFAULT 0 NOT NULL,
-	PRIMARY KEY (request_id)
+	PRIMARY KEY (eval_id)
 );
 
 
@@ -205,14 +212,15 @@ CREATE TABLE request_cmts
 
 CREATE TABLE Sender_Evals
 (
-	request_id number NOT NULL,
+	eval_id number NOT NULL,
+	request_id number,
 	sender_id varchar2(10) NOT NULL,
 	sender_cmt varchar2(300),
 	reg_date date DEFAULT SYSDATE NOT NULL,
 	sender_time number DEFAULT 0 NOT NULL,
 	sender_kind number DEFAULT 0 NOT NULL,
 	sender_thing number DEFAULT 0 NOT NULL,
-	PRIMARY KEY (request_id)
+	PRIMARY KEY (eval_id)
 );
 
 
@@ -285,7 +293,7 @@ ALTER TABLE Reports
 ;
 
 
-ALTER TABLE Reports
+ALTER TABLE request_cmts
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Requests (request_id)
 	ON DELETE CASCADE
@@ -299,9 +307,16 @@ ALTER TABLE Complete_Deliverys
 ;
 
 
-ALTER TABLE request_cmts
+ALTER TABLE Reports
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Requests (request_id)
+	ON DELETE CASCADE
+;
+
+
+ALTER TABLE Courier_Evals
+	ADD FOREIGN KEY (courier_id)
+	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
 
@@ -316,12 +331,6 @@ ALTER TABLE Sender_Evals
 ALTER TABLE edmoney_logs
 	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
-;
-
-
-ALTER TABLE Reports
-	ADD FOREIGN KEY (report_user_id)
-	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
 
@@ -333,15 +342,15 @@ ALTER TABLE Requests
 ;
 
 
-ALTER TABLE Courier_Evals
-	ADD FOREIGN KEY (courier_id)
+ALTER TABLE alert_logs
+	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
 
 
-ALTER TABLE alert_logs
-	ADD FOREIGN KEY (user_id)
+ALTER TABLE Reports
+	ADD FOREIGN KEY (report_user_id)
 	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
@@ -354,15 +363,15 @@ ALTER TABLE Requests
 ;
 
 
-ALTER TABLE Reports
-	ADD FOREIGN KEY (reported_user_id)
+ALTER TABLE request_cmts
+	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
 
 
-ALTER TABLE request_cmts
-	ADD FOREIGN KEY (user_id)
+ALTER TABLE Reports
+	ADD FOREIGN KEY (reported_user_id)
 	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
@@ -386,6 +395,16 @@ FOR EACH ROW
 BEGIN
 	SELECT SEQ_alert_logs_alert_id.nextval
 	INTO :new.alert_id
+	FROM dual;
+END;
+
+/
+
+CREATE OR REPLACE TRIGGER TRI_Courier_Evals_eval_id BEFORE INSERT ON Courier_Evals
+FOR EACH ROW
+BEGIN
+	SELECT SEQ_Courier_Evals_eval_id.nextval
+	INTO :new.eval_id
 	FROM dual;
 END;
 
@@ -416,6 +435,16 @@ FOR EACH ROW
 BEGIN
 	SELECT SEQ_request_cmts_cmt_id.nextval
 	INTO :new.cmt_id
+	FROM dual;
+END;
+
+/
+
+CREATE OR REPLACE TRIGGER TRI_Sender_Evals_eval_id BEFORE INSERT ON Sender_Evals
+FOR EACH ROW
+BEGIN
+	SELECT SEQ_Sender_Evals_eval_id.nextval
+	INTO :new.eval_id
 	FROM dual;
 END;
 

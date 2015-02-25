@@ -44,16 +44,6 @@ function unhover_list(element) {
 <title>EasyDeli-택배보다 빠르고 퀵보다 싸게</title>
 <%
 	User loginUserInfo = (User) session.getAttribute("loginSession");
-	loginUserInfo.setSenderAvgKind(3);
-	loginUserInfo.setSenderAvgThing(4);
-	loginUserInfo.setSenderAvgTime(2);
-	loginUserInfo.setSenderSuccesscnt(10);
-	loginUserInfo.setSenderTotalcnt(30);
-	loginUserInfo.setCourierAvgKind(4);
-	loginUserInfo.setCourierAvgSafe(5);
-	loginUserInfo.setCourierAvgTime(0);
-	loginUserInfo.setCourierSuccesscnt(10);
-	loginUserInfo.setCourierTotalcnt(300);
 
  	int senderAvgTime = loginUserInfo.getSenderAvgTime();
  	int senderAvgThing = loginUserInfo.getSenderAvgThing();
