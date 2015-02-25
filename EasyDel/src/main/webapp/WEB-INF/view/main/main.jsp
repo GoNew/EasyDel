@@ -126,7 +126,7 @@ function unhover_list(element) {
 			</div>
 			<div id = "mainleftone">
 				<div id = "mainnull_left"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" src= "<%=request.getContextPath()%>/img/time_blue.jpg"/></div>
+				<div id = "mainicon"><img id = "mainleftonephoto" src= "<%=request.getContextPath()%>/img/evalitems/time_blue.png"/></div>
 				<div id = "null"></div>
 				<div id = "maincontents"><label id="mainsmallfont">시간 정확성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc1%>"/> </div>
 				<div id = "null"></div>
@@ -134,7 +134,7 @@ function unhover_list(element) {
 			<br>
 			<div id = "mainleftone">
 				<div id = "mainnull_left"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe_blue.jpg"/></div>
+				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/evalitems/safe_blue.png"/></div>
 				<div id = "null"></div>
 				<div id = "maincontents"><label id="mainsmallfont">물품 신뢰성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc2%>"/></div>
 				<div id = "null"></div>
@@ -142,7 +142,7 @@ function unhover_list(element) {
 			<br>
 			<div id = "mainleftone">
 				<div id = "mainnull_left"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/smile_blue.jpg"/></div>
+				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/evalitems/smile_blue.png"/></div>
 				<div id = "null"></div>
 				<div id = "maincontents"><label id="mainsmallfont">인성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc3%>"/></div>
 				<div id = "null"></div>
@@ -179,7 +179,7 @@ function unhover_list(element) {
 				<div id = "mainnull_right"></div>
 				<div id = "maincontents" align="right"><label id="mainsmallfont">시간 정확성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc4%>"/> </div>
 				<div id = "null"></div>
-				<div id = "mainicon"><img id ="mainleftonephoto"  src= "<%=request.getContextPath()%>/img/time_blue.jpg"/></div>
+				<div id = "mainicon"><img id ="mainleftonephoto"  src= "<%=request.getContextPath()%>/img/evalitems/time_blue.png"/></div>
 			</div>
 			<br>
 			<div id = "mainleftone">
@@ -190,7 +190,7 @@ function unhover_list(element) {
 				</div>
 				<div id = "null"></div>
 				<div id = "mainicon">
-					<img id ="mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/safe_blue.jpg"/>
+					<img id ="mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/evalitems/safe_blue.png"/>
 				</div>
 			</div>
 			<br>
@@ -198,7 +198,7 @@ function unhover_list(element) {
 				<div id = "mainnull_right"></div>
 				<div id = "maincontents" align="right"><label id="mainsmallfont">인성</label><img id = "mainstar" src= "<%=request.getContextPath()%>/<%=starsrc6%>"/></div>
 				<div id = "null"></div>
-				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/smile_blue.jpg"/></div>
+				<div id = "mainicon"><img id = "mainleftonephoto" class="uk-border-rounded" class="uk-border-circle" src= "<%=request.getContextPath()%>/img/evalitems/smile_blue.png"/></div>
 			</div>
 			<br>
 			<div id = "maintwo">
