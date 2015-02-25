@@ -234,7 +234,7 @@
 										<div class="uk-width-3-10">
 										</div>
 										<div class="uk-width-2-10 button_middle">
-											<div class="uk-button uk-width-2-3" onclick="send_readyForDeleteMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForDeleteMySendRequest'}">삭제하기</div>
+											<div id="full_button" class="uk-button uk-width-2-3" onclick="send_readyForDeleteMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForDeleteMySendRequest'}">삭제하기</div>
 										</div>
 									</div>
 									<div class="replace_hr text_lightgrayColor"></div>
@@ -243,8 +243,8 @@
 											<div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div>
 										</div>
 										<div class="uk-width-2-10 button_middle">
-											<div class="uk-button uk-width-1-3" onclick="send_readyForAdmitMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForAdmitMySendRequest'}">수락</div>
-											<div class="uk-button uk-width-1-3" onclick="send_readyForRejectMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForRejectMySendRequest'}">거절</div>
+											<div id="half_button" class="uk-button uk-width-1-3" onclick="send_readyForAdmitMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForAdmitMySendRequest'}">수락</div>
+											<div id="half_button" class="uk-button uk-width-1-3" onclick="send_readyForRejectMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForRejectMySendRequest'}">거절</div>
 										</div>
 										
 								</div>
@@ -285,7 +285,7 @@
 										<div class="uk-width-1-2 "><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/ondeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div></div>
 									<%		if(req.getRequestStatus() == RequestStatus.arrive.getStatusCode()) {	%>
-										<div class="button_middle uk-width-2-10"><div class="uk-button uk-width-2-3" onclick="send_readyForCompleteMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForCompleteMySendRequest'}">거래완료</div></div>
+										<div id="full_button" class="button_middle uk-width-2-10"><div class="uk-button uk-width-2-3" onclick="send_readyForCompleteMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForCompleteMySendRequest'}">거래완료</div></div>
 									<%		} else { %>
 										<div class="uk-width-2-10"></div>
 									<%		}	%>
@@ -330,7 +330,7 @@
 										<div class="uk-width-1-2"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/enddeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div></div>
 									<%		if(req.getSenderEvalstatus().equals(EvalStatus.beforeEval.getStatusCode())) {	%>
-										<div class="uk-width-2-10 button_middle"><div class="uk-button uk-width-2-3" onclick="location.href='<%=request.getContextPath() %>/eval/courier?requestId=<%=req.getRequestId() %>'">평가하기</div></div>
+										<div class="uk-width-2-10 button_middle"><div id="full_button" class="uk-button uk-width-2-3" onclick="location.href='<%=request.getContextPath() %>/eval/courier?requestId=<%=req.getRequestId() %>'">평가하기</div></div>
 									<%		} else {	%>
 										<div class="uk-width-2-10"><div class="text_middle">평가완료</div></div>
 									<%		}	%>
@@ -377,7 +377,7 @@
 										<div class="uk-width-1-5"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId() %></div></div>
 									<%	Date currDate = new Date();	%>
 										<div class="uk-width-1-5 webkit_box"><div class="text_middle right_margin_5px">TimeOut:</div><div class="text_middle webkit_box"><%=(req.getExpireDate().getTime()-currDate.getTime())/6000 %><div>분</div></div></div>
-										<div class="uk-width-1-5 button_middle"><div class="uk-button uk-width-2-3" onclick="carry_readyForCancelMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForCancelMyCourierRequest'}">신청취소</div></div>
+										<div class="uk-width-1-5 button_middle"><div id="full_button" class="uk-button uk-width-2-3" onclick="carry_readyForCancelMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForCancelMyCourierRequest'}">신청취소</div></div>
 									</div>
 									<div class="replace_hr text_lightgrayColor"></div>
 <!-- ****************************************간단 개인 평가 프로필 정보 div 시작-->
@@ -417,7 +417,7 @@
 									<%		if(req.getRequestStatus() == RequestStatus.arrive.getStatusCode()) {	%>
 										<div class="button_middle uk-width-2-10"><div class="uk-button uk-width-2-3">인증하기</div></div>
 									<%		} else {	%>
-										<div class="button_middle uk-width-2-10"><div class="uk-button uk-width-2-3" onclick="carry_readyForArriveMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForArriveMyCourierRequest'}">운송완료</div></div>
+										<div class="button_middle uk-width-2-10"><div id="full_button" class="uk-button uk-width-2-3" onclick="carry_readyForArriveMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForArriveMyCourierRequest'}">운송완료</div></div>
 									<%		}	%>
 									</div>
 									<div class="replace_hr text_lightgrayColor"></div>
@@ -456,7 +456,7 @@
 										<div class="uk-width-1-2"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/enddeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId() %></div></div>
 									<%		if(req.getCourierEvalstatus().equals(EvalStatus.beforeEval.getStatusCode())) {	%>
-										<div class="uk-width-2-10 button_middle"><div class="uk-button uk-width-2-3" onclick="location.href='<%=request.getContextPath() %>/eval/sender?requestId=<%=req.getRequestId() %>'">평가하기</div></div>
+										<div class="uk-width-2-10 button_middle"><div id="full_button" class="uk-button uk-width-2-3" onclick="location.href='<%=request.getContextPath() %>/eval/sender?requestId=<%=req.getRequestId() %>'">평가하기</div></div>
 									<%		} else {	%>
 										<div class="uk-width-2-10"><div class="text_middle">평가완료</div></div>
 									<%		}	%>

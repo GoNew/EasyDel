@@ -99,7 +99,7 @@ div.text_middle_grade{
 }
 
 div.button_middle{
-	margin: 9px 0px;
+	margin: 6px 0px;
 	
 }
 
@@ -165,6 +165,19 @@ div.margin_small{
 button{
 	 background-color:#ffffff; background: white; border:solid 1 #ffffff;
 	 color: #A4A2A2;
+}
+
+#full_button{
+	color: #7F7F7F;
+	font-size: 20px;
+	border: none;
+	padding:5px 5px 5px 5px;
+}
+#half_button{
+	color: #7F7F7F;
+	font-size: 20px;
+	padding:5px 5px 5px 5px;
+	border: none;
 }
 
 div.pannel-cancel {
