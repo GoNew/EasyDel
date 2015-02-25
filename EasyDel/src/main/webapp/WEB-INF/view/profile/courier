@@ -165,7 +165,7 @@
 								<div style="width: 50px"></div>
 								<div id="courierProfile_profilediv" style="width: 170px">거래완료율</div>
 								<div style="width: 10px">:</div>
-								<div id="courierProfile_successRate" align="center" style="color:#7F7F7F"></div>
+								<div id="courierProfile_successRate" align="center" style="color:#00B1F2"></div>
 								<div id="courierProfile_successReqAndTotalReq" style="font-size: 23px; width: 100px;" align="center">1/1건</div>
 							</div>
 						</div>

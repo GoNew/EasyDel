@@ -163,7 +163,7 @@
 								<div style="width: 50px"></div>
 								<div id="senderProfile_profilediv">거래완료율</div>
 								<div style="width: 15px">:</div>
-								<div id="senderProfile_successRate" align="center"></div>
+								<div id="senderProfile_successRate" style="color:#00B1F2" align="center"></div>
 								<div id="senderProfile_successReqAndTotalReq" style="font-size: 23px; width: 100px;" align="center"></div>
 							</div>
 						</div>
