@@ -37,7 +37,7 @@ public class ModifyController {
 	@RequestMapping(value="/modify", method=RequestMethod.POST)
 	public String modify(@RequestParam("imgFileInput") MultipartFile file,
 			User user, Model model, HttpSession session){
-		String resultPage = "redirect:main";
+		String resultPage = "redirect:/main";
 		File createProfile = null;
 		String filePath = null;
 		
@@ -55,6 +55,7 @@ public class ModifyController {
 			service.serviceUpdateUser(user);
 			
 			session.setAttribute("loginSession", service.serviceGetUser(user.getUserId()));
+			session.setAttribute("modifyedAndNotReroaded", "true");
 		} catch (ServiceFailException | IllegalStateException | IOException e) {
 			e.printStackTrace();
 			model.addAttribute("errorMsg", "알수없는 원인");

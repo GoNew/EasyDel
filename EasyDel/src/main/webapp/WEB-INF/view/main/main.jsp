@@ -14,6 +14,12 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/header.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/footer.css"/>
 <script type="text/javascript">
+$(document).ready(function() {
+	<%	if(request.getAttribute("modifyedAndNotReroaded") != null) {	%>
+	window.location.reload(true);
+	<%	}	%>
+	
+})
 
 function hover_mypage(element) {
     element.setAttribute('src', '<%=request.getContextPath()%>/img/button/mypage.bmp');

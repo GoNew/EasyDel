@@ -1,5 +1,6 @@
 package easydel.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,6 +50,8 @@ public class TitleController {
 		
 		User loginUser = (User) session.getAttribute("loginSession");
 		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd a kk:mm");
+		
 		List<Title> list = boardService.getBoard(sortType, delTypeFilter, statusFilter, pageNum, loginUser.getUserId());
 		logger.trace("mylog: sortType: " + sortType);
 		logger.trace("mylog: delTypeFilter: " + delTypeFilter);
@@ -83,7 +86,7 @@ public class TitleController {
 				.append("<span class=\"content_color\">"+title.getArrivalPlaceGu()+"</span>")
 				.append("<span class=\"content_color\">"+title.getArrivalPlaceDong()+"</span>")
 				.append("<br><span class=\"gonew_boardliststandard\" id=\"FinishedTime\">만료 시각</span>&nbsp;&nbsp;")
-				.append("<span class=\"content_color\">"+title.getExpireDate().toString()+"</span>");
+				.append("<span class=\"content_color\">"+format.format(title.getExpireDate())+"</span>");
 			if(title.getRequestType() == 0) {
 				result.append("</div><div class=\"second_row\" align=\"right\">")
 				.append("<span class=\"gonew_boardliststandard\">"+title.getSenderId()+"</span>&nbsp;")
