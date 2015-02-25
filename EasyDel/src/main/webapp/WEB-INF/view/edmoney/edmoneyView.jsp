@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/edmoneyView.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/header.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/footer.css" />
-<title>EDMoney balance</title>
+<title>EasyDeli-택배보다 빠르고 퀵보다 싸게</title>
 <%
 	User loginUserInfo = (User) session.getAttribute("loginSession");
 %>

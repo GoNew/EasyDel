@@ -8,7 +8,7 @@
 <script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/errorpage.css"/>
 
-<title>Error Page!</title>
+<title>Oops! Error Page!</title>
 <%
 	String errormsg = (String)request.getAttribute("errorMsg");
 	if(errormsg == null)

@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/edmoneyWithdraw.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/header.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/footer.css" />
-<title>EDmoney 입금</title>
+<title>EasyDeli-택배보다 빠르고 퀵보다 싸게</title>
 </head>
 
 <%
