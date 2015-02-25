@@ -9,7 +9,7 @@
 					"<%=request.getContextPath()%>/img/stars/threestarl.png",
 					"<%=request.getContextPath()%>/img/stars/fourstarl.png",
 					"<%=request.getContextPath()%>/img/stars/fivestar.png"];
-	
+
 		$("#saveCourierIdForShowingProfileOfCourier").val(userId);
 		$("#courierProfileLoding").css("display", "");
 		$("#courierProfileContent").css("display", "none");
@@ -24,7 +24,7 @@
 				var userObj = jQuery.parseJSON(responseText);
 				
 				var temp;
-				temp = userObj.userId + " 님의 운송인 평가 정보 입니다."
+				temp = "<span class='lira_courierId'>" + userObj.userId + "</span> 님의 운송인 평가 정보 입니다."
 				$("#courierProfile_profileid").html(temp);
 				temp = userObj.picturePath;
 				$("#courierProfile_profileimg").attr("src", temp);

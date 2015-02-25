@@ -24,7 +24,7 @@
 				var userObj = jQuery.parseJSON(responseText);
 				
 				var temp;
-				temp = userObj.userId + " 님의 발송인 평가 정보 입니다."
+				temp = "<span class='lira_senderId'>" + userObj.userId + "</span> 님의 발송인 평가 정보 입니다."
 				$("#senderProfile_profileid").html(temp);
 				temp = userObj.picturePath;
 				$("#senderProfile_profileimg").attr("src", temp);
