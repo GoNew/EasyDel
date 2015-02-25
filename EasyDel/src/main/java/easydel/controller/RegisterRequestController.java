@@ -102,6 +102,7 @@ public class RegisterRequestController {
 			newRequest.setArrivalMinTime(arrivalMinTime);
 			newRequest.setArrivalMaxTime(arrivalMaxTime);
 			newRequest.setExpireDate(pickupMaxTime);
+			newRequest.setValidationCode((int) (Math.random() * 10000000));
 			
 			reqService.serviceRegistrateNewRequest(newRequest, file);
 			session.setAttribute("loginSession", userService.serviceGetUser(user.getUserId()));
@@ -147,6 +148,7 @@ public class RegisterRequestController {
 			newRequest.setArrivalMinTime(arrivalMinTime);
 			newRequest.setArrivalMaxTime(arrivalMaxTime);
 			newRequest.setExpireDate(arrivalMaxTime);
+			newRequest.setValidationCode((int) (Math.random() * 10000000));
 			
 			reqService.serviceRegistrateNewRequest(newRequest, file);
 			session.setAttribute("loginSession", userService.serviceGetUser(user.getUserId()));
