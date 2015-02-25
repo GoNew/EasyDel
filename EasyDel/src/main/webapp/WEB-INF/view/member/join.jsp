@@ -32,7 +32,6 @@
 	function sendValidateMsg() {
 		var phoneNum = $("#userPhoneInfo").val();
 		if(phoneNum.length != 10 && phoneNum.length != 11) {
-			console.log("Asdfasdf");
 			alert("phone 번호가 제대로 입력되어야 합니다.");
 			return;
 		}
