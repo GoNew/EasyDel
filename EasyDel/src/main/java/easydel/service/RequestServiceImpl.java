@@ -296,7 +296,7 @@ public class RequestServiceImpl implements IRequestService {
 				<= 0)
 			throw new ServiceFailException("운송인의 EDMoney를 갱신하는 중 에러");
 		if(userDao.updateUserCourierSuccessCntAddedVariation(currRequest.getCourierId(), 1) <= 0
-				| userDao.updateUserSenderSuccessCntAddedVariation(exeUserId, 1) <= 0)
+				| userDao.updateUserSenderSuccessCntAddedVariation(currRequest.getSenderId(), 1) <= 0)
 			throw new ServiceFailException("SuccessCount 수정중 에러");
 		
 		if(requestDao.updateStatusOfRequest(RequestStatus.quit, requestId)
@@ -304,7 +304,7 @@ public class RequestServiceImpl implements IRequestService {
 			throw new ServiceFailException("원인을 알 수 없는 에러");
 		alertService.insertAlert(currRequest.getCourierId(),
 				"'" + currRequest.getCargoName() + "'의뢰가 거래완료 되었습니다.", AlertStatus.deliver);
-		alertService.insertAlert(exeUserId,
+		alertService.insertAlert(currRequest.getSenderId(),
 				"'" + currRequest.getCargoName() + "'의뢰가 거래완료 되었습니다.", AlertStatus.sender);
 	}
 
