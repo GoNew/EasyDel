@@ -296,7 +296,7 @@
 									<%		} else {	%>
 									<div class="row_request uk-panel-box-primary">
 									<%		}	%>
-										<div class="uk-width-1-2"><div class="text_middle"><%=req.getCargoName() %></div></div>
+										<div class="uk-width-1-2"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/enddeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div></div>
 									<%		if(req.getSenderEvalstatus().equals(EvalStatus.beforeEval.getStatusCode())) {	%>
 										<div class="uk-width-2-10 button_middle"><div class="uk-button uk-width-2-3" onclick="location.href='<%=request.getContextPath() %>/eval/courier?requestId=<%=req.getRequestId() %>'">평가하기</div></div>
@@ -394,7 +394,7 @@
 									<%		} else {	%>
 									<div class="row_request uk-panel-box-primary">
 									<%		}	%>
-										<div class="uk-width-1-2"><div class="text_middle"><%=req.getCargoName() %></div></div>
+										<div class="uk-width-1-2"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/enddeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId() %></div></div>
 									<%		if(req.getCourierEvalstatus().equals(EvalStatus.beforeEval.getStatusCode())) {	%>
 										<div class="uk-width-2-10 button_middle"><div class="uk-button uk-width-2-3" onclick="location.href='<%=request.getContextPath() %>/eval/sender?requestId=<%=req.getRequestId() %>'">평가하기</div></div>
@@ -436,7 +436,7 @@
 									<div class="replace_report_subject_hr"></div>
 									<%	for (ViewMyReportRequest req : reportListReport) {	%>
 									<div class="row_request right_margin_20px">
-										<div class="uk-width-3-10"><div class="text_middle"><%=req.getCargoName() %></div></div>
+										<div class="uk-width-3-10"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/reported?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-2-10"><div class="text_middle"><%=req.getReportedUserId() %></div></div>
 										<div class="uk-width-2-10"><div class="text_middle"><%=req.getReportTypeDesc() %></div></div>
 										<div class="uk-width-2-10"><div class="text_middle_small"><%=req.getReportDate() %></div></div>
@@ -479,7 +479,7 @@
 									<div class="replace_report_subject_hr"></div>
 									<%	for (ViewMyReportRequest req : reportListReported) {	%>
 									<div id="Ex_request_01" class="row_request right_margin_20px">
-										<div class="uk-width-2-5"><div class="text_middle"><%=req.getCargoName() %></div></div>
+										<div class="uk-width-2-5"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/reported?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-1-5"><div class="text_middle"><%=req.getReportTypeDesc() %></div></div>
 										<div class="uk-width-1-5"><div class="text_middle_small"><%=req.getReportDate() %></div></div>
 										<div class="uk-width-1-5"><div class="text_middle">

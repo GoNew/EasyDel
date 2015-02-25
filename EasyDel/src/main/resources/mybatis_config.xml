@@ -43,5 +43,6 @@
 		<mapper resource="mappers/gonew/requestCmtMapper.xml"/>
 		<mapper resource="mappers/gonew/completeDeliverysMapper.xml"/>
 		<mapper resource="mappers/gonew/edmoneyLogsMapper.xml"/>
+		<mapper resource="mappers/gonew/reportsMapper.xml"/>
 	</mappers>
 </configuration>

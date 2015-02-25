@@ -53,4 +53,15 @@ public class ReportServiceImpl implements IReportService {
 			throw new ServiceFailException("신고 실패");
 		alertService.insertAlert(reportedUserId, "신고 건수가 있습니다. '내 진행보기-신고탭'에서 확인하세요.", AlertStatus.system);
 	}
+	
+	@Override
+	public Report getReport(Integer requestId) throws ServiceFailException {
+		if(requestId == null)
+			throw new ServiceFailException("존재하지 않는 의뢰");
+		Report result = null;
+		result = dao.selectReportJoinWithReportType(requestId);
+		if(result == null)
+			throw new ServiceFailException("존재하지 않는 의뢰");
+		return result;
+	}
 }

@@ -7,4 +7,6 @@ public interface IReportDao {
 
 	public int insertReport(Report report);
 	
+	public Report selectReportJoinWithReportType(Integer requestId);
+	
 }
