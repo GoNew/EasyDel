@@ -10,7 +10,7 @@
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<%=request.getContextPath() %>/uikit/js/uikit.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>EasyDeli-택배보다 빠르고 퀵보다 싸게</title>
 
 <script type="text/javascript">
 	$(document).ready(function() {

@@ -13,7 +13,7 @@
 <%
 	User loginUser = (User) session.getAttribute("loginSession");
 %>
-<title>EDmoney 입금</title>
+<title>EasyDeli-택배보다 빠르고 퀵보다 싸게</title>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#pay_button").click(function() {

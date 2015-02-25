@@ -41,7 +41,7 @@ function unhover_list(element) {
 }
 
 </script>
-<title>메인</title>
+<title>EasyDeli-택배보다 빠르고 퀵보다 싸게</title>
 <%
 	User loginUserInfo = (User) session.getAttribute("loginSession");
 	loginUserInfo.setSenderAvgKind(3);
