@@ -1,6 +1,7 @@
 package easydel.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -104,6 +105,13 @@ public class RequestDaoImpl implements IRequestDao {
 	public Integer selectValidationCodeByRequestId(Integer requestId) {
 		String stmt = gonew_namespace + ".selectValidationCodeByRequestId";
 		Integer result = session.selectOne(stmt, requestId);
+		return result;
+	}
+	
+	@Override
+	public List<Integer> selectExpireRequestsId() {
+		String stmt = gonew_namespace + ".selectExpireRequestsId";
+		List<Integer> result = session.selectList(stmt);
 		return result;
 	}
 }

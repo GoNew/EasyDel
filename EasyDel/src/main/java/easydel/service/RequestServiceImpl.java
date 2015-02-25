@@ -2,7 +2,6 @@ package easydel.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.rmi.ServerError;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +21,7 @@ import easydel.dao.IViewMyCarryRequestDao;
 import easydel.dao.IViewMyReportRequestDao;
 import easydel.dao.IViewMySendRequestDao;
 import easydel.entity.Request;
+import easydel.entity.User;
 import easydel.entity.ViewMyCarryRequest;
 import easydel.entity.ViewMyReportRequest;
 import easydel.entity.ViewMySendRequest;
@@ -117,6 +117,33 @@ public class RequestServiceImpl implements IRequestService {
 		if(requestDao.deleteRequestrByRequestId(requestId)
 				<= 0)
 			throw new ServiceFailException("request 삭제 실패 - 알 수 없는 원인");
+	}
+	
+	@Override
+	@Transactional(rollbackFor={ServiceFailException.class})
+	public void removeRequestBySystem(Integer requestId)
+			throws ServiceFailException {
+		Request currRequest = requestDao.selectRequestByRequestId(requestId);
+		if(currRequest == null)
+			throw new ServiceFailException("존재하지 않는 글");
+		
+		if(currRequest.getRequestStatus() != RequestStatus.request.getStatusCode())
+			throw new ServiceFailException("해당 글이 삭제가 불가능한 상태");
+		
+		if(userDao.updateUserEDMoney(currRequest.getSenderId(), currRequest.getDeliveryPrice())
+				<= 0)
+			throw new ServiceFailException("EDMoney 환불 실패 - 알 수 없는 원인");
+
+		if(requestDao.deleteRequestrByRequestId(requestId)
+				<= 0)
+			throw new ServiceFailException("request 삭제 실패 - 알 수 없는 원인");
+		
+		alertService.insertAlert(currRequest.getSenderId(),
+				"'" + currRequest.getCargoName() + "'의뢰가 기간이 만료되어 삭제되었습니다.",
+				AlertStatus.sender);
+		
+		User userInfo = userDao.selectUserByUserId(currRequest.getSenderId());
+		smsService.sendSms("[EasyDel]'" + currRequest.getCargoName() + "'의뢰가 기간 만료로 삭제되었습니다.", userInfo.getUserPhone());
 	}
 	
 	@Override

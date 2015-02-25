@@ -1,5 +1,7 @@
 package easydel.dao;
 
+import java.util.List;
+
 import easydel.contant.RequestStatus;
 import easydel.entity.Request;
 
@@ -16,4 +18,5 @@ public interface IRequestDao {
 	public Request selectRequestJoinRequestCmtByRequestId(Integer requestId);
 	public int updateStatusAndApplyCourier(String courierId, Integer requestId);
 	public Integer selectValidationCodeByRequestId(Integer requestId);
+	public List<Integer> selectExpireRequestsId();
 }

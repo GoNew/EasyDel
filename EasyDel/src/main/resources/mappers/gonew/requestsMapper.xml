@@ -3,6 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="easydel.gonew.mapper.requests">
+	<select id="selectExpireRequestsId" resultType="integer">
+		select		request_id
+		from		REQUESTS
+		where		request_status=1
+		and			sysdate > expire_date
+	</select>
+	
 	<update id="updateStatusAndApplyCourier" parameterType="hashmap">
 		update		REQUESTS
 		set			request_status=2,

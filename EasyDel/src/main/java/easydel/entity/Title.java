@@ -13,10 +13,14 @@ public class Title {
 	private String pickUpDong;
 	private Integer pickUpAddrX;
 	private Integer pickUpAddrY;
+	private Date pickupMinTime;
+	private Date pickupMaxTime;
 	private String arrivalPlaceGu;
 	private String arrivalPlaceDong;
 	private Integer arrivalPlaceAddrX;
 	private Integer arrivalPlaceAddrY;
+	private Date arrivalMinTime;
+	private Date arrivalMaxTime;
 	private Integer deliveryPrice;
 	private Date expireDate;
 	public Title() {
@@ -118,6 +122,30 @@ public class Title {
 	public void setRequestStatus(Integer requestStatus) {
 		this.requestStatus = requestStatus;
 	}
+	public Date getPickupMinTime() {
+		return pickupMinTime;
+	}
+	public void setPickupMinTime(Date pickupMinTime) {
+		this.pickupMinTime = pickupMinTime;
+	}
+	public Date getPickupMaxTime() {
+		return pickupMaxTime;
+	}
+	public void setPickupMaxTime(Date pickupMaxTime) {
+		this.pickupMaxTime = pickupMaxTime;
+	}
+	public Date getArrivalMinTime() {
+		return arrivalMinTime;
+	}
+	public void setArrivalMinTime(Date arrivalMinTime) {
+		this.arrivalMinTime = arrivalMinTime;
+	}
+	public Date getArrivalMaxTime() {
+		return arrivalMaxTime;
+	}
+	public void setArrivalMaxTime(Date arrivalMaxTime) {
+		this.arrivalMaxTime = arrivalMaxTime;
+	}
 	@Override
 	public String toString() {
 		return "Title [requestId=" + requestId + ", requestType=" + requestType
@@ -125,12 +153,14 @@ public class Title {
 				+ cargoName + ", senderId=" + senderId + ", senderAvg="
 				+ senderAvg + ", pickUpGu=" + pickUpGu + ", pickUpDong="
 				+ pickUpDong + ", pickUpAddrX=" + pickUpAddrX
-				+ ", pickUpAddrY=" + pickUpAddrY + ", arrivalPlaceGu="
-				+ arrivalPlaceGu + ", arrivalPlaceDong=" + arrivalPlaceDong
-				+ ", arrivalPlaceAddrX=" + arrivalPlaceAddrX
+				+ ", pickUpAddrY=" + pickUpAddrY + ", pickupMinTime="
+				+ pickupMinTime + ", pickupMaxTime=" + pickupMaxTime
+				+ ", arrivalPlaceGu=" + arrivalPlaceGu + ", arrivalPlaceDong="
+				+ arrivalPlaceDong + ", arrivalPlaceAddrX=" + arrivalPlaceAddrX
 				+ ", arrivalPlaceAddrY=" + arrivalPlaceAddrY
-				+ ", deliveryPrice=" + deliveryPrice + ", exprieDate="
-				+ expireDate + "]";
+				+ ", arrivalMinTime=" + arrivalMinTime + ", arrivalMaxTime="
+				+ arrivalMaxTime + ", deliveryPrice=" + deliveryPrice
+				+ ", expireDate=" + expireDate + "]";
 	}
 	
 }

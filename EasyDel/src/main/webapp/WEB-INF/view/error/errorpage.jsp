@@ -35,9 +35,15 @@
 	<div id="errornull">
 		<div style="width:355px"></div>
         <div>
+        <%	if(session.getAttribute("loginSession") != null) {	%>
         	<a href="<%=request.getContextPath() %>/main">
         	<button class="uk-button uk-button-primary" type="button" id="button">메인으로 가기</button>
 			</a>
+		<%	} else {	%>
+			<a href="<%=request.getContextPath() %>/intro">
+        	<button class="uk-button uk-button-primary" type="button" id="button">로그인 화면으로 가기</button>
+			</a>
+		<%	}	%>
 		</div>
 	</div>
 </div>

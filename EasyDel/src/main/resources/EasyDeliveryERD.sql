@@ -19,10 +19,10 @@ DROP TRIGGER TRI_Sender_Evals_eval_id;
 
 /* Drop Tables */
 
-DROP TABLE request_cmts CASCADE CONSTRAINTS;
 DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
 DROP TABLE Sender_Evals CASCADE CONSTRAINTS;
 DROP TABLE Complete_Deliverys CASCADE CONSTRAINTS;
+DROP TABLE request_cmts CASCADE CONSTRAINTS;
 DROP TABLE Reports CASCADE CONSTRAINTS;
 DROP TABLE Requests CASCADE CONSTRAINTS;
 DROP TABLE address_dongs CASCADE CONSTRAINTS;
@@ -293,14 +293,14 @@ ALTER TABLE Reports
 ;
 
 
-ALTER TABLE request_cmts
+ALTER TABLE Complete_Deliverys
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Requests (request_id)
 	ON DELETE CASCADE
 ;
 
 
-ALTER TABLE Complete_Deliverys
+ALTER TABLE request_cmts
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Requests (request_id)
 	ON DELETE CASCADE
@@ -314,8 +314,36 @@ ALTER TABLE Reports
 ;
 
 
-ALTER TABLE Courier_Evals
-	ADD FOREIGN KEY (courier_id)
+ALTER TABLE Reports
+	ADD FOREIGN KEY (report_user_id)
+	REFERENCES Users (user_id)
+	ON DELETE CASCADE
+;
+
+
+ALTER TABLE alert_logs
+	ADD FOREIGN KEY (user_id)
+	REFERENCES Users (user_id)
+	ON DELETE CASCADE
+;
+
+
+ALTER TABLE request_cmts
+	ADD FOREIGN KEY (user_id)
+	REFERENCES Users (user_id)
+	ON DELETE CASCADE
+;
+
+
+ALTER TABLE Reports
+	ADD FOREIGN KEY (reported_user_id)
+	REFERENCES Users (user_id)
+	ON DELETE CASCADE
+;
+
+
+ALTER TABLE Requests
+	ADD FOREIGN KEY (sender_id)
 	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
@@ -335,45 +363,17 @@ ALTER TABLE edmoney_logs
 ;
 
 
+ALTER TABLE Courier_Evals
+	ADD FOREIGN KEY (courier_id)
+	REFERENCES Users (user_id)
+	ON DELETE CASCADE
+;
+
+
 ALTER TABLE Requests
 	ADD FOREIGN KEY (courier_id)
 	REFERENCES Users (user_id)
 	ON DELETE SET NULL
-;
-
-
-ALTER TABLE alert_logs
-	ADD FOREIGN KEY (user_id)
-	REFERENCES Users (user_id)
-	ON DELETE CASCADE
-;
-
-
-ALTER TABLE Reports
-	ADD FOREIGN KEY (report_user_id)
-	REFERENCES Users (user_id)
-	ON DELETE CASCADE
-;
-
-
-ALTER TABLE Requests
-	ADD FOREIGN KEY (sender_id)
-	REFERENCES Users (user_id)
-	ON DELETE CASCADE
-;
-
-
-ALTER TABLE request_cmts
-	ADD FOREIGN KEY (user_id)
-	REFERENCES Users (user_id)
-	ON DELETE CASCADE
-;
-
-
-ALTER TABLE Reports
-	ADD FOREIGN KEY (reported_user_id)
-	REFERENCES Users (user_id)
-	ON DELETE CASCADE
 ;
 
 
@@ -465,10 +465,14 @@ CREATE OR REPLACE VIEW titles AS select          R.request_id                   
                   A1.dong_desc                as pick_up_dong,
                   A1.coordinate_x             as pick_up_addr_x,
                   A1.coordinate_y             as pick_up_addr_y,
+                  R.pickup_min_time         as pick_up_min_time,
+                  R.pickup_max_time         as pick_up_max_time,
                   A2.gu_description          as arrival_place_gu,
                   A2.dong_desc                as arrival_place_dong,
                   A2.coordinate_x             as arrival_place_addr_x,
                   A2.coordinate_y             as arrival_place_addr_y,
+                  R.arrival_min_time          as arrival_min_time,
+                  R.arrival_max_time          as arrival_max_time,
                   R.delivery_price              as delivery_price,
                   R.expire_date                 as expire_date
 from           REQUESTS R

@@ -56,4 +56,6 @@ public interface IRequestService {
 
 	public void checkValidationCode(String exeUserId, Integer requestId,
 			Integer validationCode) throws ServiceFailException;
+
+	public void removeRequestBySystem(Integer requestId) throws ServiceFailException;
 }
