@@ -16,7 +16,7 @@
 	<div class="row_request_details">
 		<div class="webkit_box text_middle uk-width-1-4">
 			<div style="margin: 0px auto; display: -webkit-box">
-				<div class="">
+				<div>
 					<img class="grade_icon"
 						src="<%=request.getContextPath()%>/img/evalitems/time_blue.png">
 				</div>
