@@ -139,7 +139,7 @@
 				<div style="width:200px"></div>
 				<div>
 					<div style="height:10px"></div>
-					<div id="courierdiv">time precision</div>
+					<div id="courierdiv">시간 정확성</div>
 				</div>
 				<div>
 					<div style="height:10px"></div>
@@ -165,7 +165,7 @@
 				<div style="width:200px"></div>
 				<div>
 					<div style="height:10px"></div>
-					<div id="courierdiv">safe</div>
+					<div id="courierdiv">안정성</div>
 				</div>
 				<div>
 					<div style="height:10px"></div>
@@ -191,7 +191,7 @@
 				<div style="width:200px"></div>
 				<div>
 					<div style="height:10px"></div>
-					<div id="courierdiv">kind</div>
+					<div id="courierdiv">인성</div>
 				</div>
 				<div>
 					<div style="height:10px"></div>

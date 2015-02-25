@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
  
-/*   *{border:solid 1px blue;}      */
+/*   *{border:solid 1px blue;}    */
 *{margin:0px;padding:0px;} 
 image{border:0px;}
 #uk-clearfix{
@@ -30,10 +30,18 @@ image{border:0px;}
 	height : 65px;
 }
 #senderevalimg{
-	width:45px;
-	width: expression(this.width > 45 ? 45: true); 
-	height:45px;
+	width:55px;
+	width: expression(this.width > 55 ? 55: true); 
+	height:55px;
 }
-#senderbabo{
+div.senderbabo{
 	display : -webkit-box;
+}
+#senderevalcmt{
+	font-size:20px;
+	line-height: 50px; 
+}
+img.evalitems{
+	width: expression(this.width > 40 ? 40: true); 
+	height:40px;
 }
