@@ -32,7 +32,7 @@
 			<div  id="edmsg">
 				<div style="width:240px"></div>
 				<div style="color: #00B1F2; font-style:bold; width:200px; font-size: 45px" align="right"><%=loginUserInfo.getEdmoneyBalance()%></div>
-				<div style="margin-left: 15px;color:#7F7F7F;">원</div>
+				<div style="margin-left: 15px;color:#7F7F7F;">원 입니다.</div>
 			</div>
 		</div>
 		<div class="uk-width-1-1">
