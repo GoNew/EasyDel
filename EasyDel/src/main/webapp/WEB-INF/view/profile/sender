@@ -62,6 +62,7 @@
 	<input type="hidden" id="saveSenderIdForShowingProfileOfSender">
 	<div id="profileOfSenderUsingModal" class="uk-modal" style="display: none; overflow-y: scroll;">
 		<div class="uk-modal-dialog uk-modal-dialog-large">
+			<a href="" class="uk-modal-close uk-close uk-close-alt"></a>
 			<div id="senderProfileLoding" class="uk-modal-spinner">
 			</div>
 		    <div id="senderProfileContent">

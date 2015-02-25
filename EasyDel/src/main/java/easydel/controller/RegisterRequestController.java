@@ -76,7 +76,7 @@ public class RegisterRequestController {
 			HttpSession session, Model model) {
 		SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'KK:mm");
 		User user = (User) session.getAttribute("loginSession");
-		String resultPage = "redirect:/register/selecttype";
+		String resultPage = "redirect:/mylist";
 		
 		//시간 포멧 수정하여 setting
 		Date currDate = new Date(); 
@@ -102,6 +102,7 @@ public class RegisterRequestController {
 			newRequest.setArrivalMinTime(arrivalMinTime);
 			newRequest.setArrivalMaxTime(arrivalMaxTime);
 			newRequest.setExpireDate(pickupMaxTime);
+			newRequest.setValidationCode((int) (Math.random() * 10000000));
 			
 			reqService.serviceRegistrateNewRequest(newRequest, file);
 			session.setAttribute("loginSession", userService.serviceGetUser(user.getUserId()));
@@ -127,7 +128,7 @@ public class RegisterRequestController {
 			HttpSession session, Model model) {
 		SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'KK:mm");
 		User user = (User) session.getAttribute("loginSession");
-		String resultPage = "redirect:/register/selecttype";
+		String resultPage = "redirect:/mylist";
 		
 		logger.trace("mylog: " + file.isEmpty());
 		
@@ -147,6 +148,7 @@ public class RegisterRequestController {
 			newRequest.setArrivalMinTime(arrivalMinTime);
 			newRequest.setArrivalMaxTime(arrivalMaxTime);
 			newRequest.setExpireDate(arrivalMaxTime);
+			newRequest.setValidationCode((int) (Math.random() * 10000000));
 			
 			reqService.serviceRegistrateNewRequest(newRequest, file);
 			session.setAttribute("loginSession", userService.serviceGetUser(user.getUserId()));

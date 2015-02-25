@@ -14,14 +14,65 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/footer.css"/>
 <title>회원정보 수정</title>
 <script>
+
+	function sendValidateMsg() {
+		var phoneNum = $("#telephone").val();
+		if(phoneNum.length != 10 && phoneNum.length != 11) {
+			alert("phone 번호가 제대로 입력되어야 합니다.");
+			return;
+		}
+		$.ajax({
+			type : "get",
+			url : "<%=request.getContextPath() %>/ajax/sendVC",
+			data : {
+				phoneNum: phoneNum
+			},
+			success : function(responseText) {
+				if(responseText == "true") {
+					alert("문자로 인증코드가 전송되었습니다.");
+				} else {
+					alert("인증코드 전송에 실패하였습니다. 다시 전송해주세요.");
+				}
+			}
+		});
+	}
+	function checkValidateCode() {
+		var valiCode = $("#userValidateInfo").val();
+		if(valiCode == null || valiCode.length < 1) {
+			alert("인증코드가 입력되어야 합니다.");
+			return;
+		}
+		$.ajax({
+			type : "get",
+			url : "<%=request.getContextPath() %>/ajax/checkVC",
+			data : {
+				valiCode: valiCode
+			},
+			success : function(responseText) {
+				if(responseText == "true") {
+					alert("인증에 성공하였습니다.");
+					$("#saveValidateInfo").val("true");
+				} else {
+					alert("인증에 실패하였습니다.");
+				}
+			}
+		});
+	}
+
 	$(document).ready(function() {
+		$("#telephone").keyup(function() {
+			$("#saveValidateInfo").val("false");
+		});
+		
 		$("#modifyForm").submit(function() {
 			
 			var pw = $("#userPassword").val()
 			var pw2 = $("#userPassword2").val()
 			
 			var htp = $("#hiddentelephone").val()
-			var tp = $("#telephone").val() 	
+			var tp = $("#telephone").val()
+			
+			var vcInfo = $("#saveValidateInfo").val();
 			
 			if (pw == pw2 && htp == tp ) {
 				return true;
@@ -29,13 +80,15 @@
 				alert("2개의 비밀번호가 일치해야 합니다.");
 				return false;
 			} else if(htp != tp){
-				alert("전화번호 인증을 해야합니다.");
-				return false;
+				if(vcInfo != "true") {
+					alert("전화번호 인증을 해야합니다.");
+					return false;
+				}
 			} else{
 				alert("넌 수정못해 이유는 나두몰러");
 				return false;
 			}			
-			return false;
+			return true;
 		});
 		
 		$("#imgFileInput").change(function() {
@@ -143,20 +196,21 @@
 				<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
 				<input type="hidden" value="<%=user.getUserPhone()%>" id="hiddentelephone"></input>
       	   	 	<input type="tel" value="<%=user.getUserPhone()%>" id="telephone" pattern="[0-9]{10,11}"  style="color:#00B1F2" title="10~11자리 숫자만 사용할 수 있습니다." placeholder="휴대폰전화번호" name="userPhone" class="uk-width-7-10" required> 
-      	    	<button class="uk-button" type="button" data-uk-button id="button2">전송</button> <br>
+      	    	<button class="uk-button" type="button" id="button2" onclick="sendValidateMsg()">전송</button> <br>
      	   	</div>
      	   	<div id="aaa">
      	   		<div style="width:20px"></div>
 				<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
-     	   	 	<input type="text" placeholder="인증번호" class="uk-width-7-10"  style="color:#00B1F2" id="modifyInfo" > 
-     			<button class="uk-button" type="button" data-uk-button id="button2">확인</button>
+     	   	 	<input type="text" placeholder="인증번호" class="uk-width-7-10"  style="color:#00B1F2" id="userValidateInfo" > 
+     			<button class="uk-button" type="button" id="button2" onclick="checkValidateCode()">확인</button>
      		</div>
         </div>
      	<br>
      	<div align="center">
-        	<button class="uk-button uk-button-primary uk-width-1-5" type="submit" data-uk-button id="button">수정완료</button>
-        	<button class="uk-button uk-button-primary uk-width-1-5" type="reset" data-uk-button id="button">초기화</button>
-        	<a href="<%=request.getContextPath()%>/withdraw"><button class="uk-button uk-button-primary uk-width-1-5" type="button" data-uk-button id="button">회원탈퇴</button></a>
+     	<input type="hidden" id="saveValidateInfo" required="required" value="false">
+        	<button class="uk-button uk-button-primary uk-width-1-5" type="submit" id="button">수정완료</button>
+        	<button class="uk-button uk-button-primary uk-width-1-5" type="reset" id="button">초기화</button>
+        	<a href="<%=request.getContextPath()%>/withdraw"><button class="uk-button uk-button-primary uk-width-1-5" type="button" id="button">회원탈퇴</button></a>
   		</div>
 	</form>
 	

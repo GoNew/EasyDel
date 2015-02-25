@@ -53,4 +53,7 @@ public interface IRequestService {
 
 	public void cancelRequestOnDel(String exeUserId, Integer requestId)
 			throws ServiceFailException;
+
+	public void checkValidationCode(String exeUserId, Integer requestId,
+			Integer validationCode) throws ServiceFailException;
 }

@@ -176,4 +176,10 @@
 		where		RP.reported_user_id=#{userId}
 		or			RP.report_user_id=#{userId}
 	</select>
+	
+	<select id="selectValidationCodeByRequestId" parameterType="integer" resultType="integer">
+		select		validation_code
+		from		REQUESTS
+		where		request_id=#{requestId}
+	</select>
 </mapper>

@@ -3,6 +3,7 @@ package easydel.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import easydel.entity.AddressDong;
 import easydel.entity.Title;
+import easydel.entity.User;
 import easydel.service.IBoardService;
 import easydel.service.IDongService;
 import easydel.service.IGuService;
@@ -42,10 +44,12 @@ public class TitleController {
 	@RequestMapping(method=RequestMethod.POST, produces="text/plain;charset=UTF-8")
 	public @ResponseBody String getBoard(@RequestParam Integer pageNum,
 			@RequestParam String delTypeFilter, @RequestParam String statusFilter,
-			@RequestParam String sortType, HttpServletRequest request) {
+			@RequestParam String sortType, HttpServletRequest request, HttpSession session) {
 		StringBuilder result = new StringBuilder();
 		
-		List<Title> list = boardService.getBoard(sortType, delTypeFilter, statusFilter, pageNum);
+		User loginUser = (User) session.getAttribute("loginSession");
+		
+		List<Title> list = boardService.getBoard(sortType, delTypeFilter, statusFilter, pageNum, loginUser.getUserId());
 		logger.trace("mylog: sortType: " + sortType);
 		logger.trace("mylog: delTypeFilter: " + delTypeFilter);
 		logger.trace("mylog: statusFilter: " + statusFilter);

@@ -10,7 +10,7 @@
 <html class="uk-height-1-1">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>전체 글 보기</title>
+<title>EasyDeli-택배보다 빠르고 퀵보다 싸게</title>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/uikit/css/uikit.almost-flat.css" />
 <link rel="stylesheet"

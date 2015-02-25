@@ -34,7 +34,7 @@
 <%@include file="/WEB-INF/view/profile/sender" %>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>신고 글 보기</title>
+<title>EasyDeli-택배보다 빠르고 퀵보다 싸게</title>
 </head>
 <body>
 	<div id=fullbrowser align="center">

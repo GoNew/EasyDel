@@ -91,7 +91,7 @@
 	});
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>단순 운송 의뢰 등록</title>
+<title>EasyDeli-택배보다 빠르고 퀵보다 싸게</title>
 </head>
 <body>
 <div id="fullbrowser">

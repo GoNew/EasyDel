@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+/* *{border:solid 1px blue;}   */ 
+
+@font-face { 
+	font-family: namsan;
+	src: url('/EasyDel/webfont/SeoulNamsanM.woff') format('woff');
+
+}
+*{
+	margin:0px;
+	padding:0px;
+	font-family:namsan;
+	font-size: 25px;
+}
+div.uk-clearfix{
+	width:1025px;
+	height:100%
+}
+div.webkitbox{
+	display: -webkit-box;
+	
+}
+#itext{
+	font-size: 35px;
+}
+#iitext{
+	padding:10px 15px 10px; 
+	line-height: 10px; 
+	font-size: 15px; 
+	border-radius: 7px; 
+	margin:15px 0px;  
+	width:150px;
+}
+#button{
+	padding: 10px 17px 10px;
+	font-size: 20px;
+	margin: 10px 30px;
+	width:250px;
+}

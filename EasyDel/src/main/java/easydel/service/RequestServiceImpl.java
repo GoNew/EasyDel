@@ -2,6 +2,7 @@ package easydel.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.rmi.ServerError;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -281,7 +282,8 @@ public class RequestServiceImpl implements IRequestService {
 		Request currRequest = requestDao.selectRequestByRequestId(requestId);
 		if(currRequest == null)
 			throw new ServiceFailException("존재하지 않는 글");
-		if(!exeUserId.equals(currRequest.getSenderId()))
+		if(!exeUserId.equals(currRequest.getSenderId())
+				&& !exeUserId.equals(currRequest.getCourierId()))
 			throw new ServiceFailException("거래 완료 권한이 없는 유저");
 		if(currRequest.getCourierId() == null)
 			throw new ServiceFailException("의뢰를 진행중인 유저가 존재하지 않습니다.");
@@ -423,6 +425,21 @@ public class RequestServiceImpl implements IRequestService {
 					"'" + currRequest.getCargoName() + "'의뢰가 삭제되었습니다.",
 					AlertStatus.system);
 		}
+	}
+	
+	@Override
+	public void checkValidationCode(String exeUserId, Integer requestId, Integer validationCode) throws ServiceFailException {
+		if(requestId == null || validationCode == null)
+			throw new ServiceFailException("잘못된 입력 정보");
+			
+		Integer realValidationCode = requestDao.selectValidationCodeByRequestId(requestId);
+		if(realValidationCode == null)
+			throw new ServiceFailException("해당 의뢰에 인증코드가 존재하지 않습니다.");
+		
+		if(realValidationCode != validationCode)
+			throw new ServiceFailException("인증코드 번호가 같지 않습니다.");
+		
+		completeRequest(exeUserId, requestId);
 	}
 	
 }

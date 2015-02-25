@@ -99,4 +99,11 @@ public class RequestDaoImpl implements IRequestDao {
 		int result = session.update(stmt, params);
 		return result;
 	}
+
+	@Override
+	public Integer selectValidationCodeByRequestId(Integer requestId) {
+		String stmt = gonew_namespace + ".selectValidationCodeByRequestId";
+		Integer result = session.selectOne(stmt, requestId);
+		return result;
+	}
 }

@@ -41,7 +41,8 @@
 						<if test="absenceMessage">
 							absence_message,
 						</if>
-						expire_date
+						expire_date,
+						validation_code
 					)
 		values		(	#{senderId},
 						#{requestType},
@@ -75,7 +76,8 @@
 						<if test="absenceMessage">
 							#{absenceMessage},
 						</if>
-						#{expireDate}
+						#{expireDate},
+						#{validationCode}
 					)
  	</insert>
  	<update id="updateRequestPicture" parameterType="Request">

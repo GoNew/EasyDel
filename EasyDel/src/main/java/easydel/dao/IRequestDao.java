@@ -15,4 +15,5 @@ public interface IRequestDao {
 	public int updateStatusAndRemoveCourier(Integer requestId);
 	public Request selectRequestJoinRequestCmtByRequestId(Integer requestId);
 	public int updateStatusAndApplyCourier(String courierId, Integer requestId);
+	public Integer selectValidationCodeByRequestId(Integer requestId);
 }
