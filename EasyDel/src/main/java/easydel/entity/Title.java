@@ -9,12 +9,14 @@ public class Title {
 	private String cargoName;
 	private String senderId;
 	private Integer senderAvg;
+	private Integer pickupPlace;
 	private String pickUpGu;
 	private String pickUpDong;
 	private Integer pickUpAddrX;
 	private Integer pickUpAddrY;
 	private Date pickupMinTime;
 	private Date pickupMaxTime;
+	private Integer arrivalPlace;
 	private String arrivalPlaceGu;
 	private String arrivalPlaceDong;
 	private Integer arrivalPlaceAddrX;
@@ -26,6 +28,23 @@ public class Title {
 	public Title() {
 		super();
 	}
+	
+	public Integer getPickupPlace() {
+		return pickupPlace;
+	}
+
+	public void setPickupPlace(Integer pickupPlace) {
+		this.pickupPlace = pickupPlace;
+	}
+
+	public Integer getArrivalPlace() {
+		return arrivalPlace;
+	}
+
+	public void setArrivalPlace(Integer arrivalPlace) {
+		this.arrivalPlace = arrivalPlace;
+	}
+
 	public Integer getRequestId() {
 		return requestId;
 	}
@@ -151,10 +170,11 @@ public class Title {
 		return "Title [requestId=" + requestId + ", requestType=" + requestType
 				+ ", requestStatus=" + requestStatus + ", cargoName="
 				+ cargoName + ", senderId=" + senderId + ", senderAvg="
-				+ senderAvg + ", pickUpGu=" + pickUpGu + ", pickUpDong="
-				+ pickUpDong + ", pickUpAddrX=" + pickUpAddrX
-				+ ", pickUpAddrY=" + pickUpAddrY + ", pickupMinTime="
-				+ pickupMinTime + ", pickupMaxTime=" + pickupMaxTime
+				+ senderAvg + ", pickupPlace=" + pickupPlace + ", pickUpGu="
+				+ pickUpGu + ", pickUpDong=" + pickUpDong + ", pickUpAddrX="
+				+ pickUpAddrX + ", pickUpAddrY=" + pickUpAddrY
+				+ ", pickupMinTime=" + pickupMinTime + ", pickupMaxTime="
+				+ pickupMaxTime + ", arrivalPlace=" + arrivalPlace
 				+ ", arrivalPlaceGu=" + arrivalPlaceGu + ", arrivalPlaceDong="
 				+ arrivalPlaceDong + ", arrivalPlaceAddrX=" + arrivalPlaceAddrX
 				+ ", arrivalPlaceAddrY=" + arrivalPlaceAddrY

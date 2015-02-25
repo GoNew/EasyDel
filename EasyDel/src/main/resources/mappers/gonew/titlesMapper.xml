@@ -119,4 +119,43 @@
 			</if>
 		</where>
 	</select>
+	<select id="selectTitlesUsingRecommend" parameterType="hashmap" resultType="Title">
+		select		*
+		from		(
+						select		ROWNUM as RNUM, T.*
+						from		titles T
+						<where>
+							<if test="pageNum != null">
+								((#{pageNum} - 1) * 5) + 1 &lt;= ROWNUM
+							</if>
+							<if test="startPos != null">
+								and (pickup_place=#{startPos} or pickup_place is null)
+							</if>
+							<if test="arrivalPos != null">
+								and arrival_place=#{arrivalPos}
+							</if>
+							<if test="startTime != null">
+								and ((pick_up_min_time&lt;=#{startTime} and pick_up_max_time&gt;=#{startTime})
+									or (pick_up_min_time is null and pick_up_max_time is null))
+							</if>
+							<if test="arrivalTime != null">
+								and (arrival_min_time&lt;=#{arrivalTime} and arrival_max_time&gt;=#{arrivalTime})
+							</if>
+							<if test="requestStatusFilter != null">
+								and request_status = #{requestStatusFilter}
+							</if>
+							<if test="requestTypeFilter != null">
+								and request_type = #{requestTypeFilter}
+							</if>
+							<if test="userId != null">
+								and sender_id&lt;&gt;#{userId}
+							</if>
+						</where>
+					)
+		<where>
+			<if test="pageNum != null">
+				(#{pageNum} * 5) + 1 &gt; RNUM
+			</if>
+		</where>
+	</select>
 </mapper>

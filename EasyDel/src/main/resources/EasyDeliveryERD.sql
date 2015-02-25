@@ -19,11 +19,11 @@ DROP TRIGGER TRI_Sender_Evals_eval_id;
 
 /* Drop Tables */
 
-DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
 DROP TABLE Sender_Evals CASCADE CONSTRAINTS;
+DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
 DROP TABLE Complete_Deliverys CASCADE CONSTRAINTS;
-DROP TABLE request_cmts CASCADE CONSTRAINTS;
 DROP TABLE Reports CASCADE CONSTRAINTS;
+DROP TABLE request_cmts CASCADE CONSTRAINTS;
 DROP TABLE Requests CASCADE CONSTRAINTS;
 DROP TABLE address_dongs CASCADE CONSTRAINTS;
 DROP TABLE address_gus CASCADE CONSTRAINTS;
@@ -182,7 +182,7 @@ CREATE TABLE Requests
 	pickup_min_time date,
 	pickup_max_time date,
 	pickup_place number,
-	pickup_place_desc varchar2(100),
+	pickup_place number,
 	receiver_name varchar2(20) NOT NULL,
 	receiver_phone varchar2(11) NOT NULL,
 	arrival_min_time date NOT NULL,
@@ -256,13 +256,13 @@ CREATE TABLE Users
 /* Create Foreign Keys */
 
 ALTER TABLE Requests
-	ADD FOREIGN KEY (arrival_place)
+	ADD FOREIGN KEY (pickup_place)
 	REFERENCES address_dongs (dong_id)
 ;
 
 
 ALTER TABLE Requests
-	ADD FOREIGN KEY (pickup_place)
+	ADD FOREIGN KEY (arrival_place)
 	REFERENCES address_dongs (dong_id)
 ;
 
@@ -273,14 +273,14 @@ ALTER TABLE address_dongs
 ;
 
 
-ALTER TABLE Courier_Evals
+ALTER TABLE Sender_Evals
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Complete_Deliverys (request_id)
 	ON DELETE SET NULL
 ;
 
 
-ALTER TABLE Sender_Evals
+ALTER TABLE Courier_Evals
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Complete_Deliverys (request_id)
 	ON DELETE SET NULL
@@ -300,6 +300,13 @@ ALTER TABLE Complete_Deliverys
 ;
 
 
+ALTER TABLE Reports
+	ADD FOREIGN KEY (request_id)
+	REFERENCES Requests (request_id)
+	ON DELETE CASCADE
+;
+
+
 ALTER TABLE request_cmts
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Requests (request_id)
@@ -307,15 +314,15 @@ ALTER TABLE request_cmts
 ;
 
 
-ALTER TABLE Reports
-	ADD FOREIGN KEY (request_id)
-	REFERENCES Requests (request_id)
-	ON DELETE CASCADE
+ALTER TABLE Requests
+	ADD FOREIGN KEY (courier_id)
+	REFERENCES Users (user_id)
+	ON DELETE SET NULL
 ;
 
 
 ALTER TABLE Reports
-	ADD FOREIGN KEY (report_user_id)
+	ADD FOREIGN KEY (reported_user_id)
 	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
@@ -328,6 +335,13 @@ ALTER TABLE alert_logs
 ;
 
 
+ALTER TABLE Requests
+	ADD FOREIGN KEY (sender_id)
+	REFERENCES Users (user_id)
+	ON DELETE CASCADE
+;
+
+
 ALTER TABLE request_cmts
 	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
@@ -336,21 +350,7 @@ ALTER TABLE request_cmts
 
 
 ALTER TABLE Reports
-	ADD FOREIGN KEY (reported_user_id)
-	REFERENCES Users (user_id)
-	ON DELETE CASCADE
-;
-
-
-ALTER TABLE Requests
-	ADD FOREIGN KEY (sender_id)
-	REFERENCES Users (user_id)
-	ON DELETE CASCADE
-;
-
-
-ALTER TABLE Sender_Evals
-	ADD FOREIGN KEY (sender_id)
+	ADD FOREIGN KEY (report_user_id)
 	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
@@ -363,17 +363,17 @@ ALTER TABLE edmoney_logs
 ;
 
 
-ALTER TABLE Courier_Evals
-	ADD FOREIGN KEY (courier_id)
+ALTER TABLE Sender_Evals
+	ADD FOREIGN KEY (sender_id)
 	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
 
 
-ALTER TABLE Requests
+ALTER TABLE Courier_Evals
 	ADD FOREIGN KEY (courier_id)
 	REFERENCES Users (user_id)
-	ON DELETE SET NULL
+	ON DELETE CASCADE
 ;
 
 
@@ -461,12 +461,14 @@ CREATE OR REPLACE VIEW titles AS select          R.request_id                   
                   R.cargo_name                as cargo_name,
                   R.sender_id                   as sender_id,
                   ((U.sender_avg_time + U.sender_avg_kind + U.sender_avg_thing) / 3) as sender_avg,
+                  R.pickup_place              as pickup_place,
                   A1.gu_description          as pick_up_gu,
                   A1.dong_desc                as pick_up_dong,
                   A1.coordinate_x             as pick_up_addr_x,
                   A1.coordinate_y             as pick_up_addr_y,
                   R.pickup_min_time         as pick_up_min_time,
                   R.pickup_max_time         as pick_up_max_time,
+                  R.arrival_place               as arrival_place,
                   A2.gu_description          as arrival_place_gu,
                   A2.dong_desc                as arrival_place_dong,
                   A2.coordinate_x             as arrival_place_addr_x,

@@ -59,15 +59,25 @@
 	
 	function getAndInsertBoardList() {
 		pageNum = 1;
-		var url = "<%=request.getContextPath()%>/board";
+		var url = "<%=request.getContextPath()%>/board/ajax/getBoard";
+		
+		var startPos = $("#startPosDongList").val();
+		var arrivalPos = $("#arrivePosDongList").val();
+		var startTimeBeforeParse = $("#startTime").val();
+		var arrivalTimeBeforeParse = $("#arriveTime").val();
+		
 		$.ajax({
 			url : url,
-			type : 'post',
+			type : 'get',
 			data : {
 				pageNum: pageNum,
 				delTypeFilter: typeFilter,
 				statusFilter: statusFilter,
-				sortType: sort
+				sortType: sort,
+				startPos: startPos,
+				arrivalPos: arrivalPos,
+				startTimeBeforeParse: startTimeBeforeParse,
+				arrivalTimeBeforeParse: arrivalTimeBeforeParse
 			},
 			success : function(responseText) {
 				$("#printBoardList").html(responseText);
@@ -76,7 +86,13 @@
 	}
 	function getAndAppendBoardList() {
 		pageNum = pageNum + 1;
-		var url = "<%=request.getContextPath()%>/board";
+		var url = "<%=request.getContextPath()%>/board/ajax/getBoard";
+		
+		var startPos = $("#startPosDongList").val();
+		var arrivalPos = $("#arrivePosDongList").val();
+		var startTimeBeforeParse = $("#startTime").val();
+		var arrivalTimeBeforeParse = $("#arriveTime").val();
+		
 		$.ajax({
 			url : url,
 			type : 'post',
@@ -84,7 +100,11 @@
 				pageNum: pageNum,
 				delTypeFilter: typeFilter,
 				statusFilter: statusFilter,
-				sortType: sort
+				sortType: sort,
+				startPos: startPos,
+				arrivalPos: arrivalPos,
+				startTimeBeforeParse: startTimeBeforeParse,
+				arrivalTimeBeforeParse: arrivalTimeBeforeParse
 			},
 			success : function(responseText) {
 				$("#printBoardList").append(responseText);
@@ -118,6 +138,10 @@
 			}
 			getAndInsertBoardList();
 		});
+		$("#exeRecommendation").click(function() {
+			sort = "recommend";
+			getAndInsertBoardList();
+		})
 		$("#typeFilterSelect").change(function() {
 			typeFilter = $("#typeFilterSelect").val(); 
 			getAndInsertBoardList();

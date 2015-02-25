@@ -1,5 +1,6 @@
 package easydel.dao;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -82,6 +83,26 @@ public class TitleDaoImpl implements ITitleDao {
 		params.put("requestTypeFilter", requestTypeFilter);
 		params.put("sort", sort);
 		params.put("userId", userId);
+		
+		List<Title> result = session.selectList(stmt, params);
+		return result;
+	}
+
+	@Override
+	public List<Title> selectTitlesUsingRecommend(Integer pageNum,
+			Integer requestStatusFilter, Integer requestTypeFilter,
+			Integer startPos, Integer arrivalPos, Date startTime,
+			Date arrivalTime, String userId) {
+		String stmt = namespace + ".selectTitlesUsingRecommend";
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("pageNum", pageNum);
+		params.put("requestStatusFilter", requestStatusFilter);
+		params.put("requestTypeFilter", requestTypeFilter);
+		params.put("userId", userId);
+		params.put("startPos", startPos);
+		params.put("arrivalPos", arrivalPos);
+		params.put("startTime", startTime);
+		params.put("arrivalTime", arrivalTime);
 		
 		List<Title> result = session.selectList(stmt, params);
 		return result;

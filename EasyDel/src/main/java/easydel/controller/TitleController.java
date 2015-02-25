@@ -1,6 +1,8 @@
 package easydel.controller;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,21 +44,52 @@ public class TitleController {
 		return "board/list";
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, produces="text/plain;charset=UTF-8")
-	public @ResponseBody String getBoard(@RequestParam Integer pageNum,
-			@RequestParam String delTypeFilter, @RequestParam String statusFilter,
-			@RequestParam String sortType, HttpServletRequest request, HttpSession session) {
+	@RequestMapping(value="/ajax/getBoard", method=RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	public @ResponseBody String getBoard(
+			@RequestParam(required=false) Integer pageNum,
+			@RequestParam(required=false) String delTypeFilter,
+			@RequestParam(required=false) String statusFilter,
+			@RequestParam(required=false) String sortType,
+			@RequestParam(required=false, defaultValue="-1") Integer startPos,
+			@RequestParam(required=false, defaultValue="-1") Integer arrivalPos,
+			@RequestParam(required=false) String startTimeBeforeParse,
+			@RequestParam(required=false) String arrivalTimeBeforeParse,
+			HttpServletRequest request, HttpSession session) {
 		StringBuilder result = new StringBuilder();
+		
+		if(startPos == -1)
+			startPos = null;
+		if(arrivalPos == -1)
+			arrivalPos = null;
 		
 		User loginUser = (User) session.getAttribute("loginSession");
 		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd a kk:mm");
+		SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'KK:mm");
 		
-		List<Title> list = boardService.getBoard(sortType, delTypeFilter, statusFilter, pageNum, loginUser.getUserId());
+		Date startTime = null;
+		Date arrivalTime = null;
+		try {
+			startTime = (Date) parser.parse(startTimeBeforeParse);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		try {
+			arrivalTime = (Date) parser.parse(arrivalTimeBeforeParse);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
 		logger.trace("mylog: sortType: " + sortType);
 		logger.trace("mylog: delTypeFilter: " + delTypeFilter);
 		logger.trace("mylog: statusFilter: " + statusFilter);
 		logger.trace("mylog: pageNum: " + pageNum);
+		logger.trace("mylog: startPos: " + startPos);
+		logger.trace("mylog: arrivalPos: " + arrivalPos);
+		logger.trace("mylog: startTime: " + startTime);
+		logger.trace("mylog: arrivalTime: " + arrivalTime);
+		List<Title> list = boardService.getBoard(sortType, delTypeFilter, statusFilter, pageNum, loginUser.getUserId(),
+				startPos, arrivalPos, startTime, arrivalTime);
 		for(Title title: list) {
 			result.append("<div class=\"");
 			if(title.getRequestStatus() == 1) {

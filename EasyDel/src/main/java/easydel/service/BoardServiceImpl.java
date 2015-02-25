@@ -1,5 +1,6 @@
 package easydel.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -28,7 +29,9 @@ public class BoardServiceImpl implements IBoardService {
 	@Override
 	@Transactional
 	public List<Title> getBoard(String sortType, String delTypeFilter,
-			String statusFilter, Integer pageNum, String userId) {
+			String statusFilter, Integer pageNum, String userId,
+			Integer startPos, Integer arrivalPos, Date startTime,
+			Date arrivalTime) {
 		if((pageNum == null) || (pageNum < 1)) {
 			pageNum = new Integer(1);
 		}
@@ -58,6 +61,8 @@ public class BoardServiceImpl implements IBoardService {
 		
 		if((sortType == null) || (sortType.equals("")) || (sortType.equals("default"))) {
 			result = dao.selectTitlesOrderByDefault(pageNum, statusCode, delTypeCode, userId);
+		} else if(sortType.equals("recommend")) {
+			result = dao.selectTitlesUsingRecommend(pageNum, statusCode, delTypeCode, startPos, arrivalPos, startTime, arrivalTime, userId);
 		} else if(sortType.equals("price")) {
 			result = dao.selectTitlesOrderByPrice(pageNum, statusCode, delTypeCode, userId);
 		} else if(sortType.equals("senderAvg")) {
