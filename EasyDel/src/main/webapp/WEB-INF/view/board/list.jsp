@@ -100,6 +100,7 @@
 		$("#arrivePosGuList").change(getArriveDongList);
 		
 		$("#sortPrice").click(function() {
+			$("#UserPayment").css("color","#00B1F2");
 			sort = "price";
 			getAndInsertBoardList();
 		});
@@ -148,7 +149,7 @@
 					<div class="webkit_box"><img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/></div>
 				</div> --%>
 				<div style="width:7px"></div>
-				<div class="same_subject_font_size">출발장소 : </div>
+				<div class="same_subject_font_size">출발장소  </div>
 				<div class="same_font_size margin_50px_left">서울특별시</div>
 				<div class="margin_50px_left">
 					<select id="startPosGuList" class="same_select_font_size greycolor">
@@ -172,7 +173,7 @@
 					<div class="webkit_box"><img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/></div>
 				</div> --%>
 				<div style="width:7px"></div>
-				<div class="same_subject_font_size">도착장소 : </div>
+				<div class="same_subject_font_size">도착장소  </div>
 				<div class="same_font_size margin_50px_left">서울특별시</div>
 				<div class="margin_50px_left">
 					<select id="arrivePosGuList" class="same_select_font_size greycolor">
@@ -198,7 +199,7 @@
 								<div class="webkit_box"><img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/></div>
 							</div> --%>
 							<div style="width:7px"></div>
-							<div class="uk-width-1-4 same_subject_font_size">출발시각 : </div>
+							<div class="uk-width-1-4 same_subject_font_size">출발시각  </div>
 							<div class="uk-width-2-4">
 								<input type="datetime-local" class="same_date_font_size greycolor" id="startTime">
 							</div>
@@ -210,7 +211,7 @@
 								<div class="webkit_box"><img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/></div>
 							</div> --%>
 							<div style="width:7px"></div>
-							<div class="uk-width-1-4 same_subject_font_size">도착시각 : </div>
+							<div class="uk-width-1-4 same_subject_font_size">도착시각  </div>
 							<div class="uk-width-2-4">
 								<input type="datetime-local" class="same_date_font_size greycolor" id="arriveTime">
 							</div>

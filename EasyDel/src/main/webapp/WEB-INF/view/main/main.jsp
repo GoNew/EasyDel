@@ -110,7 +110,7 @@ function unhover_list(element) {
 <jsp:include page = "/WEB-INF/view/main/header.jsp"></jsp:include>
 <body>
 <div class="uk-clearfix">
-<div id="formcss" class="uk-align-center">
+<div id="formcss" class="uk-align-center" >
 	<!-- <div style="height:40px"></div> -->
 	
 	<!-- <div id = "mainlineform" class="uk-align-center">
@@ -119,8 +119,8 @@ function unhover_list(element) {
 		<div id = "mainlineright"></div>
 	</div> -->
 	
-	<div id = "mainbelowform" class="uk-align-center">
-		<div id = "mainleft">
+	<div id = "mainbelowform" class="uk-align-center" >
+		<div id = "mainleft" style="margin-top: 50px">
 			<div class="request_people " align = "left">
 				<div id="mainbigfont1">발송인</div><div class="webkit_box"><img id="mainphotos" src= "<%=request.getContextPath()%>/img/man_gray.jpg"/></div>
 			</div>
@@ -161,14 +161,14 @@ function unhover_list(element) {
 			</div>
 		</div>
 		
-		<div id = "mainmiddle">
+		<div id = "mainmiddle" style="margin-top: 50px">
 		<div id="mainphoto" class="uk-align-center" style="margin-top: 70px;">
 			<img id="mainimg" class="uk-border-circle" src="<%=request.getContextPath()%><%=loginUserInfo.getUserPicture() %>">
 		</div>
 		</div>
 		
 		
-		<div id = "mainright">
+		<div id = "mainright" style="margin-top: 50px">
 			<div class="courier_people" align="right">
 				<div class="webkit_box"><img id="mainphotos2" src= "<%=request.getContextPath()%>/img/delivery_gray.jpg"></div>
 				<div id="mainbigfont2">운송인</div>
@@ -215,7 +215,7 @@ function unhover_list(element) {
 	</div>
 	
 	
-	<div class="wrapper_videoNbox">
+	<div class="wrapper_videoNbox" style="margin-top: 50px">
 		
 		<div class="uk-cover main_menu_long_box"> <!-- style="width: 430px; height: 232px; border: 1px solid blue;" -->
 			<!-- autoplay="autoplay" loop="loop" --><video id="video_deco" class="uk-cover-object" src="<%=request.getContextPath()%>/img/toomuch.mp4"></video>
@@ -232,7 +232,7 @@ function unhover_list(element) {
 		</div></a>
 		
 	</div>
-	<div class="wrapper_videoNbox">
+	<div class="wrapper_videoNbox" style="margin-bottom: 100px;">
 		<div id="" class="main_menu_long_box" align="center">
 			<ul id="advertisement_img_ul" class="uk-slideshow uk-border-rounded" data-uk-slideshow="{autoplay:true, animation: 'fade'}">
    				 <li><img style="animation-duration:500ms;" src="<%=request.getContextPath()%>/img/banner/banner2.jpg" ></li>

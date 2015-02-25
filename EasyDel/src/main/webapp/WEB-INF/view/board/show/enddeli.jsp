@@ -40,7 +40,7 @@
 		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">발송인 정보</div></div>
 		<div class="replace_hr"></div>
 		
-		<div class="margin_top_10px uk-panel uk-panel-box">
+		<div class="removeBorder margin_top_10px uk-panel uk-panel-box">
 			<div class="standard_row_request">
 				<div id="senderprofimg_main"><img src="<%=request.getContextPath()%><%=senderUserInfo.getUserPicture() %>" class="uk-border-circle"></div>
 				<div id="deli_userid" class="text_middle fixed_font_color webkit_box"><a class="atag_color" data-uk-toggle="{target:'#my-profbtn'}"><%=req.getSenderId() %></a></div>
@@ -54,7 +54,7 @@
 <!-- --------------------------------물품 정보---------------------------------------------- -->		
 		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">물품 정보</div></div>
 		<div class="replace_hr"></div>
-		<div class="webkit_box margin_top_10px uk-panel uk-panel-box" align="left">
+		<div class="removeBorder webkit_box margin_top_10px uk-panel uk-panel-box" align="left">
 			<%
 				String cargoPicturePath = req.getCargoPicture() != null ? req.getCargoPicture() : "/img/has_no_img.gif";
 				cargoPicturePath = request.getContextPath() + cargoPicturePath;
@@ -89,7 +89,7 @@
 		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">배송 정보</div></div>
 		<div class="replace_hr"></div>
 		
-		<div class="margin_top_10px uk-panel uk-panel-box">
+		<div class="removeBorder margin_top_10px uk-panel uk-panel-box">
 		<div class="standard_row_request"> <div class="row_standard_text_middle fixed_font_color">종류</div>
 		 	<div class="text_middle unfixed_font_color"><%=req.getRequestType() == RequestType.nomal.getTypeCode() ? "단순 운송" : "구매 후 운송" %></div></div>
 <!-- --------------------------------보내는 사람---------------------------------------------- -->		
@@ -143,7 +143,7 @@
 			<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">추가 사항</div></div>
 			<div class="replace_hr"></div>
 
-			<div class="uk-panel uk-panel-box margin_top_10px">
+			<div class="removeBorder uk-panel uk-panel-box margin_top_10px">
 			<%	for(RequestCmt cmt: req.getRequestCmtsList()) {	%>
 				<div class="standard_row_request_reply">
 					<div class="row_request_extra">

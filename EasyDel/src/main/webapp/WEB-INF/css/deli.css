@@ -21,6 +21,14 @@ ul, ol{list-style:name;}
 div.webkit_box{
 	display: -webkit-box;
 }
+div.removeBorder{
+	border: 1px solid #fafafa;
+}
+button.removeBorder{
+	border: 1px solid #fafafa;
+	color: #7F7F7F;
+}
+
 
 div.row_request{
 	/* border: 1px solid red; */
@@ -242,7 +250,7 @@ a.atag_color{
 	margin-left: 30px;
 	text-align: left;
 	width: 350px;
-	height: 500px;
+	height: 430px;
 	margin-top: 50px;
 	
 }
@@ -259,7 +267,7 @@ a.atag_color{
 
 #product_detail{
 	text-align: left;
-	height: 320px;
+	height: 310px;
 	width: 310px;
 	font-size: 25px;
 	overflow: hidden;
@@ -285,6 +293,7 @@ a.atag_color{
 	width: 670px;
 	height: 60px;
 	overflow: hidden;
+	border: none;
 }
 #imgFileInput{
 display: none;
@@ -311,6 +320,10 @@ display: none;
 
 #wrapper_recept_deli_btn_div{
 	margin: 50px 0px;
+}
+
+.uk-panel-box{
+	border: none; important;
 }
 
 

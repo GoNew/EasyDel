@@ -64,7 +64,7 @@ $(document).ready(function() {
 		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">발송인 정보</div></div>
 		<div class="replace_hr"></div>
 		
-		<div class="margin_top_10px uk-panel uk-panel-box">
+		<div class="removeBorder margin_top_10px uk-panel uk-panel-box">
 			<div class="standard_row_request">
 				<div id="senderprofimg_main"><img src="<%=request.getContextPath()%><%=senderUserInfo.getUserPicture() %>" class="uk-border-circle"></div>
 				<div id="deli_userid" class="text_middle fixed_font_color webkit_box"><a class="atag_color" data-uk-toggle="{target:'#my-profbtn'}"><%=req.getSenderId() %></a></div>
@@ -78,7 +78,7 @@ $(document).ready(function() {
 <!-- --------------------------------물품 정보---------------------------------------------- -->		
 		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">물품 정보</div></div>
 		<div class="replace_hr"></div>
-		<div class="webkit_box margin_top_10px uk-panel uk-panel-box" align="left">
+		<div class="removeBorder webkit_box margin_top_10px uk-panel uk-panel-box" align="left">
 			<%
 				String cargoPicturePath = req.getCargoPicture() != null ? req.getCargoPicture() : "/img/has_no_img.gif";
 				cargoPicturePath = request.getContextPath() + cargoPicturePath;
@@ -113,7 +113,7 @@ $(document).ready(function() {
 		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">배송 정보</div></div>
 		<div class="replace_hr"></div>
 		
-		<div class="margin_top_10px uk-panel uk-panel-box">
+		<div class="removeBorder margin_top_10px uk-panel uk-panel-box">
 		<div class="standard_row_request"> <div class="row_standard_text_middle fixed_font_color">종류</div>
 		 	<div class="text_middle unfixed_font_color"><%=req.getRequestType() == RequestType.nomal.getTypeCode() ? "단순 운송" : "구매 후 운송" %></div></div>
 		
@@ -168,7 +168,7 @@ $(document).ready(function() {
 			<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">추가 사항</div></div>
 			<div class="replace_hr"></div>
 
-			<div class="uk-panel uk-panel-box margin_top_10px">
+			<div class="removeBorder uk-panel uk-panel-box margin_top_10px">
 			<%	for(RequestCmt cmt: req.getRequestCmtsList()) {	%>
 				<div class="standard_row_request_reply">
 					<div class="row_request_extra">
@@ -208,7 +208,7 @@ $(document).ready(function() {
 							<input type="hidden" name="requestId" value="<%=req.getRequestId() %>">
 						</div> 
 						<div><textarea id="add_textarea" name="replyContent"></textarea></div>
-						<div id="wrapper_btn_div"><button id="add_reply_btn" class="uk-button">완료</button></div>
+						<div id="wrapper_btn_div"><button id="add_reply_btn" class="removeBorder uk-button">완료</button></div>
 					</div>
 				</div>
 				</form>
@@ -219,23 +219,23 @@ $(document).ready(function() {
 					<%
 						switch(RequestStatus.valueOf(req.getRequestStatus())) {
 						case on:
-					%>		<button class="uk-button recept_deli_btn" onclick="location.href='<%=request.getContextPath() %>/show/ondeli/cancel?requestId=<%=req.getRequestId() %>'">취소 요청</button>	<%
+					%>		<button class="removeBorder uk-button recept_deli_btn" onclick="location.href='<%=request.getContextPath() %>/show/ondeli/cancel?requestId=<%=req.getRequestId() %>'">취소 요청</button>	<%
 							break;
 						case cancelByDeliver:
 							if(loginUser.getUserId().equals(req.getSenderId())) {
-					%>		<button class="uk-button recept_deli_btn" onclick="location.href='<%=request.getContextPath() %>/show/ondeli/cancel?requestId=<%=req.getRequestId() %>'">취소 요청 확인</button>		<%
+					%>		<button class="removeBorder uk-button recept_deli_btn" onclick="location.href='<%=request.getContextPath() %>/show/ondeli/cancel?requestId=<%=req.getRequestId() %>'">취소 요청 확인</button>		<%
 							}
 							break;
 						case cancelBySender:
 							if(loginUser.getUserId().equals(req.getCourierId())) {
-					%>		<button class="uk-button recept_deli_btn" onclick="location.href='<%=request.getContextPath() %>/show/ondeli/cancel?requestId=<%=req.getRequestId() %>'">취소 요청 확인</button>		<%
+					%>		<button class="removeBorder uk-button recept_deli_btn" onclick="location.href='<%=request.getContextPath() %>/show/ondeli/cancel?requestId=<%=req.getRequestId() %>'">취소 요청 확인</button>		<%
 							}
 							break;
 						default:
 							break;
 						}
 					%>
-					<button class="uk-button recept_deli_btn" onclick="location.href='<%=request.getContextPath() %>/report?requestId=<%=req.getRequestId() %>'">신고 하기</button>
+					<button class="removeBorder uk-button recept_deli_btn" onclick="location.href='<%=request.getContextPath() %>/report?requestId=<%=req.getRequestId() %>'">신고 하기</button>
 				</div>
 			</div>
 		

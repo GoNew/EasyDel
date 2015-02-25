@@ -11,7 +11,16 @@
 input.greycolor{
 	color:#7F7F7F;
 }
+
+span.stress_grayColor{
+	color: #6B6B6B;
+}
+span.content_color{
+	color: #ACACAC;
+}
+
 button.sbcolor{
+	border:none;
 	color:#00B1F2;
 	background-color: white;
 }
@@ -19,6 +28,11 @@ button.sbcolor:hover{
 	color: white; !important;
 	background-color: #00B1F2;!important;
 	
+}
+button.sbcolor:active, button.sbcolor:focus{
+	border:none;
+	color: white;
+	background-color: #46ccff;
 }
 
 
@@ -163,7 +177,11 @@ div.lira_panel_primary{
 
 span.gonew_boardliststandard{
 	font-weight: bold;
-	
+	color: #7F7F7F;
+}
+
+span.gonew_boardliststandard2{
+	font-weight: bold;
 }
 
 button.recomendation_btn{
@@ -190,6 +208,8 @@ div.same_subject_font_size{
 	height: 30px;
 	margin: 15px 0px;
 	border-radius: 8px;
+	font-weight: bold;
+	color: #6B6B6B;
 	/* border: 1px solid blue; */
 }
 div.same_font_size{
@@ -198,6 +218,7 @@ div.same_font_size{
 	margin-top: 15px;
 	margin-bottom: 15px;
 	border-radius: 8px;
+	color: #6B6B6B;
 /* 	border: 1px solid blue;
  */}
  
@@ -240,7 +261,13 @@ div.onDel{
 	margin: 10px 0px;
 	display: -webkit-box;
 	overflow: hidden;
-	color: #C3C3C3;
+	color: #E7E6E6 !important;
+	padding: 10px 10px 10px;
+}
+
+div.onDel span{
+	color: #E7E6E6 !important;
+	
 }
 
 div.beforeDel{
@@ -248,6 +275,7 @@ div.beforeDel{
 	margin: 10px 0px;
 	display: -webkit-box;
 	overflow: hidden;
+	padding: 10px 10px 10px;
 }
 div.beforeDel:hover{
 	background-color: white;
@@ -261,7 +289,7 @@ div.onDel:hover{
 div.first_row{
 }
 div.second_row{
-	position: absolute; right: 10px;
+	position: absolute; right: 20px;
 }
 
 .uk-navbar{

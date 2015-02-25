@@ -62,38 +62,37 @@ public class TitleController {
 				result.append("onDel\"><div>");
 			}
 			if(title.getRequestType() == 0) {
-				result.append("<span class=\"gonew_boardliststandard\">운송 종류:</span>&nbsp; 단순운송&nbsp;")
-					.append("<span class=\"gonew_boardliststandard\">글 제목:</span>&nbsp;")
-					.append(title.getCargoName())
-					.append("<br><span class=\"gonew_boardliststandard\">출발:</span>&nbsp;서울시&nbsp;")
-					.append(title.getPickUpGu())
+				result.append("<span class=\"gonew_boardliststandard\">운송 종류</span>&nbsp; <span class=\"content_color\">단순운송</span>&nbsp;")
+					.append("<br>&nbsp;&nbsp;&nbsp;<span class=\"gonew_boardliststandard\">글 제목</span>&nbsp;&nbsp;")
+					.append("<span class=\"content_color\">"+title.getCargoName()+"</span>")
+					.append("<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"gonew_boardliststandard\">출발</span>&nbsp;&nbsp;<span class=\"content_color\">서울시</span>&nbsp;")
+					.append("<span class=\"content_color\">"+title.getPickUpGu()+"</span>")
 					.append("&nbsp;")
-					.append(title.getPickUpDong())
-					.append("<br>");
+					.append("<span class=\"content_color\">"+title.getPickUpDong()+"</span>");
 			} else {
-				result.append("<span class=\"gonew_boardliststandard\">운송 종류:</span>&nbsp; 구매운송&nbsp;")
-					.append("<span class=\"gonew_boardliststandard\">글 제목:</span>&nbsp;")
-					.append(title.getCargoName())
+				result.append("<span class=\"gonew_boardliststandard\">운송 종류</span>&nbsp; 구매운송&nbsp;")
+					.append("<br>&nbsp;&nbsp;&nbsp;<span class=\"gonew_boardliststandard\">글 제목</span>&nbsp;&nbsp;")
+					.append("<span class=\"content_color\">"+title.getCargoName()+"</span>")
 					.append("<br>");
 			}
-			result.append("<span class=\"gonew_boardliststandard\">도착:</span>&nbsp;서울시 ")
-				.append(title.getArrivalPlaceGu())
-				.append("&nbsp;")
-				.append(title.getArrivalPlaceDong())
-				.append("<br><span class=\"gonew_boardliststandard\">만료시각:</span>&nbsp;")
-				.append(title.getExpireDate().toString());
+			result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"gonew_boardliststandard\">도착</span>&nbsp;&nbsp;<span class=\"content_color\">서울시</span>&nbsp; ")
+				.append("<span class=\"content_color\">"+title.getArrivalPlaceGu()+"</span>")
+				.append("<span class=\"content_color\">"+title.getArrivalPlaceDong()+"</span>")
+				.append("<br><span class=\"gonew_boardliststandard\" id=\"FinishedTime\">만료 시각</span>&nbsp;&nbsp;")
+				.append("<span class=\"content_color\">"+title.getExpireDate().toString()+"</span>");
 			if(title.getRequestType() == 0) {
 				result.append("</div><div class=\"second_row\" align=\"right\">")
 				.append("<span class=\"gonew_boardliststandard\">"+title.getSenderId()+"</span>&nbsp;")
 				.append("<br>");
 			} else {
 				result.append("</div><div class=\"second_row\" align=\"right\">")
-				.append("<span class=\"gonew_boardliststandard\">"+title.getSenderId()+"</span>&nbsp;");
+				.append("<span class=\"gonew_boardliststandard\">"+title.getSenderId()+"</span>&nbsp;")
+				.append("<br>");
 			}
-				result.append("<br><span class=\"gonew_boardliststandard\">평점:</span>&nbsp;")
-				.append(title.getSenderAvg())
-				.append("<br><span class=\"gonew_boardliststandard\">의뢰비:</span>&nbsp;")
-				.append(title.getDeliveryPrice());
+				result.append("<br><span class=\"gonew_boardliststandard\">평점</span>&nbsp;&nbsp;")
+				.append("<span class=\"content_color\" id=\"UserScore\">"+title.getSenderAvg()+"</span>")
+				.append("<br><span class=\"gonew_boardliststandard\" id=\"UserPayment\">의뢰비</span>&nbsp;&nbsp;")
+				.append("<span class=\"content_color\">"+title.getDeliveryPrice()+"</span>");
 			result.append("</div></div>");
 		}
 		return result.toString();
