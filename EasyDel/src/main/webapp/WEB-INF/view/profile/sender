@@ -3,6 +3,13 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/mylistsender.css" />
 <script type="text/javascript">
 	function ready_ForShowingProfileOfSender(userId) {
+		var starPath = ["<%=request.getContextPath()%>/img/stars/zerostar.png",
+					"<%=request.getContextPath()%>/img/stars/onestarl.png",
+					"<%=request.getContextPath()%>/img/stars/twostarl.png",
+					"<%=request.getContextPath()%>/img/stars/threestarl.png",
+					"<%=request.getContextPath()%>/img/stars/fourstarl.png",
+					"<%=request.getContextPath()%>/img/stars/fivestar.png"];
+		
 		$("#saveSenderIdForShowingProfileOfSender").val(userId);
 		$("#senderProfileLoding").css("display", "");
 		$("#senderProfileContent").css("display", "none");
@@ -23,10 +30,13 @@
 				$("#senderProfile_profileimg").attr("src", temp);
 				temp = userObj.pKind + "점";
 				$("#senderProfile_pKind").html(temp);
+				$("#senderProfile_mainstar_pKind").attr("src", starPath[userObj.pKind]);
 				temp = userObj.pThing + "점";
 				$("#senderProfile_pThing").html(temp);
+				$("#senderProfile_mainstar_pThing").attr("src", starPath[userObj.pThing]);
 				temp = userObj.pTime + "점";
 				$("#senderProfile_pTime").html(temp);
+				$("#senderProfile_mainstar_pTime").attr("src", starPath[userObj.pTime]);
 				temp = userObj.successRate + "%";
 				$("#senderProfile_successRate").html(temp);
 				temp = userObj.successReq + "/" + userObj.totalReq + "건";
@@ -94,7 +104,7 @@
 										<div style="width: 10px">:</div>
 									</div>
 									<div id="senderProfile_profilediv">
-										<img id="senderProfile_mainstar" src="<%=request.getContextPath()%>/img/stars/twostarl.png" />
+										<img id="senderProfile_mainstar_pTime" src="" />
 									</div>
 									<div>
 										<div style="height: 8px"></div>
@@ -116,8 +126,8 @@
 										<div style="width: 10px">:</div>
 									</div>
 									<div id="senderProfile_profilediv">
-										<img id="senderProfile_mainstar"
-											src="<%=request.getContextPath()%>/img/stars/threestarl.png" />
+										<img id="senderProfile_mainstar_pThing"
+											src="" />
 									</div>
 									<div>
 										<div style="height: 8px"></div>
@@ -139,8 +149,8 @@
 										<div style="width: 10px">:</div>
 									</div>
 									<div id="senderProfile_profilediv">
-										<img id="senderProfile_mainstar"
-											src="<%=request.getContextPath()%>/img/stars/fivestar.png" />
+										<img id="senderProfile_mainstar_pKind"
+											src="" />
 									</div>
 									<div>
 										<div style="height: 8px"></div>
@@ -154,7 +164,7 @@
 								<div id="senderProfile_profilediv">거래완료율</div>
 								<div style="width: 15px">:</div>
 								<div id="senderProfile_successRate" align="center"></div>
-								<div id="senderProfile_successReqAndTotalReq" style="font-size: 23px; width: 100px;" align="center">1/1건</div>
+								<div id="senderProfile_successReqAndTotalReq" style="font-size: 23px; width: 100px;" align="center"></div>
 							</div>
 						</div>
 					</div>

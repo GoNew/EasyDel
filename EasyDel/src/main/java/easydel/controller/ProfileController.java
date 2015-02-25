@@ -36,7 +36,7 @@ public class ProfileController {
 	@RequestMapping(value="/courierInfo", params={"userId"}, method=RequestMethod.GET, produces="text/plain;charset=UTF-8")
 	public @ResponseBody String getCourierProfile(@RequestParam String userId, Model model, HttpServletRequest request){
 		User courierInfo = userService.serviceGetUser(userId);
-		DecimalFormat decFormat = new DecimalFormat(".##");
+		DecimalFormat decFormat = new DecimalFormat("#.##");
 		
 		JSONObject returnObj = new JSONObject();
 		
@@ -81,7 +81,7 @@ public class ProfileController {
 	@RequestMapping(value="/senderInfo", params={"userId"}, method=RequestMethod.GET, produces="text/plain;charset=UTF-8")
 	public @ResponseBody String getSenderProfile(@RequestParam String userId, Model model, HttpServletRequest request){
 		User senderInfo = userService.serviceGetUser(userId);
-		DecimalFormat decFormat = new DecimalFormat(".##");
+		DecimalFormat decFormat = new DecimalFormat("#.##");
 
 		JSONObject returnObj = new JSONObject();
 

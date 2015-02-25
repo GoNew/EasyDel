@@ -30,6 +30,8 @@ public class EdmoneyController {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String GetEdmoneyBalance(Model model, HttpSession session){
+		User loginUser = (User) session.getAttribute("loginSession");
+		session.setAttribute("loginSession", userService.serviceGetUser(loginUser.getUserId()));
 		return "edmoney/edmoneyView";
 	}
 	

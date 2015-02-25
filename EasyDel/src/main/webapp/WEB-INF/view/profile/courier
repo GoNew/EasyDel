@@ -3,6 +3,13 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/mylistcourier.css" />
 <script type="text/javascript">
 	function ready_ForShowingProfileOfCourier(userId) {
+		var starPath = ["<%=request.getContextPath()%>/img/stars/zerostar.png",
+					"<%=request.getContextPath()%>/img/stars/onestarl.png",
+					"<%=request.getContextPath()%>/img/stars/twostarl.png",
+					"<%=request.getContextPath()%>/img/stars/threestarl.png",
+					"<%=request.getContextPath()%>/img/stars/fourstarl.png",
+					"<%=request.getContextPath()%>/img/stars/fivestar.png"];
+	
 		$("#saveCourierIdForShowingProfileOfCourier").val(userId);
 		$("#courierProfileLoding").css("display", "");
 		$("#courierProfileContent").css("display", "none");
@@ -23,10 +30,13 @@
 				$("#courierProfile_profileimg").attr("src", temp);
 				temp = userObj.pTime + "점";
 				$("#courierProfile_pTime").html(temp);
+				$("#courierProfile_mainstar_pTime").attr("src", starPath[userObj.pTime]);
 				temp = userObj.pSafe + "점";
 				$("#courierProfile_pSafe").html(temp);
+				$("#courierProfile_mainstar_pSafe").attr("src", starPath[userObj.pSafe]);
 				temp = userObj.pKind + "점";
 				$("#courierProfile_pKind").html(temp);
+				$("#courierProfile_mainstar_pKind").attr("src", starPath[userObj.pKind]);
 				temp = userObj.successRate + "%";
 				$("#courierProfile_successRate").html(temp);
 				temp = userObj.successReq + "/" + userObj.totalReq + "건";
@@ -94,7 +104,7 @@
 										<div style="width: 10px">:</div>
 									</div>
 									<div id="courierProfile_profilediv">
-										<img id="courierProfile_mainstar" src="<%=request.getContextPath()%>/img/stars/twostarl.png" />
+										<img id="courierProfile_mainstar_pTime" src="" />
 									</div>
 									<div>
 										<div style="height: 8px"></div>
@@ -116,8 +126,8 @@
 										<div style="width: 10px">:</div>
 									</div>
 									<div id="courierProfile_profilediv">
-										<img id="courierProfile_mainstar"
-											src="<%=request.getContextPath()%>/img/stars/threestarl.png" />
+										<img id="courierProfile_mainstar_pSafe"
+											src="" />
 									</div>
 									<div>
 										<div style="height: 8px"></div>
@@ -139,8 +149,8 @@
 										<div style="width: 10px">:</div>
 									</div>
 									<div id="courierProfile_profilediv">
-										<img id="courierProfile_mainstar"
-											src="<%=request.getContextPath()%>/img/stars/fivestar.png" />
+										<img id="courierProfile_mainstar_pKind"
+											src="" />
 									</div>
 									<div>
 										<div style="height: 8px"></div>
