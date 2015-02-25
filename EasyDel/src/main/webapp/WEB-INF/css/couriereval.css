@@ -9,6 +9,7 @@ image{border:0px;}
 }
 #formcss{
 	width:1009px;
+	color: #7F7F7F;
 }
 #courierimg{
 	width:150px;
@@ -44,4 +45,15 @@ img.evalitems{
 #courierevalcmt{
 	font-size:20px;
 	line-height: 50px; 
+}
+
+#full_button{
+	color: white;
+	font-size: 20px;
+	border: none;
+	padding:5px 5px 5px 5px;
+}
+
+#courierevalcmt{
+	border-radius: 8px;
 }

@@ -33,14 +33,14 @@
 	<div class="uk-modal-dialog">
 		<button type="button" class="uk-modal-close uk-close"></button>
 			<div class="uk-modal-header">
-				<h2>정말 삭제하시겠습니까?</h2>
+				<h2 class="forModal">정말 삭제하시겠습니까?</h2>
 			</div>
-		<p>삭제하시면 해당 글은 닷~시~는 복구할 수 없습니다.</p>
+		<p class="forModal">삭제하시면 해당 글은 닷~시~는 복구할 수 없습니다.</p>
 		<div class="uk-modal-footer uk-text-right">
 			<form id="alertMessagePopUpForDeleteMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/delete">
 				<input type="hidden" id="saveRequestIdForDeleteMySendRequest" name="requestId">
-				<div class="uk-button uk-modal-close">돌아가기</div>
-				<div class="uk-button uk-button-primary">삭제</div>
+				<div id="full_button" class="uk-button uk-modal-close">돌아가기</div>
+				<div id="full_button" class="uk-button uk-button-primary">삭제</div>
 			</form>
 		</div>
 	</div>
@@ -50,14 +50,14 @@
 	<div class="uk-modal-dialog">
 		<button type="button" class="uk-modal-close uk-close"></button>
 			<div class="uk-modal-header">
-				<h2>정말 수락하시겠습니까?</h2>
+				<h2 class="forModal">정말 수락하시겠습니까?</h2>
 			</div>
-		<p>의뢰 수락 후에는 취소가 매우 어렵습니다. 신중히 결정하시기 바랍니다.</p>
+		<p class="forModal">의뢰 수락 후에는 취소가 매우 어렵습니다. 신중히 결정하시기 바랍니다.</p>
 		<div class="uk-modal-footer uk-text-right">
 			<form id="alertMessagePopUpForAdmitMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/admit">
 				<input type="hidden" id="saveRequestIdForAdmitMySendRequest" name="requestId">
-				<div class="uk-button uk-modal-close">돌아가기</div>
-				<div class="uk-button uk-button-primary">수락</div>
+				<div id="full_button" class="uk-button uk-modal-close">돌아가기</div>
+				<div id="full_button" class="uk-button uk-button-primary">수락</div>
 			</form>
 		</div>
 	</div>
@@ -67,14 +67,14 @@
 	<div class="uk-modal-dialog">
 		<button type="button" class="uk-modal-close uk-close"></button>
 			<div class="uk-modal-header">
-				<h2>정말 거절하시겠습니까?</h2>
+				<h2 class="forModal">정말 거절하시겠습니까?</h2>
 			</div>
-		<p>거절 후에는 해당글은 다시 게시되어 다른 운송인들로부터 의뢰 신청을 받을 수 있습니다.</p>
+		<p class="forModal">거절 후에는 해당글은 다시 게시되어 다른 운송인들로부터 의뢰 신청을 받을 수 있습니다.</p>
 		<div class="uk-modal-footer uk-text-right">
 			<form id="alertMessagePopUpForRejectMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/reject">
 				<input type="hidden" id="saveRequestIdForRejectMySendRequest" name="requestId">
-				<div class="uk-button uk-modal-close">돌아가기</div>
-				<div class="uk-button uk-button-primary">거절</div>
+				<div id="full_button" class="uk-button uk-modal-close">돌아가기</div>
+				<div id="full_button" class="uk-button uk-button-primary">거절</div>
 			</form>
 		</div>
 	</div>
@@ -84,14 +84,14 @@
 	<div class="uk-modal-dialog">
 		<button type="button" class="uk-modal-close uk-close"></button>
 			<div class="uk-modal-header">
-				<h2>정말 거래 완료 하시겠습니까?</h2>
+				<h2 class="forModal">정말 거래 완료 하시겠습니까?</h2>
 			</div>
-		<p>거래 완료 후에는 운송인에게 EDMoney가 전달되며, 이의제기가 매우 어렵습니다. 신중히 확인하시고 거래완료 하시기 바랍니다.</p>
+		<p class="forModal">거래 완료 후에는 운송인에게 EDMoney가 전달되며, 이의제기가 매우 어렵습니다. 신중히 확인하시고 거래완료 하시기 바랍니다.</p>
 		<div class="uk-modal-footer uk-text-right">
 			<form id="alertMessagePopUpForCompleteMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/complete">
 				<input type="hidden" id="saveRequestIdForCompleteMySendRequest" name="requestId">
-				<div class="uk-button uk-modal-close">돌아가기</div>
-				<div class="uk-button uk-button-primary">거래완료</div>
+				<div id="full_button" class="uk-button uk-modal-close">돌아가기</div>
+				<div id="full_button" class="uk-button uk-button-primary">거래완료</div>
 			</form>
 		</div>
 	</div>
@@ -101,14 +101,14 @@
 	<div class="uk-modal-dialog">
 		<button type="button" class="uk-modal-close uk-close"></button>
 			<div class="uk-modal-header">
-				<h2>정말 의뢰신청을 취소하시겠습니까?</h2>
+				<h2 class="forModal">정말 의뢰신청을 취소하시겠습니까?</h2>
 			</div>
-		<p>의뢰신청 취소 여부를 확인해주세요.</p>
+		<p class="forModal">의뢰신청 취소 여부를 확인해주세요.</p>
 		<div class="uk-modal-footer uk-text-right">
 			<form id="alertMessagePopUpForCancelMyCourierRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/carry/cancel">
 				<input type="hidden" id="saveRequestIdForCancelMyCourierRequest" name="requestId">
-				<div class="uk-button uk-modal-close">돌아가기</div>
-				<div class="uk-button uk-button-primary">신청취소</div>
+				<div id="full_button" class="uk-button uk-modal-close">돌아가기</div>
+				<div id="full_button" class="uk-button uk-button-primary">신청취소</div>
 			</form>
 		</div>
 	</div>
@@ -117,15 +117,15 @@
 <div id="alertMessagePopUpForArriveMyCourierRequest" class="uk-modal" style="display: none; overflow-y: scroll;">
 	<div class="uk-modal-dialog">
 		<button type="button" class="uk-modal-close uk-close"></button>
-			<div class="uk-modal-header">
-				<h2>정말 운송완료 하시겠습니까?</h2>
+			<div class="uk-modal-header forModal">
+				<h2 class="forModal">정말 운송완료 하시겠습니까?</h2>
 			</div>
-		<p>운송완료 여부를 확인해주세요.</p>
+		<p class="forModal">운송완료 여부를 확인해주세요.</p>
 		<div class="uk-modal-footer uk-text-right">
 			<form id="alertMessagePopUpForArriveMyCourierRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/carry/arrive">
 				<input type="hidden" id="saveRequestIdForArriveMyCourierRequest" name="requestId">
-				<div class="uk-button uk-modal-close">돌아가기</div>
-				<div class="uk-button uk-button-primary">운송완료</div>
+				<div id="full_button" class="uk-button uk-modal-close">돌아가기</div>
+				<div id="full_button" class="uk-button uk-button-primary">운송완료</div>
 			</form>
 		</div>
 	</div>
@@ -285,7 +285,7 @@
 										<div class="uk-width-1-2 "><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/ondeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId()%></div></div>
 									<%		if(req.getRequestStatus() == RequestStatus.arrive.getStatusCode()) {	%>
-										<div id="full_button" class="button_middle uk-width-2-10"><div class="uk-button uk-width-2-3" onclick="send_readyForCompleteMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForCompleteMySendRequest'}">거래완료</div></div>
+										<div class="button_middle uk-width-2-10"><div id="full_button" class="uk-button uk-width-2-3" onclick="send_readyForCompleteMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForCompleteMySendRequest'}">거래완료</div></div>
 									<%		} else { %>
 										<div class="uk-width-2-10"></div>
 									<%		}	%>
@@ -415,7 +415,7 @@
 										<div class="uk-width-1-2 "><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/ondeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId() %></div></div>
 									<%		if(req.getRequestStatus() == RequestStatus.arrive.getStatusCode()) {	%>
-										<div class="button_middle uk-width-2-10"><div class="uk-button uk-width-2-3">인증하기</div></div>
+										<div class="button_middle uk-width-2-10"><div id="full_button" class="uk-button uk-width-2-3">인증하기</div></div>
 									<%		} else {	%>
 										<div class="button_middle uk-width-2-10"><div id="full_button" class="uk-button uk-width-2-3" onclick="carry_readyForArriveMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForArriveMyCourierRequest'}">운송완료</div></div>
 									<%		}	%>

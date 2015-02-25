@@ -237,19 +237,20 @@ div.courier_people{
 #mainsmallmediumfont_left{
 	font-size:25px;
 	margin-top: 10px;
-	margin-right: 5px;
+	margin-left: 5px;
 }
 #completedRate_font_right{
 	color: #00B1F2;
 	font-size: 33px;	
 	margin-top: 10px;
-	margin-left: 70px;
+	margin-left: 90px;
 	margin-right: 340px;
 }
 #mainsmallmediumfont_right{
 	font-size:25px;
+	margin-left: 20px;
 	margin-top: 10px;
-	margin-right: 116px;
+	margin-right: 150px;
 }
 /* *******************거래완료율~ ************************* */
 

@@ -246,7 +246,7 @@
 		<input type="hidden" value="<%=courierInfo.getUserId() %>" name="courierId">
 		<input type="hidden" value="<%=requestId %>" name="requestId">
 		<div style="height:40px"></div>
-		<div align="center"><button class="uk-button uk-width-1-5 uk-button-large uk-button-primary" type="submit">평가완료</button></div>
+		<div align="center"><button id="full_button" class="uk-button uk-width-1-5 uk-button-large uk-button-primary" type="submit">평가완료</button></div>
 	</form>
 	<input type="hidden" id="courierevalsystime" name="courierevalsystime">
 	

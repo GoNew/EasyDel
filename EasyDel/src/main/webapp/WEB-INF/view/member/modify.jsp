@@ -135,7 +135,7 @@
 	    				<div style="height:8px"></div>   
 		    			<div align="left" id="leftform2"><label id="pw"> 비밀번호</label></div>
 		    	 	</div>
-		    	 	<div align="left" id="middleform"><input type="password" value="<%=user.getUserPassword()%>" id="userPassword" name="userPassword" style="color:#00B1F2" size="27" pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." placeholder="비밀번호" required></div>
+		    	 	<div align="left" id="middleform_pass"><input type="password" value="<%=user.getUserPassword()%>" id="userPassword" name="userPassword" style="color:#00B1F2" size="27" pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." placeholder="비밀번호" required></div>
 		    	</div>
 		    	<div id="smallform">
 		    		<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
@@ -144,7 +144,7 @@
 	    				<div style="height:8px"></div>   
 		    			<div align="left" id="leftform2"><label id="pw"> 비밀번호 확인</label></div>
 		    	 	</div>
-		    	 	<div align="left" id="middleform"><input type="password" value="<%=user.getUserPassword()%>" id="userPassword2" style="color:#00B1F2" size="27" pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." required></div>
+		    	 	<div align="left" id="middleform_pass"><input type="password" value="<%=user.getUserPassword()%>" id="userPassword2" style="color:#00B1F2" size="27" pattern="[A-Za-z0-9]{5,10}" title="5~10자리 영문자와 숫자만 사용할 수 있습니다." required></div>
 		    	</div>
 		    	<div id="smallform">
 		    		<div>
@@ -185,7 +185,7 @@
 			</div>
 		</section>
 		
-		<div>
+		<div class="margin_bottom_50px">
 			<div id="aaa">
 				<div style="width:20px"></div>
 				<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
@@ -208,9 +208,9 @@
      	<br>
      	<div align="center">
      	<input type="hidden" id="saveValidateInfo" required="required" value="false">
-        	<button class="uk-button uk-button-primary uk-width-1-5" type="submit" id="button">수정완료</button>
-        	<button class="uk-button uk-button-primary uk-width-1-5" type="reset" id="button">초기화</button>
-        	<a href="<%=request.getContextPath()%>/withdraw"><button class="uk-button uk-button-primary uk-width-1-5" type="button" id="button">회원탈퇴</button></a>
+        	<button class="uk-button uk-button-primary uk-width-1-5" type="submit" id="button3">수정완료</button>
+        	<button class="uk-button uk-button-primary uk-width-1-5" type="reset" id="button3">초기화</button>
+        	<a href="<%=request.getContextPath()%>/withdraw"><button class="uk-button uk-button-primary uk-width-1-5" type="button" id="button3">회원탈퇴</button></a>
   		</div>
 	</form>
 	

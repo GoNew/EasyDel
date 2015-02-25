@@ -205,7 +205,7 @@ function unhover_list(element) {
 	</div>
 	
 	
-	<div class="wrapper_videoNbox" style="margin-top: 50px">
+	<div class="wrapper_videoNbox" style="margin-top: 80px">
 		
 		<div class="uk-cover main_menu_long_box"> <!-- style="width: 430px; height: 232px; border: 1px solid blue;" -->
 			<!-- autoplay="autoplay" loop="loop" --><video id="video_deco" class="uk-cover-object" src="<%=request.getContextPath()%>/img/toomuch.mp4"></video>

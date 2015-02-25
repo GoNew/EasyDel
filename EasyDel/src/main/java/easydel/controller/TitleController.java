@@ -74,7 +74,7 @@ public class TitleController {
 					.append("&nbsp;")
 					.append("<span class=\"content_color\">"+title.getPickUpDong()+"</span>");
 			} else {
-				result.append("<span class=\"gonew_boardliststandard\">운송 종류</span>&nbsp; 구매운송&nbsp;")
+				result.append("<span class=\"gonew_boardliststandard\">운송 종류</span>&nbsp; <span class=\"content_color\">구매운송</span>&nbsp;")
 					.append("<br>&nbsp;&nbsp;&nbsp;<span class=\"gonew_boardliststandard\">글 제목</span>&nbsp;&nbsp;")
 					.append("<span class=\"content_color\">"+title.getCargoName()+"</span>")
 					.append("<br>");

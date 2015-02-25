@@ -39,10 +39,13 @@ image{border:0px;}
  	width:300px;
  } 
 #leftform2{
- 	width:270px;
+ 	width:266px;
 } 
 #middleform{
 	width:230px;
+}
+#middleform_pass{
+	width:225px;
 }
 #rightform{
 	width: expression(this.width > 500 ? 500: true); 
@@ -61,21 +64,21 @@ image{border:0px;}
 #my{
 	color:grey;
 	border-radius: 5px; 
-	padding:10px 5px 10px; 
+	padding:20px 5px 20px; 
 	line-height: 30px; 
 	font-size: 25px;  
 }
 #userPassword{
 	color:grey;
 	border-radius: 5px; 
-	padding:10px 5px 10px; 
+	padding:20px 5px 20px; 
 	line-height: 30px; 
 	font-size: 25px; 
 }
 #userPassword2{
 	color:grey;
 	border-radius: 5px; 
-	padding:10px 5px 10px; 
+	padding:20px 5px 20px; 
 	line-height: 30px; 
 	font-size: 25px; 
 }
@@ -111,12 +114,24 @@ image{border:0px;}
 	padding: 5px 7px 5px;
 	font-size: 17px;
 	margin: 10px 10px;
-	width:240px;
+	width:120px;
 }
 #button2{
-	padding: 5px 7px 5px;
-	font-size: 17px;
+	padding: 10px 7px 10px;
+	font-size: 22px;
+	font-weight: normal;
 	margin: 10px 10px;
-	width:240px;
+	width:120px;
+	color:white;
 	background-color: #BDBDBD;
 }
+#button3{
+	padding: 10px 7px 10px;
+	font-size: 25px;
+	margin: 10px 10px;
+	width: 240px;
+}
+#modifyForm{
+	margin-bottom: 80px;
+}
+
