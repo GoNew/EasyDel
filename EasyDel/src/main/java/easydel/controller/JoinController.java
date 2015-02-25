@@ -63,13 +63,13 @@ public class JoinController {
 		logger.trace("mylog: " + phoneNum);
 		String sendMsg = "인증코드는 [" + validateCode + "] 입니다.";
 		String result = "true";
-		try {
+		/*try {
 			if(!smsService.sendSms(sendMsg, phoneNum))
 				result = "false";
 		} catch (ServiceFailException e) {
 			e.printStackTrace();
 			result = "false";
-		}
+		}*/
 		return result;
 	}
 
