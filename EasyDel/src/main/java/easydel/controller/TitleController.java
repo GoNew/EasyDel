@@ -51,18 +51,19 @@ public class TitleController {
 		logger.trace("mylog: statusFilter: " + statusFilter);
 		logger.trace("mylog: pageNum: " + pageNum);
 		for(Title title: list) {
-			result.append("<tr class=\"");
+			result.append("<div class=\"");
 			if(title.getRequestStatus() == 1) {
 				result.append("beforeDel\" onclick=\"location.href='")
 					.append(request.getContextPath())
 					.append("/show/predeli?requestId=")
 					.append(title.getRequestId())
-					.append("'\"><td>");
+					.append("'\"><div class=\"first_row\">");
 			} else {
-				result.append("onDel\"><td>");
+				result.append("onDel\"><div>");
 			}
 			if(title.getRequestType() == 0) {
-				result.append("단순운송&nbsp;<span class=\"gonew_boardliststandard\">/</span>&nbsp;")
+				result.append("<span class=\"gonew_boardliststandard\">운송 종류:</span>&nbsp; 단순운송&nbsp;")
+					.append("<span class=\"gonew_boardliststandard\">글 제목:</span>&nbsp;")
 					.append(title.getCargoName())
 					.append("<br><span class=\"gonew_boardliststandard\">출발:</span>&nbsp;서울시&nbsp;")
 					.append(title.getPickUpGu())
@@ -70,7 +71,8 @@ public class TitleController {
 					.append(title.getPickUpDong())
 					.append("<br>");
 			} else {
-				result.append("구매운송 <span class=\"gonew_boardliststandard\">/</span>&nbsp;")
+				result.append("<span class=\"gonew_boardliststandard\">운송 종류:</span>&nbsp; 구매운송&nbsp;")
+					.append("<span class=\"gonew_boardliststandard\">글 제목:</span>&nbsp;")
 					.append(title.getCargoName())
 					.append("<br>");
 			}
@@ -79,14 +81,20 @@ public class TitleController {
 				.append("&nbsp;")
 				.append(title.getArrivalPlaceDong())
 				.append("<br><span class=\"gonew_boardliststandard\">만료시각:</span>&nbsp;")
-				.append(title.getExpireDate().toString())
-				.append("</td><td>")
-				.append(title.getSenderId())
-				.append("<br><span class=\"gonew_boardliststandard\">평점:</span>&nbsp;")
+				.append(title.getExpireDate().toString());
+			if(title.getRequestType() == 0) {
+				result.append("</div><div class=\"second_row\" align=\"right\">")
+				.append("<span class=\"gonew_boardliststandard\">"+title.getSenderId()+"</span>&nbsp;")
+				.append("<br>");
+			} else {
+				result.append("</div><div class=\"second_row\" align=\"right\">")
+				.append("<span class=\"gonew_boardliststandard\">"+title.getSenderId()+"</span>&nbsp;");
+			}
+				result.append("<br><span class=\"gonew_boardliststandard\">평점:</span>&nbsp;")
 				.append(title.getSenderAvg())
 				.append("<br><span class=\"gonew_boardliststandard\">의뢰비:</span>&nbsp;")
 				.append(title.getDeliveryPrice());
-			result.append("</td></tr>");
+			result.append("</div></div>");
 		}
 		return result.toString();
 	}

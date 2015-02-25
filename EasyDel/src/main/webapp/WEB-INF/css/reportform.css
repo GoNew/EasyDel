@@ -109,3 +109,7 @@ textarea.report_textarea_details{
 
 
 /* ************************개인 태그의 id 적용********************************* */
+#reportType{
+	font-size: 25px;
+	color: #A4A2A2;
+}

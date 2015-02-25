@@ -306,7 +306,7 @@
 									<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
 									<div>
 										<div style="height:5px"></div>
-										<div class="subject">완료된 의뢰글<div style="color: red; margin-left: 5px;">(7일이 지나면 자동 삭제됩니다.)</div></div>
+										<div class="subject">완료된 의뢰글<div class="red_alert_text">(7일이 지나면 자동 삭제됩니다.)</div></div>
 									</div>
 								</div>
 								<hr>
@@ -432,7 +432,7 @@
 									<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
 									<div>
 										<div style="height:5px"></div>
-										<div class="subject">완료된 의뢰글 <div style="color: red; margin-left: 5px;"> (7일이 지나면 자동 삭제됩니다.)</div></div>
+										<div class="subject">완료된 의뢰글 <div class="red_alert_text"> (7일이 지나면 자동 삭제됩니다.)</div></div>
 									</div>
 								</div>
 								<hr>
@@ -479,7 +479,7 @@
 									<img id="icon" src= "<%=request.getContextPath()%>/img/abc.png"/>
 									<div>
 										<div style="height:5px"></div>
-										<div class="subject">나의 신고 현황<div style="color: red; margin-left: 5px;"> (처리 완료된 글은 30일 후에 지워집니다.)</div></div>
+										<div class="subject">나의 신고 현황<div class="red_alert_text"> (처리 완료된 글은 30일 후에 지워집니다.)</div></div>
 									</div>
 								</div>
 								<hr>
@@ -494,7 +494,7 @@
 									</div>
 									<div class="replace_report_subject_hr"></div>
 									<%	for (ViewMyReportRequest req : reportListReport) {	%>
-									<div class="row_request right_margin_20px ">
+									<div class="row_request right_margin_20px text_lightgrayColor">
 										<div class="uk-width-3-10"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/reported?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-2-10"><div class="text_middle"><%=req.getReportedUserId() %></div></div>
 										<div class="uk-width-2-10"><div class="text_middle"><%=req.getReportTypeDesc() %></div></div>
@@ -537,7 +537,7 @@
 									</div>
 									<div class="replace_report_subject_hr"></div>
 									<%	for (ViewMyReportRequest req : reportListReported) {	%>
-									<div id="Ex_request_01" class="row_request right_margin_20px">
+									<div id="Ex_request_01" class="row_request right_margin_20px text_lightgrayColor">
 										<div class="uk-width-2-5"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/reported?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-1-5"><div class="text_middle"><%=req.getReportTypeDesc() %></div></div>
 										<div class="uk-width-1-5"><div class="text_middle_small"><%=req.getReportDate() %></div></div>

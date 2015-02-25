@@ -235,10 +235,34 @@ input.same_date_font_size{
 	border-radius: 8px;
 }
 
-tr.onDel{
-	background-color: #8cdfff;
+div.onDel{
+	background-color: #ffffff;
+	margin: 10px 0px;
+	display: -webkit-box;
+	overflow: hidden;
+	color: #C3C3C3;
 }
 
+div.beforeDel{
+	border: 4px solid white;
+	margin: 10px 0px;
+	display: -webkit-box;
+	overflow: hidden;
+}
+div.beforeDel:hover{
+	background-color: white;
+	opacity: 0.7;
+	filter: alpha(opacity = 50);
+}
+div.onDel:hover{
+	
+}
+
+div.first_row{
+}
+div.second_row{
+	position: absolute; right: 10px;
+}
 
 .uk-navbar{
 	z-index: 0;

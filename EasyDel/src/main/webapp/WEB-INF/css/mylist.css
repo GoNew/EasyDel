@@ -9,6 +9,12 @@ ul, ol{list-style:name;}
 }
 
 
+div.red_alert_text{
+	color: red; 
+	margin-left: 5px;
+	font-size: 20px;
+}
+
 div.text_grayColor{
 	color: #7F7F7F;
 }
