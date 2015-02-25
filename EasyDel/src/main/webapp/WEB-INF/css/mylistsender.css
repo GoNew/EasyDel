@@ -70,7 +70,9 @@
 	font-size: 22px;
 }
 
-#senderProfile_mainstar {
+#senderProfile_mainstar_pKind,
+#senderProfile_mainstar_pThing,
+#senderProfile_mainstar_pTime {
 	width: 180px;
 	width: expression(this.width > 180 ? 180 : true);
 	height: 33px;
