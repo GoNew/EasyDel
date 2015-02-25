@@ -23,7 +23,7 @@
 								and request_type = #{requestTypeFilter}
 							</if>
 							<if test="userId != null">
-								and sender_id=#{userId}
+								and sender_id&lt;&gt;#{userId}
 							</if>
 						</where>
 					)
@@ -49,7 +49,7 @@
 								and request_type = #{requestTypeFilter}
 							</if>
 							<if test="userId != null">
-								and sender_id=#{userId}
+								and sender_id&lt;&gt;#{userId}
 							</if>
 						</where>
 						order by	delivery_price DESC
@@ -76,7 +76,7 @@
 								and request_type = #{requestTypeFilter}
 							</if>
 							<if test="userId != null">
-								and sender_id=#{userId}
+								and sender_id&lt;&gt;#{userId}
 							</if>
 						</where>
 						order by	sender_avg DESC
@@ -103,7 +103,7 @@
 								and request_type = #{requestTypeFilter}
 							</if>
 							<if test="userId != null">
-								and sender_id=#{userId}
+								and sender_id&lt;&gt;#{userId}
 							</if>
 						</where>
 						<if test="sort == null or sort == 'DESC'">
