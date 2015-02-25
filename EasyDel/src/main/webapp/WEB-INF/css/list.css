@@ -257,6 +257,7 @@ input.same_date_font_size{
 }
 
 div.onDel{
+	border-radius: 8px;
 	background-color: #ffffff;
 	margin: 10px 0px;
 	display: -webkit-box;
@@ -271,6 +272,7 @@ div.onDel span{
 }
 
 div.beforeDel{
+	border-radius: 8px;
 	border: 4px solid white;
 	margin: 10px 0px;
 	display: -webkit-box;
@@ -278,6 +280,7 @@ div.beforeDel{
 	padding: 10px 10px 10px;
 }
 div.beforeDel:hover{
+	border-radius: 8px;
 	background-color: white;
 	opacity: 0.7;
 	filter: alpha(opacity = 50);

@@ -44,25 +44,25 @@ public class AlertController {
 		List<AlertLog> list = service.getAlert(loginUser.getUserId());
 		
 		if(service.hasMoreRemainingEvalThings(loginUser.getUserId())) {
-			result.append("<li class=\"alertLogForSystem\"><a>평가항목이 존재합니다!!! 평가를 해주세요!!!</a></li>");
+			result.append("<li><a class=\"alertLogForSystem\">평가항목이 존재합니다!!!<br> 평가를 해주세요!!!</a></li>");
 		}
 		for(AlertLog log: list) {
-			result.append("<li class=");
+			result.append("<li><a class=");
 			switch (AlertStatus.valueOf(log.getAlertStatus())) {
-			case deliver:
-				result.append("\"alertLogForDeliver deletableAlertLog\"");
-				break;
-			case sender:
-				result.append("\"alertLogForSender deletableAlertLog\"");
-				break;
-			case system:
-			default:
-				result.append("\"alertLogForSystem deletableAlertLog\"");
-				break;
+				case deliver:
+					result.append("\"alertLogForDeliver deletableAlertLog\"");
+					break;
+				case sender:
+					result.append("\"alertLogForSender deletableAlertLog\"");
+					break;
+				case system:
+				default:
+					result.append("\"alertLogForSystem deletableAlertLog\"");
+					break;
 			}
 			result.append(" onclick=\"removeAndHiddenAlertLog(this, '")
 				.append(log.getAlertId())
-				.append("')\"><a>")
+				.append("')\">")
 				.append(log.getAlertComment())
 				.append("</a></li>");
 		}

@@ -82,8 +82,7 @@
 
 				<div class="uk-offcanvas-bar">
 
-					<ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon"
-						data-uk-nav="">
+					<ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav="">
 						<li><a href="<%=request.getContextPath()%>/main">메인</a></li>
 						<li><a href="<%=request.getContextPath()%>/board">전체 의뢰 보기</a></li>
 						<li><a href="<%=request.getContextPath()%>/register/selecttype">의뢰 올리기</a></li>
@@ -103,7 +102,7 @@
 						<div id="numOfAlertLog" style="display: none;"><span class="uk-text-center uk-text-middle"></span></div>
 					</div>
 					<div id="wrapperDivForAlertLogDropDownList" class="uk-dropdown">
-						<ul id="alertLogDropDownList" class="uk-nav uk-nav-dropdown">
+						<ul id="alertLogDropDownList" class="uk-nav uk-nav-dropdown" >
 							
 						</ul>
 					</div>
