@@ -28,7 +28,7 @@ public class BoardServiceImpl implements IBoardService {
 	@Override
 	@Transactional
 	public List<Title> getBoard(String sortType, String delTypeFilter,
-			String statusFilter, Integer pageNum) {
+			String statusFilter, Integer pageNum, String userId) {
 		if((pageNum == null) || (pageNum < 1)) {
 			pageNum = new Integer(1);
 		}
@@ -57,19 +57,19 @@ public class BoardServiceImpl implements IBoardService {
 		}
 		
 		if((sortType == null) || (sortType.equals("")) || (sortType.equals("default"))) {
-			result = dao.selectTitlesOrderByDefault(pageNum, statusCode, delTypeCode);
+			result = dao.selectTitlesOrderByDefault(pageNum, statusCode, delTypeCode, userId);
 		} else if(sortType.equals("price")) {
-			result = dao.selectTitlesOrderByPrice(pageNum, statusCode, delTypeCode);
+			result = dao.selectTitlesOrderByPrice(pageNum, statusCode, delTypeCode, userId);
 		} else if(sortType.equals("senderAvg")) {
-			result = dao.selectTitlesOrderBySenderAvg(pageNum, statusCode, delTypeCode);
+			result = dao.selectTitlesOrderBySenderAvg(pageNum, statusCode, delTypeCode, userId);
 		} else if(sortType.equals("expireDate")) {
-			result = dao.selectTitlesOrderByExpireDate(pageNum, statusCode, delTypeCode, null);
+			result = dao.selectTitlesOrderByExpireDate(pageNum, statusCode, delTypeCode, null, userId);
 		} else if(sortType.equals("expireDateASC")) {
-			result = dao.selectTitlesOrderByExpireDate(pageNum, statusCode, delTypeCode, "ASC");
+			result = dao.selectTitlesOrderByExpireDate(pageNum, statusCode, delTypeCode, "ASC", userId);
 		} else if(sortType.equals("expireDateDESC")) {
-			result = dao.selectTitlesOrderByExpireDate(pageNum, statusCode, delTypeCode, "DESC");
+			result = dao.selectTitlesOrderByExpireDate(pageNum, statusCode, delTypeCode, "DESC", userId);
 		} else {
-			result = dao.selectTitlesOrderByDefault(pageNum, statusCode, delTypeCode);
+			result = dao.selectTitlesOrderByDefault(pageNum, statusCode, delTypeCode, userId);
 		}
 		
 		return result;

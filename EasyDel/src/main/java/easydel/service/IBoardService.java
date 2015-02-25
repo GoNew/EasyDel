@@ -8,5 +8,5 @@ public interface IBoardService {
 	public void boardTest();
 
 	public List<Title> getBoard(String sortType, String delTypeFilter,
-			String statusFilter, Integer pageNum);
+			String statusFilter, Integer pageNum, String userId);
 }

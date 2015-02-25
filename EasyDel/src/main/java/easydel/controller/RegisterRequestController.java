@@ -76,7 +76,7 @@ public class RegisterRequestController {
 			HttpSession session, Model model) {
 		SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'KK:mm");
 		User user = (User) session.getAttribute("loginSession");
-		String resultPage = "redirect:/register/selecttype";
+		String resultPage = "redirect:/mylist";
 		
 		//시간 포멧 수정하여 setting
 		Date currDate = new Date(); 
@@ -127,7 +127,7 @@ public class RegisterRequestController {
 			HttpSession session, Model model) {
 		SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'KK:mm");
 		User user = (User) session.getAttribute("loginSession");
-		String resultPage = "redirect:/register/selecttype";
+		String resultPage = "redirect:/mylist";
 		
 		logger.trace("mylog: " + file.isEmpty());
 		

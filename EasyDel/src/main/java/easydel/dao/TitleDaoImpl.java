@@ -32,12 +32,13 @@ public class TitleDaoImpl implements ITitleDao {
 	
 	@Override
 	public List<Title> selectTitlesOrderByDefault(Integer pageNum,
-			Integer requestStatusFilter, Integer requestTypeFilter) {
+			Integer requestStatusFilter, Integer requestTypeFilter, String userId) {
 		String stmt = namespace + ".selectTitlesOrderByDefault";
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("pageNum", pageNum);
 		params.put("requestStatusFilter", requestStatusFilter);
 		params.put("requestTypeFilter", requestTypeFilter);
+		params.put("userId", userId);
 		
 		List<Title> result = session.selectList(stmt, params);
 		return result;
@@ -45,12 +46,13 @@ public class TitleDaoImpl implements ITitleDao {
 
 	@Override
 	public List<Title> selectTitlesOrderByPrice(Integer pageNum,
-			Integer requestStatusFilter, Integer requestTypeFilter) {
+			Integer requestStatusFilter, Integer requestTypeFilter, String userId) {
 		String stmt = namespace + ".selectTitlesOrderByPrice";
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("pageNum", pageNum);
 		params.put("requestStatusFilter", requestStatusFilter);
 		params.put("requestTypeFilter", requestTypeFilter);
+		params.put("userId", userId);
 		
 		List<Title> result = session.selectList(stmt, params);
 		return result;
@@ -58,12 +60,13 @@ public class TitleDaoImpl implements ITitleDao {
 	
 	@Override
 	public List<Title> selectTitlesOrderBySenderAvg(Integer pageNum,
-			Integer requestStatusFilter, Integer requestTypeFilter) {
+			Integer requestStatusFilter, Integer requestTypeFilter, String userId) {
 		String stmt = namespace + ".selectTitlesOrderBySenderAvg";
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("pageNum", pageNum);
 		params.put("requestStatusFilter", requestStatusFilter);
 		params.put("requestTypeFilter", requestTypeFilter);
+		params.put("userId", userId);
 		
 		List<Title> result = session.selectList(stmt, params);
 		return result;
@@ -71,13 +74,14 @@ public class TitleDaoImpl implements ITitleDao {
 
 	@Override
 	public List<Title> selectTitlesOrderByExpireDate(Integer pageNum,
-			Integer requestStatusFilter, Integer requestTypeFilter, String sort) {
+			Integer requestStatusFilter, Integer requestTypeFilter, String sort, String userId) {
 		String stmt = namespace + ".selectTitlesOrderByExpireDate";
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("pageNum", pageNum);
 		params.put("requestStatusFilter", requestStatusFilter);
 		params.put("requestTypeFilter", requestTypeFilter);
 		params.put("sort", sort);
+		params.put("userId", userId);
 		
 		List<Title> result = session.selectList(stmt, params);
 		return result;
