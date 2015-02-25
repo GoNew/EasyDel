@@ -45,6 +45,8 @@ public class RequestServiceImpl implements IRequestService {
 	private IAlertService alertService;
 	@Autowired
 	private ICompleteDeliveryDao compDelDao;
+	@Autowired
+	private ISmsMessageService smsService;
 
 	@Override
 	@Transactional(rollbackFor = { ServiceFailException.class })
@@ -339,6 +341,9 @@ public class RequestServiceImpl implements IRequestService {
 			throw new ServiceFailException("글 상태 변경중 에러");
 		alertService.insertAlert(currRequest.getSenderId(),
 				"'" + currRequest.getCargoName() + "'의뢰의 운송이 완료 되었습니다.", AlertStatus.sender);
+		
+		String sendMsg = "[EasyDel]배송이 잘 되었다면 인증코드 [" + currRequest.getValidationCode() + "]를 운송인에게 알려주세요.";
+		smsService.sendSms(sendMsg, currRequest.getReceiverPhone());
 	}
 
 	@Override
@@ -436,7 +441,7 @@ public class RequestServiceImpl implements IRequestService {
 		if(realValidationCode == null)
 			throw new ServiceFailException("해당 의뢰에 인증코드가 존재하지 않습니다.");
 		
-		if(realValidationCode != validationCode)
+		if(!realValidationCode.equals(validationCode))
 			throw new ServiceFailException("인증코드 번호가 같지 않습니다.");
 		
 		completeRequest(exeUserId, requestId);

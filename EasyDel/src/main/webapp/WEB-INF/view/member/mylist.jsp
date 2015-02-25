@@ -139,6 +139,13 @@
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/uikit/js/uikit.js"></script>
 <script type="text/javascript">
+
+	function popupOpen(id){
+		var popUrl = "<%=request.getContextPath() %>/validCode/input?requestId=" + id;	//팝업창에 출력될 페이지 URL
+		var popOption = "top=100, left=100, width=1150, height=600, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+			window.open(popUrl,"",popOption);
+	}
+
 	function toggleProfile(id) {
 		if($("#" + id).css("display") == 'none') {
 			$("#" + id).css("display", "");
@@ -415,7 +422,7 @@
 										<div class="uk-width-1-2 "><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/ondeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-3-10"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId() %></div></div>
 									<%		if(req.getRequestStatus() == RequestStatus.arrive.getStatusCode()) {	%>
-										<div class="button_middle uk-width-2-10"><div id="full_button" class="uk-button uk-width-2-3">인증하기</div></div>
+										<div class="button_middle uk-width-2-10"><div id="full_button" class="uk-button uk-width-2-3" onclick="javascript:popupOpen(<%=req.getRequestId() %>)">인증하기</div></div>
 									<%		} else {	%>
 										<div class="button_middle uk-width-2-10"><div id="full_button" class="uk-button uk-width-2-3" onclick="carry_readyForArriveMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForArriveMyCourierRequest'}">운송완료</div></div>
 									<%		}	%>

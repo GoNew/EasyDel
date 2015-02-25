@@ -25,6 +25,7 @@ public class SmsMessageService implements ISmsMessageService {
 		String charsetType = "UTF-8"; // EUC-KR 또는 UTF-8
 
 		String phone = null;
+		String smsLength = "S";
 		
 		switch(phoneNum.length()) {
 		case 10:
@@ -82,7 +83,7 @@ public class SmsMessageService implements ISmsMessageService {
 			repeatTime = base64Encode("");
 			returnurl = "";
 			nointeractive = "";
-			smsType = base64Encode("S");
+			smsType = base64Encode(smsLength);
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new ServiceFailException("입력 정보가 잘못되었습니다.");
