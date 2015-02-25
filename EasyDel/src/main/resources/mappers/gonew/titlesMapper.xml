@@ -14,7 +14,7 @@
 						from		titles T
 						<where>
 							<if test="pageNum != null">
-								((#{pageNum} - 1) * 10) + 1 &lt;= ROWNUM
+								((#{pageNum} - 1) * 5) + 1 &lt;= ROWNUM
 							</if>
 							<if test="requestStatusFilter != null">
 								and request_status = #{requestStatusFilter}
@@ -29,7 +29,7 @@
 					)
 		<where>
 			<if test="pageNum != null">
-				(#{pageNum} * 10) + 1 &gt; RNUM
+				(#{pageNum} * 5) + 1 &gt; RNUM
 			</if>
 		</where>
 	</select>
@@ -40,7 +40,7 @@
 						from		titles T
 						<where>
 							<if test="pageNum != null">
-								((#{pageNum} - 1) * 10) + 1 &lt;= ROWNUM
+								((#{pageNum} - 1) * 5) + 1 &lt;= ROWNUM
 							</if>
 							<if test="requestStatusFilter != null">
 								and request_status = #{requestStatusFilter}
@@ -56,7 +56,7 @@
 					)
 		<where>
 			<if test="pageNum != null">
-				(#{pageNum} * 10) + 1 &gt; RNUM
+				(#{pageNum} * 5) + 1 &gt; RNUM
 			</if>
 		</where>
 	</select>
@@ -67,7 +67,7 @@
 						from		titles T
 						<where>
 							<if test="pageNum != null">
-								((#{pageNum} - 1) * 10) + 1 &lt;= ROWNUM
+								((#{pageNum} - 1) * 5) + 1 &lt;= ROWNUM
 							</if>
 							<if test="requestStatusFilter != null">
 								and request_status = #{requestStatusFilter}
@@ -83,7 +83,7 @@
 					)
 		<where>
 			<if test="pageNum != null">
-				(#{pageNum} * 10) + 1 &gt; RNUM
+				(#{pageNum} * 5) + 1 &gt; RNUM
 			</if>
 		</where>
 	</select>
@@ -94,7 +94,7 @@
 						from		titles T
 						<where>
 							<if test="pageNum != null">
-								((#{pageNum} - 1) * 10) + 1 &lt;= ROWNUM
+								((#{pageNum} - 1) * 5) + 1 &lt;= ROWNUM
 							</if>
 							<if test="requestStatusFilter != null">
 								and request_status = #{requestStatusFilter}
@@ -115,7 +115,7 @@
 					)
 		<where>
 			<if test="pageNum != null">
-				(#{pageNum} * 10) + 1 &gt; RNUM
+				(#{pageNum} * 5) + 1 &gt; RNUM
 			</if>
 		</where>
 	</select>
