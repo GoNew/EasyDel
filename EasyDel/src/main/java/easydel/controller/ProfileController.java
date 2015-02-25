@@ -67,9 +67,10 @@ public class ProfileController {
 		
 		for(CourierEval eval: list) {
 			result.append("<tr>")
-				.append("<td style=\"width: 700px; line-height: 20px; padding: 7px; word-break: break-all; overflow: hidden; clear: both; font-size: 12px;\">")
+				.append("<td style=\"width:30px\"></td>")
+				.append("<td style=\"width: 620px; line-height: 20px; padding: 7px; word-break: break-all; overflow: hidden; clear: both; font-size: 22px;\">")
 				.append(eval.getCourierCmt())
-				.append("</td><td style=\"width: 200px; line-height: 20px; padding: 7px; word-break: break-all; overflow: hidden; clear: both; color: #888888; font-size: 13px\">")
+				.append("</td><td style=\"width: 230px; line-height: 20px; padding: 7px; word-break: break-all; overflow: hidden; clear: both; color: #888888; font-size: 23px\">")
 				.append(dateFormat.format(eval.getRegDate()))
 				.append("</td></tr>");
 		}

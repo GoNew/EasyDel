@@ -171,7 +171,7 @@
 								</div>
 							</div>
 							<div class="replacehr"></div>
-							<table id="courierProfile_firsttable" style="width: 100%; font-size: 22px">
+							<table id="courierProfile_firsttable" style="width: 100%;">
 								<thead>
 									<tr>
 										<td height="1" colspan="3" bgcolor="#dddddd"></td>
