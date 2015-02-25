@@ -81,12 +81,12 @@
 								<div style="height: 20px;"></div>
 								<div id="senderProfile_profiledangdang">
 									<div>
-										<img id="senderProfile_senderimg" src="<%=request.getContextPath()%>/img/time_blue.jpg" />
+										<img id="senderProfile_senderimg" src="<%=request.getContextPath()%>/img/evalitems/time_blue.png" />
 									</div>
 									<div style="width: 10px"></div>
 									<div>
 										<div style="height: 8px"></div>
-										<div id="senderProfile_profilediv">time precision</div>
+										<div id="senderProfile_profilediv">시간 정확성</div>
 									</div>
 									<div>
 										<div style="height: 8px"></div>
@@ -103,12 +103,12 @@
 								<div id="senderProfile_profiledangdang">
 									<div>
 										<img id="senderProfile_senderimg"
-											src="<%=request.getContextPath()%>/img/safe_blue.jpg" />
+											src="<%=request.getContextPath()%>/img/evalitems/safe_blue.png" />
 									</div>
 									<div style="width: 10px"></div>
 									<div>
 										<div style="height: 10px"></div>
-										<div id="senderProfile_profilediv">safe</div>
+										<div id="senderProfile_profilediv">물품 신뢰성</div>
 									</div>
 									<div>
 										<div style="height: 8px"></div>
@@ -126,12 +126,12 @@
 								<div id="senderProfile_profiledangdang">
 									<div>
 										<img id="senderProfile_senderimg"
-											src="<%=request.getContextPath()%>/img/smile_blue.jpg" />
+											src="<%=request.getContextPath()%>/img/evalitems/smile_blue.png" />
 									</div>
 									<div style="width: 10px"></div>
 									<div>
 										<div style="height: 10px"></div>
-										<div id="senderProfile_profilediv">kind</div>
+										<div id="senderProfile_profilediv">인성</div>
 									</div>
 									<div>
 										<div style="height: 8px"></div>
@@ -162,18 +162,18 @@
 						<div id="profiledowntext">
 							<div id="senderProfile_profiletwo">
 								<div style="width: 70px;"></div>
-								<div style="width: 700px;">
+								<div style="width: 700px; font-size: 20px">
 									<strong>평가댓글</strong>
 								</div>
-								<div style="width: 200px;">
+								<div style="width: 200px; font-size: 20px">
 									<strong>댓글 등록일</strong>
 								</div>
 							</div>
 							<div class="replacehr"></div>
-							<table id="senderProfile_firsttable" style="width: 100%">
+							<table id="senderProfile_firsttable" style="width: 100%; font-size: 22px">
 								<thead>
 									<tr>
-										<td height="1" colspan="3" bgcolor="#dddddd"></td>
+										<td height="1" colspan="3" bgcolor="#dddddd" ></td>
 									</tr>
 								</thead>
 								<tbody id="senderProfile_evalCmts">
