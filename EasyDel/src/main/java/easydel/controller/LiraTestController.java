@@ -34,5 +34,9 @@ public class LiraTestController {
 	@RequestMapping("/reported")
 	public String reported(){
 		return "board/show/reported";
+	}	
+	@RequestMapping("/inputcode")
+	public String inputcode(){
+		return "member/inputcode";
 	}
 }
