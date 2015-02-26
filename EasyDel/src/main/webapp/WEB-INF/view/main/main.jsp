@@ -57,7 +57,7 @@ function unhover_list(element) {
  	int senderSuccesscnt = loginUserInfo.getSenderSuccesscnt();
  	int senderTotalcnt = loginUserInfo.getSenderTotalcnt();
  	double senderPercentage = 0.0;
- 	String sPercentage = null;
+ 	String sPercentage = "0.0";
  	if(senderTotalcnt != 0){
  		senderPercentage = ((double)senderSuccesscnt/(double)senderTotalcnt) * 100;
  		sPercentage = String.format("%.1f" , senderPercentage);
@@ -69,7 +69,7 @@ function unhover_list(element) {
  	int courierSuccesscnt = loginUserInfo.getCourierSuccesscnt();
  	int courierTotalcnt = loginUserInfo.getCourierTotalcnt();
  	double courierPercentage = 0.0;
- 	String cPercentage = null;
+ 	String cPercentage = "0.0";
  	if(courierTotalcnt != 0){
  		courierPercentage = ((double)courierSuccesscnt/(double)courierTotalcnt) * 100;
  		cPercentage = String.format("%.1f" , courierPercentage);
