@@ -370,7 +370,11 @@ public class RequestServiceImpl implements IRequestService {
 				"'" + currRequest.getCargoName() + "'의뢰의 운송이 완료 되었습니다.", AlertStatus.sender);
 		
 		String sendMsg = "[EasyDel]배송이 잘 되었다면 인증코드 [" + currRequest.getValidationCode() + "]를 운송인에게 알려주세요.";
-		smsService.sendSms(sendMsg, currRequest.getReceiverPhone());
+		try {
+			smsService.sendSms(sendMsg, currRequest.getReceiverPhone());
+		} catch(ServiceFailException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
