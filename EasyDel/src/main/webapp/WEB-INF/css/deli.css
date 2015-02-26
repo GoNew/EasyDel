@@ -83,6 +83,14 @@ div.row_standard_text_middle_sub{
 	margin: 15px 0px;
 	width: 300px;
 	height: 30px;
+	font-weight: normal !important;
+}
+
+div.row_standard_text_middle_sub{
+	font-size: 25px;
+	margin: 15px 0px;
+	width: 300px;
+	height: 30px;
 	font-weight: bold;
 }
 div.row_standard_text_middle_product{
@@ -204,10 +212,10 @@ a.atag_color{
 	color: #808080;
 }
 /* ************************개인 div 적용********************************* */
-#senderprofimg{
-	width: 30px;
-	height: 30px;
-	margin: 10px 10px;
+#senderprofimg img.uk-border-circle{
+	width: 30px !important;
+	height: 30px !important;
+	margin: 4px 10px;
 }
 #senderprofimg_main{
 	width: 50px !important;
@@ -278,6 +286,14 @@ a.atag_color{
 	margin-left: 20px;
 	line-height:30px;
 }
+#productname_detail{
+	text-align: left;
+	height: 100px;
+	width: 200px;
+	font-size: 25px;
+	overflow: hidden;
+	line-height:30px;
+}
 
 #report_detail{
 	/* border:1px solid blue; */
@@ -334,3 +350,7 @@ display: none;
 /* #sub_panel{
 	margin-left: 44px;
 } */
+
+#pay_margin_top{
+	margin-top: 60px;
+}

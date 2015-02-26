@@ -101,7 +101,7 @@
 					<div id="log" align="center" style="background-image: url('<%=request.getContextPath() %>/img/alertBell1.png')">
 						<div id="numOfAlertLog" style="display: none;"><span class="uk-text-center uk-text-middle"></span></div>
 					</div>
-					<div id="wrapperDivForAlertLogDropDownList" class="uk-dropdown">
+					<div id="wrapperDivForAlertLogDropDownList" class="uk-dropdown" style="width:300px">
 						<ul id="alertLogDropDownList" class="uk-nav uk-nav-dropdown" >
 							
 						</ul>

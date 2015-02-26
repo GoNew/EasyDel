@@ -103,7 +103,7 @@
 		on			R.request_id=RC.request_id
 		left join	USERS U
 		on			RC.user_id=U.user_id
-		order by	RC.cmt_id DESC
+		order by	RC.cmt_id ASC
 	</select>
 
 	<update id="updateStatusAndRemoveCourier" parameterType="integer">

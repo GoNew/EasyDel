@@ -20,10 +20,10 @@ DROP TRIGGER TRI_Sender_Evals_eval_id;
 /* Drop Tables */
 
 DROP TABLE request_cmts CASCADE CONSTRAINTS;
-DROP TABLE Sender_Evals CASCADE CONSTRAINTS;
-DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
-DROP TABLE Complete_Deliverys CASCADE CONSTRAINTS;
 DROP TABLE Reports CASCADE CONSTRAINTS;
+DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
+DROP TABLE Sender_Evals CASCADE CONSTRAINTS;
+DROP TABLE Complete_Deliverys CASCADE CONSTRAINTS;
 DROP TABLE Requests CASCADE CONSTRAINTS;
 DROP TABLE address_dongs CASCADE CONSTRAINTS;
 DROP TABLE address_gus CASCADE CONSTRAINTS;
@@ -95,7 +95,7 @@ CREATE TABLE alert_logs
 CREATE TABLE Complete_Deliverys
 (
 	request_id number NOT NULL,
-	finish_time date DEFAULT SYSDATE NOT NULL,
+	finish_time timestamp DEFAULT SYSDATE NOT NULL,
 	-- 1 - 배송자평가 안함
 	-- 2 - 배송자평가 완료
 	courier_evalstatus char(1) DEFAULT '1' NOT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE Courier_Evals
 	request_id number,
 	courier_id varchar2(10) NOT NULL,
 	courier_cmt varchar2(300),
-	reg_date date DEFAULT SYSDATE NOT NULL,
+	reg_date timestamp DEFAULT SYSDATE NOT NULL,
 	courier_safe number DEFAULT 0 NOT NULL,
 	courier_kind number DEFAULT 0 NOT NULL,
 	courier_time number DEFAULT 0 NOT NULL,
@@ -125,7 +125,7 @@ CREATE TABLE edmoney_logs
 	log_id number NOT NULL,
 	user_id varchar2(10) NOT NULL,
 	withdraw_amount number NOT NULL,
-	action_date date DEFAULT SYSDATE NOT NULL,
+	action_date timestamp NOT NULL,
 	PRIMARY KEY (log_id)
 );
 
@@ -145,7 +145,7 @@ CREATE TABLE Reports
 	-- 1-신고 처리중
 	-- 2-처리 완료
 	report_status char(1) DEFAULT '1' NOT NULL,
-	report_date date DEFAULT SYSDATE NOT NULL,
+	report_date timestamp DEFAULT SYSDATE NOT NULL,
 	PRIMARY KEY (request_id)
 );
 
@@ -179,21 +179,21 @@ CREATE TABLE Requests
 	cargo_picture varchar2(30),
 	cargo_desc varchar2(200) NOT NULL,
 	sender_phone varchar2(11),
-	pickup_min_time date,
-	pickup_max_time date,
+	pickup_min_time timestamp,
+	pickup_max_time timestamp,
 	pickup_place number,
 	pickup_place_desc varchar2(100),
 	receiver_name varchar2(20) NOT NULL,
 	receiver_phone varchar2(11) NOT NULL,
-	arrival_min_time date NOT NULL,
-	arrival_max_time date NOT NULL,
+	arrival_min_time timestamp NOT NULL,
+	arrival_max_time timestamp NOT NULL,
 	arrival_place number NOT NULL,
 	arrival_place_desc varchar2(100) NOT NULL,
 	absence_message varchar2(200),
 	validation_code number,
 	-- 글의 소멸 일자를 저장한다.
 	-- 거래 완료 상태가 되면, 완료 후 7일 후에 지운다.
-	expire_date date NOT NULL,
+	expire_date timestamp NOT NULL,
 	PRIMARY KEY (request_id)
 );
 
@@ -216,7 +216,7 @@ CREATE TABLE Sender_Evals
 	request_id number,
 	sender_id varchar2(10) NOT NULL,
 	sender_cmt varchar2(300),
-	reg_date date DEFAULT SYSDATE NOT NULL,
+	reg_date timestamp DEFAULT SYSDATE NOT NULL,
 	sender_time number DEFAULT 0 NOT NULL,
 	sender_kind number DEFAULT 0 NOT NULL,
 	sender_thing number DEFAULT 0 NOT NULL,
@@ -256,13 +256,13 @@ CREATE TABLE Users
 /* Create Foreign Keys */
 
 ALTER TABLE Requests
-	ADD FOREIGN KEY (arrival_place)
+	ADD FOREIGN KEY (pickup_place)
 	REFERENCES address_dongs (dong_id)
 ;
 
 
 ALTER TABLE Requests
-	ADD FOREIGN KEY (pickup_place)
+	ADD FOREIGN KEY (arrival_place)
 	REFERENCES address_dongs (dong_id)
 ;
 
@@ -273,14 +273,14 @@ ALTER TABLE address_dongs
 ;
 
 
-ALTER TABLE Sender_Evals
+ALTER TABLE Courier_Evals
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Complete_Deliverys (request_id)
 	ON DELETE SET NULL
 ;
 
 
-ALTER TABLE Courier_Evals
+ALTER TABLE Sender_Evals
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Complete_Deliverys (request_id)
 	ON DELETE SET NULL
@@ -300,6 +300,13 @@ ALTER TABLE request_cmts
 ;
 
 
+ALTER TABLE Reports
+	ADD FOREIGN KEY (request_id)
+	REFERENCES Requests (request_id)
+	ON DELETE CASCADE
+;
+
+
 ALTER TABLE Complete_Deliverys
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Requests (request_id)
@@ -308,8 +315,8 @@ ALTER TABLE Complete_Deliverys
 
 
 ALTER TABLE Reports
-	ADD FOREIGN KEY (request_id)
-	REFERENCES Requests (request_id)
+	ADD FOREIGN KEY (reported_user_id)
+	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
 
@@ -342,20 +349,6 @@ ALTER TABLE Courier_Evals
 ;
 
 
-ALTER TABLE Sender_Evals
-	ADD FOREIGN KEY (sender_id)
-	REFERENCES Users (user_id)
-	ON DELETE CASCADE
-;
-
-
-ALTER TABLE edmoney_logs
-	ADD FOREIGN KEY (user_id)
-	REFERENCES Users (user_id)
-	ON DELETE CASCADE
-;
-
-
 ALTER TABLE Requests
 	ADD FOREIGN KEY (sender_id)
 	REFERENCES Users (user_id)
@@ -370,8 +363,15 @@ ALTER TABLE alert_logs
 ;
 
 
-ALTER TABLE Reports
-	ADD FOREIGN KEY (reported_user_id)
+ALTER TABLE edmoney_logs
+	ADD FOREIGN KEY (user_id)
+	REFERENCES Users (user_id)
+	ON DELETE CASCADE
+;
+
+
+ALTER TABLE Sender_Evals
+	ADD FOREIGN KEY (sender_id)
 	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;

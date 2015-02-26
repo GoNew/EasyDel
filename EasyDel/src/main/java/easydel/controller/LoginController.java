@@ -21,7 +21,7 @@ public class LoginController {
 		String resultPage = "intro/intro";
 		if(service.LoginService(userid, userpassword)){
 			session.setAttribute("loginSession", service.serviceGetUser(userid));
-			resultPage = "redirect:main";
+			resultPage = "redirect:/main";
 		}
 		return resultPage;
 	}
@@ -29,6 +29,6 @@ public class LoginController {
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String logout(HttpSession session){
 		session.removeAttribute("loginSession");
-		return "intro/intro";
+		return "redirect:/intro";
 	}
 }

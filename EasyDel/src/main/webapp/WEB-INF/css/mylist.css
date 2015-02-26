@@ -211,3 +211,11 @@ p.forModal{
 h2.forModal{
 	font-size: 20px;
 }
+#alertMessagePopUpForDeleteMySendRequest.uk-button-primary,
+#alertMessagePopUpForAdmitMySendRequest .uk-button-primary,
+#alertMessagePopUpForRejectMySendRequest .uk-button-primary,
+#alertMessagePopUpForCompleteMySendRequest .uk-button-primary,
+#alertMessagePopUpForCancelMyCourierRequest .uk-button-primary,
+#alertMessagePopUpForArriveMyCourierRequest .uk-button-primary {
+	background-color: #f5f5f5 !important;
+}

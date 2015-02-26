@@ -40,14 +40,14 @@
 	<div id=fullbrowser align="center">
 		<div id="middlebrowser" align="center">
 <!-- --------------------------------신고 내용---------------------------------------------- -->		
-		<div class="row_request"><div class="text_middle_subject fixed_font_color">신고 내용</div></div>
+		<div class="row_request"><div class="text_middle_subject fixed_font_color senderprofimg">신고 내용</div></div>
 		<div class="replace_hr"></div>
 		
 		<div class="removeBorder margin_top_10px uk-panel uk-panel-box">
 			<div class="standard_row_request"> <div style="text-align: center;" class="row_standard_text_middle fixed_font_color">신고 사유</div>
-			<div class="text_middle unfixed_font_color"><%=reportInfo.getReportTypeDesc() %></div> </div>
+			<div class="unfixed_font_color row_standard_text_middle_sub"><%=reportInfo.getReportTypeDesc() %></div> </div>
 			<div class="standard_row_request"> <div style="text-align: center;" class="row_standard_text_middle fixed_font_color">신고 내용</div>
-			<div id="report_detail" class="unfixed_font_color"><%=reportInfo.getReportCmt() %></div> </div>
+			<div id="report_detail" class="unfixed_font_color row_standard_text_middle_sub"><%=reportInfo.getReportCmt() %></div> </div>
 		</div>
 <!-- --------------------------------발송인 정보---------------------------------------------- -->		
 		<div class="row_request margin_top_80px"><div class="text_middle_subject fixed_font_color">발송인 정보</div></div>
