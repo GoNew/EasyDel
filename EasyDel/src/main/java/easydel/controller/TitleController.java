@@ -106,7 +106,7 @@ public class TitleController {
 					.append("<br>&nbsp;&nbsp;&nbsp;<span class=\"gonew_boardliststandard\">글 제목</span>&nbsp;&nbsp;")
 					.append("<span class=\"content_color\">"+title.getCargoName()+"</span>")
 					.append("<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"gonew_boardliststandard\">출발</span>&nbsp;&nbsp;<span class=\"content_color\">서울시</span>&nbsp;")
-					.append("<span class=\"content_color\">"+title.getPickUpGu()+"</span>")
+					.append("<span class=\"content_color\">"+title.getPickUpGu()+"</span>&nbsp;")
 					.append("&nbsp;")
 					.append("<span class=\"content_color\">"+title.getPickUpDong()+"</span>");
 			} else {
@@ -115,8 +115,8 @@ public class TitleController {
 					.append("<span class=\"content_color\">"+title.getCargoName()+"</span>")
 					.append("<br>");
 			}
-			result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"gonew_boardliststandard\">도착</span>&nbsp;&nbsp;<span class=\"content_color\">서울시</span>&nbsp; ")
-				.append("<span class=\"content_color\">"+title.getArrivalPlaceGu()+"</span>")
+			result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"gonew_boardliststandard\">도착</span>&nbsp;&nbsp;<span class=\"content_color\">서울시</span>&nbsp;")
+				.append("<span class=\"content_color\">"+title.getArrivalPlaceGu()+"</span>&nbsp;")
 				.append("<span class=\"content_color\">"+title.getArrivalPlaceDong()+"</span>")
 				.append("<br><span class=\"gonew_boardliststandard\" id=\"FinishedTime\">만료 시각</span>&nbsp;&nbsp;")
 				.append("<span class=\"content_color\">"+format.format(title.getExpireDate())+"</span>");

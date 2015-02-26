@@ -214,7 +214,7 @@ function unhover_list(element) {
 	<div class="wrapper_videoNbox" style="margin-top: 80px">
 		
 		<div class="uk-cover main_menu_long_box"> <!-- style="width: 430px; height: 232px; border: 1px solid blue;" -->
-			<!-- autoplay="autoplay" loop="loop" --><video id="video_deco" class="uk-cover-object" src="<%=request.getContextPath()%>/img/toomuch.mp4"></video>
+			<!-- autoplay="autoplay" loop="loop" --><iframe width="492" height="230" src="//www.youtube.com/embed/fwhbij0tDyw?autoplay=1&playlist=fwhbij0tDyw&loop=1&vq=highres&autohide=1&controls=0&showinfo=0&fs=0&rel=0&theme=light" frameborder="0" allowfullscreen></iframe>
 		</div>
 		
 		<a id="a_font" href="<%=request.getContextPath()%>/board"><div class="main_menu_box" style="margin-left: 28px;" align="center">
