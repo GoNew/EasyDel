@@ -21,8 +21,8 @@ DROP TRIGGER TRI_Sender_Evals_eval_id;
 
 DROP TABLE request_cmts CASCADE CONSTRAINTS;
 DROP TABLE Reports CASCADE CONSTRAINTS;
-DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
 DROP TABLE Sender_Evals CASCADE CONSTRAINTS;
+DROP TABLE Courier_Evals CASCADE CONSTRAINTS;
 DROP TABLE Complete_Deliverys CASCADE CONSTRAINTS;
 DROP TABLE Requests CASCADE CONSTRAINTS;
 DROP TABLE address_dongs CASCADE CONSTRAINTS;
@@ -125,7 +125,7 @@ CREATE TABLE edmoney_logs
 	log_id number NOT NULL,
 	user_id varchar2(10) NOT NULL,
 	withdraw_amount number NOT NULL,
-	action_date timestamp NOT NULL,
+	action_date timestamp DEFAULT SYSDATE NOT NULL,
 	PRIMARY KEY (log_id)
 );
 
@@ -273,14 +273,14 @@ ALTER TABLE address_dongs
 ;
 
 
-ALTER TABLE Courier_Evals
+ALTER TABLE Sender_Evals
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Complete_Deliverys (request_id)
 	ON DELETE SET NULL
 ;
 
 
-ALTER TABLE Sender_Evals
+ALTER TABLE Courier_Evals
 	ADD FOREIGN KEY (request_id)
 	REFERENCES Complete_Deliverys (request_id)
 	ON DELETE SET NULL
@@ -314,29 +314,8 @@ ALTER TABLE Complete_Deliverys
 ;
 
 
-ALTER TABLE Reports
-	ADD FOREIGN KEY (reported_user_id)
-	REFERENCES Users (user_id)
-	ON DELETE CASCADE
-;
-
-
-ALTER TABLE Requests
-	ADD FOREIGN KEY (courier_id)
-	REFERENCES Users (user_id)
-	ON DELETE SET NULL
-;
-
-
-ALTER TABLE Reports
-	ADD FOREIGN KEY (report_user_id)
-	REFERENCES Users (user_id)
-	ON DELETE CASCADE
-;
-
-
-ALTER TABLE request_cmts
-	ADD FOREIGN KEY (user_id)
+ALTER TABLE Sender_Evals
+	ADD FOREIGN KEY (sender_id)
 	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
@@ -349,8 +328,22 @@ ALTER TABLE Courier_Evals
 ;
 
 
-ALTER TABLE Requests
-	ADD FOREIGN KEY (sender_id)
+ALTER TABLE request_cmts
+	ADD FOREIGN KEY (user_id)
+	REFERENCES Users (user_id)
+	ON DELETE CASCADE
+;
+
+
+ALTER TABLE Reports
+	ADD FOREIGN KEY (reported_user_id)
+	REFERENCES Users (user_id)
+	ON DELETE CASCADE
+;
+
+
+ALTER TABLE Reports
+	ADD FOREIGN KEY (report_user_id)
 	REFERENCES Users (user_id)
 	ON DELETE CASCADE
 ;
@@ -363,6 +356,13 @@ ALTER TABLE alert_logs
 ;
 
 
+ALTER TABLE Requests
+	ADD FOREIGN KEY (sender_id)
+	REFERENCES Users (user_id)
+	ON DELETE CASCADE
+;
+
+
 ALTER TABLE edmoney_logs
 	ADD FOREIGN KEY (user_id)
 	REFERENCES Users (user_id)
@@ -370,10 +370,10 @@ ALTER TABLE edmoney_logs
 ;
 
 
-ALTER TABLE Sender_Evals
-	ADD FOREIGN KEY (sender_id)
+ALTER TABLE Requests
+	ADD FOREIGN KEY (courier_id)
 	REFERENCES Users (user_id)
-	ON DELETE CASCADE
+	ON DELETE SET NULL
 ;
 
 

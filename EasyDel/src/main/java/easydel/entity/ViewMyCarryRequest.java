@@ -1,6 +1,6 @@
 package easydel.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class ViewMyCarryRequest {
 	private Integer requestId;

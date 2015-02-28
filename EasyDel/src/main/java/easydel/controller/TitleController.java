@@ -120,6 +120,7 @@ public class TitleController {
 				.append("<span class=\"content_color\">"+title.getArrivalPlaceDong()+"</span>")
 				.append("<br><span class=\"gonew_boardliststandard\" id=\"FinishedTime\">만료 시각</span>&nbsp;&nbsp;")
 				.append("<span class=\"content_color\">"+format.format(title.getExpireDate())+"</span>");
+			logger.trace("mylog: " + format.format(title.getExpireDate()));
 			if(title.getRequestType() == 0) {
 				result.append("</div><div class=\"second_row\" align=\"right\">")
 				.append("<span class=\"gonew_boardliststandard\">"+title.getSenderId()+"</span>&nbsp;")

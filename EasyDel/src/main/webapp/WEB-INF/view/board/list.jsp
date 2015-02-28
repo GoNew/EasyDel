@@ -95,7 +95,7 @@
 		
 		$.ajax({
 			url : url,
-			type : 'post',
+			type : 'get',
 			data : {
 				pageNum: pageNum,
 				delTypeFilter: typeFilter,

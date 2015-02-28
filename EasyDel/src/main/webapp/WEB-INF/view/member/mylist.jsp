@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="easydel.contant.ReportStatus"%>
@@ -20,6 +21,8 @@
 	List<ViewMySendRequest> sendListBeforeDel = (List<ViewMySendRequest>) request.getAttribute("sendListBeforeDel");
 	List<ViewMySendRequest> sendListOnDel = (List<ViewMySendRequest>) request.getAttribute("sendListOnDel");
 	List<ViewMySendRequest> sendListAfterDel = (List<ViewMySendRequest>) request.getAttribute("sendListAfterDel");
+	
+	SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd a kk:mm");
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/uikit/css/uikit.gradient.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/header.css" />
@@ -35,7 +38,7 @@
 			<div class="uk-modal-header">
 				<h2 class="forModal">정말 삭제하시겠습니까?</h2>
 			</div>
-		<p class="forModal">삭제하시면 해당 글은 닷~시~는 복구할 수 없습니다.</p>
+		<p class="forModal">삭제하시면 해당 글은 복구할 수 없습니다.</p>
 		<div class="uk-modal-footer uk-text-right">
 			<form id="alertMessagePopUpForDeleteMySendRequestForm" method="post" action="<%=request.getContextPath() %>/mylist/send/delete">
 				<input type="hidden" id="saveRequestIdForDeleteMySendRequest" name="requestId">
@@ -383,7 +386,21 @@
 										<div class="uk-width-2-5"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/predeli?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-1-5"><div class="text_middle" onclick="toggleProfile('_profile_request_id_<%=req.getRequestId()%>')"><%=req.getUserId() %></div></div>
 									<%	Date currDate = new Date();	%>
-										<div class="uk-width-1-5 webkit_box"><div class="text_middle right_margin_5px">TimeOut:</div><div class="text_middle webkit_box"><%=(req.getExpireDate().getTime()-currDate.getTime())/6000 %><div>분</div></div></div>
+									<%	long remainTime = 0;	%>
+										<div class="uk-width-1-5"><div class="text_middle webkit_box" align="center">
+									<%
+											remainTime = (req.getExpireDate().getTime() - currDate.getTime()) / 86400000;
+											if(remainTime > 0) {
+									%>
+										<div><%=remainTime %>일&nbsp;</div>
+									<%		}	%>
+									<%
+											remainTime = ((req.getExpireDate().getTime() - currDate.getTime()) % 86400000) / 3600000;
+											if(remainTime > 0) {
+									%>
+										<div><%=remainTime %>시간&nbsp;</div>
+									<%		}	%>
+										<div><%=((req.getExpireDate().getTime() - currDate.getTime()) % 3600000) / 60000 %>분</div></div></div>
 										<div class="uk-width-1-5 button_middle"><div id="full_button" class="uk-button uk-width-2-3" onclick="carry_readyForCancelMyRequest('<%=req.getRequestId()%>')" data-uk-modal="{target:'#alertMessagePopUpForCancelMyCourierRequest'}">신청취소</div></div>
 									</div>
 									<div class="replace_hr text_lightgrayColor"></div>
@@ -506,7 +523,7 @@
 										<div class="uk-width-3-10"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/reported?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-2-10"><div class="text_middle"><%=req.getReportedUserId() %></div></div>
 										<div class="uk-width-2-10"><div id="reporttypedesc" class="text_middle"><%=req.getReportTypeDesc() %></div></div>
-										<div class="uk-width-2-10"><div class="text_middle_small"><%=req.getReportDate() %></div></div>
+										<div class="uk-width-2-10"><div class="text_middle_small"><%=format.format(req.getReportDate()) %></div></div>
 										<div class="uk-width-1-10"><div class="text_middle">
 									<%
 											switch(ReportStatus.valueOf(req.getReportStatus())) {
@@ -548,7 +565,7 @@
 									<div id="Ex_request_01" class="row_request right_margin_20px text_lightgrayColor">
 										<div class="uk-width-2-5"><div class="text_middle" onclick="location.href='<%=request.getContextPath() %>/show/reported?requestId=<%=req.getRequestId() %>'"><%=req.getCargoName() %></div></div>
 										<div class="uk-width-1-5"><div id="reporttypedesc" class="text_middle"><%=req.getReportTypeDesc() %></div></div>
-										<div class="uk-width-1-5"><div class="text_middle_small"><%=req.getReportDate() %></div></div>
+										<div class="uk-width-1-5"><div class="text_middle_small"><%=format.format(req.getReportDate()) %></div></div>
 										<div class="uk-width-1-5"><div class="text_middle">
 									<%
 											switch(ReportStatus.valueOf(req.getReportStatus())) {

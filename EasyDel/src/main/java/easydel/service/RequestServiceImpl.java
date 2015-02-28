@@ -127,7 +127,8 @@ public class RequestServiceImpl implements IRequestService {
 		if(currRequest == null)
 			throw new ServiceFailException("존재하지 않는 글");
 		
-		if(currRequest.getRequestStatus() != RequestStatus.request.getStatusCode())
+		if(currRequest.getRequestStatus() != RequestStatus.request.getStatusCode()
+				&& currRequest.getRequestStatus() != RequestStatus.wait.getStatusCode())
 			throw new ServiceFailException("해당 글이 삭제가 불가능한 상태");
 		
 		if(userDao.updateUserEDMoney(currRequest.getSenderId(), currRequest.getDeliveryPrice())

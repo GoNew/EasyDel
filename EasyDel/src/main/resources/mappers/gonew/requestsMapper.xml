@@ -6,7 +6,7 @@
 	<select id="selectExpireRequestsId" resultType="integer">
 		select		request_id
 		from		REQUESTS
-		where		request_status=1
+		where		(request_status=1 or request_status=2)
 		and			sysdate > expire_date
 	</select>
 	

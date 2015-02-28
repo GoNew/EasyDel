@@ -1,7 +1,7 @@
 package easydel.entity;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * 배달부평가 모델 클래스.
